@@ -1,14 +1,33 @@
-<?php  include_once ('header.php')?>
-<body>
 <?php
+require_once('config/config.php');
 
-$name = "jasper";
+require_once('templates/header.php');
 
+include_once ('user.php')
 ?>
-<h1>test</h1>
-<?= $name?>
 
-<script src="assets/js/validate.js"></script>
 
-</body>
-</html>
+<button>
+    <a  href="functions/logout.php">logout</a>
+</button>
+
+<form class="form-login" id="form-login" action="user.php">
+    <div class="login-group">
+        <label>Login</label>
+        <input type="text" />
+    </div>
+
+    <div class="login-group">
+        <label>Password</label>
+        <input type="password"/>
+    </div>
+
+
+    <input type="submit" value="login"/>
+</form>
+
+
+
+
+
+<?php require_once('templates/footer.php') ?>
