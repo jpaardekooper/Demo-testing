@@ -7,3 +7,24 @@ $users = array
     array("Saab",5-2-2003,12345678,"user"),
 
 );
+
+class User
+{
+    private $id;
+    private $name;
+    private $age;
+
+    function __construct($userName, $userAge)
+    {
+
+        $this ->name = $userName;
+        $this->age  = $userAge;
+    }
+
+    public function DoSomething()
+    {
+        echo('Error ich bin deadead');
+    }
+
+}
+
