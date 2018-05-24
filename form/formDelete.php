@@ -1,5 +1,6 @@
 <?php
-include_once('../templates/functions.php');
+include_once('../templates/config.php');
+include_once('../templates/content.php');
 	
 	getHeader("Categorie Verwijderen", "Webshop de vrolijke snuiter - Categorie Verwijderen");
 	

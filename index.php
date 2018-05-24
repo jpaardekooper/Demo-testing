@@ -1,45 +1,96 @@
 <?php
 
-require_once('templates/functions.php');
+require_once('templates/content.php');
+getHeader("Login", "Sqits Login panel");
 
-require_once ('sql/user.php');
 
-
+/*require_once('sql/user.php');
 $object = new User("jaseper", 16);
-$object->DoSomething();
+$object->DoSomething();*/
 
 /*$result = $query->fetch(PDO::FETCH_CLASS, get_class($object));
 var_dump_str($result);*/
 
 //$id = $_GET['id'];
 
-getHeader("Login", "Sqits Login panel");
-?>
 
 
 
-<button>
-    <a  href="functions/logout.php">logout</a>
-</button>
+include_once('functions/session.php');
 
-<form class="form-login" id="form-login" action="sql/user.php">
-    <div class="login-group">
-        <label>Login</label>
-        <input type="text" />
-    </div>
+if (filter_has_var(INPUT_POST, 'submit')) {
 
-    <div class="login-group">
-        <label>Password</label>
-        <input type="password"/>
-    </div>
+    include_once("templates/config.php");
+
+    $sql = "SELECT * FROM `user` WHERE `username` = :username"; //alle gebruikers met het ingevoerde e-mailadres ophalen
+
+    $ophalen = $conn->prepare($sql);
+    $ophalen->execute(array(
+        'username' => $_POST['username']
+    ));
+    $database_contents = FALSE;
+    while ($record = $ophalen->fetch(PDO::FETCH_ASSOC)) {
+        $database_contents = $record;
+    }
+
+    if ($database_contents === FALSE) {
+        //blijkbaar komt het mailadres niet in de database voor!
+        echo "<div id=\"logout_container\"><p id=\"logout_text\">The entered email address does not exist.</p></div>";
+        header("Refresh: 2; URL=\"index.php\"");
+    } else {
+        //mailadres staat in de database, we gaan verder!
+        //password nu vergelijken met ingevoerd password
+        if (!password_verify($_POST['password'], $database_contents['password'])) {
+            echo "<div id=\"logout_container\"><p id=\"logout_text\">Wrong password! ..</p></div>";
+            header("Refresh: 2; URL=\"index.php\"");
+        } else {
+            //email staat in database en password klopt, sessie starten!
+            //sessie opstarten
+            $database_contents['password'] = "";
+            $_SESSION['id'] = $database_contents;
+            echo "<div id=\"logout_container\"><p id=\"logout_text\">You are now logged in.</p></div>";
+
+            header("Refresh: 1; URL=\"form/index.php\"");
+        }
+    }
+} else {
+//formulier is nog niet verzonden, laat het zien in de html-modus
+    ?>
+<div class="login-container">
+  <img class="login-image" src="assets/image/header.jpg"/>
+    <div class="login-form">
+<div class="login-logo-position">
+    <img class="login-logo" src="assets/image/sqits-logo.png"/>
+</div>
 
 
-    <input type="submit" value="login"/>
-</form>
 
 
-<a href="form/index.php">formulier</a>
+            <form name="inloggen" action="index.php" method="post">
+                <fieldset>
+                    <label for="userName">User Name</label>
+                    <input id="userName" name="username" type="text" autocomplete="off" required />
+                </fieldset>
+                <fieldset>
+                    <label for="passWord">Password</label>
+                    <input id="passWord" name="password" type="password" autocomplete="off" required />
 
-<?php
+                </fieldset>
+                <fieldset>
+                    <input type="submit" name="submit" value="Log in">
+                </fieldset>
+            </form>
+
+        morgen weer een dag
+
+
+</div>
+
+
+    <?php
+}
+
 getFooter();
 ?>
+
+

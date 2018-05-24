@@ -23,7 +23,7 @@ class User
 
     public function DoSomething()
     {
-        echo('Error ich bin deadead');
+        echo('DoSomethign Function echo-d');
     }
 
 }

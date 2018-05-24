@@ -1,17 +1,18 @@
 <?php
 
-include_once('../templates/functions.php');
+include_once('../templates/config.php');
+include_once('../templates/content.php');
+
+	getHeader("Sqits", "FormUpdate ");
 	
-	getHeader("Categorie Updaten", "Webshop de vrolijke sneuter - Categorie Updaten");
-	
-    if(@$_GET['action'] == "save")
+    if($_GET['action'] == "save")
     {
         $id = $_GET["id"];
         $password = $_POST['password'];
         
         try
         {
-            $query=$conn->prepare("
+            $query = $conn->prepare("
                         UPDATE `user` SET `password` = '$password' WHERE user_id = '$id'");
             $query->execute();
             echo "De wachtwoord is gewijzigd.";
@@ -33,7 +34,7 @@ include_once('../templates/functions.php');
         
         try
         {
-            $query=$conn->prepare("
+            $query = $conn->prepare("
                         SELECT * FROM user WHERE user_id = '$id'");
                                    
             $query->execute();
