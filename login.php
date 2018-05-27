@@ -46,6 +46,7 @@ if (filter_has_var(INPUT_POST, 'submit')) {
             //email staat in database en password klopt, sessie starten!
             //sessie opstarten
             $database_contents['password'] = "";
+            //variable session wordt gevuld met de database$contents
             $_SESSION['id'] = $database_contents;
             echo "<div id=\"logout_container\"><p id=\"logout_text\">You are now logged in.</p></div>";
 
