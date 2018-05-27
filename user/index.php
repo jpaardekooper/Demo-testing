@@ -20,7 +20,7 @@ if (isset($_SESSION['id']) && $_SESSION['id']['active'] == 'yes') {
 
     ?>
     <div class="dashboard">
-        <?php getSidebar(); ?>
+        <?php getSidebar();?>
 
         <div class="right-panel">
             <header>
@@ -29,7 +29,7 @@ if (isset($_SESSION['id']) && $_SESSION['id']['active'] == 'yes') {
                     is user active: <?= $_SESSION['id']['active'];; ?>
                 </p>
 
-                this is update form
+this is user form
             </header>
 
 

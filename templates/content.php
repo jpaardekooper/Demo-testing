@@ -19,7 +19,7 @@ function getHeader($description, $title = "Sqits voor jou en mie")
 
 function getFooter()
 {
-    $footer = "<script src=" . getAssetsDirectory() . "js/validate.js\"></script>
+    $footer = "<script src=" . getAssetsDirectory() . "js/validate.js></script>
         </body>         
     </html>";
     echo $footer;
@@ -39,9 +39,23 @@ function getSidebar(){
             <a href="<?=getPathToRoot()."update/index.php" ?>">update</a>
         </div>
         <div class="panel-name">
+            <a href="<?=getPathToRoot()."user/index.php" ?>">user info</a>
+        </div>
+        <div class="panel-name">
             <a href="<?=getPathToRoot()."system/logout.php" ?>">logout</a>
         </div>
 
     </div>
 <?php
 }
+
+function getBreadCrumbs(){
+    $crumbs = explode("/",$_SERVER["REQUEST_URI"]);
+    echo"<ul>";
+    foreach($crumbs as $crumb){
+
+        echo "<li><a href=". ucfirst(str_replace(array("","Sqits-framework", "dashboard"),array(""," "),$crumb) . ' '). ">$crumb</a></li>";
+    }
+    echo"</ul>";
+}
+

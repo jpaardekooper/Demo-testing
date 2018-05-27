@@ -4,16 +4,42 @@
     display:flex;
 
 }
+.header{
+    border-bottom: 1px solid #42c0b3;
+    width: 85vw;
+}
 .left-panel{
     overflow-x: hidden;
-    width: 20vw;
+    width: 15vw;
     background-color: #42c0b3;
     color: #fff;
     min-height: 100vh;
 
+    -moz-box-shadow: 2px 0 10px -1px #888;
+    -webkit-box-shadow: 2px 0 10px -1px #888;
+    box-shadow: 2px 0 10px -1px #888;
+
+
 }
 .right-panel{
-    width: 80vw;
+    width: 85vw;
     margin: 15px;
+}
 
+.content{
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.patch-version{
+    font-size: 2em;
+    text-align: center;
+    width: auto;
+    font-family: "Courier New", Georgia;
+
+    margin-top: 35vh;
 }

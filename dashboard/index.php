@@ -20,10 +20,14 @@ if (isset($_SESSION['id']) && $_SESSION['id']['active'] == 'yes') {
 
     ?>
     <div class="dashboard">
-        <?php getSidebar();?>
+        <?php getSidebar(); ?>
+
 
         <div class="right-panel">
-            <header>
+            <?php getBreadCrumbs(); ?>
+
+
+            <header class="header">
                 <p>welkom: <?= getUserName(); ?></p>
                 <p>
                     is user active: <?= $_SESSION['id']['active'];; ?>
@@ -32,7 +36,31 @@ if (isset($_SESSION['id']) && $_SESSION['id']['active'] == 'yes') {
                 this is dashboard form
             </header>
 
+            <div class="content">
+                <?php
+                //random query in order to get current patch
+                try {
+                    $query = $conn->prepare("SELECT username FROM `user` WHERE user_id = :id");
+                    $query->execute(array(
+                        'id' => $_SESSION['id']['user_id']
+                    ));
+                } catch (PDOException $e) {
+                    $sMsg = '<p> 
+                    Line number: ' . $e->getLine() . '<br /> 
+                    File: ' . $e->getFile() . '<br /> 
+                    Error message: ' . $e->getMessage() .
+                        '</p>';
+                    trigger_error($sMsg);
+                }
 
+                while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+                    $username = $row['username'];
+
+                    echo "<span class='patch-version'>Current version: 4.0.1A</span>";
+
+                }
+                ?>
+            </div>
         </div>
     </div>
 

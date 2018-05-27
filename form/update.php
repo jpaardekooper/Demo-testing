@@ -60,7 +60,7 @@ if ($_GET['action'] == "save") {
 
 
     echo "
-            <form name=\"formAdd\" action=\"?action=save&id=$user_id\" method=\"post\">
+            <form name=\"add\" action=\"?action=save&id=$user_id\" method=\"post\">
                 <table>
                     <tr>
                         <td>id</td>

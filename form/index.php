@@ -54,8 +54,8 @@ if (isset($_SESSION['id'])) {
                 <td>$active</td>
                 <td>$created_date</td>
              
-                    <td><a href=\"formDelete.php?action=delete&id=$user_id\">X</a>
-                        <a href=\"formUpdate.php?action=delete&id=$user_id\">edit</a></td>
+                    <td><a href=\"delete.php?action=delete&id=$user_id\">X</a>
+                        <a href=\"update.php?action=delete&id=$user_id\">edit</a></td>
                             </tr>";
     }
     echo "</table>";
