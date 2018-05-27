@@ -6,59 +6,78 @@ include_once('../system/config.php');
 include_once('../templates/content.php');
 
 getHeader("Sqits form-add", "Form add");
-if (isset($_SESSION['id']) && $_SESSION['id']['role'] === 'admin') {
+checkRole('admin');
 
-    if (@$_GET['action'] == "save") {
+if (@$_GET['action'] == "save") {
 
 
-        try {
+    try {
 
 //http://php.net/manual/en/password.constants.php
 
-            $sql = "INSERT INTO `user` (`username`, `password`, `last_visit`, `active`, `created_date`) VALUES (:username, :password, NOW(), :active, NOW() )";
-            $ophalen = $conn->prepare($sql);
-            $ophalen->execute(array(
-                'username' => $_POST['username'],
-                'password' => password_hash($_POST['password'], PASSWORD_DEFAULT),
-                'active' => $_POST['active']
+        $sql = "INSERT INTO `user` (`username`, `password`, `last_visit`, `active`, `created_date`, `company_name`, `role`) VALUES (:username, :password, NOW(), :active, NOW(), :company_name, :role )";
+        $ophalen = $conn->prepare($sql);
+        $ophalen->execute(array(
+            'username' => $_POST['username'],
+            'password' => password_hash($_POST['password'], PASSWORD_DEFAULT),
+            'active' => $_POST['active'],
+            'company_name' => $_POST['company_name'],
+            'role' => $_POST['role']
 
-            ));
+        ));
 
 
-            echo "De user is opgeslagen.";
+        echo "De user is opgeslagen.";
 
-        } catch (PDOException $e) {
-            $sMsg = '<p>
+    } catch (PDOException $e) {
+        $sMsg = '<p>
                 Regelnummer: ' . $e->getLine() . '<br />
                 Bestand: ' . $e->getFile() . '<br />
                 Foutmelding: ' . $e->getMessage() . '
             </p>';
 
-            trigger_error($sMsg);
-        }
-    } else {
-        echo "
-          	<form name=\"add\" action=\"?action=save\" method=\"post\">
-                <table>
-                    <tr>
-                        <td>user toevoegen</td>
-                        <td><input type=\"text\" name=\"username\" required> </td>   
-                        <td><input type=\"text\" name=\"password\" required> </td>  
-                        <td><input type=\"active\" name=\"active\" required> </td>
-              
-                    </tr>
-                    <tr>
-                        <td colspan=\"2\"><input type=\"reset\" name=\"reset\" value=\"Clear\">
-                                        <input type=\"submit\" name=\"submit\" value=\"Opslaan\"></td>
-                    </tr>					
-                </table>
-            </form>";
+        trigger_error($sMsg);
     }
-    getFooter();
+} else {
+    ?>
+    <div class="dashboard">
+        <?php getSidebar(); ?>
+
+
+        <div class="right-panel">
+            <?php getBreadCrumbs(); ?>
+
+
+            <header class="header">
+                <p>welkom: <?= getUserName(); ?></p>
+                <p>
+                    is user role: <?= $_SESSION['id']['role'];; ?>
+                </p>
+
+                gebruiker toevoegen
+            </header>
+
+            <div class="content">
+                <form name="add" action="?action=save" method="post">
+
+
+                    <label>name</label> <input type="text" name="username" required>
+                    <label>pass</label> <input type="text" name="password" required>
+                    <label>active</label> <input type="active" name="active" required>
+                    <label>bedrijfsnaam</label> <input type="active" name="company_name" required>
+                    <label>rol</label> <input type="active" name="role" required>
+
+
+                    <input type="reset" name="reset" value="Clear">
+                    <input type="submit" name="submit" value="Opslaan">
+
+                </form>
+            </div>
+        </div>
+    </div>
+    <?php
 }
-else {
-    echo "please login first on login page";
-    header("Refresh: 1; URL=\"../login.php\"");
-    exit;
-}
+getFooter();
+
+
 

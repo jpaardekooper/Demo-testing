@@ -14,7 +14,7 @@ function getAssetsDirectory() {
  * @param type String: users role
  */
 function checkRole($role) {
-    if (!isset($_SESSION['user'])) {
+    if (!isset($_SESSION['id'])) {
         header("Location: " . getPathToRoot() . "login.php");
         exit();
     }
