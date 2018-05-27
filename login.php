@@ -1,6 +1,11 @@
 <?php
 
-require_once('templates/content.php');
+require_once 'system/session.php';
+
+include_once('system/config.php');
+
+include_once('templates/content.php');
+
 getHeader("Login", "Sqits Login panel");
 
 
@@ -14,13 +19,7 @@ var_dump_str($result);*/
 //$id = $_GET['id'];
 
 
-
-
-include_once('functions/session.php');
-
 if (filter_has_var(INPUT_POST, 'submit')) {
-
-    include_once("templates/config.php");
 
     $sql = "SELECT * FROM `user` WHERE `username` = :username"; //alle gebruikers met het ingevoerde e-mailadres ophalen
 
@@ -50,7 +49,7 @@ if (filter_has_var(INPUT_POST, 'submit')) {
             $_SESSION['id'] = $database_contents;
             echo "<div id=\"logout_container\"><p id=\"logout_text\">You are now logged in.</p></div>";
 
-            header("Refresh: 1; URL=\"form/index.php\"");
+            header("Refresh: 1; URL=\"dashboard/index.php\"");
         }
     }
 } else {
@@ -66,7 +65,7 @@ if (filter_has_var(INPUT_POST, 'submit')) {
 
 
 
-            <form name="inloggen" action="index.php" method="post">
+            <form name="inloggen" action="login.php" method="post">
                 <fieldset>
                     <label for="userName">User Name</label>
                     <input id="userName" name="username" type="text" autocomplete="off" required />

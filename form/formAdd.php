@@ -1,9 +1,11 @@
 <?php
-include_once('../templates/config.php');
+require_once '../system/session.php';
+
+include_once('../system/config.php');
+
 include_once('../templates/content.php');
 
-
-getHeader("user Toevoegen", "Gebruiker toevoegen");
+getHeader("Sqits form-add", "Form add");
 
 if (@$_GET['action'] == "save")
 {
@@ -21,6 +23,7 @@ if (@$_GET['action'] == "save")
                     INSERT INTO `user` (`username`, `password`, `last_visit`, `active`, `created_date`) VALUES ('$username', , '$last_visit', '$active',$created_date )");
         $query->execute();*/
 
+//http://php.net/manual/en/password.constants.php
 
         $sql = "INSERT INTO `user` (`username`, `password`, `last_visit`, `active`, `created_date`) VALUES (:username, :password, NOW(), :active, NOW() )";
         $ophalen = $conn->prepare($sql);

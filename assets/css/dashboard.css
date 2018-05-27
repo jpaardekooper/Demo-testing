@@ -1,0 +1,19 @@
+.dashboard{
+    margin: 0;
+    padding: 0;
+    display:flex;
+
+}
+.left-panel{
+    overflow-x: hidden;
+    width: 20vw;
+    background-color: #42c0b3;
+    color: #fff;
+    min-height: 100vh;
+
+}
+.right-panel{
+    width: 80vw;
+    margin: 15px;
+
+}

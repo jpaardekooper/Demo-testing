@@ -1,6 +1,12 @@
 <?php
-include_once('../templates/config.php');
+require_once '../system/session.php';
+
+include_once('../system/config.php');
+
 include_once('../templates/content.php');
+
+getHeader("Sqits form-delete", "Form delete");
+
 	
 	getHeader("Categorie Verwijderen", "Webshop de vrolijke snuiter - Categorie Verwijderen");
 	

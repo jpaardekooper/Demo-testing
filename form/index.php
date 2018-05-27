@@ -1,13 +1,13 @@
 <?php
-include_once('../templates/config.php');
+require_once '../system/session.php';
+
+include_once('../system/config.php');
 
 include_once('../templates/content.php');
 getHeader("FOrmulier toevoegen", "Sqites indexform");
 
-require_once '../functions/session.php';
 
 if (isset($_SESSION['id'])) {
-
 
 
     try {
@@ -21,8 +21,13 @@ if (isset($_SESSION['id'])) {
             '</p>';
         trigger_error($sMsg);
     }
+    echo ' <div class="dashboard">';
+    getSidebar();
 
-    echo"<table border=\"0\" name=\"user overzicht\"
+    echo '<div class="right-panel">';
+
+
+    echo "<table border=\"0\" name=\"user overzicht\"
             <tr>
             <td>userID</td>
             <td>username</td>
@@ -31,6 +36,7 @@ if (isset($_SESSION['id'])) {
             <td>active</td>
             <td>created_date</td>
             </tr>";
+
 
     while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
         $user_id = $row['user_id'];
@@ -47,24 +53,26 @@ if (isset($_SESSION['id'])) {
                 <td>$last_visit</td>              
                 <td>$active</td>
                 <td>$created_date</td>
+             
                     <td><a href=\"formDelete.php?action=delete&id=$user_id\">X</a>
                         <a href=\"formUpdate.php?action=delete&id=$user_id\">edit</a></td>
                             </tr>";
     }
     echo "</table>";
+    echo "</div>";
 
 } else {
 
-    echo "login eerst in op member.php";
-    echo " <p><a href='../index.php'>inloggen</a>";
+    echo "login eerst in op login.php";
+    echo " <p><a href='../login.php'>inloggen</a>";
 
-    header("Refresh: 1; URL=\"../index.php\"");
+    header("Refresh: 1; URL=\"../login.php\"");
     exit;
 }
 
 
-
 getFooter();
+echo "</div>";
 ?>
 
 

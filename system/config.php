@@ -1,4 +1,5 @@
 <?php
+require_once 'function.php';
 
 //Initalisatie databasevariabelen
 $conn = array (
