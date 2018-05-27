@@ -31,15 +31,32 @@ function getSidebar(){
     <div class="left-panel">
         <div class="panel-name">
             <a href="<?=getPathToRoot()."dashboard/index.php" ?>">dashboard</a>
+
         </div>
         <div class="panel-name">
-            <a href="<?=getPathToRoot()."form/index.php" ?>">formulier</a>
+            <ul>
+                <li><a href="<?=getPathToRoot()."form/index.php" ?>">formulier</a></li>
+            </ul>
+            <?php
+            if(isLoggedIn() && getUserRole() == 'admin'){
+                ?>
+                    <li> <a href="<?=getPathToRoot()."form/add.php" ?>"> . toevoegen</a></li>
+                <?php
+            }
+            ?>
         </div>
         <div class="panel-name">
             <a href="<?=getPathToRoot()."update/index.php" ?>">update</a>
         </div>
         <div class="panel-name">
             <a href="<?=getPathToRoot()."user/index.php" ?>">user info</a>
+            <?php
+            if(isLoggedIn() && getUserRole() == 'admin'){
+            ?>
+            <li> <a href="<?=getPathToRoot()."user/add.php" ?>"> . toevoegen</a></li>
+                <?php
+                }
+                ?>
         </div>
         <div class="panel-name">
             <a href="<?=getPathToRoot()."system/logout.php" ?>">logout</a>

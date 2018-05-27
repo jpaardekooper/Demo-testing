@@ -10,8 +10,6 @@ getHeader("Sqits form-add", "Form add");
 if (@$_GET['action'] == "save")
 {
 
-
-
 	try
     {
 

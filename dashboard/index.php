@@ -4,16 +4,59 @@ require_once('../system/config.php');
 
 require_once('../templates/content.php');
 
-if (isset($_SESSION['id']) && $_SESSION['id']['active'] == 'yes') {
+if (isset($_SESSION['id']) && $_SESSION['id']['role'] === 'user') {
     echo $_SESSION['id']['active'];
 
     getHeader("Sqits", "user Dashboard");
+?>
+    <div class="dashboard">
+        <?php getSidebar(); ?>
 
-    echo getUserName();
+
+        <div class="right-panel">
+            <?php getBreadCrumbs(); ?>
 
 
+            <header class="header">
+                <p>welkom: <?= getUserName(); ?></p>
+                <p>
+                    is user role: <?= $_SESSION['id']['role']; ?>
+                </p>
+
+                this is dashboard form
+            </header>
+
+            <div class="content">
+                <?php
+                //random query in order to get current patch
+                try {
+                    $query = $conn->prepare("SELECT username FROM `user` WHERE user_id = :id");
+                    $query->execute(array(
+                        'id' => $_SESSION['id']['user_id']
+                    ));
+                } catch (PDOException $e) {
+                    $sMsg = '<p> 
+                    Line number: ' . $e->getLine() . '<br /> 
+                    File: ' . $e->getFile() . '<br /> 
+                    Error message: ' . $e->getMessage() .
+                        '</p>';
+                    trigger_error($sMsg);
+                }
+
+                while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+                    $username = $row['username'];
+
+                    echo "<span class='patch-version'>Current version: 4.0.1A</span>";
+
+                }
+                ?>
+            </div>
+        </div>
+    </div>
+
+    <?php
     getFooter();
-} elseif (isset($_SESSION['id']) && $_SESSION['id']['active'] == 'no') {
+} elseif (isset($_SESSION['id']) && $_SESSION['id']['role'] === 'admin') {
 
 
     getHeader("Sqits", "Admin Dashboard");
@@ -30,7 +73,7 @@ if (isset($_SESSION['id']) && $_SESSION['id']['active'] == 'yes') {
             <header class="header">
                 <p>welkom: <?= getUserName(); ?></p>
                 <p>
-                    is user active: <?= $_SESSION['id']['active'];; ?>
+                    is user role: <?= $_SESSION['id']['role'];; ?>
                 </p>
 
                 this is dashboard form

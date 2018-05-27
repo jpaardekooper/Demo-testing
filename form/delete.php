@@ -8,7 +8,7 @@ include_once('../templates/content.php');
 getHeader("Sqits form-delete", "Form delete");
 
 	
-	getHeader("Categorie Verwijderen", "Webshop de vrolijke snuiter - Categorie Verwijderen");
+	getHeader("formuleir  Verwijderen", "Sqits de vrolijke snuiter - form Verwijderen");
 	
 	$id = $_GET['id'];
     

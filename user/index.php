@@ -13,31 +13,65 @@ if (isset($_SESSION['id']) && $_SESSION['id']['active'] == 'yes') {
 
 
     getFooter();
-} elseif (isset($_SESSION['id']) && $_SESSION['id']['active'] == 'no') {
+} elseif (isset($_SESSION['id']) && $_SESSION['id']['role'] == 'admin') {
 
 
     getHeader("Sqits", "Admin Dashboard");
 
-    ?>
-    <div class="dashboard">
-        <?php getSidebar();?>
+    try {
+        $query = $conn->prepare("SELECT * FROM `user`");
+        $query->execute();
+    } catch (PDOException $e) {
+        $sMsg = '<p> 
+                    Regulnummer: ' . $e->getLine() . '<br /> 
+                    Bestand: ' . $e->getFile() . '<br /> 
+                    Foutmedling: ' . $e->getMessage() .
+            '</p>';
+        trigger_error($sMsg);
+    }
+    echo ' <div class="dashboard">';
+    getSidebar();
 
-        <div class="right-panel">
-            <header>
-                <p>welkom: <?= getUserName(); ?></p>
-                <p>
-                    is user active: <?= $_SESSION['id']['active'];; ?>
-                </p>
-
-this is user form
-            </header>
+    echo '<div class="right-panel">';
 
 
-        </div>
-    </div>
+    echo "<table border=\"0\" name=\"user overzicht\"
+            <tr>
+            <td>userID</td>
+            <td>username</td>
+            <td>password</td>
+            <td>last_visit</td>
+            <td>active</td>
+            <td>created_date</td>
+            </tr>";
 
-    <?php
-    getFooter();
+
+    while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+        $user_id = $row['user_id'];
+        $username = $row['username'];
+        $password = $row['password'];
+        $last_visit = $row['last_visit'];
+        $active = $row['active'];
+        $created_date = $row['created_date'];
+        $role = $row['role'];
+        $company_name = $row['company_name'];
+
+        echo "<tr>
+                <td>$user_id</td>
+                <td>$username</td>
+                <td>$password</td>
+                <td>$last_visit</td>              
+                <td>$active</td>
+                <td>$created_date</td>
+                <td>$role</td>
+                <td>$company_name</td>
+             
+                    <td><a href=\"delete.php?action=delete&id=$user_id\">X</a>
+                        <a href=\"update.php?action=delete&id=$user_id\">edit</a></td>
+                            </tr>";
+    }
+    echo "</table>";
+    echo "</div>";
 
 } else {
     echo "please login first on login page";

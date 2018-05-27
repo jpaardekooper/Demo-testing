@@ -6,45 +6,38 @@ include_once('../system/config.php');
 include_once('../templates/content.php');
 
 getHeader("Sqits form-add", "Form add");
+if (isset($_SESSION['id']) && $_SESSION['id']['role'] === 'admin') {
 
-if (@$_GET['action'] == "save")
-{
+    if (@$_GET['action'] == "save") {
 
 
-
-	try
-    {
+        try {
 
 //http://php.net/manual/en/password.constants.php
 
-        $sql = "INSERT INTO `user` (`username`, `password`, `last_visit`, `active`, `created_date`) VALUES (:username, :password, NOW(), :active, NOW() )";
-        $ophalen = $conn->prepare($sql);
-        $ophalen->execute(array(
-            'username' => $_POST['username'],
-            'password' => password_hash($_POST['password'],PASSWORD_DEFAULT),
-            'active' => $_POST['active']
+            $sql = "INSERT INTO `user` (`username`, `password`, `last_visit`, `active`, `created_date`) VALUES (:username, :password, NOW(), :active, NOW() )";
+            $ophalen = $conn->prepare($sql);
+            $ophalen->execute(array(
+                'username' => $_POST['username'],
+                'password' => password_hash($_POST['password'], PASSWORD_DEFAULT),
+                'active' => $_POST['active']
 
-        ));
+            ));
 
 
-        echo "De user is opgeslagen.";
+            echo "De user is opgeslagen.";
 
-    }
-    catch(PDOException $e)
-    {
-        $sMsg = '<p>
-                Regelnummer: '.$e->getLine().'<br />
-                Bestand: '.$e->getFile().'<br />
-                Foutmelding: '.$e->getMessage().'
+        } catch (PDOException $e) {
+            $sMsg = '<p>
+                Regelnummer: ' . $e->getLine() . '<br />
+                Bestand: ' . $e->getFile() . '<br />
+                Foutmelding: ' . $e->getMessage() . '
             </p>';
 
-        trigger_error($sMsg);
-    }           
-}
-
-else 
-{
-	echo "
+            trigger_error($sMsg);
+        }
+    } else {
+        echo "
           	<form name=\"add\" action=\"?action=save\" method=\"post\">
                 <table>
                     <tr>
@@ -60,7 +53,12 @@ else
                     </tr>					
                 </table>
             </form>";
+    }
+    getFooter();
 }
-getFooter();	
+else {
+    echo "please login first on login page";
+    header("Refresh: 1; URL=\"../login.php\"");
+    exit;
+}
 
-?>
