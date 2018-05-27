@@ -15,11 +15,15 @@ function getAssetsDirectory() {
  */
 function checkRole($role) {
     if (!isset($_SESSION['id'])) {
-        header("Location: " . getPathToRoot() . "login.php");
+        header("Refresh: 1" . getPathToRoot() . "login.php");
+
         exit();
     }
     if (!hasAtLeastRole($role)) {
-        header('HTTP/1.0 403 Forbidden');
+   //     header('HTTP/1.0 403 Forbidden');
+        //need to create error handling page not to myself
+        header("Location:" . getPathToRoot() . "login.php");
+        die();
         exit();
     }
 }
@@ -51,12 +55,6 @@ function isLoggedIn() {
     return isset($_SESSION['id']);
 }
 
-function requireLoggedIn() {
-    if (!isLoggedIn()) {
-        trigger_error("User not logged in", E_USER_WARNING);
-    }
-}
-
 function getUserId() {
     requireLoggedIn();
     return (int) $_SESSION['id']['user_id'];
@@ -70,4 +68,10 @@ function getUserName() {
 function getUserRole() {
     requireLoggedIn();
     return $_SESSION['id']['role'];
+}
+
+function requireLoggedIn() {
+    if (!isLoggedIn()) {
+        trigger_error("User not logged in", E_USER_WARNING);
+    }
 }

@@ -35,13 +35,13 @@ if (filter_has_var(INPUT_POST, 'submit')) {
     if ($database_contents === FALSE) {
         //blijkbaar komt het mailadres niet in de database voor!
         echo "<div id=\"logout_container\"><p id=\"logout_text\">The entered email address does not exist.</p></div>";
-        header("Refresh: 2; URL=\"index.php\"");
+        header("Refresh: 2; URL=\"login.php\"");
     } else {
         //mailadres staat in de database, we gaan verder!
         //password nu vergelijken met ingevoerd password
         if (!password_verify($_POST['password'], $database_contents['password'])) {
             echo "<div id=\"logout_container\"><p id=\"logout_text\">Wrong password! ..</p></div>";
-            header("Refresh: 2; URL=\"index.php\"");
+            header("Refresh: 2; URL=\"login.php\"");
         } else {
             //email staat in database en password klopt, sessie starten!
             //sessie opstarten
@@ -50,7 +50,7 @@ if (filter_has_var(INPUT_POST, 'submit')) {
             $_SESSION['id'] = $database_contents;
             echo "<div id=\"logout_container\"><p id=\"logout_text\">You are now logged in.</p></div>";
 
-            header("Refresh: 1; URL=\"dashboard/index.php\"");
+            header("Refresh: 1; URL=dashboard/index.php");
         }
     }
 } else {

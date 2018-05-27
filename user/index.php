@@ -57,14 +57,14 @@ if (isset($_SESSION['id']) && $_SESSION['id']['active'] == 'yes') {
         $company_name = $row['company_name'];
 
         echo "<tr>
-                <td>$user_id</td>
-                <td>$username</td>
-                <td>$password</td>
-                <td>$last_visit</td>              
-                <td>$active</td>
-                <td>$created_date</td>
-                <td>$role</td>
-                <td>$company_name</td>
+                <td>htmlentities($user_id)</td>
+                <td>htmlentities($username)</td>
+                <td>htmlentities($password)</td>
+                <td>htmlentities($last_visit)</td>              
+                <td>htmlentities($active)</td>
+                <td>htmlentities($created_date)</td>
+                <td>htmlentities($role)</td>
+                <td>htmlentities($company_name)</td>
              
                     <td><a href=\"delete.php?action=delete&id=$user_id\">X</a>
                         <a href=\"update.php?action=delete&id=$user_id\">edit</a></td>

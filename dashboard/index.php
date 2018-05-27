@@ -4,8 +4,10 @@ require_once('../system/config.php');
 
 require_once('../templates/content.php');
 
-if (isset($_SESSION['id']) && $_SESSION['id']['role'] === 'user') {
-    echo $_SESSION['id']['active'];
+if (isset($_SESSION['id'])) {
+    checkRole('user');
+   // echo $_SESSION['id']['active'];
+
 
     getHeader("Sqits", "user Dashboard");
 ?>
@@ -23,7 +25,7 @@ if (isset($_SESSION['id']) && $_SESSION['id']['role'] === 'user') {
                     is user role: <?= $_SESSION['id']['role']; ?>
                 </p>
 
-                this is dashboard form
+                this is dashboard form USER
             </header>
 
             <div class="content">
@@ -56,8 +58,8 @@ if (isset($_SESSION['id']) && $_SESSION['id']['role'] === 'user') {
 
     <?php
     getFooter();
-} elseif (isset($_SESSION['id']) && $_SESSION['id']['role'] === 'admin') {
-
+} elseif (isset($_SESSION['id']) && $_SESSION['id']['role'] ===  'admin') {
+    checkRole('admin');
 
     getHeader("Sqits", "Admin Dashboard");
 
@@ -73,10 +75,10 @@ if (isset($_SESSION['id']) && $_SESSION['id']['role'] === 'user') {
             <header class="header">
                 <p>welkom: <?= getUserName(); ?></p>
                 <p>
-                    is user role: <?= $_SESSION['id']['role'];; ?>
+                    is user role: <?= htmlentities($_SESSION['id']['role']); ?>
                 </p>
 
-                this is dashboard form
+                this is dashboard form ADMIN
             </header>
 
             <div class="content">
