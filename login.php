@@ -49,9 +49,9 @@ if (filter_has_var(INPUT_POST, 'submit')) {
             //variable session wordt gevuld met de database$contents
             $_SESSION['id'] = $database_contents;
 
-            echo"<div class='loading-screen'>
+            echo "<div class='loading-screen'>
 
-                    <img class='loading' src='". getAssetsDirectory() . "image/loading.gif'/>
+                    <img class='loading' src='" . getAssetsDirectory() . "image/loading.gif'/>
             </div>";
             header("Refresh: 2; URL=dashboard/index.php");
 
@@ -59,42 +59,40 @@ if (filter_has_var(INPUT_POST, 'submit')) {
     }
 } else {
 //formulier is nog niet verzonden, laat het zien in de html-modus
-    ?>
+?>
 <div class="login-container">
-  <img class="login-image" src="assets/image/header.jpg"/>
-    <div class="login-form">
-<div class="login-logo-position">
-    <img class="login-logo" src="assets/image/sqits-logo.png"/>
-</div>
+    <img class="login-image" src="assets/image/header.jpg"/>
+    <div class="login-background">
+        <div class="login-logo-position">
+            <img class="login-logo" src="assets/image/sqits-logo.png"/>
+        </div>
+
+
+        <form class="login-form" action="login.php" method="post">
+            <fieldset>
+                <label for="userName">Gebruikersnaam</label>
+                <input id="userName" name="username" type="text"  required/>
+            </fieldset>
+            <fieldset>
+                <label for="wachtwoord">Wachtwoord</label>
+                <input id="wachtwoord" name="password" type="password"  required/>
+            </fieldset>
+
+            <fieldset>
+                <input type="submit" name="submit" value="Inloggen">
+            </fieldset>
+        </form>
 
 
 
 
-            <form name="inloggen" action="login.php" method="post">
-                <fieldset>
-                    <label for="userName">User Name</label>
-                    <input id="userName" name="username" type="text" autocomplete="off" required />
-                </fieldset>
-                <fieldset>
-                    <label for="passWord">Password</label>
-                    <input id="passWord" name="password" type="password" autocomplete="off" required />
-
-                </fieldset>
-                <fieldset>
-                    <input type="submit" name="submit" value="Log in">
-                </fieldset>
-            </form>
-
-        morgen weer een dag
-
-
-</div>
+    </div>
 
 
     <?php
-}
+    }
 
-getFooter();
-?>
+    getFooter();
+    ?>
 
 

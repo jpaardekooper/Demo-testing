@@ -75,3 +75,4 @@ function requireLoggedIn() {
         trigger_error("User not logged in", E_USER_WARNING);
     }
 }
+
