@@ -32,3 +32,22 @@
     min-height: 80vh;
     border-radius: 15px;
 }
+.loading-screen{
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+.loading{
+    font-size: 2em;
+    text-align: center;
+    width: auto;
+
+
+    margin-top: 40vh;
+}

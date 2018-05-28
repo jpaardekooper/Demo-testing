@@ -48,9 +48,13 @@ if (filter_has_var(INPUT_POST, 'submit')) {
             $database_contents['password'] = "";
             //variable session wordt gevuld met de database$contents
             $_SESSION['id'] = $database_contents;
-            echo "<div id=\"logout_container\"><p id=\"logout_text\">You are now logged in.</p></div>";
 
-            header("Refresh: 1; URL=dashboard/index.php");
+            echo"<div class='loading-screen'>
+
+                    <img class='loading' src='". getAssetsDirectory() . "image/loading.gif'/>
+            </div>";
+            header("Refresh: 2; URL=dashboard/index.php");
+
         }
     }
 } else {

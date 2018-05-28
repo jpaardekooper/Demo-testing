@@ -7,11 +7,9 @@ include_once('../templates/content.php');
 
 getHeader("Sqits form-add", "Form add");
 
-if (@$_GET['action'] == "save")
-{
+if (@$_GET['action'] == "save") {
 
-	try
-    {
+    try {
 
 //http://php.net/manual/en/password.constants.php
 
@@ -19,7 +17,7 @@ if (@$_GET['action'] == "save")
         $ophalen = $conn->prepare($sql);
         $ophalen->execute(array(
             'username' => $_POST['username'],
-            'password' => password_hash($_POST['password'],PASSWORD_DEFAULT),
+            'password' => password_hash($_POST['password'], PASSWORD_DEFAULT),
             'active' => $_POST['active']
 
         ));
@@ -27,22 +25,37 @@ if (@$_GET['action'] == "save")
 
         echo "De user is opgeslagen.";
 
-    }
-    catch(PDOException $e)
-    {
+    } catch (PDOException $e) {
         $sMsg = '<p>
-                Regelnummer: '.$e->getLine().'<br />
-                Bestand: '.$e->getFile().'<br />
-                Foutmelding: '.$e->getMessage().'
+                Regelnummer: ' . $e->getLine() . '<br />
+                Bestand: ' . $e->getFile() . '<br />
+                Foutmelding: ' . $e->getMessage() . '
             </p>';
 
         trigger_error($sMsg);
-    }           
-}
+    }
+} else {
+    ?>
+    <div class="dashboard">
+    <?php getSidebar(); ?>
 
-else 
-{
-	echo "
+
+    <div class="right-panel">
+    <?php getBreadCrumbs(); ?>
+
+
+    <header class="header">
+        <p>welkom: <?= getUserName(); ?></p>
+        <p>
+            is user role: <?= $_SESSION['id']['role']; ?>
+        </p>
+
+        this is dashboard form USER
+    </header>
+
+    <div class="content">
+    <?php
+    echo "
           	<form name=\"add\" action=\"?action=save\" method=\"post\">
                 <table>
                     <tr>
@@ -57,8 +70,12 @@ else
                                         <input type=\"submit\" name=\"submit\" value=\"Opslaan\"></td>
                     </tr>					
                 </table>
-            </form>";
+            </form>
+            </div>
+            </div>
+            </div>";
+
 }
-getFooter();	
+getFooter();
 
 ?>

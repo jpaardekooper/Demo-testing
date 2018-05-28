@@ -74,9 +74,9 @@ elseif (isset($_SESSION['id'])) {
         $query->execute();
     } catch (PDOException $e) {
         $sMsg = '<p> 
-                    Regulnummer: ' . $e->getLine() . '<br /> 
-                    Bestand: ' . $e->getFile() . '<br /> 
-                    Foutmedling: ' . $e->getMessage() .
+                    Line number: ' . $e->getLine() . '<br /> 
+                    File: ' . $e->getFile() . '<br /> 
+                    Error message: ' . $e->getMessage() .
             '</p>';
         trigger_error($sMsg);
     }
@@ -86,7 +86,7 @@ elseif (isset($_SESSION['id'])) {
     echo '<div class="right-panel">';
 
 
-    echo "<table border=\"0\" name=\"user overzicht\"
+    echo "<table name='user overzicht'
             <tr>
             <td>userID</td>
             <td>username</td>
