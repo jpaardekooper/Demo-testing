@@ -86,7 +86,7 @@ a:active, a:hover {
 }
 
 /*//////////////////////////////////// input effects */
-input[type=text], [type=password] {
+input[type=text], [type=password], [type=email] {
     width: 100%;
     padding: 10px 15px;
     margin: 15px 0;

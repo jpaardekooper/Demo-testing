@@ -33,7 +33,7 @@ function hasAtLeastRole($role) {
     $checked = false;
     switch ($role) {
         case "user":
-            $checked = true;
+            $checked = $userRole == "user";
             break;
         case "admin":
             $checked = $userRole == "admin";
@@ -62,7 +62,7 @@ function getUserId() {
 
 function getUserName() {
     requireLoggedIn();
-    return $_SESSION['id']['username'];
+    return $_SESSION['id']['email'];
 }
 
 function getUserRole() {

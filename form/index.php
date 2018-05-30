@@ -9,7 +9,7 @@ if(isset($_SESSION['id'] )){
     checkRole("user");
 
     try {
-        $query = $conn->prepare("SELECT user_id, username, password, last_visit, company_name, created_date, role FROM `user` WHERE user_id = :id");
+        $query = $conn->prepare("SELECT user_id, email, password, last_visit, company_name, created_date, role FROM `user` WHERE user_id = :id");
         $query->execute(array(
             'id'=> $_SESSION['id']['user_id']
         ));

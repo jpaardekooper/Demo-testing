@@ -19,7 +19,8 @@ function getHeader($description, $title = "Sqits voor jou en mie")
 
 function getFooter()
 {
-    $footer = "<script src=" . getAssetsDirectory() . "js/validate.js></script>
+    $footer = "<footer></footer>
+                <script src=" . getAssetsDirectory() . "js/validate.js></script>
         </body>         
     </html>";
     echo $footer;

@@ -15,7 +15,7 @@ if ($_GET['action'] == "save") {
                         UPDATE `user` SET username = :username, password = :password, active = :active WHERE user_id = :id");
         $query->execute(array(
             'id' => $_GET['id'],
-            'username' => $_POST['username'],
+            'email' => $_POST['email'],
             'password' => password_hash($_POST['password'], PASSWORD_DEFAULT),
             'active' => $_POST['active']
         ));
@@ -51,7 +51,7 @@ if ($_GET['action'] == "save") {
 
     while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
         $user_id = $row['user_id'];
-        $username = $row['username'];
+        $username = $row['email'];
         $password = $row['password'];
         $last_visit = $row['last_visit'];
         $active = $row['active'];
@@ -67,8 +67,8 @@ if ($_GET['action'] == "save") {
                         <td><input type=\"text\" name=\"id\" value=\"$user_id\" required> </td>
                     </tr>
                     <tr>
-                        <td>username</td>
-                        <td><input type=\"text\" name=\"username\" value=\"$username\" required> </td>
+                        <td>email</td>
+                        <td><input type=\"text\" name=\"email\" value=\"$username\" required> </td>
                     </tr>
                      <tr>
                         <td>status active</td>

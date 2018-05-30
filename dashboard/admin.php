@@ -5,12 +5,12 @@ require_once('../system/config.php');
 require_once('../templates/content.php');
 
 if (isset($_SESSION['id'])) {
-    checkRole('user');
-   // echo $_SESSION['id']['active'];
 
+    checkRole('admin');
 
-    getHeader("Sqits", "user Dashboard");
-?>
+    getHeader("Sqits", "Admin Dashboard");
+
+    ?>
     <div class="dashboard">
         <?php getSidebar(); ?>
 
@@ -22,13 +22,11 @@ if (isset($_SESSION['id'])) {
             <header class="header">
                 <p>welkom: <?= getUserName(); ?></p>
                 <p>
-                    is user role: <?= $_SESSION['id']['role']; ?>
+                    is user role: <?= htmlentities($_SESSION['id']['role']); ?>
                 </p>
-
-                this is dashboard form USER
             </header>
 
-            <div class="content">
+
                 <?php
                 //random query in order to get current patch
                 try {
@@ -48,16 +46,17 @@ if (isset($_SESSION['id'])) {
                 while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
                     $email = $row['email'];
 
-                    echo "<span class='patch-version'>Current version: 4.0.1A</span>";
+                    echo "<span class='patch-version'> this is dashboard form ADMIN</span>";
 
                 }
                 ?>
-            </div>
+
         </div>
     </div>
 
     <?php
     getFooter();
+
 } else {
     echo "please login first on login page";
     header("Refresh: 1; URL=\"../login.php\"");

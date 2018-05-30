@@ -21,11 +21,13 @@ var_dump_str($result);*/
 
 if (filter_has_var(INPUT_POST, 'submit')) {
 
-    $sql = "SELECT * FROM `user` WHERE `username` = :username"; //alle gebruikers met het ingevoerde e-mailadres ophalen
+    $query = "SELECT u.user_id, u.company_id, u.email, u.password, u.role, u.last_visit FROM `user` u
+            INNER JOIN `company` as c ON u.user_id = c.user_id
+            WHERE `email` = :email"; //alle gebruikers met het ingevoerde e-mailadres ophalen
 
-    $ophalen = $conn->prepare($sql);
+    $ophalen = $conn->prepare($query);
     $ophalen->execute(array(
-        'username' => $_POST['username']
+        'email' => $_POST['email']
     ));
     $database_contents = FALSE;
     while ($record = $ophalen->fetch(PDO::FETCH_ASSOC)) {
@@ -34,13 +36,19 @@ if (filter_has_var(INPUT_POST, 'submit')) {
 
     if ($database_contents === FALSE) {
         //blijkbaar komt het mailadres niet in de database voor!
-        echo "<div id=\"logout_container\"><p id=\"logout_text\">The entered email address does not exist.</p></div>";
-        header("Refresh: 2; URL=\"login.php\"");
+        echo "<div>
+                <p>The entered email address does not exist.</p>
+                </div>
+                ";
+        header("Refresh: 2; url=login.php");
     } else {
         //mailadres staat in de database, we gaan verder!
         //password nu vergelijken met ingevoerd password
         if (!password_verify($_POST['password'], $database_contents['password'])) {
-            echo "<div id=\"logout_container\"><p id=\"logout_text\">Wrong password! ..</p></div>";
+            echo "<div>
+                    <p>Wrong password! ..</p>
+                    </div>
+                    ";
             header("Refresh: 2; URL=\"login.php\"");
         } else {
             //email staat in database en password klopt, sessie starten!
@@ -49,11 +57,37 @@ if (filter_has_var(INPUT_POST, 'submit')) {
             //variable session wordt gevuld met de database$contents
             $_SESSION['id'] = $database_contents;
 
-            echo "<div class='loading-screen'>
+            $query = $conn->prepare("
+                        UPDATE `user` 
+                        SET last_visit = :last_visit 
+                        WHERE user_id = :id
+                        ");
+            $query->execute(array(
+                'id' => $_SESSION['id']['user_id'],
+                'last_visit' => date("Y-m-d")
+            ));
 
+            print_r($_SESSION['id']);
+
+            echo "<div class='loading-screen'>
                     <img class='loading' src='" . getAssetsDirectory() . "image/loading.gif'/>
             </div>";
-            header("Refresh: 2; URL=dashboard/index.php");
+
+            if ($_SESSION["id"]) {
+
+                switch (getUserRole()) {
+                    case "user":
+                        header("Refresh: 1; url=dashboard/index.php");
+                        break;
+                    case "admin":
+                        header("Refresh: 1; url=dashboard/admin.php");
+                        break;
+                    default:
+                        trigger_error("Invalid role specified: " . $role, E_USER_WARNING);
+                }
+                exit();
+            }
+         //   header("Refresh: 2; url=dashboard/index.php");
 
         }
     }
@@ -70,20 +104,18 @@ if (filter_has_var(INPUT_POST, 'submit')) {
 
         <form class="login-form" action="login.php" method="post">
             <fieldset>
-                <label for="userName">Gebruikersnaam</label>
-                <input id="userName" name="username" type="text"  required/>
+                <label for="email">Gebruikersnaam</label>
+                <input id="email" name="email" type="email" required/>
             </fieldset>
             <fieldset>
                 <label for="wachtwoord">Wachtwoord</label>
-                <input id="wachtwoord" name="password" type="password"  required/>
+                <input id="wachtwoord" name="password" type="password" required/>
             </fieldset>
 
             <fieldset>
                 <input type="submit" name="submit" value="Inloggen">
             </fieldset>
         </form>
-
-
 
 
     </div>
