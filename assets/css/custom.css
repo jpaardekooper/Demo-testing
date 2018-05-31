@@ -20,20 +20,25 @@
 }
 .login-logo {
     width: 280px;
-    margin-top: 55px;
+    margin-top: 50px;
     animation: push ease 1s alternate infinite;
-    animation-delay: 1.5s;
+
     position:absolute;
 }
 
 @keyframes push {
     0% {
         margin-top: 50px;
+
     }
 
+    50%{
+        margin-top: 53px;
 
+    }
     100% {
         margin-top: 55px;
+
 
     }
 }
@@ -45,9 +50,9 @@
     background-color: #42c0b3;
     min-height: 80vh;
     border-radius: 15px;
-    -moz-box-shadow: 2px 0 10px -1px #888;
-    -webkit-box-shadow: 2px 0 10px -1px #888;
-    box-shadow: 2px 0 10px -1px #888;
+    -moz-box-shadow: 2px 11px 62px 27px #42c0b378;
+    -webkit-box-shadow: 2px 11px 62px 27px #42c0b378;
+    box-shadow: 2px 11px 62px 27px #42c0b378;
 }
 .login-form{
     padding-top: 30vh;
@@ -73,11 +78,11 @@
 }
 /*///////////////////////////////////// hover effect navigation */
 a{
-    color: #000;
+    color: #fff;
     text-decoration: none;
 }
 a:hover, a:focus {
-    color: red;
+    color: #42c0b3;
     /*color: #f7f7f7;*/
     text-decoration: underline;
 }
@@ -91,10 +96,11 @@ input[type=text], [type=password], [type=email] {
     padding: 10px 15px;
     margin: 15px 0;
     box-sizing: border-box;
-    border: 1px solid #000;
+    color: #fff;
     outline: none;
-    background-color: #fff;
-    border-radius: 5px;
+    background-color: #42c0b3;
+    border: none;
+    border-bottom: 2px solid #fff;
 }
 
 input[type=submit] {
@@ -105,13 +111,14 @@ input[type=submit] {
     border-radius: 5px;
     cursor: pointer;
     border: none;
+    width: 100%;
 
 
 }
 
 /*//////////////////////////////////// input focus / hover */
-input[type=text],[type=password]:focus {
-   background-color: #fff;
+input[type=text]:focus,[type=email]:focus,[type=password]:focus {
+    border: 2px solid #fff;
 }
 
 input[type=submit]:hover{
