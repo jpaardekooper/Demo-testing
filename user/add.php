@@ -1,13 +1,15 @@
 <?php
-require_once '../system/session.php';
+require_once('../system/session.php');
+require_once('../system/config.php');
 
-include_once('../system/config.php');
+require_once('../templates/content.php');
 
-include_once('../templates/content.php');
+checkRole('admin');
 
 getHeader("Sqits form-add", "Form add");
-checkRole('admin');
+
 echo '  <div class="right-panel">';
+
 if (@$_GET['action'] == "save") {
 
 

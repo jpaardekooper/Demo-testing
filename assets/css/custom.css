@@ -99,7 +99,8 @@ input[type=text], [type=password], [type=email] {
     outline: none;
     background-color: #42c0b3;
     border: none;
-    border-bottom: 2px solid #fff;
+    border-bottom: 1px solid #fff;;
+
 }
 
 input[type=submit] {
@@ -110,12 +111,13 @@ input[type=submit] {
     border-radius: 5px;
     cursor: pointer;
     border: none;
+
     width: 100%;
 }
 
 /*//////////////////////////////////// input focus / hover */
 input[type=text]:focus,[type=email]:focus,[type=password]:focus {
-    border: 2px solid #fff;
+    border: 1px solid #fff;
 }
 
 input[type=submit]:hover{

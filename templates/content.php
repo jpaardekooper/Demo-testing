@@ -86,6 +86,7 @@ function getFooter()
                 </div>
                 <footer></footer>
                 <script src=" . getAssetsDirectory() . "js/validate.js></script>
+                <script src=" . getAssetsDirectory() . "js/getUser.js></script>
         </body>         
     </html>";
     echo $footer;

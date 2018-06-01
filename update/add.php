@@ -1,58 +1,157 @@
 <?php
-require_once '../system/session.php';
+require_once('../system/session.php');
+require_once('../system/config.php');
 
-include_once('../system/config.php');
+require_once('../templates/content.php');
 
-include_once('../templates/content.php');
 
-getHeader("Sqits form-add", "Form add");
+getHeader("Sqits form-add", "Update add");
 
-if (@$_GET['action'] == "save") {
-    try {
+if (isset($_SESSION['id'])) {
 
+    checkRole('admin');
+
+
+    echo '<div class="right-panel">';
+
+    if (@$_GET['action'] == "save") {
+        try {
 //http://php.net/manual/en/password.constants.php
 
-        $sql = "INSERT INTO `user` (`username`, `password`, `last_visit`, `active`, `created_date`) VALUES (:username, :password, NOW(), :active, NOW() )";
-        $ophalen = $conn->prepare($sql);
-        $ophalen->execute(array(
-            'username' => $_POST['username'],
-            'password' => password_hash($_POST['password'], PASSWORD_DEFAULT),
-            'active' => $_POST['active']
+            $sql = "INSERT INTO `update` (`user_id`, `form_id`, `status`, `type`, `end_date`,`send_date`,`created_date`) 
+                VALUES (:user_id, :form_id, :status, :type, :end_date, NOW(), NOW() )";
+            $ophalen = $conn->prepare($sql);
+            $ophalen->execute(array(
+                'user_id' => $_POST['user_id'],
+                'form_id' => $_POST['form_id'],
+                'status' => 'pending',
+                'type' => $_POST['type'],
+                'end_date' => $_POST['end_date']
+            ));
 
-        ));
+            $query = $conn->prepare("SELECT u.email, com.first_name, com.last_name
+                                                FROM `user` as u
+                                                INNER JOIN company as com ON u.user_id = com.user_id
+                                                WHERE u.user_id = :id");
+            $query->execute(array(
+                'id' =>  $_POST['user_id'],
+            ));
+
+            while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+                $email = $row['email'];
+                $first_name = $row['first_name'];
+                $last_name = $row['last_name'];
+
+                echo $row['email'];
+                echo $row['first_name'];
+                echo $row['last_name'];
+
+            }
 
 
-        echo "De user is opgeslagen.";
+            $to = $email;
+            //$first_name = trim($_POST["firstname"]);
+            $subject = "Aanvraag afspraak door " . $first_name;
 
-    } catch (PDOException $e) {
-        $sMsg = '<p>
+            $message = "Beste " . $first_name . ",\r\n
+		                Er is een nieuwe update voor u beschikbaar. Login op sqitsframework.nl\r\n
+		                Met vriendelijke groet,\r
+		                SqitsTeammzz";
+
+            $headers = 'From: info@Sqitszir.com' . "\r\n" .
+                'Reply-To: info@Sqitszir.com' . "\r\n" .
+                'X-Mailer: PHP/' . phpversion();
+            $headers .= 'Bcc: info@Sqitszir.com' . "\r\n";
+
+
+            mail($to, $subject, $message, $headers);
+
+            echo "Het formulier is opgeslagen en verzonden.";
+
+        } catch (PDOException $e) {
+            $sMsg = '<p>
                 Regelnummer: ' . $e->getLine() . '<br />
                 Bestand: ' . $e->getFile() . '<br />
                 Foutmelding: ' . $e->getMessage() . '
             </p>';
 
-        trigger_error($sMsg);
-    }
-} else {
-    echo "
-   <div class='right-panel'>
-          	<form name=\"add\" action=\"?action=save\" method=\"post\">
-                <table>
-                    <tr>
-                        <td>user toevoegen</td>
-                        <td><input type=\"text\" name=\"username\" required> </td>   
-                        <td><input type=\"text\" name=\"password\" required> </td>  
-                        <td><input type=\"active\" name=\"active\" required> </td>
-              
-                    </tr>
-                    <tr>
-                        <td colspan=\"2\"><input type=\"reset\" name=\"reset\" value=\"Clear\">
-                                        <input type=\"submit\" name=\"submit\" value=\"Opslaan\"></td>
-                    </tr>					
-                </table>
-            </form>
-            </div>";
-}
-getFooter();
+            trigger_error($sMsg);
+        }
+    } else {
+        echo "<form name='preview' action=\"?action=save\" method='POST'>";
 
-?>
+        $results = $conn->prepare("
+						SELECT `form_id`, `version`, `task_nr` FROM `form` 
+						");
+        $results->execute();
+        $types = $results->fetchAll();
+        unset($result);
+
+        echo "<label>Formulier versie en opdrachtnummer</label>";
+        echo "</br>";
+        echo "<select  name='form_id'>";
+        echo "<option value=''></option>";
+        foreach ($types as $type) {
+            if ($type['form_id'] == $form_id) {
+                echo "<option selected value='" . htmlentities($type['form_id']) . "'>" . htmlentities($type['version']) . "   " . htmlentities($type['task_nr']) . "</option>";
+
+            } else {
+                echo "<option value='" . htmlentities($type['form_id']) . "'>" . htmlentities($type['version']) . "   " . htmlentities($type['task_nr']) . "</option>";
+            }
+        }
+        echo "</select>";
+        echo "</br>";
+
+
+        $results = $conn->prepare("
+						SELECT u.*, com.* 
+						FROM `user` as u 
+						INNER JOIN company as com ON com.user_id = u.user_id								
+						");
+        $results->execute();
+        $types = $results->fetchAll();
+        unset($result);
+
+        echo"<label>user informatie</label>";
+        echo "<select  name='user_id'  onchange='showUser(this.value)'>";
+        echo "<option value=''></option>";
+        foreach ($types as $type) {
+            if ($type['user_id'] == $user_id) {
+                echo "<option selected value='" . htmlentities($type['user_id']) . "'>" . htmlentities($type['company_id']) . "   " . htmlentities($type['company_name']) . "</option>";
+            } else {
+                echo "<option value='" . htmlentities($type['user_id']) . "'>" . htmlentities($type['company_id']) . "   " . htmlentities($type['company_name']) . "</option>";
+            }
+        }
+        echo "</select>";
+
+        echo "<div id='txtHint'></div>";
+
+
+        echo "<label>Type</label>";
+        echo "<select name='type'>";
+        echo "<option value='mayor-update'>mayor-update</option>";
+        echo "<option value='bug-fix'>bug-fix</option>";
+        echo "</select>";
+
+
+        echo "<label>laatste datum</label>";
+        echo "<input type='date' name='end_date'>";
+
+        echo "<input type=\"reset\" name=\"reset\" value=\"Clear\">
+             <input type=\"submit\" name=\"submit\" value=\"Opslaan\">
+         ";
+
+
+        echo "</form>";
+
+
+
+
+
+
+
+        echo "</div>";
+
+        getFooter();
+    }
+}
