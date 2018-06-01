@@ -7,18 +7,45 @@ include_once('../system/config.php');
 include_once('../templates/content.php');
 
 getHeader("Sqits form-update", "Form update");
-
+checkRole("admin");
+echo '<div class="right-panel">';
 if ($_GET['action'] == "save") {
 
     try {
-        $query = $conn->prepare("
-                        UPDATE `user` SET username = :username, password = :password, active = :active WHERE user_id = :id");
+/*        $query = $conn->prepare("
+                        UPDATE `user` SET email = :email, password = :password, active = :active WHERE user_id = :id");
         $query->execute(array(
             'id' => $_GET['id'],
-            'username' => $_POST['username'],
+            'email' => $_POST['email'],
             'password' => password_hash($_POST['password'], PASSWORD_DEFAULT),
             'active' => $_POST['active']
+        ));*/
+
+        $query = $conn->prepare("UPDATE `form` 
+                                        SET company_id =:company_id,
+                                         type =:type,
+                                          version =:version,
+                                           task_nr  =:task_nr,
+                                            description=:description,
+                                             status =:status, 
+                                             end_date =:end_date,
+                                              modified_date =:modified_date                                     
+                                    WHERE form_id =:id");
+
+        $query->execute(array(
+            'id' =>  $_GET['id'],
+            'company_id' => $_POST['company_id'],
+            'type' => $_POST['type'],
+            'version' => $_POST['version'],
+            'task_nr' => $_POST['task_nr'],
+            'description' => $_POST['description'],
+            'status' => $_POST['status'],
+            'end_date' => $_POST['end_date'],
+            'modified_date' => date("d-m-Y")
+
+
         ));
+        
         echo "wijzigingen zijn opgeslagen.";
     } catch (PDOException $e) {
         $sMsg = '<p>
@@ -34,7 +61,7 @@ if ($_GET['action'] == "save") {
 
     try {
         $query = $conn->prepare("
-                        SELECT * FROM user WHERE user_id = :id");
+                        SELECT * FROM form WHERE form_id = :id");
 
         $query->execute(array(
             'id' => $_GET['id']
@@ -50,21 +77,18 @@ if ($_GET['action'] == "save") {
     }
 
     while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
-        $user_id = $row['user_id'];
-        $username = $row['username'];
-        $password = $row['password'];
-        $last_visit = $row['last_visit'];
-        $active = $row['active'];
-        $created_date = $row['created_date'];
+        $form_id = $row['form_id'];
+        $company_id = $row['company_id'];
+        $type = $row['type'];
+        $status = $row['status'];
+        $version = $row['version'];
+        $task_nr = $row['task_nr'];
+        $description = $row['description'];
+        $end_date = $row['end_date'];
+        $modified_date = $row['modified_date'];
     }
 
-
-    echo ' <div class="dashboard">';
-    getSidebar();
-
-    echo '<div class="right-panel">';
-    echo "
-    
+    echo "    
 
 
     <header class='header'>
@@ -77,32 +101,41 @@ if ($_GET['action'] == "save") {
     </header>
 
 
-            <form name=\"add\" action=\"?action=save&id=$user_id\" method=\"post\">
+            <form name=\"add\" action=\"?action=save&id=$form_id\" method=\"post\">
                 <table>
-                    
-                        id
-                        <input type=\"text\" name=\"id\" value=\"$user_id\" required> 
-                    
-                    
-                        username
-                        <input type=\"text\" name=\"username\" value=\"$username\" required> 
-                    
-                     
-                        status active
-                        <input type=\"text\" name=\"active\" value=\"$active\" required> 
-                    
-                    
-                        Wachtwoord 
-                        <input type=\"text\" name=\"password\" value=\"$password\" required> 
+                 <tr>
+                        <tr>form_id</tr>
+                        <tr><input type=\"text\" name=\"company_id\" value='$form_id' required> </tr>   
+                        <tr>bedrijfsnaam</tr>
+                        <tr><input type=\"text\" name=\"company_id\" value='$company_id' required> </tr>   
+                        <tr>type</tr>
+                        <tr><input type=\"text\" name=\"type\" value='$type' required> </tr>  
+                        <tr>versie</tr>
+                        <tr><input type=\"number\" name=\"version\" value='$version' required> </tr> <br/>
+                        <tr>opdrachtnummer</tr> <br/>
+                        <tr><input type=\"text\" name=\"task_nr\" value='$task_nr' required> </tr> <br/>
+                        <tr>beschrijving</tr> <br/>
+                        <tr><textarea rows=\"4\" cols=\"50\" type='text' name=\"description\"  required>$description</textarea></tr>  <br/>
+                        <tr>status</tr> <br/>
+                        <tr>
+                        <select name='status' value='$status'>                      
+                              <option value=\"pending\">pending</option>
+                              <option value=\"1\">1</option>
+                              <option value=\"2\">2</option>
+                              <option value=\"3\">3</option>
+                            </select>
+                        </tr>  <br/>
+                        <tr>eind datum</tr><br/>
+                        <tr><input type=\"date\" name=\"end_date\" value='$end_date' required> </tr> 
+                                    
+                       
                     
                     
                         <td colspan=\"2\"><input type=\"reset\" name=\"reset\" value=\"Leeg maken\">
                                         <input type=\"submit\" name=\"submit\" value=\"Opslaan\">
                     					
                 </table>
-            </form>
-   
-            </div>
+            </form>   
             </div>";
 }
 getFooter();

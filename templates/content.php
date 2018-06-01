@@ -1,6 +1,6 @@
 <?php
 
-function getHeader($description, $title = "Sqits voor jou en mie")
+function getHeader($description, $title = "Sqits")
 {
     $header = "<!DOCTYPE html>
     <html lang=\"nl\">
@@ -15,20 +15,32 @@ function getHeader($description, $title = "Sqits voor jou en mie")
         </head>
         <body>";
     echo $header;
+
+    getSideBar();
 }
 
-function getFooter()
+function getLoginHeader($description, $title = "Sqits login page")
 {
-    $footer = "<footer></footer>
-                <script src=" . getAssetsDirectory() . "js/validate.js></script>
-        </body>         
-    </html>";
-    echo $footer;
+    $header = "<!DOCTYPE html>
+    <html lang=\"nl\">
+        <head>
+            <meta charset=\"utf-8\">
+            <meta name=\"description\" content=\"$description\">
+            <meta name=\"author\" content=\"Jasper, David, Marnix, Luuk\">
+            <title> $title </title>
+            <link rel=\"stylesheet\" href=" . getAssetsDirectory() . "css/reset.css>
+            <link rel=\"stylesheet\" href=" . getAssetsDirectory() . "css/custom.css>         
+        </head>
+        <body>";
+    echo $header;
+
 }
 
 function getSidebar(){
 
     ?>
+  <!--  opens dashboar panel but doesn't close it-->
+    <div class="dashboard">
     <div class="left-panel">
         <div class="panel-name">
             <a href="<?=getPathToRoot()."dashboard/index.php" ?>">dashboard</a>
@@ -65,6 +77,18 @@ function getSidebar(){
 
     </div>
 <?php
+}
+
+function getFooter()
+{
+    $footer = "
+                <!--closes dashboard-->
+                </div>
+                <footer></footer>
+                <script src=" . getAssetsDirectory() . "js/validate.js></script>
+        </body>         
+    </html>";
+    echo $footer;
 }
 
 function getBreadCrumbs(){

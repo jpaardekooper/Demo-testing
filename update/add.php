@@ -7,10 +7,8 @@ include_once('../templates/content.php');
 
 getHeader("Sqits form-add", "Form add");
 
-if (@$_GET['action'] == "save")
-{
-	try
-    {
+if (@$_GET['action'] == "save") {
+    try {
 
 //http://php.net/manual/en/password.constants.php
 
@@ -18,7 +16,7 @@ if (@$_GET['action'] == "save")
         $ophalen = $conn->prepare($sql);
         $ophalen->execute(array(
             'username' => $_POST['username'],
-            'password' => password_hash($_POST['password'],PASSWORD_DEFAULT),
+            'password' => password_hash($_POST['password'], PASSWORD_DEFAULT),
             'active' => $_POST['active']
 
         ));
@@ -26,22 +24,18 @@ if (@$_GET['action'] == "save")
 
         echo "De user is opgeslagen.";
 
-    }
-    catch(PDOException $e)
-    {
+    } catch (PDOException $e) {
         $sMsg = '<p>
-                Regelnummer: '.$e->getLine().'<br />
-                Bestand: '.$e->getFile().'<br />
-                Foutmelding: '.$e->getMessage().'
+                Regelnummer: ' . $e->getLine() . '<br />
+                Bestand: ' . $e->getFile() . '<br />
+                Foutmelding: ' . $e->getMessage() . '
             </p>';
 
         trigger_error($sMsg);
-    }           
-}
-
-else 
-{
-	echo "
+    }
+} else {
+    echo "
+   <div class='right-panel'>
           	<form name=\"add\" action=\"?action=save\" method=\"post\">
                 <table>
                     <tr>
@@ -56,8 +50,9 @@ else
                                         <input type=\"submit\" name=\"submit\" value=\"Opslaan\"></td>
                     </tr>					
                 </table>
-            </form>";
+            </form>
+            </div>";
 }
-getFooter();	
+getFooter();
 
 ?>

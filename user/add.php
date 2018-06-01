@@ -7,7 +7,7 @@ include_once('../templates/content.php');
 
 getHeader("Sqits form-add", "Form add");
 checkRole('admin');
-
+echo '  <div class="right-panel">';
 if (@$_GET['action'] == "save") {
 
 
@@ -40,9 +40,6 @@ if (@$_GET['action'] == "save") {
     }
 } else {
     ?>
-    <div class="dashboard">
-        <?php getSidebar(); ?>
-
 
         <div class="right-panel">
             <?php getBreadCrumbs(); ?>
@@ -73,7 +70,6 @@ if (@$_GET['action'] == "save") {
 
                 </form>
             </div>
-        </div>
     </div>
     <?php
 }

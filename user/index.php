@@ -11,8 +11,6 @@ if ($_SESSION["id"]) {
 
             getHeader("Sqits", "user Dashboard");
 
-            echo ' <div class="dashboard">';
-            getSidebar();
 
             echo '<div class="right-panel">';
             echo getUserName();
@@ -44,28 +42,29 @@ if ($_SESSION["id"]) {
                     '</p>';
                 trigger_error($sMsg);
             }
-            echo ' <div class="dashboard">';
-            getSidebar();
+
 
             echo '<div class="right-panel">';
 
 
-            echo "<table border=\"0\" name=\"user overzicht\"
-            <tr>
-            <td>userID</td>
-            <td>username</td>
-           
-            <td>last_visit</td>
-            <td>active</td>
-            <td>created_date</td>
-            <td>company</td>
+            echo "<table  name=\"user_overview\"
+            <tr>           
+            <td>bedrijfsnaam</td>
+            <td>Email: </td>
+            <td>voornaam</td>
+            <td>achternaam</td>           
             <td>phone</td>
+            <td>active</td>
+            <td>last_visit</td>
+            <td>created_date</td>
+      
             </tr>";
-
 
 
             while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
                 $user_id = $row['user_id'];
+                $first_name = $row['first_name'];
+                $last_name = $row['last_name'];
                 $email = $row['email'];
                 $last_visit = $row['last_visit'];
                 $active = $row['active'];
@@ -75,21 +74,22 @@ if ($_SESSION["id"]) {
                 $phone = $row['phone_number'];
 
                 echo "<tr>
-                <td>" . htmlentities($user_id) . "</td>
-                <td>" . htmlentities($email) . "</td>                
-                <td>" . htmlentities($last_visit) . "</td>              
+                <td>" . htmlentities($company_name) . "</td>                           
+                <td>" . htmlentities($email) . "</td> 
+                <td>" . htmlentities($first_name) . "</td>
+                <td>" . htmlentities($last_name) . "</td>
+                   <td>" . htmlentities($phone) . "</td>
                 <td>" . htmlentities($active) . "</td>
-                <td>" . htmlentities($created_date) . "</td>
-                <td>" . htmlentities($role) . "</td>
-                <td>" . htmlentities($company_name) . "</td>
-                <td>" . htmlentities($phone) . "</td>
+                  <td>" . htmlentities($last_visit) . "</td>            
+                <td>" . htmlentities($created_date) . "</td>          
+              
+             
              
                     <td><a href=\"delete.php?action=delete&id=$user_id\">X</a>
                         <a href=\"update.php?action=delete&id=$user_id\">edit</a></td>
                             </tr>";
             }
             echo "</table>";
-            echo "</div>";
             echo "</div>";
 
 

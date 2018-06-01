@@ -11,9 +11,6 @@ if (isset($_SESSION['id'])) {
 
     getHeader("Sqits", "user Dashboard");
 ?>
-    <div class="dashboard">
-        <?php getSidebar(); ?>
-
 
         <div class="right-panel">
             <?php getBreadCrumbs(); ?>
@@ -54,7 +51,7 @@ if (isset($_SESSION['id'])) {
                 ?>
             </div>
         </div>
-    </div>
+
 
     <?php
     getFooter();

@@ -6,7 +6,7 @@ include_once('system/config.php');
 
 include_once('templates/content.php');
 
-getHeader("Login", "Sqits Login panel");
+getLoginHeader("Login", "Sqits Login panel");
 
 
 /*require_once('sql/user.php');

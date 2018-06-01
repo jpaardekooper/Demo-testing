@@ -5,72 +5,25 @@ include_once('../system/config.php');
 
 include_once('../templates/content.php');
 getHeader("FOrmulier toevoegen", "Sqites indexform");
-if(isset($_SESSION['id'] )){
-    checkRole("user");
 
-    try {
-        $query = $conn->prepare("SELECT user_id, email, password, last_visit, company_name, created_date, role FROM `user` WHERE user_id = :id");
-        $query->execute(array(
-            'id'=> $_SESSION['id']['user_id']
-        ));
-    } catch (PDOException $e) {
-        $sMsg = '<p> 
-                    Regulnummer: ' . $e->getLine() . '<br /> 
-                    Bestand: ' . $e->getFile() . '<br /> 
-                    Foutmedling: ' . $e->getMessage() .
-            '</p>';
-        trigger_error($sMsg);
-    }
-    echo ' <div class="dashboard">';
-    getSidebar();
-
-    echo '<div class="right-panel">';
-
-
-    echo "<table border=\"0\" name=\"user overzicht\"
-            <tr>
-            <td>userID</td>
-            <td>username</td>
-            <td>password</td>
-            <td>last_visit</td>
-            <td>active</td>
-            <td>created_date</td>
-            </tr>";
-
-
-    while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
-        $user_id = $row['user_id'];
-        $username = $row['username'];
-        $password = $row['password'];
-        $last_visit = $row['last_visit'];
-        $created_date = $row['created_date'];
-        $role = $row['role'];
-        $company_name = $row['company_name'];
-
-        echo "<tr>
-                <td>".htmlentities($user_id)."</td>
-                <td>".htmlentities($username)."</td>
-                <td>".htmlentities($password)."</td>
-                <td>".htmlentities($last_visit)."</td>  
-                <td>".htmlentities($created_date)."</td>
-                <td>".htmlentities($role)."</td>
-                <td>".htmlentities($company_name)."</td>
-             
-                    <td><a href=\"delete.php?action=delete&id=$user_id\">X</a>
-                        <a href=\"update.php?action=delete&id=$user_id\">edit</a></td>
-                            </tr>";
-    }
-    echo "</table>";
-    echo "</div>";
-
-}
-
-elseif (isset($_SESSION['id'])) {
+if (isset($_SESSION['id'])) {
 
     checkRole('admin');
 
+    echo '<div class="right-panel">';
+
     try {
-        $query = $conn->prepare("SELECT * FROM `user`");
+/*        $query = $conn->prepare("SELECT f.form_id =:form_id, com.company_id =:company_id, f.type =:type,
+                                                      f.version=:version, f.task_nr=:task, f.description=:description, 
+                                                      f.signed_date=:signed_date, f.modified_date=:modified_date, f.created_date=:created_date
+                                          FROM `form` as f 
+                                          INNER JOIN `company` as com ON com.company_id = f.company_id
+                                         ");*/
+
+        $query = $conn->prepare("SELECT f.*, com.*
+                                          FROM `form` as f 
+                                          INNER JOIN `company` as com ON com.company_id = f.company_id                                       
+                                         ");
         $query->execute();
     } catch (PDOException $e) {
         $sMsg = '<p> 
@@ -80,45 +33,48 @@ elseif (isset($_SESSION['id'])) {
             '</p>';
         trigger_error($sMsg);
     }
-    echo ' <div class="dashboard">';
-    getSidebar();
-
-    echo '<div class="right-panel">';
 
 
-    echo "<table name='user overzicht'
+
+
+    echo "<table name='form_overview'
             <tr>
-            <td>userID</td>
-            <td>username</td>
-            <td>password</td>
-            <td>last_visit</td>
-            <td>active</td>
+            <td>form_id</td>         
+            <td>company_id</td>      
+            <td>type</td>
+            <td>version</td>
+            <td>description</td>
+            <td>status</td>
             <td>created_date</td>
             </tr>";
 
 
     while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
-        $user_id = $row['user_id'];
-        $username = $row['username'];
-        $password = $row['password'];
-        $last_visit = $row['last_visit'];
-        $active = $row['active'];
+        $form_id = $row['form_id'];
+        $company_id = $row['company_id'];
+        $type = $row['type'];
+        $version = $row['version'];
+        $description = $row['description'];
+        $status = $row['status'];
         $created_date = $row['created_date'];
 
         echo "<tr>
-                <td>$user_id</td>
-                <td>$username</td>
-                <td>$password</td>
-                <td>$last_visit</td>              
-                <td>$active</td>
+                <td>$form_id</td>
+                <td>$company_id</td>
+                <td>$type</td>
+                <td>$version</td>             
+                <td>$description</td>              
+                <td>$status</td>
                 <td>$created_date</td>
              
-                    <td><a href=\"delete.php?action=delete&id=$user_id\">X</a>
-                        <a href=\"update.php?action=delete&id=$user_id\">edit</a></td>
+                    <td><a href=\"delete.php?action=delete&id=$form_id\">X</a>
+                        <a href=\"update.php?action=delete&id=$form_id\">edit</a></td>
                             </tr>";
     }
     echo "</table>";
     echo "</div>";
+
+    getFooter();
 
 } else {
 

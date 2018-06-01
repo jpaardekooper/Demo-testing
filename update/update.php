@@ -60,6 +60,7 @@ if ($_GET['action'] == "save") {
 
 
     echo "
+        <div class='right-panel'>
             <form name=\"add\" action=\"?action=save&id=$user_id\" method=\"post\">
                 <table>
                     <tr>
@@ -84,6 +85,7 @@ if ($_GET['action'] == "save") {
                     </tr>					
                 </table>
             </form>
+            </div>
             ";
 }
 getFooter();

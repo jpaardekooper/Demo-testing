@@ -5,76 +5,108 @@ include_once('../system/config.php');
 
 include_once('../templates/content.php');
 
-getHeader("Sqits form-add", "Form add");
 
-if (@$_GET['action'] == "save") {
+if (isset($_SESSION['id'])) {
 
-    try {
+    checkRole('admin');
+
+    getHeader("Sqits form-add", "Form add");
+
+    echo '<div class="right-panel">';
+
+    if (@$_GET['action'] == "save") {
+
+        try {
 
 //http://php.net/manual/en/password.constants.php
 
-        $sql = "INSERT INTO `user` (`username`, `password`, `last_visit`, `active`, `created_date`) VALUES (:username, :password, NOW(), :active, NOW() )";
-        $ophalen = $conn->prepare($sql);
-        $ophalen->execute(array(
-            'username' => $_POST['username'],
-            'password' => password_hash($_POST['password'], PASSWORD_DEFAULT),
-            'active' => $_POST['active']
+            $query = "INSERT INTO `form` (`company_id`, `type`, `version`, `task_nr`, `description`, status, end_date, create_date, modified_date) 
+                                    VALUES (:company_id, :type, :version, :task_nr, :description, :status, :end_date, NOW(), NOW() )";
+            $results = $conn->prepare($query);
+            $results->execute(array(
+                'company_id' => $_POST['company_id'],
+                'type' => $_POST['type'],
+                'version' => $_POST['version'],
+                'task_nr' => $_POST['task_nr'],
+                'description' => $_POST['description'],
+                'status' => $_POST['status'],
+                'end_date' => $_POST['end_date'],
 
-        ));
 
+            ));
 
-        echo "De user is opgeslagen.";
+            echo "<div class='loading-screen'>
+                    <img class='loading' src='" . getAssetsDirectory() . "image/loading.gif'/>
+            </div>";
 
-    } catch (PDOException $e) {
-        $sMsg = '<p>
+            echo "het formulier is opgeslagen.";
+
+            header("Refresh: 1; url=index.php");
+
+        } catch (PDOException $e) {
+            $sMsg = '<p>
                 Regelnummer: ' . $e->getLine() . '<br />
                 Bestand: ' . $e->getFile() . '<br />
                 Foutmelding: ' . $e->getMessage() . '
             </p>';
 
-        trigger_error($sMsg);
-    }
-} else {
-    ?>
-    <div class="dashboard">
-    <?php getSidebar(); ?>
+            trigger_error($sMsg);
+        }
+    } else {
 
 
-    <div class="right-panel">
-    <?php getBreadCrumbs(); ?>
+        getBreadCrumbs()
+
+        ?>
+        <header class="header">
+            <p>welkom: <?= getUserName(); ?></p>
+            <p>
+                is user role: <?= $_SESSION['id']['role']; ?>
+            </p>
+
+            Formulier toevoegen
+        </header>
 
 
-    <header class="header">
-        <p>welkom: <?= getUserName(); ?></p>
-        <p>
-            is user role: <?= $_SESSION['id']['role']; ?>
-        </p>
-
-        this is dashboard form USER
-    </header>
-
-    <div class="content">
-    <?php
-    echo "
+        <?php
+        echo "
           	<form name=\"add\" action=\"?action=save\" method=\"post\">
-                <table>
+                <table>             
                     <tr>
-                        <td>user toevoegen</td>
-                        <td><input type=\"text\" name=\"username\" required> </td>   
-                        <td><input type=\"text\" name=\"password\" required> </td>  
-                        <td><input type=\"active\" name=\"active\" required> </td>
+                        <tr>bedrijfsnaam</tr>
+                        <tr><input type=\"text\" name=\"company_id\" required> </tr>   
+                        <tr>type</tr>
+                        <tr><input type=\"text\" name=\"type\" required> </tr>  
+                        <tr>versie</tr>
+                        <tr><input type=\"number\" name=\"version\" required> </tr> <br/>
+                        <tr>opdrachtnummer</tr> <br/>
+                        <tr><input type=\"text\" name=\"task_nr\" required> </tr> <br/>
+                        <tr>beschrijving</tr> <br/>
+                        <tr><textarea rows=\"4\" cols=\"50\" type='text' name=\"description\" required> </textarea></tr>  <br/>
+                        <tr>status</tr> <br/>
+                        <tr>
+                        <select name='status'>                      
+                              <option value=\"pending\">pending</option>
+                              <option value=\"1\">1</option>
+                              <option value=\"2\">2</option>
+                              <option value=\"3\">3</option>
+                            </select>
+                        </tr>  <br/>
+                        <tr>eind datum</tr><br/>
+                        <tr><input type=\"date\" name=\"end_date\" required> </tr> 
+                 
               
-                    </tr>
+                
                     <tr>
                         <td colspan=\"2\"><input type=\"reset\" name=\"reset\" value=\"Clear\">
                                         <input type=\"submit\" name=\"submit\" value=\"Opslaan\"></td>
                     </tr>					
                 </table>
-            </form>
-            </div>
-            </div>
-            </div>";
+            </form>          
+          
+            ";
 
+    }
 }
 getFooter();
 

@@ -4,41 +4,51 @@ require_once('../system/config.php');
 
 require_once('../templates/content.php');
 
-if (isset($_SESSION['id']) && $_SESSION['id']['active'] == 'yes') {
-    echo $_SESSION['id']['active'];
+if ($_SESSION["id"]) {
 
-    getHeader("Sqits", "user Dashboard");
+    switch (getUserRole()) {
+        case "user":
 
-    echo getUserName();
+            getHeader("Sqits", "user Dashboard");
 
+            echo "     
+                <div class='right-panel'>
+                     <header>
+                         <p>welkom: " . getUserName() . "</p>
+                         <p>
+                            ". getUserName() . "
+                         </p>
+        
+                         this is update form
+                     </header>
+                </div>            
+            ";
 
-    getFooter();
-} elseif (isset($_SESSION['id']) && $_SESSION['id']['active'] == 'no') {
+            getFooter();
+            break;
+        case "admin":
 
+            getHeader("Sqits", "Admin Dashboard");
 
-    getHeader("Sqits", "Admin Dashboard");
+            echo "     
+                <div class='right-panel'>
+                     <header>
+                         <p>welkom: " . getUserName() . "</p>
+                         <p>
+                             is user active: " . $_SESSION['id']['active'] . "
+                         </p>
+        
+                         this is update form
+                     </header>
+                </div>            
+            ";
 
-    ?>
-    <div class="dashboard">
-        <?php getSidebar(); ?>
+            getFooter();
+            break;
+        default:
+            trigger_error("Invalid role specified: " . $role, E_USER_WARNING);
 
-        <div class="right-panel">
-            <header>
-                <p>welkom: <?= getUserName(); ?></p>
-                <p>
-                    is user active: <?= $_SESSION['id']['active'];; ?>
-                </p>
-
-                this is update form
-            </header>
-
-
-        </div>
-    </div>
-
-    <?php
-    getFooter();
-
+    }
 } else {
     echo "please login first on login page";
     header("Refresh: 1; URL=\"../login.php\"");

@@ -76,3 +76,8 @@ function requireLoggedIn() {
     }
 }
 
+/*function show_not_found($error) {
+    header("HTTP/1.1 404 Not found");
+    show_simple_error($error);
+    exit();
+}*/

@@ -6,20 +6,45 @@ include_once('../system/config.php');
 
 include_once('../templates/content.php');
 
+//$uid = filter_input(INPUT_GET, "user_id", FILTER_VALIDATE_INT);
+//
+//if (empty($uid)){
+//    show_not_found("Gebruiker niet gevonden");
+//}
+//else{
+//
+//}
 getHeader("Sqits form-update", "Form update");
+
 
 if ($_GET['action'] == "save") {
 
     try {
         $query = $conn->prepare("
-                        UPDATE `user` SET username = :username, password = :password, active = :active WHERE user_id = :id");
+                        UPDATE `user` as u 
+                        INNER JOIN `phone` as p ON u.user_id = p.user_id
+                        INNER JOIN `company` as com ON u.user_id = com.user_id
+                        SET 
+                        u.email = :email, u.password = :password, u.active = :active,
+                        p.phone_number = :phone_number,
+                        com.company_name = :company_name, com.first_name = :first_name, com.last_name = :last_name                                  
+                        WHERE u.user_id = :user_id   
+                        AND com.user_id = :user_id
+                        AND p.user_id = :user_id                 
+                        ");
         $query->execute(array(
-            'id' => $_GET['id'],
+            'user_id' => $_GET['id'],
             'email' => $_POST['email'],
             'password' => password_hash($_POST['password'], PASSWORD_DEFAULT),
-            'active' => $_POST['active']
+            'active' => $_POST['active'],
+            'phone_number' => $_POST['phone_number'],
+            'company_name' => $_POST['company_name'],
+            'first_name' => $_POST['first_name'],
+            'last_name' => $_POST['last_name'],
         ));
+
         echo "wijzigingen zijn opgeslagen.";
+
     } catch (PDOException $e) {
         $sMsg = '<p>
                     Line Number: ' . $e->getLine() . '<br />
@@ -34,10 +59,14 @@ if ($_GET['action'] == "save") {
 
     try {
         $query = $conn->prepare("
-                        SELECT * FROM user WHERE user_id = :id");
+                        SELECT  u.*, p.*, com.*
+                                          FROM `user` as u
+                                          INNER JOIN company as com  ON u.user_id = com.user_id  
+                                          INNER JOIN phone as p ON u.user_id = p.user_id    
+                                          WHERE u.user_id =:user_id");
 
         $query->execute(array(
-            'id' => $_GET['id']
+            'user_id' => $_GET['id']
         ));
     } catch (PDOException $e) {
         $sMsg = '<p>
@@ -51,24 +80,41 @@ if ($_GET['action'] == "save") {
 
     while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
         $user_id = $row['user_id'];
-        $username = $row['email'];
-        $password = $row['password'];
-        $last_visit = $row['last_visit'];
+        $company_name = $row['company_name'];
+        $first_name = $row['first_name'];
+        $last_name = $row['last_name'];
+        $phone_number = $row['phone_number'];
+        $email = $row['email'];
         $active = $row['active'];
-        $created_date = $row['created_date'];
+        $password = $row['password'];
+
+
     }
 
 
     echo "
+            <div class='right-panel'>
             <form name=\"add\" action=\"?action=save&id=$user_id\" method=\"post\">
-                <table>
-                    <tr>
-                        <td>id</td>
-                        <td><input type=\"text\" name=\"id\" value=\"$user_id\" required> </td>
+                <table>                  
+                     <tr>
+                        <td>Bedrijfsnaam</td>
+                        <td><input type=\"text\" name=\"company_name\" value=\"$company_name\" required> </td>
+                    </tr>
+                     <tr>
+                        <td>voornaam</td>
+                        <td><input type=\"text\" name=\"first_name\" value=\"$first_name\" required> </td>
+                    </tr>
+                     <tr>
+                        <td>achternaam</td>
+                        <td><input type=\"text\" name=\"last_name\" value=\"$last_name\" required> </td>
+                    </tr>
+                     <tr>
+                        <td>Telefoon</td>
+                        <td><input type=\"text\" name=\"phone_number\" value=\"$phone_number\" required> </td>
                     </tr>
                     <tr>
                         <td>email</td>
-                        <td><input type=\"text\" name=\"email\" value=\"$username\" required> </td>
+                        <td><input type=\"email\" name=\"email\" value=\"$email\" required> </td>
                     </tr>
                      <tr>
                         <td>status active</td>
@@ -76,7 +122,7 @@ if ($_GET['action'] == "save") {
                     </tr>
                     <tr>
                         <td>Wachtwoord </td>
-                        <td><input type=\"text\" name=\"password\" value=\"$password\" required> </td>
+                        <td><input type=\"password\" name=\"password\" value=\"$password\" required> </td>
                     </tr>
                     <tr>
                         <td colspan=\"2\"><input type=\"reset\" name=\"reset\" value=\"Leeg maken\">
@@ -84,6 +130,7 @@ if ($_GET['action'] == "save") {
                     </tr>					
                 </table>
             </form>
+            </div>      
             ";
 }
 getFooter();
