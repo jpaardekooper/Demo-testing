@@ -34,7 +34,7 @@ if (isset($_SESSION['id'])) {
                                                 INNER JOIN company as com ON u.user_id = com.user_id
                                                 WHERE u.user_id = :id");
             $query->execute(array(
-                'id' =>  $_POST['user_id'],
+                'id' => $_POST['user_id'],
             ));
 
             while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
@@ -51,22 +51,61 @@ if (isset($_SESSION['id'])) {
 
             $to = $email;
             //$first_name = trim($_POST["firstname"]);
-            $subject = "Aanvraag afspraak door " . $first_name;
+            /* $subject = "Aanvraag afspraak door " . $first_name;
 
-            $message = "Beste " . $first_name . ",\r\n
-		                Er is een nieuwe update voor u beschikbaar. Login op sqitsframework.nl\r\n
-		                Met vriendelijke groet,\r
-		                SqitsTeammzz";
+             $message = "Beste " . $first_name . ",\r\n
+                         Er is een nieuwe update voor u beschikbaar. Login op sqitsframework.nl\r\n
+                         Met vriendelijke groet,\r
+                         SqitsTeammzz";
 
-            $headers = 'From: info@Sqitszir.com' . "\r\n" .
-                'Reply-To: info@Sqitszir.com' . "\r\n" .
-                'X-Mailer: PHP/' . phpversion();
-            $headers .= 'Bcc: info@Sqitszir.com' . "\r\n";
+             $headers = 'From: info@Sqitszir.com' . "\r\n" .
+                 'Reply-To: info@Sqitszir.com' . "\r\n" .
+                 'X-Mailer: PHP/' . phpversion();
+             $headers .= 'Bcc: info@Sqitszir.com' . "\r\n";*/
+            $subject = 'Sqits heeft een update voor u beschikbaar';
 
+// Message
+            $message = '
+<html>
+<head>
+  <title>Sqits heeft een update voor u beschikbaar</title>
+</head>
+<body>
+  <p>Here are the  upcoming changes in August!</p>
+  <table>
+    <tr>
+      <th>Person</th><th>Day</th><th>Month</th><th>Year</th>
+    </tr>
+    <tr>
+      <td>Johny</td><td>10th</td><td>August</td><td>1970</td>
+    </tr>
+    <tr>
+      <td>Sally</td><td>17th</td><td>August</td><td>1973</td>
+    </tr>
+  </table>
+</body>
+</html>
+';
 
-            mail($to, $subject, $message, $headers);
+// To send HTML mail, the Content-type header must be set
+            $headers[] = 'MIME-Version: 1.0';
+            $headers[] = 'Content-type: text/html; charset=iso-8859-1';
 
-            echo "Het formulier is opgeslagen en verzonden.";
+// Additional headers
+            $headers[] = 'From: Sqits Reminder <infoSqits@example.com>';
+            $headers[] = 'Cc: infoSqits@example.com';
+            $headers[] = 'Bcc: infoSqits@example.com';
+
+// Mail it
+
+            $retval =  mail($to, $subject, $message, implode("\r\n", $headers));
+            if ($retval == true) {
+                echo "Message sent successfully...";
+                echo "Het formulier is opgeslagen en verzonden.";
+            } else {
+                echo "Message could not be sent...";
+            }
+
 
         } catch (PDOException $e) {
             $sMsg = '<p>
@@ -112,7 +151,7 @@ if (isset($_SESSION['id'])) {
         $types = $results->fetchAll();
         unset($result);
 
-        echo"<label>user informatie</label>";
+        echo "<label>user informatie</label>";
         echo "<select  name='user_id'  onchange='showUser(this.value)'>";
         echo "<option value=''></option>";
         foreach ($types as $type) {
@@ -143,11 +182,6 @@ if (isset($_SESSION['id'])) {
 
 
         echo "</form>";
-
-
-
-
-
 
 
         echo "</div>";
