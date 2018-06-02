@@ -82,6 +82,9 @@ if (isset($_SESSION['id'])) {
     <tr>
       <td>Sally</td><td>17th</td><td>August</td><td>1973</td>
     </tr>
+    <tr>
+    <td><img style="width:100px; height:100px;" src="https://pbs.twimg.com/profile_images/568078699996520448/XThN4wCd_400x400.png"/></td>
+</tr>
   </table>
 </body>
 </html>
