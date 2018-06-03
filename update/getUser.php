@@ -14,7 +14,7 @@ try {
                                         WHERE u.user_id = :user_id
                                          ");
     $query->execute(array(
-        'user_id' => $_GET['q']
+        'user_id' => $_GET['u']
     ));
 } catch (PDOException $e) {
     $sMsg = '<p> 

@@ -29,7 +29,7 @@ if (isset($_SESSION['id'])) {
                 'end_date' => $_POST['end_date']
             ));
 
-            $query = $conn->prepare("SELECT u.email, com.first_name, com.last_name
+            $query = $conn->prepare("SELECT u.email, com.first_name, com.last_name, com.company_name
                                                 FROM `user` as u
                                                 INNER JOIN company as com ON u.user_id = com.user_id
                                                 WHERE u.user_id = :id");
@@ -41,10 +41,7 @@ if (isset($_SESSION['id'])) {
                 $email = $row['email'];
                 $first_name = $row['first_name'];
                 $last_name = $row['last_name'];
-
-                echo $row['email'];
-                echo $row['first_name'];
-                echo $row['last_name'];
+                $company_name = $row['company_name'];
 
             }
 
@@ -74,13 +71,13 @@ if (isset($_SESSION['id'])) {
   <p>Here are the  upcoming changes in August!</p>
   <table>
     <tr>
-      <th>Person</th><th>Day</th><th>Month</th><th>Year</th>
+      <th>'.$company_name.'</th><th>Day</th><th>Month</th><th>Year</th>
     </tr>
     <tr>
-      <td>Johny</td><td>10th</td><td>August</td><td>1970</td>
+      <td>'.$first_name.'</td><td>hans</td><td>Wanda</td><td>1970</td>
     </tr>
     <tr>
-      <td>Sally</td><td>17th</td><td>August</td><td>1973</td>
+      <td>'.$last_name.'</td><td>17th</td><td>August</td><td>1973</td>
     </tr>
     <tr>
     <td><img style="width:100px; height:100px;" src="https://pbs.twimg.com/profile_images/568078699996520448/XThN4wCd_400x400.png"/></td>
@@ -131,7 +128,7 @@ if (isset($_SESSION['id'])) {
 
         echo "<label>Formulier versie en opdrachtnummer</label>";
         echo "</br>";
-        echo "<select  name='form_id'>";
+        echo "<select  name='form_id' onchange='showForm(this.value)'>";
         echo "<option value=''></option>";
         foreach ($types as $type) {
             if ($type['form_id'] == $form_id) {
@@ -142,7 +139,9 @@ if (isset($_SESSION['id'])) {
             }
         }
         echo "</select>";
-        echo "</br>";
+
+        echo "<div id='showForm'></div>";
+
 
 
         $results = $conn->prepare("
@@ -166,7 +165,7 @@ if (isset($_SESSION['id'])) {
         }
         echo "</select>";
 
-        echo "<div id='txtHint'></div>";
+        echo "<div id='showUser'></div>";
 
 
         echo "<label>Type</label>";

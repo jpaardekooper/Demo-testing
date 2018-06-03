@@ -76,6 +76,12 @@ function requireLoggedIn() {
     }
 }
 
+function isActiveOnPage($page) {
+    if(strpos($_SERVER['PHP_SELF'], $page) !== FALSE)
+        return "class=active";
+    return "";
+}
+
 /*function show_not_found($error) {
     header("HTTP/1.1 404 Not found");
     show_simple_error($error);

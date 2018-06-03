@@ -76,6 +76,7 @@
     margin-top: 40vh;
 }
 /*///////////////////////////////////// hover effect navigation */
+
 a{
     color: #fff;
     text-decoration: none;
@@ -88,7 +89,9 @@ a:hover, a:focus {
 a:active, a:hover {
     outline: 0;
 }
-
+.active{
+    background-color: blue;
+}
 /*//////////////////////////////////// input effects */
 input[type=text], [type=password], [type=email] {
     width: 100%;

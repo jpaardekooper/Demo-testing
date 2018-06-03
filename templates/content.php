@@ -36,47 +36,69 @@ function getLoginHeader($description, $title = "Sqits login page")
 
 }
 
-function getSidebar(){
+function getSidebar()
+{
 
     ?>
-  <!--  opens dashboar panel but doesn't close it-->
+    <!--  opens dashboar panel but doesn't close it-->
     <div class="dashboard">
     <div class="left-panel">
         <div class="panel-name">
-            <a href="<?=getPathToRoot()."dashboard/index.php" ?>">dashboard</a>
-
-        </div>
-        <div class="panel-name">
-            <ul>
-                <li><a href="<?=getPathToRoot()."form/index.php" ?>">formulier</a></li>
-            </ul>
             <?php
-            if(isLoggedIn() && getUserRole() == 'admin'){
-                ?>
-                    <li> <a href="<?=getPathToRoot()."form/add.php" ?>"> . toevoegen</a></li>
-                <?php
+            switch (getUserRole()) {
+                case "user":
+                    echo "<li " .isActiveOnPage('/dashboard/index.php')."><a href='" . getPathToRoot() . "dashboard/index.php'>dashboard</a></li>";
+                    break;
+                case "admin":
+                    echo "<li " .isActiveOnPage('/dashboard/admin.php')."><a href='" . getPathToRoot() . "dashboard/admin.php'>admin -dashboard</a></li>";
+                    break;
             }
             ?>
         </div>
         <div class="panel-name">
-            <a href="<?=getPathToRoot()."update/index.php" ?>">update</a>
-        </div>
-        <div class="panel-name">
-            <a href="<?=getPathToRoot()."user/index.php" ?>">user info</a>
+                <li <?=isActiveOnPage("/form/index.php")?>><a href="<?= getPathToRoot() . "form/index.php" ?>">formulier</a></li>
+
+
             <?php
-            if(isLoggedIn() && getUserRole() == 'admin'){
+            switch (getUserRole()) {
+                case "admin":
+                    echo "<li " .isActiveOnPage('/form/add.php')."><a href='" . getPathToRoot() . "form/add.php'>form toevoegen</a></li>";
+                    break;
+            }
             ?>
-            <li> <a href="<?=getPathToRoot()."user/add.php" ?>"> . toevoegen</a></li>
-                <?php
-                }
-                ?>
+
         </div>
         <div class="panel-name">
-            <a href="<?=getPathToRoot()."system/logout.php" ?>">logout</a>
+             <li <?=isActiveOnPage("/update/index.php")?>><a href="<?= getPathToRoot() . "update/index.php" ?>">update</a></li>
+        </div>
+        <div class="panel-name">
+                <li <?=isActiveOnPage("/user/index.php")?>><a href="<?= getPathToRoot() . "user/index.php" ?>">user info</a></li>
+            <?php
+            switch (getUserRole()) {
+                case "admin":
+                    echo "<li " .isActiveOnPage('/user/add.php')."><a href='" . getPathToRoot() . "user/add.php'>gebruiker toevoegen</a></li>";
+                    break;
+            }
+            ?>
+        </div>
+        <div class="panel-name">
+            <a href="<?= getPathToRoot() . "system/logout.php" ?>">logout</a>
         </div>
 
     </div>
-<?php
+    <?php
+}
+
+
+function getTopPanel($panelDesctiption, $somethingTodO)
+{
+    ?>
+<header>
+        <?=$panelDesctiption?>
+        <?=$somethingTodO?>
+
+</header>
+    <?php
 }
 
 function getFooter()
@@ -92,13 +114,14 @@ function getFooter()
     echo $footer;
 }
 
-function getBreadCrumbs(){
-    $crumbs = explode("/",$_SERVER["REQUEST_URI"]);
-    echo"<ul>";
-    foreach($crumbs as $crumb){
+function getBreadCrumbs()
+{
+    $crumbs = explode("/", $_SERVER["REQUEST_URI"]);
+    echo "<ul>";
+    foreach ($crumbs as $crumb) {
 
-        echo "<li><a href=". ucfirst(str_replace(array("","Sqits-framework", "dashboard"),array(""," "),$crumb) . ' '). ">$crumb</a></li>";
+        echo "<li><a href=" . ucfirst(str_replace(array("", "Sqits-framework", "dashboard"), array("", " "), $crumb) . ' ') . ">$crumb</a></li>";
     }
-    echo"</ul>";
+    echo "</ul>";
 }
 
