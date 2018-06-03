@@ -8,7 +8,7 @@ include_once('../templates/content.php');
 getHeader("Sqits form-delete", "Form delete");
 
 	
-	getHeader("formuleir  Verwijderen", "Sqits - form Verwijderen");
+	getHeader("formulier  Verwijderen", "Sqits");
 	
 	$id = $_GET['id'];
     

@@ -59,9 +59,7 @@ function getSidebar()
             ?>
         </div>
         <div class="panel-name">
-            <li <?= isActiveOnPage("/form/index.php") ?>><a
-                        href="<?= getPathToRoot() . "form/index.php" ?>">formulier</a></li>
-
+            <li <?= isActiveOnPage("/form/index.php") ?>><a href="<?= getPathToRoot() . "form/index.php" ?>">formulier</a></li>
 
             <?php
             switch (getUserRole()) {
@@ -72,6 +70,18 @@ function getSidebar()
             ?>
 
         </div>
+
+        <?php
+        switch (getUserRole()) {
+            case "admin":
+                echo" <div class=\"panel-name\">";
+                echo "<li " . isActiveOnPage('/terms/index.php') . "><a href='" . getPathToRoot() . "terms/index.php'>terms overzicht</a></li>";
+                echo "<li " . isActiveOnPage('/terms/add.php') . "><a href='" . getPathToRoot() . "terms/add.php'>terms toevoegen</a></li>";
+                echo"</div>";
+                break;
+        }
+        ?>
+
         <div class="panel-name">
             <li <?= isActiveOnPage("/update/index.php") ?>><a href="<?= getPathToRoot() . "update/index.php" ?>">update</a> <span class="update">1</span></li>
 
@@ -95,7 +105,7 @@ function getSidebar()
             ?>
         </div>
         <div class="panel-name">
-            <a href="<?= getPathToRoot() . "system/logout.php" ?>">logout</a>
+            <li><a href="<?= getPathToRoot() . "system/logout.php" ?>">logout</a></li>
         </div>
 
     </div>
