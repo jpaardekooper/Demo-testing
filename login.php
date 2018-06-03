@@ -87,7 +87,7 @@ if (filter_has_var(INPUT_POST, 'submit')) {
                 }
                 exit();
             }
-         //   header("Refresh: 2; url=dashboard/index.php");
+            //   header("Refresh: 2; url=dashboard/index.php");
 
         }
     }

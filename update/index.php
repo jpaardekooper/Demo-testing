@@ -43,13 +43,6 @@ if ($_SESSION["id"]) {
                            
             ";
             try {
-                /*        $query = $conn->prepare("SELECT f.form_id =:form_id, com.company_id =:company_id, f.type =:type,
-                                                                      f.version=:version, f.task_nr=:task, f.description=:description,
-                                                                      f.signed_date=:signed_date, f.modified_date=:modified_date, f.created_date=:created_date
-                                                          FROM `form` as f
-                                                          INNER JOIN `company` as com ON com.company_id = f.company_id
-                                                         ");*/
-
                 $query = $conn->prepare("SELECT f.*, user.*, u.*
                                           FROM `update` as u
                                           INNER JOIN `user` as user ON user.user_id = u.user_id      

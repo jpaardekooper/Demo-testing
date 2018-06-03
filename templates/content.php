@@ -70,6 +70,14 @@ function getSidebar()
         </div>
         <div class="panel-name">
              <li <?=isActiveOnPage("/update/index.php")?>><a href="<?= getPathToRoot() . "update/index.php" ?>">update</a></li>
+
+             <?php
+            switch (getUserRole()) {
+                case "admin":
+                    echo "<li " .isActiveOnPage('/update/add.php')."><a href='" . getPathToRoot() . "update/add.php'>form toevoegen</a></li>";
+                    break;
+            }
+            ?>
         </div>
         <div class="panel-name">
                 <li <?=isActiveOnPage("/user/index.php")?>><a href="<?= getPathToRoot() . "user/index.php" ?>">user info</a></li>

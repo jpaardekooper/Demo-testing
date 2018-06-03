@@ -1,5 +1,6 @@
 .idea/
-**.idea/
+**.idea/*
+.idea/*
 
 .idea/Sqits-framework.iml
 .idea/misc.xml
