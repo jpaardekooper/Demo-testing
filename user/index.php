@@ -9,12 +9,11 @@ if ($_SESSION["id"]) {
     switch (getUserRole()) {
         case "user":
 
-            getHeader("Sqits", "user Dashboard");
+            getHeader("Sqits", "uw gegevens");
 
 
             echo '<div class="right-panel">';
-            echo getUserName();
-            echo "</div>";
+            getTopPanel("uw gegevens");
             echo "</div>";
 
 
@@ -24,7 +23,7 @@ if ($_SESSION["id"]) {
         case "admin":
 
 
-            getHeader("Sqits", "Admin Dashboard");
+            getHeader("Sqits", "overzicht klanten");
 
             try {
                 $query = $conn->prepare("SELECT u.*, p.*, c.*
@@ -45,7 +44,7 @@ if ($_SESSION["id"]) {
 
 
             echo '<div class="right-panel">';
-
+            getTopPanel("overzicht gebruikers");
 
             echo "<table  name=\"user_overview\"
             <tr>           

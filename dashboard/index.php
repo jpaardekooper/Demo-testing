@@ -13,17 +13,7 @@ if (isset($_SESSION['id'])) {
 ?>
 
         <div class="right-panel">
-            <?php getBreadCrumbs(); ?>
-
-
-            <header class="header">
-                <p>welkom: <?= getUserName(); ?></p>
-                <p>
-                    is user role: <?= $_SESSION['id']['role']; ?>
-                </p>
-
-                this is dashboard form USER
-            </header>
+            <?php getTopPanel() ?>
 
             <div class="content">
                 <?php

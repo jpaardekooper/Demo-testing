@@ -16,7 +16,8 @@ include_once('../templates/content.php');
 //}
 getHeader("Sqits form-update", "Form update");
 
-
+echo "<div class='right-panel'>";
+getTopPanel("Gegevens wijzigen");
 if ($_GET['action'] == "save") {
 
     try {
@@ -93,7 +94,7 @@ if ($_GET['action'] == "save") {
 
 
     echo "
-            <div class='right-panel'>
+            
             <form name=\"add\" action=\"?action=save&id=$user_id\" method=\"post\">
                 <table>                  
                      <tr>

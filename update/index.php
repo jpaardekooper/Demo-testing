@@ -30,18 +30,10 @@ if ($_SESSION["id"]) {
 
             getHeader("Sqits", "Admin update acceptance");
 
-            echo "     
-               <div class='right-panel'>
-                     <header>
-                         <p>welkom: " . getUserName() . "</p>
-                         <p>
-                             is user active: " . $_SESSION['id']['role'] . "
-                         </p>
-        
-                         this is update form
-                     </header>
-                           
-            ";
+            echo "<div class='right-panel'>";
+
+            getTopPanel("update overzicht") ;
+
             try {
                 $query = $conn->prepare("SELECT f.*, user.*, u.*
                                           FROM `update` as u

@@ -12,6 +12,8 @@ if (isset($_SESSION['id'])) {
 
     echo '<div class="right-panel">';
 
+    getTopPanel("overzicht formulier") ;
+
     try {
 /*        $query = $conn->prepare("SELECT f.form_id =:form_id, com.company_id =:company_id, f.type =:type,
                                                       f.version=:version, f.task_nr=:task, f.description=:description, 

@@ -14,6 +14,8 @@ if (isset($_SESSION['id'])) {
 
     echo '<div class="right-panel">';
 
+    getTopPanel("Update toevoegen") ;
+
     if (@$_GET['action'] == "save") {
         try {
 //http://php.net/manual/en/password.constants.php

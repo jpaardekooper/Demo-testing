@@ -14,6 +14,8 @@ if (isset($_SESSION['id'])) {
 
     echo '<div class="right-panel">';
 
+    getTopPanel("formulier toevoegen");
+
     if (@$_GET['action'] == "save") {
 
         try {
@@ -55,17 +57,7 @@ if (isset($_SESSION['id'])) {
     } else {
 
 
-        getBreadCrumbs()
-
         ?>
-        <header class="header">
-            <p>welkom: <?= getUserName(); ?></p>
-            <p>
-                is user role: <?= $_SESSION['id']['role']; ?>
-            </p>
-
-            Formulier toevoegen
-        </header>
 
 
         <?php
@@ -109,9 +101,7 @@ if (isset($_SESSION['id'])) {
         getFooter();
 
     }
-}
-
-else {
+} else {
     echo "please login first on login page";
     header("Refresh: 1; URL=\"../login.php\"");
     exit;

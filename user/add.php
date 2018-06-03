@@ -10,6 +10,8 @@ getHeader("Sqits form-add", "Form add");
 
 echo '  <div class="right-panel">';
 
+getTopPanel("gebruiker toevoegen");
+
 if (@$_GET['action'] == "save") {
 
 
@@ -42,31 +44,13 @@ if (@$_GET['action'] == "save") {
     }
 } else {
     ?>
-
-        <div class="right-panel">
-            <?php getBreadCrumbs(); ?>
-
-
-            <header class="header">
-                <p>welkom: <?= getUserName(); ?></p>
-                <p>
-                    is user role: <?= $_SESSION['id']['role'];; ?>
-                </p>
-
-                gebruiker toevoegen
-            </header>
-
             <div class="content">
                 <form name="add" action="?action=save" method="post">
-
-
                     <label>name</label> <input type="text" name="username" required>
                     <label>pass</label> <input type="text" name="password" required>
                     <label>active</label> <input type="active" name="active" required>
                     <label>bedrijfsnaam</label> <input type="active" name="company_name" required>
                     <label>rol</label> <input type="active" name="role" required>
-
-
                     <input type="reset" name="reset" value="Clear">
                     <input type="submit" name="submit" value="Opslaan">
 

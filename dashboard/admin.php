@@ -14,15 +14,7 @@ if (isset($_SESSION['id'])) {
 
 
         <div class="right-panel">
-            <?php getBreadCrumbs(); ?>
-
-
-            <header class="header">
-                <p>welkom: <?= getUserName(); ?></p>
-                <p>
-                    is user role: <?= htmlentities($_SESSION['id']['role']); ?>
-                </p>
-            </header>
+            <?php getTopPanel() ?>
 
 
                 <?php

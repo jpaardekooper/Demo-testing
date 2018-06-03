@@ -9,6 +9,7 @@ include_once('../templates/content.php');
 getHeader("Sqits form-update", "Form update");
 checkRole("admin");
 echo '<div class="right-panel">';
+getTopPanel("formulier wijzigen") ;
 if ($_GET['action'] == "save") {
 
     try {

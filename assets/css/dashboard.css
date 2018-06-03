@@ -4,26 +4,34 @@
     display:flex;
 
 }
-.header{
+header{
     border-bottom: 1px solid #42c0b3;
-    width: 90vw;
+    max-width: 100%;
+    padding: 20px;
+    background-color: #fff;
 }
 .left-panel{
     overflow-x: hidden;
-    width: 10vw;
-    background-color: #42c0b3;
+    width: 12vw;
+    background-color: #2b364a;
     color: #fff;
     min-height: 100vh;
-
     -moz-box-shadow: 2px 0 10px -1px #888;
     -webkit-box-shadow: 2px 0 10px -1px #888;
     box-shadow: 2px 0 10px -1px #888;
-
-
 }
+
+.panel-name{
+    width: 100%;
+}
+.panel-image {
+    max-width: 12vw;
+}
+
 .right-panel{
-    width: 90vw;
-    margin: 15px;
+    width: 88vw;
+    min-height: 100vh;
+    background-color: #ebf0f4;
 }
 
 .content{
