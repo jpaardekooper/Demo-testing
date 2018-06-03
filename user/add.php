@@ -19,19 +19,20 @@ if (@$_GET['action'] == "save") {
 
 //http://php.net/manual/en/password.constants.php
 
-        $sql = "INSERT INTO `user` (`username`, `password`, `last_visit`, `active`, `created_date`, `company_name`, `role`) VALUES (:username, :password, NOW(), :active, NOW(), :company_name, :role )";
+        $sql = "INSERT INTO `user` (`email`, `password`, `last_visit`, `active`, `created_date`, `company_id`, `role`) VALUES (:email, :password, NOW(), :active, NOW(), :company_id, :role )";
         $ophalen = $conn->prepare($sql);
         $ophalen->execute(array(
-            'username' => $_POST['username'],
+            'email' => $_POST['email'],
             'password' => password_hash($_POST['password'], PASSWORD_DEFAULT),
             'active' => $_POST['active'],
-            'company_name' => $_POST['company_name'],
+            'company_id' => $_POST['company_id'],
             'role' => $_POST['role']
 
         ));
 
 
         echo "De user is opgeslagen.";
+        header("Refresh: 1; URL=\"index.php\"");
 
     } catch (PDOException $e) {
         $sMsg = '<p>
@@ -46,11 +47,11 @@ if (@$_GET['action'] == "save") {
     ?>
             <div class="content">
                 <form name="add" action="?action=save" method="post">
-                    <label>name</label> <input type="text" name="username" required>
+                    <label>name</label> <input type="email" name="email" required>
                     <label>pass</label> <input type="text" name="password" required>
-                    <label>active</label> <input type="active" name="active" required>
-                    <label>bedrijfsnaam</label> <input type="active" name="company_name" required>
-                    <label>rol</label> <input type="active" name="role" required>
+                    <label>active</label> <input type="text" name="active" required>
+                    <label>bedrijfsnaam</label> <input type="text" name="company_id" required>
+                    <label>rol</label> <input type="text" name="role" required>
                     <input type="reset" name="reset" value="Clear">
                     <input type="submit" name="submit" value="Opslaan">
 

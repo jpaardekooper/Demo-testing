@@ -34,33 +34,39 @@ header{
     background-color: #ebf0f4;
 }
 .content{
-    display: flex;
     background-color: #fff;
     margin: 20px;
+    display: flex;
+    -moz-box-shadow: 0px 0px 2px 2px #15000014;
+    -webkit-box-shadow: 0px 0px 2px 2px #15000014;
+    box-shadow: 0px 0px 2px 2px #15000014;
+    border-radius: 10px;
 }
 .content-top{
-    padding:20px;
+    padding: 20px;
+    margin: 20px;
+    background-color: #fff;
+    justify-content: space-evenly;
+    display: flex;
+    -moz-box-shadow: 0px 0px 2px 2px #15000014;
+    -webkit-box-shadow: 0px 0px 2px 2px #15000014;
+    box-shadow: 0px 0px 2px 2px #15000014;
+    border-radius: 10px;
 }
 .content-left{
     padding:20px;
     width:50%;
     border-right: 1px solid #42c0b3;
-
 }
 .content-right{
     padding:20px;
     width: 50%;
+}
 
+.content-panel{
+    flex-direction: row;
 }
-.content{
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+
 .patch-version{
     font-size: 2em;
     text-align: center;

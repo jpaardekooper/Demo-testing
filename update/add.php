@@ -132,6 +132,7 @@ if (isset($_SESSION['id'])) {
         $types = $results->fetchAll();
         unset($result);
 
+        echo "<div class='content-panel'>";
         echo "<label>Formulier versie en opdrachtnummer</label>";
         echo "<select  name='form_id' onchange='showForm(this.value)'>";
         echo "<option value=''></option>";
@@ -144,6 +145,7 @@ if (isset($_SESSION['id'])) {
             }
         }
         echo "</select>";
+        echo "</div>";
         //****end
 
         //SQL FOR USER SELECTION
@@ -156,6 +158,7 @@ if (isset($_SESSION['id'])) {
         $types = $results->fetchAll();
         unset($result);
 
+        echo "<div class='content-panel'>";
         echo "<label>user informatie</label>";
         echo "<select  name='user_id'  onchange='showUser(this.value)'>";
         echo "<option value=''></option>";
@@ -167,19 +170,22 @@ if (isset($_SESSION['id'])) {
             }
         }
         echo "</select>";
+        echo "</div>";
         //**** end
 
-        echo "<label>Type</label>";
-        echo "<select name='type'>";
-        echo "<option value='mayor-update'>mayor-update</option>";
-        echo "<option value='bug-fix'>bug-fix</option>";
-        echo "</select>";
+        echo "<div class='content-panel'>";
+            echo "<label>Type</label>";
+                echo "<select name='type'>";
+                echo "<option value='mayor-update'>mayor-update</option>";
+                echo "<option value='bug-fix'>bug-fix</option>";
+            echo "</select>";
+        echo "</div>";
 
 
-        echo "<label>laatste datum</label>";
-        echo "<input type='date' name='end_date'>";
-
-
+        echo "<div class='content-panel'>";
+            echo "<label>laatste datum</label>";
+            echo "<input type='date' name='end_date'>";
+        echo "</div>";
 
 
         //closes content-top

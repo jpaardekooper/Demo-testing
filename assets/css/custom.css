@@ -108,7 +108,7 @@ a:active, a:hover {
 }
 
 /*//////////////////////////////////// input effects */
-input[type=text], [type=password], [type=email] {
+input[type=text], [type=password], [type=email], [type=date] {
     width: 100%;
     padding: 10px 15px;
     margin: 15px 0;
@@ -145,8 +145,35 @@ input[type=submit]:hover{
 }
 select{
     background-color: #42c0b3;
-    padding: 5px 10px;
+    padding: 10px 15px;
+    margin: 15px 0;
     min-width: 200px;
     color: #fff;
     font-size: 16px;
+}
+label{
+    display: block;
+}
+
+
+table {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table td, table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+table tr:nth-child(even){background-color: #f2f2f2;}
+
+table tr:hover {background-color: #ddd;}
+
+table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: #42c0b3;
+    color: #fff;
 }
