@@ -33,7 +33,15 @@ header{
     min-height: 100vh;
     background-color: #ebf0f4;
 }
-
+.content-top{
+    padding:20px;
+}
+.content-left{
+    padding:20px;
+}
+.content-right{
+    padding:20px;
+}
 .content{
     display: -webkit-box;
     display: -moz-box;

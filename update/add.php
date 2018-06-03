@@ -14,7 +14,7 @@ if (isset($_SESSION['id'])) {
 
     echo '<div class="right-panel">';
 
-    getTopPanel("Update toevoegen") ;
+    getTopPanel("Update toevoegen");
 
     if (@$_GET['action'] == "save") {
         try {
@@ -73,13 +73,13 @@ if (isset($_SESSION['id'])) {
   <p>Here are the  upcoming changes in August!</p>
   <table>
     <tr>
-      <th>'.$company_name.'</th><th>Day</th><th>Month</th><th>Year</th>
+      <th>' . $company_name . '</th><th>Day</th><th>Month</th><th>Year</th>
     </tr>
     <tr>
-      <td>'.$first_name.'</td><td>hans</td><td>Wanda</td><td>1970</td>
+      <td>' . $first_name . '</td><td>hans</td><td>Wanda</td><td>1970</td>
     </tr>
     <tr>
-      <td>'.$last_name.'</td><td>17th</td><td>August</td><td>1973</td>
+      <td>' . $last_name . '</td><td>17th</td><td>August</td><td>1973</td>
     </tr>
     <tr>
     <td><img style="width:100px; height:100px;" src="https://pbs.twimg.com/profile_images/568078699996520448/XThN4wCd_400x400.png"/></td>
@@ -100,7 +100,7 @@ if (isset($_SESSION['id'])) {
 
 // Mail it
 
-            $retval =  mail($to, $subject, $message, implode("\r\n", $headers));
+            $retval = mail($to, $subject, $message, implode("\r\n", $headers));
             if ($retval == true) {
                 echo "Message sent successfully...";
                 echo "Het formulier is opgeslagen en verzonden.";
@@ -121,6 +121,10 @@ if (isset($_SESSION['id'])) {
     } else {
         echo "<form name='preview' action=\"?action=save\" method='POST'>";
 
+        //opens conetent top
+        echo "<div class='content-top'>";
+
+        //SQL FOR FORM_ID SELECTION
         $results = $conn->prepare("
 						SELECT `form_id`, `version`, `task_nr` FROM `form` 
 						");
@@ -129,7 +133,6 @@ if (isset($_SESSION['id'])) {
         unset($result);
 
         echo "<label>Formulier versie en opdrachtnummer</label>";
-        echo "</br>";
         echo "<select  name='form_id' onchange='showForm(this.value)'>";
         echo "<option value=''></option>";
         foreach ($types as $type) {
@@ -141,11 +144,9 @@ if (isset($_SESSION['id'])) {
             }
         }
         echo "</select>";
+        //****end
 
-        echo "<div id='showForm'></div>";
-
-
-
+        //SQL FOR USER SELECTION
         $results = $conn->prepare("
 						SELECT u.*, com.* 
 						FROM `user` as u 
@@ -166,9 +167,7 @@ if (isset($_SESSION['id'])) {
             }
         }
         echo "</select>";
-
-        echo "<div id='showUser'></div>";
-
+        //**** end
 
         echo "<label>Type</label>";
         echo "<select name='type'>";
@@ -180,19 +179,31 @@ if (isset($_SESSION['id'])) {
         echo "<label>laatste datum</label>";
         echo "<input type='date' name='end_date'>";
 
+
+
+
+        //closes content-top
+        echo "</div>";
+
+        echo "<div class='content-left'>";
+            echo "<div id='showForm'></div>";
+        echo "</div>";
+
+        echo "<div class='content-right'>";
+            echo "<div id='showUser'></div>";
+        echo "</div>";
+
         echo "<input type=\"reset\" name=\"reset\" value=\"Clear\">
              <input type=\"submit\" name=\"submit\" value=\"Opslaan\">
          ";
-
-
         echo "</form>";
 
-
+//closes right-panel
         echo "</div>";
 
         getFooter();
     }
-}else {
+} else {
     echo "please login first on login page";
     header("Refresh: 1; URL=\"../login.php\"");
     exit;
