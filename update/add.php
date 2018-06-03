@@ -185,12 +185,14 @@ if (isset($_SESSION['id'])) {
         //closes content-top
         echo "</div>";
 
-        echo "<div class='content-left'>";
-            echo "<div id='showForm'></div>";
-        echo "</div>";
+        echo "<div class='content'>";
+            echo "<div class='content-left'>";
+                echo "<div id='showForm'></div>";
+            echo "</div>";
 
-        echo "<div class='content-right'>";
-            echo "<div id='showUser'></div>";
+            echo "<div class='content-right'>";
+                echo "<div id='showUser'></div>";
+            echo "</div>";
         echo "</div>";
 
         echo "<input type=\"reset\" name=\"reset\" value=\"Clear\">

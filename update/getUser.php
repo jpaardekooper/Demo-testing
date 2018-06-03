@@ -25,17 +25,7 @@ try {
     trigger_error($sMsg);
 }
 
-echo "<table>
-    <tr>
-        <th>Company_id</th>
-        <th>bedrijfsnaam</th>
-        <th>Firstname</th>     
-        <th>Lastname</th>
-        <th>zip_code</th>
-        <th>address</th>
-        <th>location</th>
-        <th>email</th>
-    </tr>";
+
 
 while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
     $company_id = $row['company_id'];
@@ -47,16 +37,24 @@ while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
     $location = $row['location'];
     $email = $row['email'];
 
-    echo "<tr>";
-    echo "<td>" . $row['company_id'] . "</td>";
-    echo "<td>" . $row['company_name'] . "</td>";
-    echo "<td>" . $row['first_name'] . "</td>";
-    echo "<td>" . $row['last_name'] . "</td>";
-    echo "<td>" . $row['zip_code'] . "</td>";
-    echo "<td>" . $row['address'] . "</td>";
-    echo "<td>" . $row['location'] . "</td>";
-    echo "<td>" . $row['email'] . "</td>";
-    echo "</tr>";
+ 
+    echo "<p>Bedrijfs ID</p>";
+    echo "<p>" . $row['company_id'] . "</p>";
+    echo "<p>Bedrijfs naam</p>";
+    echo "<p>" . $row['company_name'] . "</p>";
+    echo "<p>voornaam</p>";
+    echo "<p>" . $row['first_name'] . "</p>";
+    echo "<p>achternaam</p>";
+    echo "<p>" . $row['last_name'] . "</p>";
+    echo "<p>postcode</p>";
+    echo "<p>" . $row['zip_code'] . "</p>";
+    echo "<p>adres</p>";
+    echo "<p>" . $row['address'] . "</p>";
+    echo "<p>woonplaats</p>";
+    echo "<p>" . $row['location'] . "</p>";
+    echo "<p>bedrijfsmail</p>";
+    echo "<p>" . $row['email'] . "</p>";
+
 
 }
 echo "</table>";

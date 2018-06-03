@@ -24,21 +24,6 @@ try {
     trigger_error($sMsg);
 }
 
-echo "<table>
-    <tr>
-        <th>form_id</th>
-        <th>company_id</th>
-        <th>type</th>     
-        <th>task_nr</th>
-        <th>description</th>
-        <th>end_date</th>
-        <th>terms_id</th>
-        <th>accaptance</th>
-        <th>SLA</th>
-        <th>contact</th>
-        <th>signature</th>      
-        <th>image</th>      
-    </tr>";
 
 while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
     $form_id = $row['form_id'];
@@ -54,22 +39,32 @@ while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
     $signature = $row['signature'];
     $image = $row['image'];
 
-    echo "<tr>";
-    echo "<td>" . $row['form_id'] . "</td>";
-    echo "<td>" . $row['company_id'] . "</td>";
-    echo "<td>" . $row['type'] . "</td>";
-    echo "<td>" . $row['task_nr'] . "</td>";
-    echo "<td>" . $row['description'] . "</td>";
-    echo "<td>" . $row['end_date'] . "</td>";
-    echo "<td>" . $row['terms_id'] . "</td>";
-    echo "<td>" . $row['acceptance'] . "</td>";
-    echo "<td>" . $row['service_level_agreement'] . "</td>";
-    echo "<td>" . $row['contact'] . "</td>";
-    echo "<td>" . $row['signature'] . "</td>";
-    echo "<td>" . $row['image'] . "</td>";
-    echo "</tr>";
+
+    echo "<p>form ID</p>";
+    echo "<p>" . $row['form_id'] . "</p>";
+    echo "<p>Bedrijfs ID</p>";
+    echo "<p>" . $row['company_id'] . "</p>";
+    echo "<p>Type</p>";
+    echo "<p>" . $row['type'] . "</p>";
+    echo "<p>opdrachtgever:</p>";
+    echo "<p>" . $row['task_nr'] . "</p>";
+    echo "<p>beschrijving</p>";
+    echo "<p>" . $row['description'] . "</p>";
+    echo "<p>einddatum</p>";
+    echo "<p>" . $row['end_date'] . "</p>";
+    echo "<p>Terms ID</p>";
+    echo "<p>" . $row['terms_id'] . "</p>";
+    echo "<p>acceptance</p>";
+    echo "<p>" . $row['acceptance'] . "</p>";
+    echo "<p>SLA</p>";
+    echo "<p>" . $row['service_level_agreement'] . "</p>";
+    echo "<p>Contact</p>";
+    echo "<p>" . $row['signature'] . "</p>";
+    echo "<p>Ondertekening</p>";
+    echo "<p>" . $row['image'] . "</p>";
+
 
 }
-echo "</table>";
+
 
 getFooter();

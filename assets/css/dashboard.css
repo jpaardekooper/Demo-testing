@@ -33,14 +33,24 @@ header{
     min-height: 100vh;
     background-color: #ebf0f4;
 }
+.content{
+    display: flex;
+    background-color: #fff;
+    margin: 20px;
+}
 .content-top{
     padding:20px;
 }
 .content-left{
     padding:20px;
+    width:50%;
+    border-right: 1px solid #42c0b3;
+
 }
 .content-right{
     padding:20px;
+    width: 50%;
+
 }
 .content{
     display: -webkit-box;
