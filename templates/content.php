@@ -59,7 +59,8 @@ function getSidebar()
             ?>
         </div>
         <div class="panel-name">
-            <li <?= isActiveOnPage("/form/index.php") ?>><a href="<?= getPathToRoot() . "form/index.php" ?>">formulier</a></li>
+            <li <?= isActiveOnPage("/form/index.php") ?>><a
+                        href="<?= getPathToRoot() . "form/index.php" ?>">formulier</a></li>
 
             <?php
             switch (getUserRole()) {
@@ -74,16 +75,17 @@ function getSidebar()
         <?php
         switch (getUserRole()) {
             case "admin":
-                echo" <div class=\"panel-name\">";
+                echo " <div class=\"panel-name\">";
                 echo "<li " . isActiveOnPage('/terms/index.php') . "><a href='" . getPathToRoot() . "terms/index.php'>terms overzicht</a></li>";
                 echo "<li " . isActiveOnPage('/terms/add.php') . "><a href='" . getPathToRoot() . "terms/add.php'>terms toevoegen</a></li>";
-                echo"</div>";
+                echo "</div>";
                 break;
         }
         ?>
 
         <div class="panel-name">
-            <li <?= isActiveOnPage("/update/index.php") ?>><a href="<?= getPathToRoot() . "update/index.php" ?>">update</a> <span class="update">1</span></li>
+            <li <?= isActiveOnPage("/update/index.php") ?>><a
+                        href="<?= getPathToRoot() . "update/index.php" ?>">update</a> <span class="update">1</span></li>
 
             <?php
             switch (getUserRole()) {
@@ -117,9 +119,18 @@ function getTopPanel($panelDescription = "dashboard")
 {
     $topPanel = "
                 <header>
-                    <div class='topPanel'>
-                            ". $_SESSION['id']['email'] ."                        
-                            ". $panelDescription ."                        
+                    <div class='top-panel'>                    
+                              <div class='top-panel-item'>                       
+                            " . $panelDescription . "  
+                               </div>
+                               
+                            <div class='top-panel-item'>
+                                " . $_SESSION['id']['email'] . " 
+                                </div>
+                         
+                               <div class='top-panel-item'>
+                            <a href='" . getPathToRoot() . "system/logout.php'>Uitloggen</a>             
+                               </div>        
                     </div>
                 </header>
 ";

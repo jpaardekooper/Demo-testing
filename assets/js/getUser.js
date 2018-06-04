@@ -13,6 +13,7 @@ function showUser(str) {
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 document.getElementById("showUser").innerHTML = this.responseText;
+
             }
         };
         xmlhttp.open("GET","getUser.php?u="+str,true);

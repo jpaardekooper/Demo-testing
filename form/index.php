@@ -41,13 +41,14 @@ if (isset($_SESSION['id'])) {
 
     echo "<table name='form_overview'
             <tr>
-            <td>form_id</td>         
-            <td>company_id</td>      
-            <td>type</td>
-            <td>version</td>
-            <td>description</td>
-            <td>status</td>
-            <td>created_date</td>
+            <th>form_id</th>         
+            <th>company_id</th>      
+            <th>type</th>
+            <th>version</th>
+            <th>description</th>
+            <th>status</th>
+            <th>created_date</th>
+            <th>acties</th>
             </tr>";
 
 

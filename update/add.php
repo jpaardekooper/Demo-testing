@@ -134,7 +134,7 @@ if (isset($_SESSION['id'])) {
 
         echo "<div class='content-panel'>";
         echo "<label>Formulier versie en opdrachtnummer</label>";
-        echo "<select  name='form_id' onchange='showForm(this.value)'>";
+        echo "<select  name='form_id' id='selectid' onchange='showForm(this.value)'>";
         echo "<option value=''></option>";
         foreach ($types as $type) {
             if ($type['form_id'] == $form_id) {

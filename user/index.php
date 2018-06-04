@@ -48,14 +48,15 @@ if ($_SESSION["id"]) {
 
             echo "<table  name=\"user_overview\"
             <tr>           
-            <td>bedrijfsnaam</td>
-            <td>Email: </td>
-            <td>voornaam</td>
-            <td>achternaam</td>           
-            <td>phone</td>
-            <td>active</td>
-            <td>last_visit</td>
-            <td>created_date</td>
+            <th>bedrijfsnaam</th>
+            <th>Email: </th>
+            <th>voornaam</th>
+            <th>achternaam</th>           
+            <th>phone</th>
+            <th>active</th>
+            <th>last_visit</th>
+            <th>created_date</th>
+            <th>acties</th>
       
             </tr>";
 
