@@ -6,12 +6,7 @@ require_once('../templates/content.php');
 
 checkRole('admin');
 
-getHeader("Sqits form-add", "Form add");
 
-echo '  <div class="content-wrapper">';
-echo '  <div class="container-fluid">';
-
-getTopPanel("gebruiker toevoegen");
 
 if (@$_GET['action'] == "save") {
 
@@ -33,7 +28,7 @@ if (@$_GET['action'] == "save") {
 
 
         echo "De user is opgeslagen.";
-        header("Refresh: 1; URL=\"index.php\"");
+        header("Refresh: 1; URL=index.php");
 
     } catch (PDOException $e) {
         $sMsg = '<p>
@@ -45,6 +40,13 @@ if (@$_GET['action'] == "save") {
         trigger_error($sMsg);
     }
 } else {
+    getHeader("Sqits form-add", "Form add");
+
+    echo '  <div class="content-wrapper">';
+    echo '  <div class="container-fluid">';
+
+    getTopPanel("gebruiker toevoegen");
+
     ?>
     <div class="content">
         <form name="add" action="?action=save" method="post">

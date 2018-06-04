@@ -10,12 +10,7 @@ if (isset($_SESSION['id'])) {
 
     checkRole('admin');
 
-    getHeader("Sqits form-add", "Form add");
 
-    echo '<div class="content-wrapper">';
-    echo '<div class="container-fluid">';
-
-    getTopPanel("formulier toevoegen");
 
     if (@$_GET['action'] == "save") {
 
@@ -57,6 +52,12 @@ if (isset($_SESSION['id'])) {
         }
     } else {
 
+        getHeader("Sqits form-add", "Form add");
+
+        echo '<div class="content-wrapper">';
+        echo '<div class="container-fluid">';
+
+        getTopPanel("formulier toevoegen");
 
         ?>
 

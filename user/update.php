@@ -7,12 +7,7 @@ include_once('../system/config.php');
 include_once('../templates/content.php');
 
 
-getHeader("Sqits form-update", "Form update");
 
-echo "<div class='content-wrapper'>";
-echo "<div class='container-fluid'>";
-getBreadCrumbs();
-getTopPanel("Gegevens wijzigen");
 if ($_GET['action'] == "save") {
 
     try {
@@ -39,7 +34,10 @@ if ($_GET['action'] == "save") {
             'last_name' => $_POST['last_name'],
         ));
 
+
         echo "wijzigingen zijn opgeslagen.";
+
+        header("Refresh: 1; URL=index.php");
 
     } catch (PDOException $e) {
         $sMsg = '<p>
@@ -51,7 +49,12 @@ if ($_GET['action'] == "save") {
         trigger_error($sMsg);
     }
 } else {
+    getHeader("Sqits form-update", "Form update");
 
+    echo "<div class='content-wrapper'>";
+    echo "<div class='container-fluid'>";
+    getBreadCrumbs();
+    getTopPanel("Gegevens wijzigen");
 
     try {
         $query = $conn->prepare("
@@ -84,7 +87,7 @@ if ($_GET['action'] == "save") {
         $active = $row['active'];
         $password = $row['password'];
     }
-
+    getFooter();
 
     echo "
             
@@ -125,7 +128,8 @@ if ($_GET['action'] == "save") {
                 </table>
             </form>
             </div>      
+            </div>      
             ";
 }
-getFooter();
+
 ?>

@@ -97,7 +97,7 @@ if ($_SESSION["id"]) {
                 $status = $row['status'];
                 $created_date = $row['created_date'];
 
-                if(strlen($description) > 20) $description = substr($description, 0, 20).'...';
+                if (strlen($description) > 20) $description = substr($description, 0, 20) . '...';
 
                 echo "<tr>
                 <td>$form_id</td>
@@ -118,7 +118,6 @@ if ($_SESSION["id"]) {
         </div>       
       </div>
     </div>";
-
 
             getFooter();
             break;

@@ -10,13 +10,6 @@ if (isset($_SESSION['id'])) {
 
     checkRole('admin');
 
-    getHeader("Sqits form-add", "Form add");
-
-    echo '<div class="content-wrapper">';
-    echo '<div class="container-fluid">';
-    getBreadCrumbs();
-    getTopPanel("formulier toevoegen");
-
     if (@$_GET['action'] == "save") {
 
         try {
@@ -33,18 +26,18 @@ if (isset($_SESSION['id'])) {
                 'task_nr' => $_POST['task_nr'],
                 'description' => $_POST['description'],
                 'status' => $_POST['status'],
-                'end_date' => $_POST['end_date'],
-
-
+                'end_date' => $_POST['end_date']
             ));
 
             echo "<div class='loading-screen'>
                     <img class='loading' src='" . getAssetsDirectory() . "image/loading.gif'/>
             </div>";
 
+
             echo "het formulier is opgeslagen.";
 
-            header("Refresh: 1; url=index.php");
+            header("Refresh: 1; URL=index.php");
+
 
         } catch (PDOException $e) {
             $sMsg = '<p>
@@ -57,11 +50,19 @@ if (isset($_SESSION['id'])) {
         }
     } else {
 
+        getHeader("Sqits form-add", "Form add");
+
+        echo '<div class="content-wrapper">';
+        echo '<div class="container-fluid">';
+        getBreadCrumbs();
+        getTopPanel("formulier toevoegen");
 
         ?>
 
 
         <?php
+        getEditor();
+
         echo "
           	<form name=\"add\" action=\"?action=save\" method=\"post\">
                 <table>             
@@ -73,9 +74,9 @@ if (isset($_SESSION['id'])) {
                         <tr>versie</tr>
                         <tr><input type=\"number\" name=\"version\" required> </tr> <br/>
                         <tr>opdrachtnummer</tr> <br/>
-                        <tr><input type=\"text\" name=\"task_nr\" required> </tr> <br/>
-                        <tr>beschrijving</tr> <br/>
-                        <tr><textarea rows=\"4\" cols=\"50\" type='text' name=\"description\" required> </textarea></tr>  <br/>
+                        <tr><input type=\"text\" name=\"task_nr\" required> </tr> <br/>                  
+                        <tr>beschrijving</tr> <br/>     
+                        <tr><textarea  rows=\"4\" cols=\"50\" type='text' name=\"description\" > </textarea></tr>  <br/>
                         <tr>status</tr> <br/>
                         <tr>
                         <select name='status'>                      
@@ -99,8 +100,8 @@ if (isset($_SESSION['id'])) {
           
             ";
 
-        echo"</div>";
-        echo"</div>";
+        echo "</div>";
+        echo "</div>";
 
         getFooter();
 

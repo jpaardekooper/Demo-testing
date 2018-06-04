@@ -12,11 +12,6 @@ if (isset($_SESSION['id'])) {
     checkRole('admin');
 
 
-    echo '<div class="content-wrapper">';
-    echo '<div class="container-fluid">';
-    getBreadCrumbs();
-
-    getTopPanel("Update toevoegen");
 
 
     if (@$_GET['action'] == "save") {
@@ -107,6 +102,7 @@ if (isset($_SESSION['id'])) {
             if ($retval == true) {
                 echo "Message sent successfully...";
                 echo "Het formulier is opgeslagen en verzonden.";
+                header("Refresh: 1; URL=index.php");
             } else {
                 echo "Message could not be sent...";
             }
@@ -122,6 +118,14 @@ if (isset($_SESSION['id'])) {
             trigger_error($sMsg);
         }
     } else {
+
+
+        echo '<div class="content-wrapper">';
+        echo '<div class="container-fluid">';
+        getBreadCrumbs();
+
+        getTopPanel("Update toevoegen");
+
         echo "<form name='preview' action=\"?action=save\" method='POST'>";
 
         //opens conetent top

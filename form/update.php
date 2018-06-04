@@ -6,12 +6,9 @@ include_once('../system/config.php');
 
 include_once('../templates/content.php');
 
-getHeader("Sqits form-update", "Form update");
+
 checkRole("admin");
-echo '<div class="content-wrapper">';
-echo '<div class="container-fluid">';
-getBreadCrumbs();
-getTopPanel("formulier wijzigen") ;
+
 if ($_GET['action'] == "save") {
 
     try {
@@ -48,8 +45,12 @@ if ($_GET['action'] == "save") {
 
 
         ));
-        
-        echo "wijzigingen zijn opgeslagen.";
+
+
+        echo "wijzigingen zijn opgeslagen a.";
+
+        header("Refresh: 1; URL=index.php");
+
     } catch (PDOException $e) {
         $sMsg = '<p>
                     Line Number: ' . $e->getLine() . '<br />
@@ -60,7 +61,11 @@ if ($_GET['action'] == "save") {
         trigger_error($sMsg);
     }
 } else {
-
+    getHeader("Sqits form-update", "Form update");
+    echo '<div class="content-wrapper">';
+    echo '<div class="container-fluid">';
+    getBreadCrumbs();
+    getTopPanel("formulier wijzigen") ;
 
     try {
         $query = $conn->prepare("
