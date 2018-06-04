@@ -70,28 +70,29 @@ function getSidebar()
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
                     <?php
                     switch (getUserRole()) {
                         case "user":
-                            echo "<li " . isActiveOnPage('/dashboard/index.php') . "><a class=\"nav-link\" href='" . getPathToRoot() . "dashboard/index.php'>
+                            echo "<li class=\"nav-item " . isActiveOnPage('/dashboard/index.php') . "\" data-toggle=\"tooltip\" data-placement=\"right\" title=\"Dashboard\">
+                            <a class=\"nav-link\" href='" . getPathToRoot() . "dashboard/index.php'>
                          <i class=\"fa fa-fw fa-dashboard\"></i>
-                        <span class=\"nav-link-text\">Dashboard</span></a>";
+                        <span class=\"nav-link-text\">Dashboard</span></a></li>";
                             break;
                         case "admin":
-                            echo "<li " . isActiveOnPage('/dashboard/admin.php') . "><a class=\"nav-link\" href='" . getPathToRoot() . "dashboard/admin.php'>
+                            echo "<li  class=\"nav-item " . isActiveOnPage('/dashboard/admin.php') . "\" data-toggle=\"tooltip\" data-placement=\"right\" title=\"Dashboard\">
+                            <a class=\"nav-link\" href='" . getPathToRoot() . "dashboard/admin.php'>
                          <i class=\"fa fa-fw fa-dashboard\"></i>
-                        <span class=\"nav-link-text\">Dashboard Admin</span></a>";
+                        <span class=\"nav-link-text\">Dashboard Admin</span></a></li>";
                             break;
                     }
                     ?>
-                </li>
+
 
                 <?php
                 switch (getUserRole()) {
                     case "user":
-                        echo "<li " . isActiveOnPage('/dashboard/admin.php') . " class=\"nav-item\" data-toggle=\"tooltip\" data-placement=\"right\" title=\"Charts\" " . isActiveOnPage('/dashboard/index.php') . ">
-                        <a  class=\"nav-link\" href='" . getPathToRoot() . "dashboard/index.php'>                        
+                        echo "<li class=\"nav-item  " . isActiveOnPage('/update/index.php') . "\" data-toggle=\"tooltip\" data-placement=\"right\" title=\"Charts\" " . isActiveOnPage('/update/index.php') . ">
+                        <a  class=\"nav-link\" href='" . getPathToRoot() . "update/index.php'>                        
                              <i class=\"fa fa-fw fa-area-chart\"></i>
                              <span class=\"nav-link-text\">Update geschiedenis</span>
                         </a>
@@ -100,7 +101,7 @@ function getSidebar()
                         break;
                     case "admin":
                         echo "
-                         <li class=\"nav-item\" data-toggle=\"tooltip\" data-placement=\"right\" title=\"Components\">
+                         <li class=\"nav-item  " . isActiveOnPage('/update/index.php') . " " . isActiveOnPage('/update/add.php') . " \" data-toggle=\"tooltip\" data-placement=\"right\" title=\"Components\">
                             <a class=\"nav-link nav-link-collapse collapsed\" data-toggle=\"collapse\" href=\"#collapseUpdate\"
                                data-parent=\"#exampleAccordion\">
                                 <i class=\"fa fa-fw fa-wrench\"></i>
@@ -121,7 +122,7 @@ function getSidebar()
 
                 switch (getUserRole()) {
                     case "user":
-                        echo "<li " . isActiveOnPage('/dashboard/admin.php') . " class=\"nav-item\" data-toggle=\"tooltip\" data-placement=\"right\" title=\"user\" " . isActiveOnPage('/user/index.php') . ">
+                        echo "<li  class=\"nav-item " . isActiveOnPage('/user/index.php') . "\" data-toggle=\"tooltip\" data-placement=\"right\" title=\"user\" " . isActiveOnPage('/user/index.php') . ">
                         <a  class=\"nav-link\" href='" . getPathToRoot() . "user/index.php'>                        
                              <i class=\"fa fa-fw fa-area-chart\"></i>
                              <span class=\"nav-link-text\">Wijzig gegevens</span>
@@ -131,7 +132,7 @@ function getSidebar()
                         break;
                     case "admin":
                         echo "
-                         <li class=\"nav-item\" data-toggle=\"tooltip\" data-placement=\"right\" title=\"Users\">
+                         <li class=\"nav-item  " . isActiveOnPage('/user/index.php') . " " . isActiveOnPage('/user/add.php') . " \" data-toggle=\"tooltip\" data-placement=\"right\" title=\"Users\">
                             <a class=\"nav-link nav-link-collapse collapsed\" data-toggle=\"collapse\" href=\"#collapseUsers\"
                                data-parent=\"#exampleAccordion\">
                                 <i class=\"fa fa-fw fa-wrench\"></i>
@@ -155,7 +156,7 @@ function getSidebar()
 
                     case "admin":
                         echo "
-                            <li class=\"nav-item\" data-toggle=\"tooltip\" data-placement=\"right\" title=\"Formulieren\">
+                            <li class=\"nav-item " . isActiveOnPage('/form/index.php') . " " . isActiveOnPage('/form/add.php') . " \" data-toggle=\"tooltip\" data-placement=\"right\" title=\"Formulieren\">
                                 <a class=\"nav-link nav-link-collapse collapsed\" data-toggle=\"collapse\" href=\"#collapseForms\"
                                 data-parent=\"#exampleAccordion\">
                                 <i class=\"fa fa-fw fa-wrench\"></i>
@@ -176,7 +177,7 @@ function getSidebar()
                 switch (getUserRole()) {
 
                     case "admin":
-                        echo "<li class=\"nav-item\" data-toggle=\"tooltip\" data-placement=\"right\" title=\"Formulieren\">
+                        echo "<li class=\"nav-item  " . isActiveOnPage('/terms/index.php') . " " . isActiveOnPage('/terms/add.php') . " \" data-toggle=\"tooltip\" data-placement=\"right\" title=\"Formulieren\">
                                 <a class=\"nav-link nav-link-collapse collapsed\" data-toggle=\"collapse\" href=\"#collapseTerms\"
                                 data-parent=\"#exampleAccordion\">
                                 <i class=\"fa fa-fw fa-wrench\"></i>

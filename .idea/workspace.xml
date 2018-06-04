@@ -3,15 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="65296dc2-51e0-4307-a418-c28c8ac91bbb" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/assets/css/customize.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/customize.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/form/add.php" beforeDir="false" afterPath="$PROJECT_DIR$/form/add.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/form/update.php" beforeDir="false" afterPath="$PROJECT_DIR$/form/update.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/terms/add.php" beforeDir="false" afterPath="$PROJECT_DIR$/terms/add.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/terms/update.php" beforeDir="false" afterPath="$PROJECT_DIR$/terms/update.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/update/add.php" beforeDir="false" afterPath="$PROJECT_DIR$/update/add.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/update/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/update/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/update/update.php" beforeDir="false" afterPath="$PROJECT_DIR$/update/update.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/add.php" beforeDir="false" afterPath="$PROJECT_DIR$/user/add.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/update.php" beforeDir="false" afterPath="$PROJECT_DIR$/user/update.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/system/function.php" beforeDir="false" afterPath="$PROJECT_DIR$/system/function.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/content.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/content.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -27,15 +20,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="459">
               <caret line="106" column="52" lean-forward="true" selection-start-line="106" selection-start-column="52" selection-end-line="106" selection-end-column="52" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="add.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/user/add.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="30" column="44" selection-start-line="30" selection-start-column="44" selection-end-line="30" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -58,7 +42,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="add.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="add.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/form/add.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="323">
@@ -72,6 +56,15 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="748">
               <caret line="59" column="43" selection-start-line="59" selection-start-column="43" selection-end-line="59" selection-end-column="43" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="content.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/content.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="433">
+              <caret line="158" column="91" selection-start-line="158" selection-start-column="91" selection-end-line="158" selection-end-column="91" />
             </state>
           </provider>
         </entry>
@@ -97,8 +90,8 @@
       <file leaf-file-name="customize.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/css/customize.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" selection-start-line="13" selection-end-line="13" />
+            <state relative-caret-position="136">
+              <caret line="8" selection-start-line="8" selection-end-line="8" />
             </state>
           </provider>
         </entry>
@@ -106,8 +99,8 @@
       <file leaf-file-name="function.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/system/function.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="689">
-              <caret line="82" column="1" selection-start-line="82" selection-start-column="1" selection-end-line="82" selection-end-column="1" />
+            <state relative-caret-position="655">
+              <caret line="80" column="16" selection-start-line="80" selection-start-column="16" selection-end-line="80" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -136,8 +129,17 @@
       <replace>t.id</replace>
     </replaceStrings>
   </component>
+  <component name="FrameworkCommandLineHistory">
+    <commandsHistory>
+      <command text="find . -name '*.php' | xargs wc -l" />
+      <command text="find .  '*.php' | xargs wc -l" />
+    </commandsHistory>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Dummy.txt" root0="SKIP_INSPECTION" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -162,7 +164,6 @@
         <option value="$PROJECT_DIR$/form/index.php" />
         <option value="$PROJECT_DIR$/terms/delete.php" />
         <option value="$PROJECT_DIR$/terms/index.php" />
-        <option value="$PROJECT_DIR$/templates/content.php" />
         <option value="$PROJECT_DIR$/update/index.php" />
         <option value="$PROJECT_DIR$/user/update.php" />
         <option value="$PROJECT_DIR$/terms/add.php" />
@@ -171,10 +172,11 @@
         <option value="$PROJECT_DIR$/update/add.php" />
         <option value="$PROJECT_DIR$/terms/update.php" />
         <option value="$PROJECT_DIR$/assets/js/validate.js" />
-        <option value="$PROJECT_DIR$/assets/css/customize.css" />
-        <option value="$PROJECT_DIR$/system/function.php" />
         <option value="$PROJECT_DIR$/form/update.php" />
         <option value="$PROJECT_DIR$/form/add.php" />
+        <option value="$PROJECT_DIR$/assets/css/customize.css" />
+        <option value="$PROJECT_DIR$/system/function.php" />
+        <option value="$PROJECT_DIR$/templates/content.php" />
       </list>
     </option>
   </component>
@@ -347,7 +349,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43466000" />
+    <option name="totallyTimeSpent" value="45007000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -355,6 +357,7 @@
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Command Line Tools Console" weight="0.32943678" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -599,13 +602,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/content.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="241" column="9" selection-start-line="241" selection-start-column="9" selection-end-line="241" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/user/update.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="646">
@@ -655,20 +651,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/customize.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/system/function.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="689">
-          <caret line="82" column="1" selection-start-line="82" selection-start-column="1" selection-end-line="82" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/form/update.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
@@ -680,6 +662,27 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="76" column="87" selection-start-line="76" selection-start-column="87" selection-end-line="76" selection-end-column="87" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/customize.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/system/function.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="655">
+          <caret line="80" column="16" selection-start-line="80" selection-start-column="16" selection-end-line="80" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/content.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="433">
+          <caret line="158" column="91" selection-start-line="158" selection-start-column="91" selection-end-line="158" selection-end-column="91" />
         </state>
       </provider>
     </entry>

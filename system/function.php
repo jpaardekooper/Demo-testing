@@ -78,7 +78,7 @@ function requireLoggedIn() {
 
 function isActiveOnPage($page) {
     if(strpos($_SERVER['PHP_SELF'], $page) !== FALSE)
-        return "class=active";
+        return "active";
     return "";
 }
 

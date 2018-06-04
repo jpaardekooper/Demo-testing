@@ -61,7 +61,6 @@ if (isset($_SESSION['id'])) {
 
 
         <?php
-        getEditor();
 
         echo "
           	<form name=\"add\" action=\"?action=save\" method=\"post\">
