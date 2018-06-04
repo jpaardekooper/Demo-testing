@@ -7,10 +7,6 @@ include_once('../templates/content.php');
 
 getHeader("Sqits form-delete", "Form delete");
 
-	
-	getHeader("formulier  Verwijderen", "Sqits");
-	
-	$id = $_GET['id'];
     
 	if(@$_GET['action'] == "delete")
 	{	
@@ -18,9 +14,12 @@ getHeader("Sqits form-delete", "Form delete");
         try
         {
             $query=$conn->prepare("
-                        DELETE FROM `user` WHERE `user_id` = '$id';");
-            $query->execute();
+                        DELETE FROM `terms` WHERE `terms_id` = :terms_id;");
+            $query->execute(array(
+                'terms_id' =>$_GET['id']
+            ));
             header('Location: index.php');
+            echo "succesvol verwijderd";
         }
         catch(PDOException $e)
         {

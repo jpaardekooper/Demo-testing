@@ -6,17 +6,12 @@ include_once('../system/config.php');
 
 include_once('../templates/content.php');
 
-//$uid = filter_input(INPUT_GET, "user_id", FILTER_VALIDATE_INT);
-//
-//if (empty($uid)){
-//    show_not_found("Gebruiker niet gevonden");
-//}
-//else{
-//
-//}
+
 getHeader("Sqits form-update", "Form update");
 
-echo "<div class='right-panel'>";
+echo "<div class='content-wrapper'>";
+echo "<div class='container-fluid'>";
+getBreadCrumbs();
 getTopPanel("Gegevens wijzigen");
 if ($_GET['action'] == "save") {
 
@@ -88,8 +83,6 @@ if ($_GET['action'] == "save") {
         $email = $row['email'];
         $active = $row['active'];
         $password = $row['password'];
-
-
     }
 
 

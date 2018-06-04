@@ -5,6 +5,8 @@ include_once('../system/config.php');
 
 include_once('../templates/content.php');
 
+checkRole("admin");
+
 getHeader("Sqits form-delete", "Form delete");
 
 

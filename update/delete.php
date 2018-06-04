@@ -7,6 +7,7 @@ include_once('../templates/content.php');
 
 getHeader("Sqits form-delete", "Form delete");
 
+checkRole("admin");
 
 //	$id = $_GET['id'];
 //	$_SESSION['id']['user_id'];

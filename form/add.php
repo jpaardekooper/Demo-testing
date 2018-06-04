@@ -12,8 +12,9 @@ if (isset($_SESSION['id'])) {
 
     getHeader("Sqits form-add", "Form add");
 
-    echo '<div class="right-panel">';
-
+    echo '<div class="content-wrapper">';
+    echo '<div class="container-fluid">';
+    getBreadCrumbs();
     getTopPanel("formulier toevoegen");
 
     if (@$_GET['action'] == "save") {
@@ -97,6 +98,9 @@ if (isset($_SESSION['id'])) {
             </form>          
           
             ";
+
+        echo"</div>";
+        echo"</div>";
 
         getFooter();
 

@@ -4,6 +4,7 @@ require_once('../system/config.php');
 
 require_once('../templates/content.php');
 
+checkRole("admin");
 
 
 try {

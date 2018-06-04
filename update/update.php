@@ -8,6 +8,13 @@ include_once('../templates/content.php');
 
 getHeader("Sqits form-update", "Form update");
 
+checkRole("admin");
+
+
+echo "<div class='content-wrapper'>";
+echo "<div class='container-fluid'>";
+getBreadCrumbs();
+getTopPanel("Update wijzigen") ;
 if ($_GET['action'] == "save") {
 
     try {
@@ -59,9 +66,6 @@ if ($_GET['action'] == "save") {
     }
 
 
-    echo "<div class='right-panel'>";
-
-    getTopPanel("Update wijzigen") ;
 
     echo "
             <form name=\"add\" action=\"?action=save&id=$user_id\" method=\"post\">
@@ -88,6 +92,7 @@ if ($_GET['action'] == "save") {
                     </tr>					
                 </table>
             </form>
+            </div>
             </div>
             ";
 }

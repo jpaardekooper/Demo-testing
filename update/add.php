@@ -12,9 +12,12 @@ if (isset($_SESSION['id'])) {
     checkRole('admin');
 
 
-    echo '<div class="right-panel">';
+    echo '<div class="content-wrapper">';
+    echo '<div class="container-fluid">';
+    getBreadCrumbs();
 
     getTopPanel("Update toevoegen");
+
 
     if (@$_GET['action'] == "save") {
         try {
@@ -207,6 +210,7 @@ if (isset($_SESSION['id'])) {
         echo "</form>";
 
 //closes right-panel
+        echo "</div>";
         echo "</div>";
 
         getFooter();

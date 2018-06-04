@@ -12,8 +12,11 @@ if ($_SESSION["id"]) {
             getHeader("Sqits", "uw gegevens");
 
 
-            echo '<div class="right-panel">';
+            echo '<div class="content-wrapper">';
+            echo '<div class="container-fluid">';
+            getBreadCrumbs();
             getTopPanel("uw gegevens");
+            echo "</div>";
             echo "</div>";
 
 
@@ -21,9 +24,6 @@ if ($_SESSION["id"]) {
             break;
 
         case "admin":
-
-
-            getHeader("Sqits", "overzicht klanten");
 
             try {
                 $query = $conn->prepare("SELECT u.*, p.*, c.*
@@ -43,22 +43,46 @@ if ($_SESSION["id"]) {
             }
 
 
-            echo '<div class="right-panel">';
+            echo '<div class="content-wrapper">';
+            echo '<div class="container-fluid">';
+            getHeader("Sqits", "overzicht klanten");
+            getBreadCrumbs();
             getTopPanel("overzicht gebruikers");
 
-            echo "<table  name=\"user_overview\"
-            <tr>           
-            <th>bedrijfsnaam</th>
-            <th>Email: </th>
-            <th>voornaam</th>
-            <th>achternaam</th>           
-            <th>phone</th>
-            <th>active</th>
-            <th>last_visit</th>
-            <th>created_date</th>
-            <th>acties</th>
-      
-            </tr>";
+
+            echo " <div class=\"card mb-3\">
+                <div class=\"card-header\">
+                    <i class=\"fa fa-table\"></i> Data Table Example</div>
+                <div class=\"card-body\">
+                    <div class=\"table-responsive\">
+                        <table class=\"table table-bordered\" id=\"table_id\" width=\"100%\" cellspacing=\"0\">                                                   
+                        <thead>
+                            <tr>
+                             <th>bedrijfsnaam</th>
+                             <th>Email: </th>
+                             <th>voornaam</th>
+                             <th>achternaam</th>           
+                             <th>phone</th>
+                             <th>active</th>
+                             <th>last_visit</th>
+                             <th>created_date</th>
+                             <th>acties</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>bedrijfsnaam</th>
+                                <th>Email: </th>
+                                <th>voornaam</th>
+                                <th>achternaam</th>           
+                                <th>phone</th>
+                                <th>active</th>
+                                <th>last_visit</th>
+                                <th>created_date</th>
+                                <th>acties</th>
+                            </tr>
+                        </tfoot>
+                     <tbody>";
 
 
             while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
@@ -89,10 +113,15 @@ if ($_SESSION["id"]) {
                         <a href=\"update.php?action=delete&id=$user_id\">edit</a></td>
                             </tr>";
             }
-            echo "</table>";
-            echo "</div>";
+            echo "       </tbody>
+            </table>
+          </div>
+        </div>       
+      </div>
+    </div>";
 
 
+            getFooter();
             break;
         default:
             trigger_error("Invalid role specified: " . $role, E_USER_WARNING);

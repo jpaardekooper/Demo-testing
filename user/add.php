@@ -8,7 +8,8 @@ checkRole('admin');
 
 getHeader("Sqits form-add", "Form add");
 
-echo '  <div class="right-panel">';
+echo '  <div class="content-wrapper">';
+echo '  <div class="container-fluid">';
 
 getTopPanel("gebruiker toevoegen");
 
@@ -45,18 +46,18 @@ if (@$_GET['action'] == "save") {
     }
 } else {
     ?>
-            <div class="content">
-                <form name="add" action="?action=save" method="post">
-                    <label>name</label> <input type="email" name="email" required>
-                    <label>pass</label> <input type="text" name="password" required>
-                    <label>active</label> <input type="text" name="active" required>
-                    <label>bedrijfsnaam</label> <input type="text" name="company_id" required>
-                    <label>rol</label> <input type="text" name="role" required>
-                    <input type="reset" name="reset" value="Clear">
-                    <input type="submit" name="submit" value="Opslaan">
-
-                </form>
-            </div>
+    <div class="content">
+        <form name="add" action="?action=save" method="post">
+            <label>name</label> <input type="email" name="email" required>
+            <label>pass</label> <input type="text" name="password" required>
+            <label>active</label> <input type="text" name="active" required>
+            <label>bedrijfsnaam</label> <input type="text" name="company_id" required>
+            <label>rol</label> <input type="text" name="role" required>
+            <input type="reset" name="reset" value="Clear">
+            <input type="submit" name="submit" value="Opslaan">
+        </form>
+    </div>
+    </div>
     </div>
     <?php
 }

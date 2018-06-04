@@ -8,7 +8,9 @@ include_once('../templates/content.php');
 
 getHeader("Sqits form-update", "Form update");
 checkRole("admin");
-echo '<div class="right-panel">';
+echo '<div class="content-wrapper">';
+echo '<div class="container-fluid">';
+
 getTopPanel("formulier wijzigen") ;
 if ($_GET['action'] == "save") {
 
@@ -137,6 +139,7 @@ if ($_GET['action'] == "save") {
                     					
                 </table>
             </form>   
+            </div>
             </div>";
 }
 getFooter();

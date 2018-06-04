@@ -16,7 +16,7 @@ if ($_SESSION["id"]) {
                      <header>
                          <p>welkom: " . getUserName() . "</p>
                          <p>
-                            ". getUserName() . "
+                            " . getUserName() . "
                          </p>
         
                          this is update form
@@ -30,9 +30,13 @@ if ($_SESSION["id"]) {
 
             getHeader("Sqits", "Admin update acceptance");
 
-            echo "<div class='right-panel'>";
+            echo "<div class='content-wrapper'>";
+            echo "<div class='container-fluid'>";
 
-            getTopPanel("update overzicht") ;
+            getBreadCrumbs();
+
+            getTopPanel("update overzicht");
+
 
             try {
                 $query = $conn->prepare("SELECT f.*, user.*, u.*
@@ -51,20 +55,38 @@ if ($_SESSION["id"]) {
             }
 
 
-
-
-            echo "<table name='form_overview'
-            <tr>
-            <th>form_id</th>         
-            <th>company_id</th>      
-            <th>type</th>
-            <th>version</th>
-            <th>description</th>
-            <th>status</th>
-            <th>created_date</th>
-            <th>actie</th>
-            </tr>";
-
+            echo " <div class=\"card mb-3\">
+                <div class=\"card-header\">
+                    <i class=\"fa fa-table\"></i> Data Table Example</div>
+                <div class=\"card-body\">
+                    <div class=\"table-responsive\">
+                        <table class=\"table table-bordered\" id=\"table_id\" width=\"100%\" cellspacing=\"0\">                                                   
+                        <thead>
+                            <tr>
+                              <th>form_id</th>         
+                              <th>company_id</th>      
+                              <th>type</th>
+                              <th>version</th>
+                              <th>description</th>
+                              <th>status</th>
+                              <th>created_date</th>
+                              <th>actie</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>form_id</th>         
+                                <th>company_id</th>      
+                                <th>type</th>
+                                <th>version</th>
+                                <th>description</th>
+                                <th>status</th>
+                                <th>created_date</th>
+                                <th>actie</th>
+                            </tr>
+                        </tfoot>
+                     <tbody>
+                        ";
 
             while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
                 $form_id = $row['form_id'];
@@ -75,21 +97,28 @@ if ($_SESSION["id"]) {
                 $status = $row['status'];
                 $created_date = $row['created_date'];
 
+                if(strlen($description) > 20) $description = substr($description, 0, 20).'...';
+
                 echo "<tr>
                 <td>$form_id</td>
                 <td>$company_id</td>
                 <td>$type</td>
                 <td>$version</td>             
-                <td>".wordwrap($description,50,"<br>\n")."</td>              
+                <td>$description</td>              
                 <td>$status</td>
                 <td>$created_date</td>
              
                     <td><a href=\"delete.php?action=delete&id=$form_id\">X</a>
                         <a href=\"update.php?action=delete&id=$form_id\">edit</a></td>
-                            </tr>";
+                </tr>";
             }
-            echo "</table>";
-            echo "</div>";
+            echo "       </tbody>
+            </table>
+          </div>
+        </div>       
+      </div>
+    </div>";
+
 
             getFooter();
             break;

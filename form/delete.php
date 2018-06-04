@@ -5,10 +5,12 @@ include_once('../system/config.php');
 
 include_once('../templates/content.php');
 
+checkRole("admin");
 getHeader("Sqits form-delete", "Form delete");
 
-	
-	getHeader("formuleir  Verwijderen", "Sqits - form Verwijderen");
+echo '<div class="content-wrapper">';
+echo '<div class="container-fluid">';
+
 	
 	$id = $_GET['id'];
     
@@ -33,6 +35,7 @@ getHeader("Sqits form-delete", "Form delete");
             trigger_error($sMsg);
         }           
     }
-    
-	getFooter();	
+    echo"</div>";
+    echo"</div>";
+	getFooter();
 ?>

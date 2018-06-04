@@ -12,7 +12,8 @@ if (isset($_SESSION['id'])) {
 
     getHeader("Sqits form-add", "Form add");
 
-    echo '<div class="right-panel">';
+    echo '<div class="content-wrapper">';
+    echo '<div class="container-fluid">';
 
     getTopPanel("formulier toevoegen");
 
