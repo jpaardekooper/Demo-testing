@@ -10,12 +10,12 @@ checkRole("admin");
 try {
     $query = $conn->prepare("SELECT u.*, com.*, p.* 
                                         FROM user as u  
-                                        INNER JOIN company as com ON com.user_id = u.user_id
+                                        INNER JOIN company as com ON com.company_id = u.company_id
                                         INNER JOIN phone as p ON p.user_id = u.user_id
-                                        WHERE u.user_id = :user_id
+                                        WHERE u.company_id = :company_id
                                          ");
     $query->execute(array(
-        'user_id' => $_GET['u']
+        'company_id' => $_GET['u']
     ));
 } catch (PDOException $e) {
     $sMsg = '<p> 

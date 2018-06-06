@@ -39,10 +39,11 @@ if ($_SESSION["id"]) {
 
 
             try {
-                $query = $conn->prepare("SELECT f.*, user.*, u.*
-                                          FROM `update` as u
-                                          INNER JOIN `user` as user ON user.user_id = u.user_id      
-                                          INNER JOIN `form` as f ON u.form_id = f.form_id                                 
+                $query = $conn->prepare("SELECT f.*, u.*, up.*, c.*
+                                          FROM `update` as up                                           
+                                          INNER JOIN `company` as c ON up.company_id = c.company_id 
+                                          INNER JOIN `user` as u ON u.company_id = c.company_id   
+                                          INNER JOIN `form` as f ON up.form_id = f.form_id                                 
                                          ");
                 $query->execute();
             } catch (PDOException $e) {

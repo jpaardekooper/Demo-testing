@@ -27,41 +27,43 @@ try {
 
 while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
     $form_id = $row['form_id'];
-    $company_id = $row['company_id'];
+    $terms_id = $row['terms_id'];
     $type = $row['type'];
     $task_nr = $row['task_nr'];
+    $task_nr = $row['version'];
     $description = $row['description'];
-    $end_date = $row['end_date'];
-    $terms_id = $row['terms_id'];
+    $description = $row['created_date'];
+
     $acceptance = $row['acceptance'];
     $SLA = $row['service_level_agreement'];
     $contact = $row['contact'];
     $signature = $row['signature'];
-    $image = $row['image'];
+
 
 
     echo "<p>form ID</p>";
     echo "<p>" . $row['form_id'] . "</p>";
-    echo "<p>Bedrijfs ID</p>";
-    echo "<p>" . $row['company_id'] . "</p>";
+    echo "<p>terms_id</p>";
+    echo "<p>" . $row['terms_id'] . "</p>";
     echo "<p>Type</p>";
     echo "<p>" . $row['type'] . "</p>";
     echo "<p>opdrachtgever:</p>";
     echo "<p>" . $row['task_nr'] . "</p>";
+    echo "<p>versie nummer</p>";
+    echo "<p>" . $row['version'] . "</p>";
     echo "<p>beschrijving</p>";
     echo "<p>" . $row['description'] . "</p>";
-    echo "<p>einddatum</p>";
-    echo "<p>" . $row['end_date'] . "</p>";
-    echo "<p>Terms ID</p>";
-    echo "<p>" . $row['terms_id'] . "</p>";
+    echo "<p>created date</p>";
+    echo "<p>" . $row['created_date'] . "</p>";
+
+
     echo "<p>acceptance</p>";
     echo "<p>" . $row['acceptance'] . "</p>";
     echo "<p>SLA</p>";
     echo "<p>" . $row['service_level_agreement'] . "</p>";
     echo "<p>Contact</p>";
     echo "<p>" . $row['signature'] . "</p>";
-    echo "<p>Ondertekening</p>";
-    echo "<p>" . $row['image'] . "</p>";
+
 
 
 }

@@ -5,7 +5,7 @@ require_once('../system/config.php');
 require_once('../templates/content.php');
 
 
-getHeader("Sqits form-add", "Update add");
+
 
 if (isset($_SESSION['id'])) {
 
@@ -18,30 +18,32 @@ if (isset($_SESSION['id'])) {
         try {
 //http://php.net/manual/en/password.constants.php
 
-            $sql = "INSERT INTO `update` (`user_id`, `form_id`, `status`, `type`, `end_date`,`send_date`,`created_date`) 
-                VALUES (:user_id, :form_id, :status, :type, :end_date, NOW(), NOW() )";
+            $sql = "INSERT INTO `update` (`company_id`, `form_id`, status, `end_date`, `created_date`) 
+                                  VALUES (:company_id, :form_id, 'pending', :end_date, NOW() )";
             $ophalen = $conn->prepare($sql);
             $ophalen->execute(array(
-                'user_id' => $_POST['user_id'],
+                'company_id' => $_POST['company_id'],
                 'form_id' => $_POST['form_id'],
-                'status' => 'pending',
-                'type' => $_POST['type'],
                 'end_date' => $_POST['end_date']
             ));
 
-            $query = $conn->prepare("SELECT u.email, com.first_name, com.last_name, com.company_name
+            $query = $conn->prepare("SELECT u.first_name, u.last_name, c.company_name, c.email, c.address, c.location, c.zip_code, c.kvk
                                                 FROM `user` as u
-                                                INNER JOIN company as com ON u.user_id = com.user_id
-                                                WHERE u.user_id = :id");
+                                                INNER JOIN company as c ON u.company_id = c.company_id
+                                                WHERE u.company_id = :id");
             $query->execute(array(
-                'id' => $_POST['user_id'],
+                'id' => $_POST['company_id'],
             ));
 
             while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
-                $email = $row['email'];
                 $first_name = $row['first_name'];
                 $last_name = $row['last_name'];
                 $company_name = $row['company_name'];
+                $email = $row['email'];
+                $address = $row['address'];
+                $location = $row['location'];
+                $zip_code = $row['zip_code'];
+                $kvk = $row['kvk'];
 
             }
 
@@ -68,19 +70,17 @@ if (isset($_SESSION['id'])) {
   <title>Sqits heeft een update voor u beschikbaar</title>
 </head>
 <body>
-  <p>Here are the  upcoming changes in August!</p>
+  <p>Here are the  upcoming changes in August! for ' . $company_name . '</p>
   <table>
     <tr>
-      <th>' . $company_name . '</th><th>Day</th><th>Month</th><th>Year</th>
+      <th>' . $kvk . '</th><th>' . $location . '</th><th>' . $address . '</th><th>' . $zip_code . '</th>
     </tr>
     <tr>
-      <td>' . $first_name . '</td><td>hans</td><td>Wanda</td><td>1970</td>
-    </tr>
+      <td>' . $first_name . '</td><td>' . $last_name . '</td><td></td><td></td>
+    </tr>   
     <tr>
-      <td>' . $last_name . '</td><td>17th</td><td>August</td><td>1973</td>
-    </tr>
-    <tr>
-    <td><img style="width:100px; height:100px;" src="https://pbs.twimg.com/profile_images/568078699996520448/XThN4wCd_400x400.png"/></td>
+    <td><img style="width:100px; height:100px;" src="https://pbs.twimg.com/profile_images/568078699996520448/XThN4wCd_400x400.png"/>
+    </td>
 </tr>
   </table>
 </body>
@@ -119,9 +119,10 @@ if (isset($_SESSION['id'])) {
         }
     } else {
 
-
+        getHeader("Sqits form-add", "Update add");
         echo '<div class="content-wrapper">';
         echo '<div class="container-fluid">';
+
         getBreadCrumbs();
 
         getTopPanel("Update toevoegen");
@@ -133,7 +134,7 @@ if (isset($_SESSION['id'])) {
 
         //SQL FOR FORM_ID SELECTION
         $results = $conn->prepare("
-						SELECT `form_id`, `version`, `task_nr` FROM `form` 
+						SELECT `form_id`, version, `task_nr`, type, `created_date` FROM `form` 
 						");
         $results->execute();
         $types = $results->fetchAll();
@@ -145,10 +146,10 @@ if (isset($_SESSION['id'])) {
         echo "<option value=''></option>";
         foreach ($types as $type) {
             if ($type['form_id'] == $form_id) {
-                echo "<option selected value='" . htmlentities($type['form_id']) . "'>" . htmlentities($type['version']) . "   " . htmlentities($type['task_nr']) . "</option>";
+                echo "<option selected value='" . htmlentities($type['form_id']) . "'>" . htmlentities($type['type']) . " " . htmlentities($type['version']) . "   " . htmlentities($type['task_nr']) . "</option>";
 
             } else {
-                echo "<option value='" . htmlentities($type['form_id']) . "'>" . htmlentities($type['version']) . "   " . htmlentities($type['task_nr']) . "</option>";
+                echo "<option value='" . htmlentities($type['form_id']) . "'>" . htmlentities($type['type']) . " " . htmlentities($type['version']) . "   " . htmlentities($type['task_nr']) . "</option>";
             }
         }
         echo "</select>";
@@ -157,9 +158,8 @@ if (isset($_SESSION['id'])) {
 
         //SQL FOR USER SELECTION
         $results = $conn->prepare("
-						SELECT u.*, com.* 
-						FROM `user` as u 
-						INNER JOIN company as com ON com.user_id = u.user_id								
+						SELECT com.* 
+						FROM `company` as com 													
 						");
         $results->execute();
         $types = $results->fetchAll();
@@ -167,26 +167,19 @@ if (isset($_SESSION['id'])) {
 
         echo "<div class='content-panel'>";
         echo "<label>user informatie</label>";
-        echo "<select  name='user_id'  onchange='showUser(this.value)'>";
+        echo "<select  name='company_id'  onchange='showUser(this.value)'>";
         echo "<option value=''></option>";
         foreach ($types as $type) {
-            if ($type['user_id'] == $user_id) {
-                echo "<option selected value='" . htmlentities($type['user_id']) . "'>" . htmlentities($type['company_id']) . "   " . htmlentities($type['company_name']) . "</option>";
+            if ($type['company_id'] == $company_id) {
+                echo "<option selected value='" . htmlentities($type['company_id']) . "'>" . htmlentities($type['company_name']) . " ..  " . htmlentities($type['kvk']) . "</option>";
             } else {
-                echo "<option value='" . htmlentities($type['user_id']) . "'>" . htmlentities($type['company_id']) . "   " . htmlentities($type['company_name']) . "</option>";
+                echo "<option value='" . htmlentities($type['company_id']) . "'>" . htmlentities($type['company_name']) . " .. " . htmlentities($type['kvk']) . "</option>";
             }
         }
         echo "</select>";
         echo "</div>";
         //**** end
 
-        echo "<div class='content-panel'>";
-            echo "<label>Type</label>";
-                echo "<select name='type'>";
-                echo "<option value='mayor-update'>mayor-update</option>";
-                echo "<option value='bug-fix'>bug-fix</option>";
-            echo "</select>";
-        echo "</div>";
 
 
         echo "<div class='content-panel'>";
