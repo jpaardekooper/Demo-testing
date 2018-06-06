@@ -39,9 +39,6 @@ while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
     $contact = $row['contact'];
     $signature = $row['signature'];
 
-
-
-
     ?>
 
     <div class="card-header">Formulier</div>

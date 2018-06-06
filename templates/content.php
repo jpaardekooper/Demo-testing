@@ -57,7 +57,7 @@ function getLoginHeader($description, $title = "Sqits login page")
 
 }
 
-function getSidebar()
+function getSidebar($page = "Sqits")
 {
 
     ?>
@@ -93,7 +93,7 @@ function getSidebar()
                 <?php
                 switch (getUserRole()) {
                     case "user":
-                        echo "<li class=\"nav-item  " . isActiveOnPage('/update/index.php') . "\" data-toggle=\"tooltip\" data-placement=\"right\" title=\"Charts\" " . isActiveOnPage('/update/index.php') . ">
+                        echo "<li class=\"nav-item  " . isActiveOnPage('/update/index.php') . " " . isActiveOnPage('/update/update.php') . "\" data-toggle=\"tooltip\" data-placement=\"right\" title=\"Charts\" " . isActiveOnPage('/update/index.php') . ">
                         <a  class=\"nav-link\" href='" . getPathToRoot() . "update/index.php'>                        
                              <i class=\"fa fa-fw fa-area-chart\"></i>
                              <span class=\"nav-link-text\">Update geschiedenis</span>
@@ -124,7 +124,7 @@ function getSidebar()
 
                 switch (getUserRole()) {
                     case "user":
-                        echo "<li  class=\"nav-item " . isActiveOnPage('/user/index.php') . "\" data-toggle=\"tooltip\" data-placement=\"right\" title=\"user\" " . isActiveOnPage('/user/index.php') . ">
+                        echo "<li  class=\"nav-item " . isActiveOnPage('/user/index.php') . " " . isActiveOnPage('/user/update.php') . "\" data-toggle=\"tooltip\" data-placement=\"right\" title=\"user\" " . isActiveOnPage('/user/index.php') . ">
                         <a  class=\"nav-link\" href='" . getPathToRoot() . "user/index.php'>                        
                              <i class=\"fa fa-fw fa-area-chart\"></i>
                              <span class=\"nav-link-text\">Wijzig gegevens</span>
@@ -210,8 +210,8 @@ function getSidebar()
                     </a>
                 </li>
             </ul>
-            <ul class="navbar-nav ml-auto">
 
+            <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
                     <a class="nav-link" data-toggle="modal" data-target="#logoutModal">
                         <i class="fa fa-fw fa-sign-out"></i>Logout</a>
@@ -262,7 +262,7 @@ function getFooter()
       <script src=" . getAssetsDirectory() . "vendor/jquery/jquery.min.js></script>
       <script src=" . getAssetsDirectory() . "vendor/bootstrap/js/bootstrap.bundle.min.js></script>
       <script src=" . getAssetsDirectory() . "vendor/jquery-easing/jquery.easing.min.js></script>             
-      <script src=" . getAssetsDirectory() . "js/sb-admin.min.js></script>                   
+      <script src=" . getAssetsDirectory() . "js/sb-admin.min.js></script> 
       <script type=\"text/javascript\" charset=\"utf8\" src=\"https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js\"></script>
       <script src=" . getAssetsDirectory() . "js/validate.js></script>
       <script src=" . getAssetsDirectory() . "js/getUser.js></script>

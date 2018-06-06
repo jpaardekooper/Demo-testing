@@ -10,16 +10,24 @@ if (isset($_SESSION['id'])) {
 
 
     getHeader("Sqits", "user Dashboard");
+    echo "<div class=\"content-wrapper\">";
+    echo "<div class=\"container-fluid\">";
+
+    getBreadCrumbs();
+    getTopPanel();
 ?>
 
-        <div class="right-panel">
-            <?php getTopPanel() ?>
+
 
             <div class="content">
                 <?php
                 //random query in order to get current patch
                 try {
-                    $query = $conn->prepare("SELECT email FROM `user` WHERE user_id = :id");
+                    $query = $conn->prepare("SELECT COUNT(up.company_id) as waarde
+                                                        FROM `update` as up
+                                                        INNER JOIN company as c ON c.company_id = up.company_id
+                                                        INNER JOIN user as u ON u.company_id = c.company_id                                                        
+                                                        WHERE u.user_id = :id");
                     $query->execute(array(
                         'id' => $_SESSION['id']['user_id']
                     ));
@@ -33,13 +41,15 @@ if (isset($_SESSION['id'])) {
                 }
 
                 while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
-                    $email = $row['email'];
-
-                    echo "<span class='patch-version'>Current version: 4.0.1A</span>";
+                    $update_id = $row['waarde'];
+                    echo $update_id;
 
                 }
                 ?>
+               <span class='patch-version'>Current version: 4.0.1A</span>
             </div>
+
+        </div>
         </div>
 
 
