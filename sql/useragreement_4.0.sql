@@ -34,7 +34,7 @@ CREATE TABLE `company` (
   `created_date` date NOT NULL,
   PRIMARY KEY (`company_id`),
   UNIQUE KEY `company_id_UNIQUE` (`company_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -43,7 +43,7 @@ CREATE TABLE `company` (
 
 LOCK TABLES `company` WRITE;
 /*!40000 ALTER TABLE `company` DISABLE KEYS */;
-INSERT INTO `company` VALUES (1,'123456789','Company','company@example.com','KVK1011101','2255QQ','Zoeterlaan 90','Zoetermeer','2018-06-06');
+INSERT INTO `company` VALUES (1,'123456789','Company','company@example.com','KVK1011101','2255QQ','Zoeterlaan 90','Zoetermeer','2018-06-06'),(2,'0701658442','DavidMon Go','jasophanger@hotmail.com','G10101ka1','6622AA','DavidLaan 22','Zoetermeer','2018-06-06');
 /*!40000 ALTER TABLE `company` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -61,10 +61,10 @@ CREATE TABLE `form` (
   `task_nr` varchar(45) NOT NULL,
   `version` varchar(10) NOT NULL,
   `description` text NOT NULL,
-  `create_date` date NOT NULL,
+  `created_date` date NOT NULL,
   `modified_date` date NOT NULL,
   PRIMARY KEY (`form_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -73,6 +73,7 @@ CREATE TABLE `form` (
 
 LOCK TABLES `form` WRITE;
 /*!40000 ALTER TABLE `form` DISABLE KEYS */;
+INSERT INTO `form` VALUES (1,1,'mayor-update','123456','1','De update heeft als volgt:\r\n\r\n1 flanfdjasfjdksa\r\n2. fjdklafjdkasfjdl\r\n3. fjkdlajfdjfkdl','2018-06-06','2018-06-06');
 /*!40000 ALTER TABLE `form` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -98,7 +99,7 @@ CREATE TABLE `phone` (
 
 LOCK TABLES `phone` WRITE;
 /*!40000 ALTER TABLE `phone` DISABLE KEYS */;
-INSERT INTO `phone` VALUES (1,'0612345678');
+INSERT INTO `phone` VALUES (2,'0612345655'),(1,'0612345678');
 /*!40000 ALTER TABLE `phone` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -143,11 +144,10 @@ CREATE TABLE `update` (
   `form_id` int(11) NOT NULL,
   `status` enum('declined','accepted','pending') NOT NULL,
   `end_date` date NOT NULL,
-  `send_date` date NOT NULL,
   `created_date` date NOT NULL,
   PRIMARY KEY (`update_id`),
   UNIQUE KEY `update_id_UNIQUE` (`update_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=81 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -156,7 +156,7 @@ CREATE TABLE `update` (
 
 LOCK TABLES `update` WRITE;
 /*!40000 ALTER TABLE `update` DISABLE KEYS */;
-INSERT INTO `update` VALUES (1,6,1,'pending','2018-05-05','2018-05-05','2018-05-05'),(2,2,1,'pending','2018-06-30','2018-06-01','2018-06-01'),(3,2,4,'pending','2018-06-24','2018-06-01','2018-06-01'),(4,7,2,'pending','2018-06-03','2018-06-01','2018-06-01'),(5,7,2,'pending','2018-06-21','2018-06-01','2018-06-01'),(6,7,2,'pending','2018-06-21','2018-06-01','2018-06-01'),(7,7,2,'pending','2018-06-22','2018-06-01','2018-06-01'),(8,7,2,'pending','2018-06-22','2018-06-01','2018-06-01'),(9,7,1,'pending','2018-06-24','2018-06-01','2018-06-01'),(10,7,3,'pending','2018-06-29','2018-06-01','2018-06-01'),(11,7,3,'pending','2018-06-29','2018-06-01','2018-06-01'),(12,7,3,'pending','2018-06-24','2018-06-01','2018-06-01'),(13,7,3,'pending','2018-07-01','2018-06-01','2018-06-01'),(14,7,0,'pending','0000-00-00','2018-06-01','2018-06-01'),(15,7,0,'pending','0000-00-00','2018-06-01','2018-06-01'),(16,7,0,'pending','0000-00-00','2018-06-01','2018-06-01'),(17,7,0,'pending','0000-00-00','2018-06-01','2018-06-01'),(18,7,2,'pending','2018-06-23','2018-06-01','2018-06-01'),(19,7,2,'pending','2018-06-23','2018-06-01','2018-06-01'),(20,7,2,'pending','2018-06-23','2018-06-01','2018-06-01'),(21,7,2,'pending','2018-06-23','2018-06-01','2018-06-01'),(22,7,2,'pending','2018-06-23','2018-06-01','2018-06-01'),(23,7,2,'pending','2018-06-23','2018-06-01','2018-06-01'),(24,7,2,'pending','2018-06-23','2018-06-01','2018-06-01'),(25,7,3,'pending','2018-06-24','2018-06-01','2018-06-01'),(26,7,3,'pending','2018-06-24','2018-06-02','2018-06-02'),(27,7,3,'pending','2018-06-24','2018-06-02','2018-06-02'),(28,7,3,'pending','2018-06-24','2018-06-02','2018-06-02'),(29,7,3,'pending','2018-06-24','2018-06-02','2018-06-02'),(30,7,3,'pending','2018-06-24','2018-06-02','2018-06-02'),(31,7,3,'pending','2018-06-24','2018-06-02','2018-06-02'),(32,7,3,'pending','2018-06-24','2018-06-02','2018-06-02'),(33,7,3,'pending','2018-06-24','2018-06-02','2018-06-02'),(34,7,3,'pending','2018-06-24','2018-06-02','2018-06-02'),(35,7,3,'pending','2018-06-24','2018-06-02','2018-06-02'),(36,7,3,'pending','2018-06-24','2018-06-02','2018-06-02'),(37,7,3,'pending','2018-06-24','2018-06-02','2018-06-02'),(38,7,3,'pending','2018-06-24','2018-06-02','2018-06-02'),(39,7,3,'pending','2018-06-24','2018-06-02','2018-06-02'),(40,7,3,'pending','2018-06-24','2018-06-02','2018-06-02'),(41,7,3,'pending','2018-06-24','2018-06-02','2018-06-02'),(42,7,3,'pending','2018-06-24','2018-06-02','2018-06-02'),(43,6,3,'pending','2018-06-30','2018-06-02','2018-06-02'),(44,6,3,'pending','2018-06-30','2018-06-02','2018-06-02'),(45,6,3,'pending','2018-06-30','2018-06-02','2018-06-02'),(46,6,3,'pending','2018-06-30','2018-06-02','2018-06-02'),(47,6,3,'pending','2018-06-30','2018-06-02','2018-06-02'),(48,6,3,'pending','2018-06-30','2018-06-02','2018-06-02'),(49,6,3,'pending','2018-06-30','2018-06-02','2018-06-02'),(50,7,4,'pending','2018-06-24','2018-06-02','2018-06-02'),(51,7,4,'pending','2018-06-24','2018-06-02','2018-06-02'),(52,7,4,'pending','2018-06-24','2018-06-02','2018-06-02'),(53,7,4,'pending','2018-06-24','2018-06-02','2018-06-02'),(54,7,4,'pending','2018-06-24','2018-06-02','2018-06-02'),(55,7,4,'pending','2018-06-24','2018-06-02','2018-06-02'),(56,7,4,'pending','2018-06-24','2018-06-02','2018-06-02'),(57,7,4,'pending','2018-06-24','2018-06-02','2018-06-02'),(58,7,3,'pending','2018-06-24','2018-06-02','2018-06-02'),(59,7,3,'pending','2018-06-24','2018-06-02','2018-06-02'),(60,7,3,'pending','2018-06-24','2018-06-02','2018-06-02'),(61,7,3,'pending','2018-06-24','2018-06-02','2018-06-02'),(62,7,3,'pending','2018-06-24','2018-06-02','2018-06-02'),(63,7,3,'pending','2018-06-24','2018-06-02','2018-06-02'),(64,7,3,'pending','2018-06-30','2018-06-02','2018-06-02'),(65,6,2,'pending','2018-06-24','2018-06-02','2018-06-02'),(66,7,1,'pending','2018-06-25','2018-06-02','2018-06-02'),(67,7,1,'pending','2018-06-25','2018-06-02','2018-06-02'),(68,7,1,'pending','2018-06-25','2018-06-02','2018-06-02'),(69,7,1,'pending','2018-06-25','2018-06-02','2018-06-02'),(70,7,1,'pending','2018-06-25','2018-06-02','2018-06-02'),(71,7,1,'pending','2018-06-25','2018-06-02','2018-06-02'),(72,7,1,'pending','2018-06-25','2018-06-02','2018-06-02'),(73,7,1,'pending','2018-06-25','2018-06-02','2018-06-02'),(74,7,1,'pending','2018-06-25','2018-06-02','2018-06-02'),(75,7,1,'pending','2018-06-25','2018-06-02','2018-06-02'),(76,7,1,'pending','2018-06-25','2018-06-02','2018-06-02'),(77,7,1,'pending','2018-06-25','2018-06-02','2018-06-02'),(78,7,1,'pending','2018-06-25','2018-06-02','2018-06-02'),(79,7,1,'pending','2018-06-25','2018-06-02','2018-06-02'),(80,7,3,'pending','2018-06-22','2018-06-04','2018-06-04');
+INSERT INTO `update` VALUES (1,2,1,'pending','2018-06-30','2018-06-06'),(2,2,1,'pending','2018-06-30','2018-06-06'),(3,2,1,'pending','2018-06-29','2018-06-06');
 /*!40000 ALTER TABLE `update` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -180,7 +180,7 @@ CREATE TABLE `user` (
   `created_date` date NOT NULL,
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `email_UNIQUE` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -189,7 +189,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,1,'admin@example.com','$2y$10$3oiwUsSPyMWNPVgKw1rDx.P1ZTiex7KDf2pzIyRuKvRdSgXoVjH9u','John','Doe','admin','active','2018-06-06','2018-06-06');
+INSERT INTO `user` VALUES (1,1,'admin@example.com','$2y$10$3oiwUsSPyMWNPVgKw1rDx.P1ZTiex7KDf2pzIyRuKvRdSgXoVjH9u','John','Doe','admin','active','2018-06-06','2018-06-06'),(2,2,'david@example.com','$2y$10$GMA9AkFOwWv513tKUFojBOeZj.7VKWoEh42mfGgJZs2vsutdgnG8u','David','Bruschkeleku','user','active','2018-06-06','2018-06-06');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -202,4 +202,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-06-06 10:45:35
+-- Dump completed on 2018-06-06 15:36:06
