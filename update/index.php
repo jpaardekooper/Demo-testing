@@ -47,7 +47,8 @@ if ($_SESSION["id"]) {
                     <div class=\"table-responsive\">
                         <table class=\"table table-bordered\" id=\"table_id\" width=\"100%\" cellspacing=\"0\">                                                   
                         <thead>
-                            <tr>                                   
+                            <tr>                                 
+                                  
                               <th>bedrijfsnaam</th>      
                               <th>type</th>
                               <th>version</th>
@@ -58,9 +59,9 @@ if ($_SESSION["id"]) {
                             </tr>
                         </thead>
                         <tfoot>
-                            <tr>
-                                      
-                                <th>company_id</th>      
+                            <tr>                                     
+                                 
+                                <th>bedrijfsnaam</th>      
                                 <th>type</th>
                                 <th>version</th>
                                 <th>description</th>
@@ -73,6 +74,7 @@ if ($_SESSION["id"]) {
                         ";
 
             while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+                $update_id = $row['update_id'];
                 $form_id = $row['form_id'];
                 $company_name = $row['company_name'];
                 $type = $row['type'];
@@ -91,7 +93,7 @@ if ($_SESSION["id"]) {
                 <td>$status</td>
                 <td>$created_date</td>
              
-                    <td><a href=\"update.php?action=delete&id=$form_id\">edit</a></td>
+                    <td><a href=\"update.php?action=delete&id=$update_id\">edit</a></td>
                 </tr>";
             }
             echo "       </tbody>

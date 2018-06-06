@@ -99,6 +99,7 @@ switch (getUserRole()) {
                 $originalDate = $end_date;
                 $newDate = date("d-m-Y", strtotime($originalDate));
 
+                echo $status;
                 if ($status == 'pending') {
                     ?>
                     <div class="card card-login mx-auto mt-5">
