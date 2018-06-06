@@ -30,34 +30,86 @@ try {
 
 while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
     $company_id = $row['company_id'];
-    $company_id = $row['company_name'];
+    $kvk = $row['kvk'];
+    $company_name = $row['company_name'];
     $first_name = $row['first_name'];
     $last_name = $row['last_name'];
     $zip_code = $row['zip_code'];
     $address = $row['address'];
     $location = $row['location'];
     $email = $row['email'];
+    $phone_number = $row['phone_number'];
+    $phone = $row['phone'];
 
- 
-    echo "<p>Bedrijfs ID</p>";
-    echo "<p>" . $row['company_id'] . "</p>";
-    echo "<p>Bedrijfs naam</p>";
-    echo "<p>" . $row['company_name'] . "</p>";
-    echo "<p>voornaam</p>";
-    echo "<p>" . $row['first_name'] . "</p>";
-    echo "<p>achternaam</p>";
-    echo "<p>" . $row['last_name'] . "</p>";
-    echo "<p>postcode</p>";
-    echo "<p>" . $row['zip_code'] . "</p>";
-    echo "<p>adres</p>";
-    echo "<p>" . $row['address'] . "</p>";
-    echo "<p>woonplaats</p>";
-    echo "<p>" . $row['location'] . "</p>";
-    echo "<p>bedrijfsmail</p>";
-    echo "<p>" . $row['email'] . "</p>";
+    ?>
+    <div class="card-header">Bedrijfsgegevens</div>
+<div class="card-body">
+    <div class="form-group row">
+        <label for="example-text-input" class="col-2 col-form-label">kvk</label>
+        <div class="col-4">
+            <input class="form-control" type="text" value="<?= $kvk ?>" readonly id="example-text-input">
+        </div>
+
+    </div>
+
+    <div class="form-group row">
+
+        <label for="example-text-input" class="col-2 col-form-label">bedrijfsnaam</label>
+        <div class="col-4">
+            <input class="form-control" type="text" value="<?= $company_name ?>" readonly id="example-text-input">
+        </div>
+
+        <label for="example-text-input" class="col-2 col-form-label">email</label>
+        <div class="col-4">
+            <input class="form-control" type="text" value="<?= $email ?>" readonly id="example-text-input">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="example-text-input" class="col-2 col-form-label">locatie</label>
+        <div class="col-4">
+            <input class="form-control" type="text" value="<?= $location ?>" readonly id="example-text-input">
+        </div>
+
+        <label for="example-text-input" class="col-2 col-form-label">postcode</label>
+        <div class="col-4">
+            <input class="form-control" type="text" value="<?= $zip_code ?>" readonly id="example-text-input">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="example-text-input" class="col-2 col-form-label">addres</label>
+        <div class="col-4">
+            <input class="form-control" type="text" value="<?= $address ?>" readonly id="example-text-input">
+        </div>
+
+        <label for="example-text-input" class="col-2 col-form-label">telefoon</label>
+        <div class="col-4">
+            <input class="form-control" type="text" value="<?= $phone ?>" readonly id="example-text-input">
+        </div>
+    </div>
+    </div>
+    <div class="card-header">Contactgegevens</div>
+    <div class="card-body">
+
+        <div class="form-group row">
+            <label for="example-text-input" class="col-2 col-form-label">voornaam</label>
+            <div class="col-4">
+                <input class="form-control" type="text" value="<?= $first_name ?>" readonly id="example-text-input">
+            </div>
+
+            <label for="example-text-input" class="col-2 col-form-label">achternaam</label>
+            <div class="col-4">
+                <input class="form-control" type="text" value="<?= $last_name ?>" readonly id="example-text-input">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="example-text-input" class="col-2 col-form-label">tel</label>
+            <div class="col-6">
+                <input class="form-control" type="text" value="<?= $phone_number ?>" readonly id="example-text-input">
+            </div>
+        </div>
+    </div>
+<?php } ?>
 
 
-}
-echo "</table>";
-
-getFooter();

@@ -30,9 +30,9 @@ while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
     $terms_id = $row['terms_id'];
     $type = $row['type'];
     $task_nr = $row['task_nr'];
-    $task_nr = $row['version'];
+    $version = $row['version'];
     $description = $row['description'];
-    $description = $row['created_date'];
+    $created_date = $row['created_date'];
 
     $acceptance = $row['acceptance'];
     $SLA = $row['service_level_agreement'];
@@ -41,32 +41,79 @@ while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
 
 
 
-    echo "<p>form ID</p>";
-    echo "<p>" . $row['form_id'] . "</p>";
-    echo "<p>terms_id</p>";
-    echo "<p>" . $row['terms_id'] . "</p>";
-    echo "<p>Type</p>";
-    echo "<p>" . $row['type'] . "</p>";
-    echo "<p>opdrachtgever:</p>";
-    echo "<p>" . $row['task_nr'] . "</p>";
-    echo "<p>versie nummer</p>";
-    echo "<p>" . $row['version'] . "</p>";
-    echo "<p>beschrijving</p>";
-    echo "<p>" . $row['description'] . "</p>";
-    echo "<p>created date</p>";
-    echo "<p>" . $row['created_date'] . "</p>";
+
+    ?>
+
+    <div class="card-header">Formulier</div>
+    <div class="card-body">
+        <div class="form-group row">
+            <label for="example-text-input" class="col-2 col-form-label">form id</label>
+            <div class="col-4">
+                <input class="form-control" type="text" value="<?= $form_id ?>" readonly id="example-text-input">
+            </div>
+
+            <label for="example-text-input" class="col-2 col-form-label">form id</label>
+            <div class="col-4">
+                <input class="form-control" type="text" value="<?= $created_date ?>" readonly id="example-text-input">
+            </div>
+
+        </div>
+
+        <div class="form-group row">
+
+            <label for="example-text-input" class="col-2 col-form-label">opdrachtnummer</label>
+            <div class="col-4">
+                <input class="form-control" type="text" value="<?= $task_nr ?>" readonly id="example-text-input">
+            </div>
+
+            <label for="example-text-input" class="col-2 col-form-label">versie</label>
+            <div class="col-4">
+                <input class="form-control" type="text" value="<?= $version ?>" readonly id="example-text-input">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="example-text-input" class="col-2 col-form-label">locatie</label>
+            <div class="col-4">
+                <input class="form-control" type="text" value="<?= $type ?>" readonly id="example-text-input">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="example-text-input" class="col-2 col-form-label">addres</label>
+            <div class="col-10">
+                <textarea class="form-control" type="text"  rows="7" readonly id="example-text-input"><?= $description ?></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="card-header">Service level Agreement</div>
+    <div class="card-body">
+
+        <div class="form-group row">
+            <label for="example-text-input" class="col-2 col-form-label">acceptatie</label>
+            <div class="col-10">
+                <textarea class="form-control" type="text" rows="5" readonly id="example-text-input"><?= $acceptance ?></textarea>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="example-text-input" class="col-2 col-form-label">service level agreement</label>
+            <div class="col-10">
+                <textarea class="form-control" type="text" rows="5" readonly id="example-text-input"><?= $SLA ?></textarea>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="example-text-input" class="col-2 col-form-label">contact</label>
+            <div class="col-10">
+                <textarea class="form-control" type="text"  rows="5" readonly id="example-text-input"><?= $contact ?></textarea>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="example-text-input" class="col-2 col-form-label">ondertekening</label>
+            <div class="col-10">
+                <textarea class="form-control" type="text" rows="5" readonly id="example-text-input"><?= $signature ?></textarea>
+            </div>
+        </div>
+    </div>
 
 
-    echo "<p>acceptance</p>";
-    echo "<p>" . $row['acceptance'] . "</p>";
-    echo "<p>SLA</p>";
-    echo "<p>" . $row['service_level_agreement'] . "</p>";
-    echo "<p>Contact</p>";
-    echo "<p>" . $row['signature'] . "</p>";
-
-
-
-}
-
-
-getFooter();
+<?php } ?>

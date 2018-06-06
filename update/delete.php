@@ -18,9 +18,9 @@ checkRole("admin");
         try
         {
             $query=$conn->prepare("
-                        DELETE FROM `user` WHERE `user_id` = 'id';");
+                        DELETE FROM `update` WHERE `update_id` = :id");
             $query->execute(array(
-                'id' => $user_id
+                'id' => $_GET['id']
             ));
             header('Location: index.php');
         }
