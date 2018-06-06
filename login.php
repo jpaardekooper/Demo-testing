@@ -67,7 +67,7 @@ if (filter_has_var(INPUT_POST, 'submit')) {
                 'last_visit' => date("Y-m-d")
             ));
 
-          //  print_r($_SESSION['id']);
+            //  print_r($_SESSION['id']);
 
             echo "<div class='loading-screen'>
                     <img class='loading' src='" . getAssetsDirectory() . "image/loading.gif'/>
@@ -93,38 +93,36 @@ if (filter_has_var(INPUT_POST, 'submit')) {
     }
 } else {
 //formulier is nog niet verzonden, laat het zien in de html-modus
-?>
-<div class="login-container">
-    <img class="login-image" src="assets/image/header.jpg"/>
-    <div class="login-background">
-        <div class="login-logo-position">
-            <img class="login-logo" src="assets/image/sqits-logo.png"/>
+    ?>
+    <div class="login-container">
+        <img class="login-image" src="assets/image/header.jpg"/>
+        <div class="login-background">
+            <div class="login-logo-position">
+                <img class="login-logo" src="assets/image/sqits-logo.png"/>
+            </div>
+
+            <form class="login-form" action="login.php" method="post">
+                <fieldset>
+                    <label for="username">Gebruikersnaam</label>
+                    <input id="username" name="username" type="email" required/>
+                </fieldset>
+                <fieldset>
+                    <label for="wachtwoord">Wachtwoord</label>
+                    <input id="wachtwoord" name="password" type="password" required/>
+                </fieldset>
+
+                <fieldset>
+                    <input type="submit" name="submit" value="Inloggen">
+                </fieldset>
+            </form>
+
         </div>
-
-
-        <form class="login-form" action="login.php" method="post">
-            <fieldset>
-                <label for="username">Gebruikersnaam</label>
-                <input id="username" name="username" type="email" required/>
-            </fieldset>
-            <fieldset>
-                <label for="wachtwoord">Wachtwoord</label>
-                <input id="wachtwoord" name="password" type="password" required/>
-            </fieldset>
-
-            <fieldset>
-                <input type="submit" name="submit" value="Inloggen">
-            </fieldset>
-        </form>
-
-
     </div>
 
 
     <?php
-    }
+}
 
-    getFooter();
-    ?>
+?>
 
 

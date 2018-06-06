@@ -19,10 +19,7 @@ function getHeader($description, $title = "Sqits")
             <!-- Custom datatables styles for this template-->    
              <link rel=\"stylesheet\" type=\"text/css\" href=\"https://cdn.datatables.net/1.10.16/css/jquery.dataTables.css\">
                     
-            <link rel=\"stylesheet\" href=" . getAssetsDirectory() . "css/customize.css>           
-
-            <link rel=\"stylesheet\" href=" . getAssetsDirectory() . "cs/dashboard.css>
-           
+            <link rel=\"stylesheet\" href=" . getAssetsDirectory() . "css/customize.css>   
   
 
         </head>
@@ -233,9 +230,9 @@ function getTopPanel($panelDescription = "dashboard")
                                </div>
                                
                             <div class='top-panel-item'>
-                                " . $_SESSION['id']['first_name'] . " 
+                                Welkom: " . $_SESSION['id']['first_name'] . " 
                                 " . $_SESSION['id']['last_name'] . " 
-                                " . $_SESSION['id']['role'] . " 
+                                <br/>Role: " . $_SESSION['id']['role'] . " 
                                 </div>
                     </div>
                 </header>
@@ -250,7 +247,7 @@ function getFooter()
                   <footer class=\"sticky-footer\">
       <div class=\"container\">
         <div class=\"text-center\">
-          <small>Copyright © Your Website 2018</small>
+          <small>Copyright © De Haagse Hogeschool</small>
         </div>
       </div>
     </footer>

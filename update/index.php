@@ -86,15 +86,14 @@ if ($_SESSION["id"]) {
                 if (strlen($description) > 20) $description = substr($description, 0, 20) . '...';
 
                 echo "<tr>             
-                <td>$company_name</td>
+                <td><a href=\"update.php?action=delete&id=$update_id\">$company_name</a></td>
                 <td>$type</td>
                 <td>$version</td>             
                 <td>$description</td>              
                 <td>$status</td>
                 <td>$created_date</td>
-             
-                    <td><a href=\"update.php?action=delete&id=$update_id\">edit</a></td>
-                </tr>";
+                <td><a href=\"update.php?action=delete&id=$update_id\">edit</a></td>
+              </tr>";
             }
             echo "       </tbody>
             </table>

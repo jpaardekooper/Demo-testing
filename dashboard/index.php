@@ -23,11 +23,13 @@ if (isset($_SESSION['id'])) {
                 <?php
                 //random query in order to get current patch
                 try {
-                    $query = $conn->prepare("SELECT COUNT(up.company_id) as waarde
+                    $query = $conn->prepare("SELECT COUNT(up.company_id) as updates, f.version
                                                         FROM `update` as up
                                                         INNER JOIN company as c ON c.company_id = up.company_id
                                                         INNER JOIN user as u ON u.company_id = c.company_id                                                        
-                                                        WHERE u.user_id = :id");
+                                                        INNER JOIN form as f ON up.form_id = f.form_id                                                        
+                                                        WHERE u.user_id = :id AND up.status = 'pending'
+                                                        GROUP BY  f.version");
                     $query->execute(array(
                         'id' => $_SESSION['id']['user_id']
                     ));
@@ -41,12 +43,34 @@ if (isset($_SESSION['id'])) {
                 }
 
                 while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
-                    $update_id = $row['waarde'];
-                    echo $update_id;
+                    $update_id = $row['updates'];
+                    $version = $row['version'];
 
                 }
+
                 ?>
-               <span class='patch-version'>Current version: 4.0.1A</span>
+                <div class="card card-login mx-auto mt-5">
+                    <div class="card-header text-center">Current version:
+                        <br/>
+                        <h5><?= $version ?></h5>
+                    </div>
+                    <div class="card-body">
+
+                        <div class="text-center">
+                            <div class="form-group">
+                                <?php
+                                if ($update_id < 1){
+                                    echo" <span class='patch-version'>U bent up to date</span>";
+                                }else{
+                                    echo" <a href='".getPathToRoot()."update/index.php'/><span class='patch-version'>Er staat nog ". $update_id ." update open</span></a>";
+                                }
+                                ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
 
         </div>

@@ -5,7 +5,7 @@
     width: 42px;
 }
 .navbar-dark .navbar-nav .nav-link {
-   color: #fff!important;
+   color: #fff !important;
 
 }
 .navbar-dark .navbar-nav .nav-link:focus, .navbar-dark .navbar-nav .nav-link:hover {
@@ -16,15 +16,40 @@
     right: 0!important;
 }
 
-@CHARSET "UTF-8";
-.page-break {
-    page-break-after: always;
-    page-break-inside: avoid;
-    clear: both;
+thead{
+    background-color: #42c0b3 !important;
+    color: #fff  !important;
 }
 
-.page-break-before {
-    page-break-before: always;
-    page-break-inside: avoid;
-    clear: both;
+.odd:hover{
+    background-color:#42c0b347;
+}
+.even:hover{
+    background-color:#42c0b347;
+}
+.odd a, .even a{
+    color: #42c0b3 !important;
+    font-weight:bold;
+}
+
+.btn-primary, .btn-default{
+    background-color: #42c0b3 !important;
+    border-color: #55c6bb;
+}
+.btn-primary:hover, .btn-default:hover{
+    background-color: #36a398 !important;
+    border-color: #38a79b !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+    color: #fff !important;
+    border: 1px solid #55c6bb;
+    background-color: #42c0b3 !important;
+    background: none;
+}
+.breadcrumb{
+    background-color: #343a40 !important;
+}
+.breadcrumb-item a{
+    color: #fff !important;
 }
