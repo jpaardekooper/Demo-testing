@@ -29,7 +29,7 @@ if ($_SESSION["id"]) {
                 $query = $conn->prepare("SELECT u.*, p.*, c.*
                                           FROM `user` as u
                                           INNER JOIN company as c  ON u.company_id = c.company_id  
-                                          INNER JOIN phone as p ON u.phone_id = p.phone_id                                                                                                                            
+                                          INNER JOIN phone as p ON u.user_id = p.user_id                                                                                                                            
                                           ");
                 $query->execute();
 
@@ -62,7 +62,8 @@ if ($_SESSION["id"]) {
                              <th>Email: </th>
                              <th>voornaam</th>
                              <th>achternaam</th>           
-                             <th>phone</th>
+                             <th>phone user</th>
+                             <th>phone company</th>
                              <th>active</th>
                              <th>last_visit</th>
                              <th>created_date</th>
@@ -75,7 +76,8 @@ if ($_SESSION["id"]) {
                                 <th>Email: </th>
                                 <th>voornaam</th>
                                 <th>achternaam</th>           
-                                <th>phone</th>
+                                <th>phone user</th>
+                                <th>phone company</th>
                                 <th>active</th>
                                 <th>last_visit</th>
                                 <th>created_date</th>
@@ -91,18 +93,20 @@ if ($_SESSION["id"]) {
                 $last_name = $row['last_name'];
                 $email = $row['email'];
                 $last_visit = $row['last_visit'];
-                $active = $row['active'];
+                $active = $row['status'];
                 $created_date = $row['created_date'];
                 $role = $row['role'];
                 $company_name = $row['company_name'];
-                $phone = $row['phone_number'];
+                $phoneU = $row['phone_number'];
+                $phoneC = $row['phone'];
 
                 echo "<tr>
-                <td>" . htmlentities($company_name) . "</td>                           
+                <td><a href=\"update.php?action=delete&id=$user_id\">" . htmlentities($company_name) . "</a></td>                           
                 <td>" . htmlentities($email) . "</td> 
                 <td>" . htmlentities($first_name) . "</td>
                 <td>" . htmlentities($last_name) . "</td>
-                   <td>" . htmlentities($phone) . "</td>
+                   <td>" . htmlentities($phoneU) . "</td>
+                   <td>" . htmlentities($phoneC) . "</td>
                 <td>" . htmlentities($active) . "</td>
                   <td>" . htmlentities($last_visit) . "</td>            
                 <td>" . htmlentities($created_date) . "</td>          

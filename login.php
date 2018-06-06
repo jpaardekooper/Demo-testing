@@ -21,16 +21,16 @@ var_dump_str($result);*/
 
 if (filter_has_var(INPUT_POST, 'submit')) {
 
-    $query = "SELECT u.user_id, u.company_id, u.email, u.password, u.role, u.last_visit FROM `user` u
-            INNER JOIN `company` as c ON u.user_id = c.user_id
-            WHERE `email` = :email"; //alle gebruikers met het ingevoerde e-mailadres ophalen
+    $query = "SELECT u.user_id, u.company_id, u.username, u.password, u.first_name, u.last_name, u.role, u.last_visit FROM `user` as u
+            INNER JOIN `company` as c ON u.company_id = c.company_id
+            WHERE `username` = :username"; //alle gebruikers met het ingevoerde e-mailadres ophalen
 
-    $ophalen = $conn->prepare($query);
-    $ophalen->execute(array(
-        'email' => $_POST['email']
+    $results = $conn->prepare($query);
+    $results->execute(array(
+        'username' => $_POST['username']
     ));
     $database_contents = FALSE;
-    while ($record = $ophalen->fetch(PDO::FETCH_ASSOC)) {
+    while ($record = $results->fetch(PDO::FETCH_ASSOC)) {
         $database_contents = $record;
     }
 
@@ -67,7 +67,7 @@ if (filter_has_var(INPUT_POST, 'submit')) {
                 'last_visit' => date("Y-m-d")
             ));
 
-            print_r($_SESSION['id']);
+          //  print_r($_SESSION['id']);
 
             echo "<div class='loading-screen'>
                     <img class='loading' src='" . getAssetsDirectory() . "image/loading.gif'/>
@@ -104,8 +104,8 @@ if (filter_has_var(INPUT_POST, 'submit')) {
 
         <form class="login-form" action="login.php" method="post">
             <fieldset>
-                <label for="email">Gebruikersnaam</label>
-                <input id="email" name="email" type="email" required/>
+                <label for="username">Gebruikersnaam</label>
+                <input id="username" name="username" type="email" required/>
             </fieldset>
             <fieldset>
                 <label for="wachtwoord">Wachtwoord</label>

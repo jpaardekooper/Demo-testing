@@ -18,27 +18,7 @@ if (isset($_SESSION['id'])) {
     getTopPanel();
 
 
-    //random query in order to get current patch
-    try {
-        $query = $conn->prepare("SELECT email FROM `user` WHERE user_id = :id");
-        $query->execute(array(
-            'id' => $_SESSION['id']['user_id']
-        ));
-    } catch (PDOException $e) {
-        $sMsg = '<p> 
-                    Line number: ' . $e->getLine() . '<br /> 
-                    File: ' . $e->getFile() . '<br /> 
-                    Error message: ' . $e->getMessage() .
-            '</p>';
-        trigger_error($sMsg);
-    }
-
-    while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
-        $email = $row['email'];
-
-        echo "<span class='patch-version'> this is dashboard form ADMIN</span>";
-
-    }
+    echo "<span class='patch-version'> this is dashboard form ADMIN</span>";
 
     echo "
     <div class=\"row\">

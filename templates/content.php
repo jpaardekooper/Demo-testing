@@ -24,7 +24,7 @@ function getHeader($description, $title = "Sqits")
   
 
         </head>
-        <body class=\"fixed-nav sticky-footer bg-dark\" id=\"page-top\">";
+        <body class=\"fixed-nav sticky-footer bg-light\" id=\"page-top\">";
     echo $header;
 
     getSideBar();
@@ -50,7 +50,7 @@ function getLoginHeader($description, $title = "Sqits login page")
                
             <link rel=\"stylesheet\" href=" . getAssetsDirectory() . "css/custom.css>        
         </head>
-        <body class=\"fixed-nav sticky-footer bg-dark\" id=\"page-top\"> ";
+        <body class=\"fixed-nav sticky-footer bg-light\" id=\"page-top\"> ";
     echo $header;
 
 }
@@ -231,7 +231,9 @@ function getTopPanel($panelDescription = "dashboard")
                                </div>
                                
                             <div class='top-panel-item'>
-                                " . $_SESSION['id']['email'] . " 
+                                " . $_SESSION['id']['first_name'] . " 
+                                " . $_SESSION['id']['last_name'] . " 
+                                " . $_SESSION['id']['role'] . " 
                                 </div>
                     </div>
                 </header>

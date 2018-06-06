@@ -19,30 +19,10 @@ try
 catch(PDOException $e)
 {
     $sMsg = '<p>
-            Linenumber: '.$e->getLine().'<br />
+            Line number: '.$e->getLine().'<br />
             File: '.$e->getFile().'<br />
-            Error Message: '.$e->getMessage().'
+            Error Message: '.$e->getMessage().'<br/>
         </p>';
 
     trigger_error($sMsg);
 }
-
-
-?>
-<!--//query maken
-$query = $conn->prepare();
-
-//query uitvoeren
-//hierin kunnen we nog waardes meegeven
-/*$query->execute(
-[
-'id' => $id
-]
-);*/
-$query->execute();
-
-//fetch is 1 waarde terug
-//fetchAll is alle waardes terug
-$result = $query->FetchAll();
-
-var_dump($result);-->
