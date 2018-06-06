@@ -16,11 +16,13 @@ function getHeader($description, $title = "Sqits")
             <link rel=\"stylesheet\" href=" . getAssetsDirectory() . "vendor/font-awesome/css/font-awesome.min.css>    
               <!-- Custom styles for this template-->     
             <link rel=\"stylesheet\" href=" . getAssetsDirectory() . "css/sb-admin.css> 
+            <!-- Custom datatables styles for this template-->    
+             <link rel=\"stylesheet\" type=\"text/css\" href=\"https://cdn.datatables.net/1.10.16/css/jquery.dataTables.css\">
                     
             <link rel=\"stylesheet\" href=" . getAssetsDirectory() . "css/customize.css>           
 
             <link rel=\"stylesheet\" href=" . getAssetsDirectory() . "cs/dashboard.css>
-            <link rel=\"stylesheet\" type=\"text/css\" href=\"https://cdn.datatables.net/1.10.16/css/jquery.dataTables.css\">
+           
   
 
         </head>

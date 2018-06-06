@@ -10,9 +10,6 @@ getHeader("Sqits form-delete", "Form delete");
 
 echo '<div class="content-wrapper">';
 echo '<div class="container-fluid">';
-
-	
-	$id = $_GET['id'];
     
 	if(@$_GET['action'] == "delete")
 	{	
@@ -20,8 +17,10 @@ echo '<div class="container-fluid">';
         try
         {
             $query=$conn->prepare("
-                        DELETE FROM `user` WHERE `user_id` = '$id';");
-            $query->execute();
+                        DELETE FROM `form` WHERE `form_id` = :id");
+            $query->execute(array(
+                'id' =>$_GET['id']
+            ));
             header('Location: index.php');
         }
         catch(PDOException $e)

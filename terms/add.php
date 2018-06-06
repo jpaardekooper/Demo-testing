@@ -10,26 +10,20 @@ if (isset($_SESSION['id'])) {
 
     checkRole('admin');
 
-
-
     if (@$_GET['action'] == "save") {
 
         try {
 
 //http://php.net/manual/en/password.constants.php
 
-            $query = "INSERT INTO `terms` (`company_id`, `type`, `version`, `task_nr`, `description`, status, end_date, create_date, modified_date) 
-                                    VALUES (:company_id, :type, :version, :task_nr, :description, :status, :end_date, NOW(), NOW() )";
+            $query = "INSERT INTO terms (acceptance, service_level_agreement, contact, signature, created_date) 
+                                    VALUES (:acceptance, :service_level_agreement,  :contact, :signature, NOW() )";
             $results = $conn->prepare($query);
             $results->execute(array(
-                'company_id' => $_POST['company_id'],
-                'type' => $_POST['type'],
-                'version' => $_POST['version'],
-                'task_nr' => $_POST['task_nr'],
-                'description' => $_POST['description'],
-                'status' => $_POST['status'],
-                'end_date' => $_POST['end_date'],
-
+                'acceptance' => $_POST['acceptance'],
+                'service_level_agreement' => $_POST['service_level_agreement'],
+                'contact' => $_POST['contact'],
+                'signature' => $_POST['signature'],
 
             ));
 
@@ -37,9 +31,11 @@ if (isset($_SESSION['id'])) {
                     <img class='loading' src='" . getAssetsDirectory() . "image/loading.gif'/>
             </div>";
 
+
             echo "het formulier is opgeslagen.";
 
-            header("Refresh: 1; url=index.php");
+            header("Refresh: 1; URL=index.php");
+
 
         } catch (PDOException $e) {
             $sMsg = '<p>
@@ -56,49 +52,71 @@ if (isset($_SESSION['id'])) {
 
         echo '<div class="content-wrapper">';
         echo '<div class="container-fluid">';
-
+        getBreadCrumbs();
         getTopPanel("formulier toevoegen");
 
         ?>
 
 
+        <div class="card card-register mx-auto mt-1">
+            <form name="add" action="?action=save" method="post">
+                <div class="card-header">Voorwaarden Forumulier</div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="exampleTextArea1">Acceptatie</label>
+                                    <textarea class="form-control" rows="5" id="exampleTextArea1" name="acceptance"
+                                              placeholder="de update bevat de volgende onderdelen..."></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="exampleTextArea2">Voorwaarden</label>
+                                    <textarea class="form-control" rows="5" id="exampleTextArea2" name="service_level_agreement"
+                                              placeholder="de update bevat de volgende onderdelen..."></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="exampleTextArea3">contact</label>
+                                    <textarea class="form-control" rows="5" id="exampleTextArea3" name="contact"
+                                              placeholder="de update bevat de volgende onderdelen..."></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="exampleTextArea4">ondertekening</label>
+                                    <textarea class="form-control" rows="5" id="exampleTextArea4" name="signature"
+                                              placeholder="de update bevat de volgende onderdelen..."></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <input class="btn btn-primary btn-block" type="submit" name="submit" value="Opslaan">
+            </form>
+        </div>
+
+
         <?php
-        echo "
-          	<form name=\"add\" action=\"?action=save\" method=\"post\">
-                <table>             
-                    <tr>
-                        <tr>bedrijfsnaam</tr>
-                        <tr><input type=\"text\" name=\"company_id\" required> </tr>   
-                        <tr>type</tr>
-                        <tr><input type=\"text\" name=\"type\" required> </tr>  
-                        <tr>versie</tr>
-                        <tr><input type=\"number\" name=\"version\" required> </tr> <br/>
-                        <tr>opdrachtnummer</tr> <br/>
-                        <tr><input type=\"text\" name=\"task_nr\" required> </tr> <br/>
-                        <tr>beschrijving</tr> <br/>
-                        <tr><textarea rows=\"4\" cols=\"50\" type='text' name=\"description\" required> </textarea></tr>  <br/>
-                        <tr>status</tr> <br/>
-                        <tr>
-                        <select name='status'>                      
-                              <option value=\"pending\">pending</option>
-                              <option value=\"1\">1</option>
-                              <option value=\"2\">2</option>
-                              <option value=\"3\">3</option>
-                            </select>
-                        </tr>  <br/>
-                        <tr>eind datum</tr><br/>
-                        <tr><input type=\"date\" name=\"end_date\" required> </tr> 
-                 
-              
-                
-                    <tr>
-                        <td colspan=\"2\"><input type=\"reset\" name=\"reset\" value=\"Clear\">
-                                        <input type=\"submit\" name=\"submit\" value=\"Opslaan\"></td>
-                    </tr>					
-                </table>
-            </form>          
-          
-            ";
+
+
+        echo "</div>";
+        echo "</div>";
 
         getFooter();
 

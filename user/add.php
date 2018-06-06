@@ -12,16 +12,16 @@ if (@$_GET['action'] == "save") {
 
     try {
 
-/*        $query = "INSERT INTO `user` as u
-                INNER JOIN `company` as c ON c.company_id = u.company_id
-                INNER JOIN `phone` as p ON p.user_id = u.user_id
-                      (u.company_id, u.username, u.password, ,u.first_name, u.last_name, u.role, u.status, u.last_visit, u.created_date,
-                      c.company_id, c.phone, c.company_name, c.email, c.kvk, c.zip_code, c.address, c.location, c.created_date
-                      p.user_id, p.phone)
-                VALUES (:u_company_id, :username, :password, ,:first_name, :last_name, :role, :status, NOW(), NOW(),
-                      :c_company_id, :c_phone, :company_name, :email, :kvk, :zip_code, :address, :location, NOW(),
-                       :p_user_id, :p_phone
-                 )";*/
+        /*        $query = "INSERT INTO `user` as u
+                        INNER JOIN `company` as c ON c.company_id = u.company_id
+                        INNER JOIN `phone` as p ON p.user_id = u.user_id
+                              (u.company_id, u.username, u.password, ,u.first_name, u.last_name, u.role, u.status, u.last_visit, u.created_date,
+                              c.company_id, c.phone, c.company_name, c.email, c.kvk, c.zip_code, c.address, c.location, c.created_date
+                              p.user_id, p.phone)
+                        VALUES (:u_company_id, :username, :password, ,:first_name, :last_name, :role, :status, NOW(), NOW(),
+                              :c_company_id, :c_phone, :company_name, :email, :kvk, :zip_code, :address, :location, NOW(),
+                               :p_user_id, :p_phone
+                         )";*/
 //http://php.net/manual/en/password.constants.php
 
         $query = "INSERT INTO company
@@ -40,7 +40,7 @@ if (@$_GET['action'] == "save") {
         ));
 
         $last_inserted_company = $conn->lastInsertId();
-        echo   $last_inserted_company;
+        echo $last_inserted_company;
 
         $query = "INSERT INTO `user`
                   (company_id, username, password, first_name, last_name, role, status, last_visit, created_date)
@@ -59,23 +59,23 @@ if (@$_GET['action'] == "save") {
         ));
 
 
-/*        $query = $conn->prepare("UPDATE `user`
-                                        SET company_id = :company_id
-                                    WHERE user_id =:user_id");
-        $query->execute(array(
-                'user_id' => $last_id,
-                'company_id' => $last_id
-        ));*/
+        /*        $query = $conn->prepare("UPDATE `user`
+                                                SET company_id = :company_id
+                                            WHERE user_id =:user_id");
+                $query->execute(array(
+                        'user_id' => $last_id,
+                        'company_id' => $last_id
+                ));*/
         $last_inserted_user = $conn->lastInsertId();
-        echo   $last_inserted_user;
+        echo $last_inserted_user;
 
         $query = "INSERT INTO phone
                     (user_id, phone_number)
           VALUES   (:p_user_id, :p_phone) ";
         $ophalen = $conn->prepare($query);
         $ophalen->execute(array(
-               'p_user_id' => $last_inserted_user,
-               'p_phone' => $_POST['p_phone']
+            'p_user_id' => $last_inserted_user,
+            'p_phone' => $_POST['p_phone']
         ));
 
 
@@ -141,7 +141,8 @@ if (@$_GET['action'] == "save") {
                         </div>
                         <div class="col-md-4">
                             <label class="radio-inline"><input type="radio" name="status" value="active">active</label
-                            <label class="radio-inline"><input type="radio" name="status" value="inactive">inactive</label>
+                            <label class="radio-inline"><input type="radio" name="status"
+                                                               value="inactive">inactive</label>
                         </div>
                         <div class="col-md-4">
                             <label for="examplePhone">phone</label>
@@ -202,13 +203,13 @@ if (@$_GET['action'] == "save") {
                     </div>
                 </div>
             </div>
-                <input class="btn btn-primary btn-block" type="submit" name="submit" value="Opslaan">
-            </div>
+            <input class="btn btn-primary btn-block" type="submit" name="submit" value="Opslaan">
         </form>
     </div>
 
     </div>
     </div>
+
     <?php
 }
 getFooter();

@@ -23,9 +23,9 @@ if (isset($_SESSION['id'])) {
                                                   INNER JOIN `company` as com ON com.company_id = f.company_id
                                                  ");*/
 
-        $query = $conn->prepare("SELECT f.*, com.*
+        $query = $conn->prepare("SELECT f.*, t.*
                                           FROM `form` as f 
-                                          INNER JOIN `company` as com ON com.company_id = f.company_id                                       
+                                          INNER JOIN `terms` as t ON f.terms_id = t.terms_id                                       
                                          ");
         $query->execute();
     } catch (PDOException $e) {
@@ -37,19 +37,6 @@ if (isset($_SESSION['id'])) {
         trigger_error($sMsg);
     }
 
-
-    echo "<table name='form_overview'
-            <tr>
-            <th>form_id</th>         
-            <th>company_id</th>      
-            <th>type</th>
-            <th>version</th>
-            <th>description</th>
-            <th>status</th>
-            <th>created_date</th>
-            <th>acties</th>
-            </tr>";
-
     echo " <div class=\"card mb-3\">
                 <div class=\"card-header\">
                     <i class=\"fa fa-table\"></i> Data Table Example</div>
@@ -59,24 +46,26 @@ if (isset($_SESSION['id'])) {
                         <thead>
                             <tr>
                               <th>form_id</th>         
-                                <th>company_id</th>      
+                                <th>terms_id</th>      
                                 <th>type</th>
+                                <th>opdrachtnummer</th>
                                 <th>version</th>
-                                <th>description</th>
-                                <th>status</th>
+                                <th>description</th>                               
                                 <th>created_date</th>
+                                 <th>modified_date</th>
                                 <th>acties</th>
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
-                                <th>form_id</th>         
-                                <th>company_id</th>      
+                               <th>form_id</th>         
+                                <th>terms_id</th>      
                                 <th>type</th>
+                                <th>opdrachtnummer</th>
                                 <th>version</th>
-                                <th>description</th>
-                                <th>status</th>
+                                <th>description</th>                               
                                 <th>created_date</th>
+                                 <th>modified_date</th>
                                 <th>acties</th>
                             </tr>
                         </tfoot>
@@ -86,21 +75,25 @@ if (isset($_SESSION['id'])) {
 
     while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
         $form_id = $row['form_id'];
-        $company_id = $row['company_id'];
+        $terms_id = $row['terms_id'];
         $type = $row['type'];
+        $task_nr = $row['task_nr'];
         $version = $row['version'];
         $description = $row['description'];
-        $status = $row['status'];
         $created_date = $row['created_date'];
+        $modified_date = $row['modified_date'];
+
+        if (strlen($description) > 20) $description = substr($description, 0, 20) . '...';
 
         echo "<tr>
                 <td>$form_id</td>
-                <td>$company_id</td>
+                <td>$terms_id</td>
                 <td>$type</td>
+                <td>$task_nr</td>
                 <td>$version</td>             
-                <td>$description</td>              
-                <td>$status</td>
+                <td>$description</td> 
                 <td>$created_date</td>
+                <td>$modified_date</td>
              
                     <td><a href=\"delete.php?action=delete&id=$form_id\">X</a>
                         <a href=\"update.php?action=delete&id=$form_id\">edit</a></td>

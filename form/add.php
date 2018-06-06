@@ -16,17 +16,16 @@ if (isset($_SESSION['id'])) {
 
 //http://php.net/manual/en/password.constants.php
 
-            $query = "INSERT INTO `form` (`company_id`, `type`, `version`, `task_nr`, `description`, status, end_date, create_date, modified_date) 
-                                    VALUES (:company_id, :type, :version, :task_nr, :description, :status, :end_date, NOW(), NOW() )";
+            $query = "INSERT INTO form (terms_id, type, task_nr,  version,  description, created_date, modified_date) 
+                                    VALUES (:terms_id, :type, :task_nr,  :version, :description, NOW(), NOW() )";
             $results = $conn->prepare($query);
             $results->execute(array(
-                'company_id' => $_POST['company_id'],
+                'terms_id' => $_POST['terms_id'],
                 'type' => $_POST['type'],
-                'version' => $_POST['version'],
                 'task_nr' => $_POST['task_nr'],
+                'version' => $_POST['version'],
                 'description' => $_POST['description'],
-                'status' => $_POST['status'],
-                'end_date' => $_POST['end_date']
+
             ));
 
             echo "<div class='loading-screen'>
@@ -60,44 +59,84 @@ if (isset($_SESSION['id'])) {
         ?>
 
 
+        <div class="card card-register mx-auto mt-1">
+            <form name="add" action="?action=save" method="post">
+                <div class="card-header">Inlog gegevens</div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div class="col-md-6">
+
+                                <?php
+
+                                //SQL FOR FORM_ID SELECTION
+                                $results = $conn->prepare("
+						        SELECT `terms_id`, created_date FROM `terms` 
+						        ");
+                                $results->execute();
+                                $types = $results->fetchAll();
+                                unset($result);
+
+                                echo "<label>Voorwaarden:</label>";
+                                echo "<select  class='form-control' name='terms_id'>";
+                                echo "<option value=''></option>";
+                                foreach ($types as $type) {
+                                    if ($type['form_id'] == $form_id) {
+                                        echo "<option selected value='" . htmlentities($type['terms_id']) . "'>" . htmlentities($type['created_date']) . " </option>";
+
+                                    } else {
+                                        echo "<option value='" . htmlentities($type['terms_id']) . "'>" . htmlentities($type['created_date']) . " </option>";
+                                    }
+                                }
+                                echo "</select>";
+
+                                //****end
+                                ?>
+                            </div>
+                            <div class="col-md-6">
+                               <label>Type update</label>
+                                <select class="form-control" name="type">
+                                    <option value="bug-fix">bug-fix</option>
+                                    <option value="mayor-update">mayor-update</option>
+                                </select>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div class="col-md-4">
+                                <label>Type</label>
+                                <label for="exampleTaskNr">opdrachtnummer</label>
+                                <input class="form-control" id="exampleTaskNr" name="task_nr" type="text"
+                                       aria-describedby="emailHelp" placeholder="opdrachtnummer">
+                            </div>
+                            <div class="col-md-2">
+                                <label for="exampleVersion">Versie</label>
+                                <input class="form-control" id="exampleVersion" name="version" type="text"
+                                       placeholder="1.1A">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="exampleTextArea">update beschrijving</label>
+                                    <textarea class="form-control" rows="5" id="exampleTextArea" name="description"
+                                              placeholder="de update bevat de volgende onderdelen..."></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <input class="btn btn-primary btn-block" type="submit" name="submit" value="Opslaan">
+            </form>
+        </div>
+
+
         <?php
 
-        echo "
-          	<form name=\"add\" action=\"?action=save\" method=\"post\">
-                <table>             
-                    <tr>
-                        <tr>bedrijfsnaam</tr>
-                        <tr><input type=\"text\" name=\"company_id\" required> </tr>   
-                        <tr>type</tr>
-                        <tr><input type=\"text\" name=\"type\" required> </tr>  
-                        <tr>versie</tr>
-                        <tr><input type=\"number\" name=\"version\" required> </tr> <br/>
-                        <tr>opdrachtnummer</tr> <br/>
-                        <tr><input type=\"text\" name=\"task_nr\" required> </tr> <br/>                  
-                        <tr>beschrijving</tr> <br/>     
-                        <tr><textarea  rows=\"4\" cols=\"50\" type='text' name=\"description\" > </textarea></tr>  <br/>
-                        <tr>status</tr> <br/>
-                        <tr>
-                        <select name='status'>                      
-                              <option value=\"pending\">pending</option>
-                              <option value=\"1\">1</option>
-                              <option value=\"2\">2</option>
-                              <option value=\"3\">3</option>
-                            </select>
-                        </tr>  <br/>
-                        <tr>eind datum</tr><br/>
-                        <tr><input type=\"date\" name=\"end_date\" required> </tr> 
-                 
-              
-                
-                    <tr>
-                        <td colspan=\"2\"><input type=\"reset\" name=\"reset\" value=\"Clear\">
-                                        <input type=\"submit\" name=\"submit\" value=\"Opslaan\"></td>
-                    </tr>					
-                </table>
-            </form>          
-          
-            ";
 
         echo "</div>";
         echo "</div>";
