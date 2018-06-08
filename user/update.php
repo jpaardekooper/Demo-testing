@@ -24,9 +24,22 @@ if ($_SESSION["id"]) {
                 'password' => password_hash($_POST['password'], PASSWORD_DEFAULT),
             ));
 
-            echo "wijzigingen zijn opgeslagen.";
+            echo "<div class='loading-screen'>
+                    <img class='loading' src='" . getAssetsDirectory() . "image/loading.gif'/>
+            </div>";
 
-            header("Refresh: 1; URL=index.php");
+            switch (getUserRole()){
+                case "user":
+                    header("Refresh: 1; URL=../dashboard.index.php");
+                break;
+                case "admin":
+                    header("Refresh: 1; URL=index.php");
+                    break;
+            }
+
+
+
+
 
         } catch (PDOException $e) {
             $sMsg = '<p>
@@ -49,7 +62,7 @@ if ($_SESSION["id"]) {
                         SET 
                           u.user_id = :user_id,
                           u.username = :username,
-                          u.password = :password,
+                         
                           u.first_name = :first_name,
                           u.last_name = :last_name,
                           u.status = :status, 
@@ -89,7 +102,9 @@ if ($_SESSION["id"]) {
             ));
 
 
-            echo "wijzigingen zijn opgeslagen.";
+            echo "<div class='loading-screen'>
+                    <img class='loading' src='" . getAssetsDirectory() . "image/loading.gif'/>
+            </div>";
 
             header("Refresh: 1; URL=index.php");
 
@@ -221,10 +236,9 @@ if ($_SESSION["id"]) {
                             </div>
                         </div>
                         <input class="btn btn-primary btn-block" type="submit" name="submit" value="Opslaan">
-                    </form>
                 </div>
                 <div id="menu1" class="tab-pane fade">
-                    <form name="add" action="?action=save&id=<?= $user_id ?>" method="post">
+
                         <div class="card-header">Gebruiker gegevens</div>
                         <div class="card-body">
                             <div class="form-group">
