@@ -122,7 +122,7 @@ function getSidebar($page = "Sqits")
                 switch (getUserRole()) {
                     case "user":
                         echo "<li  class=\"nav-item " . isActiveOnPage('/user/index.php') . " " . isActiveOnPage('/user/update.php') . "\" data-toggle=\"tooltip\" data-placement=\"right\" title=\"user\" " . isActiveOnPage('/user/index.php') . ">
-                        <a  class=\"nav-link\" href='" . getPathToRoot() . "user/index.php'>                        
+                        <a  class=\"nav-link\" href='" . getPathToRoot() . "user/update.php?action=update&id=".$_SESSION['id']['user_id'] . ".php'>                        
                              <i class=\"fa fa-fw fa-area-chart\"></i>
                              <span class=\"nav-link-text\">Wijzig gegevens</span>
                         </a>
@@ -226,7 +226,7 @@ function getTopPanel($panelDescription = "dashboard")
                 <header>
                     <div class='top-panel'>                    
                               <div class='top-panel-item'>                       
-                            " . $panelDescription . "  
+                            <h2>" . $panelDescription . " </h2> 
                                </div>
                                
                             <div class='top-panel-item'>

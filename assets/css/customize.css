@@ -53,3 +53,7 @@ thead{
 .breadcrumb-item a{
     color: #fff !important;
 }
+
+.li-panel-tab{
+    margin: 0 auto;
+}

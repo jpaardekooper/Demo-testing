@@ -21,7 +21,7 @@ var_dump_str($result);*/
 
 if (filter_has_var(INPUT_POST, 'submit')) {
 
-    $query = "SELECT u.user_id, u.company_id, u.username, u.password, u.first_name, u.last_name, u.role, u.last_visit, c.company_name, c.kvk, c.email FROM `user` as u
+    $query = "SELECT u.user_id, u.company_id, u.username, u.password, u.first_name, u.last_name, u.role, u.last_visit, c.company_name, c.kvk, c.email,c.phone FROM `user` as u
             INNER JOIN `company` as c ON u.company_id = c.company_id
             WHERE `username` = :username"; //alle gebruikers met het ingevoerde e-mailadres ophalen
 

@@ -114,7 +114,7 @@ if ($_SESSION["id"]) {
              
              
                     <td><a href=\"delete.php?action=delete&id=$user_id\">X</a>
-                        <a href=\"update.php?action=delete&id=$user_id\">edit</a></td>
+                        <a href=\"update.php?action=update&id=$user_id\">edit</a></td>
                             </tr>";
             }
             echo "       </tbody>
