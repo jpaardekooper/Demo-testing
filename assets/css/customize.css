@@ -29,7 +29,6 @@ thead{
 }
 .odd a, .even a{
     color: #42c0b3 !important;
-    font-weight:bold;
 }
 
 .btn-primary, .btn-default{

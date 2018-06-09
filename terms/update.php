@@ -142,7 +142,8 @@ if ($_GET['action'] == "save") {
         </form>
     </div>
 
-
+    </div>
+    </div>
     <?php
 
 }

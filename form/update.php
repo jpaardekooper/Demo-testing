@@ -12,38 +12,33 @@ checkRole("admin");
 if ($_GET['action'] == "save") {
 
     try {
-/*        $query = $conn->prepare("
-                        UPDATE `user` SET email = :email, password = :password, active = :active WHERE user_id = :id");
-        $query->execute(array(
-            'id' => $_GET['id'],
-            'email' => $_POST['email'],
-            'password' => password_hash($_POST['password'], PASSWORD_DEFAULT),
-            'active' => $_POST['active']
-        ));*/
+        /*        $query = $conn->prepare("
+                                UPDATE `user` SET email = :email, password = :password, active = :active WHERE user_id = :id");
+                $query->execute(array(
+                    'id' => $_GET['id'],
+                    'email' => $_POST['email'],
+                    'password' => password_hash($_POST['password'], PASSWORD_DEFAULT),
+                    'active' => $_POST['active']
+                ));*/
 
         $query = $conn->prepare("UPDATE `form` 
-                                        SET company_id =:company_id,
+                                        SET 
+                                         terms_id =:terms_id,
                                          type =:type,
-                                          version =:version,
-                                           task_nr  =:task_nr,
-                                            description=:description,
-                                             status =:status, 
-                                             end_date =:end_date,
+                                          task_nr  =:task_nr,
+                                          version =:version,                                          
+                                            description=:description,                                            
                                               modified_date =:modified_date                                     
                                     WHERE form_id =:id");
 
         $query->execute(array(
-            'id' =>  $_GET['id'],
-            'company_id' => $_POST['company_id'],
+            'id' => $_GET['id'],
+            'terms_id' => $_POST['terms_id'],
             'type' => $_POST['type'],
-            'version' => $_POST['version'],
             'task_nr' => $_POST['task_nr'],
+            'version' => $_POST['version'],
             'description' => $_POST['description'],
-            'status' => $_POST['status'],
-            'end_date' => $_POST['end_date'],
-            'modified_date' => date("d-m-Y")
-
-
+            'modified_date' => date("Y-m-d")
         ));
 
 
@@ -65,7 +60,7 @@ if ($_GET['action'] == "save") {
     echo '<div class="content-wrapper">';
     echo '<div class="container-fluid">';
     getBreadCrumbs();
-    getTopPanel("formulier wijzigen") ;
+    getTopPanel("formulier wijzigen");
 
     try {
         $query = $conn->prepare("
@@ -86,66 +81,122 @@ if ($_GET['action'] == "save") {
 
     while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
         $form_id = $row['form_id'];
-        $company_id = $row['company_id'];
+        $terms_id = $row['terms_id'];
         $type = $row['type'];
-        $status = $row['status'];
-        $version = $row['version'];
         $task_nr = $row['task_nr'];
+        $version = $row['version'];
         $description = $row['description'];
-        $end_date = $row['end_date'];
+        $created_date = $row['created_date'];
         $modified_date = $row['modified_date'];
     }
 
-    echo "    
+
+    ?>
+
+    <div class="container">
+        <form name="add" action="?action=save&id=<?= $form_id ?>" method="post">
+            <div class="card-header col-md-10">bedrijf gegevens</div>
+            <div class="card-body">
+                <div class="form-group">
+                    <div class="form-row">
+                        <div class="col-md-2">
+                            <label for="exampleAccept">Form id</label>
+                            <input class="form-control" id="exampleAccept" name="form_id"
+                                   aria-describedby="form_id" readonly value="<?= $form_id ?>">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="exampleAccept">Opdracht(nummer)</label>
+                            <input class="form-control" id="exampleAccept" name="task_nr"
+                                   aria-describedby="opdracht nummer" value="<?= $task_nr ?>">
+                        </div>
 
 
-    <header class='header'>
-        <p>welkom: <?= getUserName(); ?></p>
-        <p>
-            is user role: " . $_SESSION['id']['role'] . "
-        </p>
-
-        this is form edit
-    </header>
+                            <div class="col-md-2">
+                                <label for="exampleAccept">Gemaakt op</label>
+                                <input class="form-control" id="exampleAccept" name="created_date"
+                                       aria-describedby="gemaakt op" readonly value="<?= $created_date ?>">
+                            </div>
 
 
-            <form name=\"add\" action=\"?action=save&id=$form_id\" method=\"post\">
-                <table>
-                 <tr>
-                        <tr>form_id</tr>
-                        <tr><input type=\"text\" name=\"company_id\" value='$form_id' required> </tr>   
-                        <tr>bedrijfsnaam</tr>
-                        <tr><input type=\"text\" name=\"company_id\" value='$company_id' required> </tr>   
-                        <tr>type</tr>
-                        <tr><input type=\"text\" name=\"type\" value='$type' required> </tr>  
-                        <tr>versie</tr>
-                        <tr><input type=\"number\" name=\"version\" value='$version' required> </tr> <br/>
-                        <tr>opdrachtnummer</tr> <br/>
-                        <tr><input type=\"text\" name=\"task_nr\" value='$task_nr' required> </tr> <br/>
-                        <tr>beschrijving</tr> <br/>
-                        <tr><textarea rows=\"4\" cols=\"50\" type='text' name=\"description\"  required>$description</textarea></tr>  <br/>
-                        <tr>status</tr> <br/>
-                        <tr>
-                        <select name='status' value='$status'>                      
-                              <option value=\"pending\">pending</option>
-                              <option value=\"1\">1</option>
-                              <option value=\"2\">2</option>
-                              <option value=\"3\">3</option>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-row">
+                        <div class="col-md-3">
+                            <label for="exampleV">Versie</label>
+                            <input class="form-control" id="exampleV" name="version"
+                                   aria-describedby="versie" value="<?= $version ?>">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-row">
+                        <div class="col-md-5">
+                            <?php
+
+
+                            //SQL FOR FORM_ID SELECTION
+                            $results = $conn->prepare("
+						SELECT `terms_id`, created_date FROM `terms` 
+						");
+                            $results->execute();
+                            $types = $results->fetchAll();
+                            unset($result);
+
+                            echo "<label>Voorwaarden formulier</label>";
+                            echo "<select class='form-control' name='terms_id'>";
+                            echo "<option value=''></option>";
+                            foreach ($types as $type) {
+                                if ($type['form_id'] == $form_id) {
+                                    echo "<option value='" . htmlentities($type['terms_id']) . "'>" . htmlentities($type['terms_id']) . " " . htmlentities($type['created_date']) . " </option>";
+
+                                } else {
+                                    echo "<option value='" . htmlentities($type['terms_id']) . "' selected>" . htmlentities($type['terms_id']) . " " . htmlentities($type['created_date']) . "</option>";
+                                }
+                            }
+                            echo "</select>";
+                            echo "</div>";
+
+                            //****end
+                            ?>
+
+                        <div class="col-md-5">
+                            <label >Type</label>
+                            <select  class="form-control" name='type' value='<?= $type ?>'>
+                                <option value="mayor-update">mayor-update</option>
+                                <option value="bug-fix">bug-fix</option>
                             </select>
-                        </tr>  <br/>
-                        <tr>eind datum</tr><br/>
-                        <tr><input type=\"date\" name=\"end_date\" value='$end_date' required> </tr> 
-                                    
-                       
-                    
-                    
-                        <td colspan=\"2\"><input type=\"reset\" name=\"reset\" value=\"Leeg maken\">
-                                        <input type=\"submit\" name=\"submit\" value=\"Opslaan\">
-                    					
-                </table>
-            </form>   
+                        </div>
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <div class="form-row">
+                        <div class="col-md-10">
+                            <label for="exampleContract">Beschrijving</label>
+                            <textarea class="form-control" id="exampleContract" rows="6" name="description"
+                                      aria-describedby="contract"><?= $description ?></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-row">
+                        <div class="col-md-10">
+                            <input class="btn btn-primary btn-block" type="submit" name="submit" value="Opslaan">
+                        </div>
+                    </div>
+                </div>
+
             </div>
-            </div>";
+        </form>
+    </div>
+
+    </div>
+    </div>
+
+    <?php
+
 }
 getFooter();
 ?>
