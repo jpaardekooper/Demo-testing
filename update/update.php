@@ -26,7 +26,7 @@ switch (getUserRole()) {
                 echo "<div class='loading-screen'>
                     <img class='loading' src='" . getAssetsDirectory() . "image/loading.gif'/>
             </div>";
-               // echo "wijzigingen zijn opgeslagen.";
+                // echo "wijzigingen zijn opgeslagen.";
 
                 header("Refresh: 1; URL=index.php");
 
@@ -122,11 +122,10 @@ switch (getUserRole()) {
                                 </button>
                             </div>
                             <div class="text-center">
-                                <span class="small text-muted text-center">deze update is geldig tot <?= $newDate ?></span>
+                                <span class="small text-muted text-center">Deze update is geldig tot <?= $newDate ?></span>
                             </div>
                         </div>
                     </div>
-
 
 
                     <!-- Modal -->
@@ -172,7 +171,7 @@ switch (getUserRole()) {
                                             </div>
                                         </div>
 
-
+                                        <hr>
                                         <h6>LEVERANCIER</h6>
                                         <div class="form-group row">
                                             <label class="col-4 col-form-label">bedrijfsnaam</label>
@@ -201,7 +200,7 @@ switch (getUserRole()) {
                                                 <label class="col-form-label">71075828</label>
                                             </div>
                                         </div>
-
+                                        <hr>
 
                                         <h6>BETREFT</h6>
                                         <div class="form-group row">
@@ -218,19 +217,17 @@ switch (getUserRole()) {
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-3 col-form-label">Omschreven</label>
-                                            <div class="col-9">
+                                            <div class="col-12">
                                                 <textarea class="form-control col-form-label" rows="6"
                                                           style="resize:none;" readonly><?= $description ?></textarea>
                                             </div>
 
                                         </div>
-
+<hr>
                                         <h6>ACCEPTATIE</h6>
-                                        <span class="small">Met het ondertekenen van dit document is de opdrachtgever zich bewust van de volgende
-                                            zaken:</span>
                                         <div class="form-group row">
                                             <div class="col-12">
-                                                <textarea class="form-control col-form-label" rows="6"
+                                                <textarea class="form-control col-form-label" rows="21"
                                                           style="resize:none;" readonly><?= $acceptance ?></textarea>
                                             </div>
                                         </div>
@@ -262,7 +259,7 @@ switch (getUserRole()) {
                                     <div class="modal-footer">
 
                                         <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                            <label class="btn btn-primary">
+                                            <label class="btn btn-secondary">
                                                 <input type="radio" name="status" id="option1" autocomplete="off"
                                                        value="accepted"> Accept
                                             </label>
@@ -271,8 +268,20 @@ switch (getUserRole()) {
                                                        value="declined"> Decline
                                             </label>
                                         </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-md-12">
+                                            <div class="text-center">
+                                            <span class="small ">
+                                            Let op: De release zoals omschreven onder het kopje ‘betreft’ zal pas worden uitgerold wanneer
+                                                sqits dit document ondertekend in bezit heeft. Hierop zijn géén uitzonderingen mogelijk.
+                                        </span>
+                                        </div>
+
+                                        </div>
 
                                     </div>
+
                                     <div class="card card-register mx-auto mt-1">
                                         <input class="btn btn-primary btn-block" type="submit" name="submit"
                                                value="Opslaan">
@@ -311,7 +320,8 @@ switch (getUserRole()) {
                         <div class="form-group row">
                             <label for="example-text-input" class="col-2 col-form-label">Postcode en plaats</label>
                             <div class="col-5">
-                                <input class="form-control" type="text" value="<?= $zip_code ?>, <?= $location ?>" readonly
+                                <input class="form-control" type="text" value="<?= $zip_code ?>, <?= $location ?>"
+                                       readonly
                                        id="example-text-input">
                             </div>
                             <div class="col-5">
@@ -366,7 +376,7 @@ switch (getUserRole()) {
                         <div class="form-group row">
                             <label for="example-text-input" class="col-2 col-form-label">acceptatie</label>
                             <div class="col-10">
-                            <textarea class="form-control" type="text" rows="13" readonly
+                            <textarea class="form-control" type="text" rows="10" readonly
                                       id="example-text-input"><?= $acceptance ?></textarea>
                             </div>
                         </div>
@@ -395,10 +405,8 @@ switch (getUserRole()) {
 
 
                     <script>
-                        function forprint()
-                        {
-                            if (!window.print)
-                            {
+                        function forprint() {
+                            if (!window.print) {
                                 return
                             }
                             window.print()
