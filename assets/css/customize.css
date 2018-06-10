@@ -64,3 +64,7 @@ thead{
 .modal-dialog {
     max-width: 750px !important;
 }
+.card-header:first-child {
+    background-color: #343a40 !important;
+    color: #fff;
+}

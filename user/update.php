@@ -55,7 +55,11 @@ if ($_SESSION["id"]) {
     if ($_GET['action'] == "save") {
 
         try {
-            $query = $conn->prepare("
+
+
+            switch (getUserRole()) {
+                case "user":
+                    $query = $conn->prepare("
                         UPDATE `user` as u 
                         INNER JOIN `phone` as p ON u.user_id = p.user_id
                         INNER JOIN `company` as com ON u.company_id = com.company_id
@@ -64,8 +68,7 @@ if ($_SESSION["id"]) {
                           u.username = :username,
                          
                           u.first_name = :first_name,
-                          u.last_name = :last_name,
-                          u.status = :status, 
+                          u.last_name = :last_name, 
                              
                           p.phone_number = :phone_number,
                         
@@ -80,26 +83,76 @@ if ($_SESSION["id"]) {
                         WHERE u.user_id = :user_id
                                 
                         ");
-            $query->execute(array(
 
-                'user_id' => $_GET['id'],
-                'username' => $_POST['username'],
-               // 'password' => password_hash($_POST['password'], PASSWORD_DEFAULT),
-                'first_name' => $_POST['first_name'],
-                'last_name' => $_POST['last_name'],
-                'status' => $_POST['status'],
+                    $query->execute(array(
 
-                'phone_number' => $_POST['phone_number'],
+                        'user_id' => $_SESSION['id']['user_id'],
+                        'username' => $_POST['username'],
+                        'first_name' => $_POST['first_name'],
+                        'last_name' => $_POST['last_name'],
+                        'phone_number' => $_POST['phone_number'],
+                        'company_name' => $_POST['company_name'],
+                        'email' => $_POST['email'],
+                        'phone' => $_POST['phone'],
+                        'address' => $_POST['address'],
+                        'location' => $_POST['location'],
+                        'zip_code' => $_POST['zip_code'],
+                        'kvk' => $_POST['kvk'],
 
-                'company_name' => $_POST['company_name'],
-                'email' => $_POST['email'],
-                'phone' => $_POST['phone'],
-                'address' => $_POST['address'],
-                'location' => $_POST['location'],
-                'zip_code' => $_POST['zip_code'],
-                'kvk' => $_POST['kvk'],
+                    ));
 
-            ));
+                    break;
+
+                case "admin":
+                    $query = $conn->prepare("
+                        UPDATE `user` as u 
+                        INNER JOIN `phone` as p ON u.user_id = p.user_id
+                        INNER JOIN `company` as com ON u.company_id = com.company_id
+                        SET 
+                          u.user_id = :user_id,
+                          u.username = :username,
+                         
+                          u.first_name = :first_name,
+                          u.last_name = :last_name,
+                          u.status = :status, 
+                          u.role = :role, 
+                             
+                          p.phone_number = :phone_number,
+                        
+                          com.company_name = :company_name,
+                          com.email = :email, 
+                          com.phone = :phone,
+                          com.address = :address,
+                          com.location = :location,
+                          com.zip_code = :zip_code,
+                          com.kvk = :kvk  
+                                                          
+                        WHERE u.user_id = :user_id
+                                
+                        ");
+
+                    $query->execute(array(
+
+                        'user_id' => $_GET['id'],
+                        'username' => $_POST['username'],
+                        'first_name' => $_POST['first_name'],
+                        'last_name' => $_POST['last_name'],
+                        'status' => $_POST['status'],
+                        'role' => $_POST['role'],
+
+                        'phone_number' => $_POST['phone_number'],
+
+                        'company_name' => $_POST['company_name'],
+                        'email' => $_POST['email'],
+                        'phone' => $_POST['phone'],
+                        'address' => $_POST['address'],
+                        'location' => $_POST['location'],
+                        'zip_code' => $_POST['zip_code'],
+                        'kvk' => $_POST['kvk'],
+
+                    ));
+                    break;
+            }
 
 
             echo "<div class='loading-screen'>
@@ -262,6 +315,11 @@ if ($_SESSION["id"]) {
                                         <label for="exampleInputEmail1">username</label>
                                         <input class="form-control" id="exampleInputEmail1" name="username" type="text"
                                                aria-describedby="emailHelp" value="<?= $username ?>">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="examplePhone">Bereikbaar op</label>
+                                        <input class="form-control" id="examplePhone" name="phone_number" type="text"
+                                               aria-describedby="Bereikbaar op" value="<?= $p_phone ?>">
                                     </div>
                                 </div>
                             </div>
