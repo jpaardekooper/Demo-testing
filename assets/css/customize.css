@@ -1,41 +1,47 @@
-.bg-sqits{
+.bg-sqits {
     background-color: #42c0b3;
 }
-.brand-image{
+
+.brand-image {
     width: 42px;
 }
+
 .navbar-dark .navbar-nav .nav-link {
-   color: #fff !important;
+    color: #fff !important;
 
 }
+
 .navbar-dark .navbar-nav .nav-link:focus, .navbar-dark .navbar-nav .nav-link:hover {
-    opacity:0.7 !important;
+    opacity: 0.7 !important;
 }
 
-.dropdown-menu2{
-    right: 0!important;
+.dropdown-menu2 {
+    right: 0 !important;
 }
 
-thead{
+thead {
     background-color: #42c0b3 !important;
-    color: #fff  !important;
+    color: #fff !important;
 }
 
-.odd:hover{
-    background-color:#42c0b347;
+.odd:hover {
+    background-color: #42c0b347;
 }
-.even:hover{
-    background-color:#42c0b347;
+
+.even:hover {
+    background-color: #42c0b347;
 }
-.odd a, .even a{
+
+.odd a, .even a {
     color: #42c0b3 !important;
 }
 
-.btn-primary, .btn-default{
+.btn-primary, .btn-default {
     background-color: #42c0b3 !important;
     border-color: #55c6bb;
 }
-.btn-primary:hover, .btn-default:hover{
+
+.btn-primary:hover, .btn-default:hover {
     background-color: #36a398 !important;
     border-color: #38a79b !important;
 }
@@ -46,25 +52,92 @@ thead{
     background-color: #42c0b3 !important;
     background: none;
 }
-.breadcrumb{
+
+.breadcrumb {
     background-color: #343a40 !important;
 }
-.breadcrumb-item a{
+
+.breadcrumb-item a {
     color: #fff !important;
 }
 
-.li-panel-tab{
+.li-panel-tab {
     margin: 0 auto;
 }
 
-.btn-secondary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle{
+.btn-secondary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show > .btn-primary.dropdown-toggle {
     background-color: #42c0b3 !important;
 }
 
 .modal-dialog {
     max-width: 750px !important;
 }
+
 .card-header:first-child {
     background-color: #343a40 !important;
     color: #fff;
+}
+
+#page-view {
+    background-color: #EAEAEA;
+}
+.PDF-SIGNATURE{
+    display: none;
+}
+@media print {
+    #page-view {
+        background-color: #FFF;
+    }
+
+    .btn {
+        display: none;
+    }
+
+    .form-control {
+        border: none !important;
+        resize: none;
+    }
+
+    .text-center small {
+        display: none;
+    }
+
+    .PDF-SIGNATURE{
+    display: block;
+        bottom: 0;
+    }
+    .PDF-DISTANCE {
+        margin-top: 75px;
+    }
+    .PDF-DISTANCE-MAX {
+        margin-top: 150px;
+    }
+    .PDF-DISTANCE-MAX-2 {
+        margin-top: 230px;
+    }
+    .PDF-DISTANCE-2 {
+        margin-top: 400px;
+    }
+
+    .PDF-PAGE-BREAK {
+        page-break-after: always;
+    }
+
+    .breadcrumb {
+        display: none;
+    }
+
+    .breadcrumb-item a {
+        display: none;
+    }
+    h2{
+        color: #000000;
+    }
+    .card-header{
+        border-bottom: none;
+    }
+    .accept-pdf{
+        display: none;
+    }
+
 }

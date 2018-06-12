@@ -69,22 +69,22 @@ function getSidebar($page = "Sqits")
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-                    <?php
-                    switch (getUserRole()) {
-                        case "user":
-                            echo "<li class=\"nav-item " . isActiveOnPage('/dashboard/index.php') . "\" data-toggle=\"tooltip\" data-placement=\"right\" title=\"Dashboard\">
+                <?php
+                switch (getUserRole()) {
+                    case "user":
+                        echo "<li class=\"nav-item " . isActiveOnPage('/dashboard/index.php') . "\" data-toggle=\"tooltip\" data-placement=\"right\" title=\"Dashboard\">
                             <a class=\"nav-link\" href='" . getPathToRoot() . "dashboard/index.php'>
                          <i class=\"fa fa-fw fa-dashboard\"></i>
                         <span class=\"nav-link-text\">Dashboard</span></a></li>";
-                            break;
-                        case "admin":
-                            echo "<li  class=\"nav-item " . isActiveOnPage('/dashboard/admin.php') . "\" data-toggle=\"tooltip\" data-placement=\"right\" title=\"Dashboard\">
+                        break;
+                    case "admin":
+                        echo "<li  class=\"nav-item " . isActiveOnPage('/dashboard/admin.php') . "\" data-toggle=\"tooltip\" data-placement=\"right\" title=\"Dashboard\">
                             <a class=\"nav-link\" href='" . getPathToRoot() . "dashboard/admin.php'>
                          <i class=\"fa fa-fw fa-dashboard\"></i>
                         <span class=\"nav-link-text\">Dashboard Admin</span></a></li>";
-                            break;
-                    }
-                    ?>
+                        break;
+                }
+                ?>
 
 
                 <?php
@@ -122,7 +122,7 @@ function getSidebar($page = "Sqits")
                 switch (getUserRole()) {
                     case "user":
                         echo "<li  class=\"nav-item " . isActiveOnPage('/user/index.php') . " " . isActiveOnPage('/user/update.php') . "\" data-toggle=\"tooltip\" data-placement=\"right\" title=\"user\" " . isActiveOnPage('/user/index.php') . ">
-                        <a  class=\"nav-link\" href='" . getPathToRoot() . "user/update.php?action=update&id=".$_SESSION['id']['user_id'] . ".php'>                        
+                        <a  class=\"nav-link\" href='" . getPathToRoot() . "user/update.php?action=update&id=" . $_SESSION['id']['user_id'] . ".php'>                        
                              <i class=\"fa fa-fw fa-area-chart\"></i>
                              <span class=\"nav-link-text\">Wijzig gegevens</span>
                         </a>
@@ -269,7 +269,8 @@ function getFooter()
     echo $footer;
 }
 
-function getLogoutModal(){
+function getLogoutModal()
+{
     $logoutModal = "
      <!-- Logout Modal-->
     <div class=\"modal fade\" id=\"logoutModal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"logoutModalLabel\" aria-hidden=\"true\">

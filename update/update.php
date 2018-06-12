@@ -40,7 +40,7 @@ switch (getUserRole()) {
                 trigger_error($sMsg);
             }
         } else {
-            getHeader("Sqits form-update", "ACCEPTATIE OPLEVERING");
+            getHeader("	&nbsp; ", "	&nbsp;");
             echo "<div class='content-wrapper'>";
             echo "<div class='container-fluid'>";
             //getTopPanel("Update wijzigen");
@@ -99,7 +99,7 @@ switch (getUserRole()) {
                 $originalDate = $end_date;
                 $newDate = date("d-m-Y", strtotime($originalDate));
 
-                echo $status;
+
                 if ($status == 'pending') {
                     ?>
                     <div class="card card-login mx-auto mt-5">
@@ -223,7 +223,7 @@ switch (getUserRole()) {
                                             </div>
 
                                         </div>
-<hr>
+                                        <hr>
                                         <h6>ACCEPTATIE</h6>
                                         <div class="form-group row">
                                             <div class="col-12">
@@ -276,7 +276,7 @@ switch (getUserRole()) {
                                             Let op: De release zoals omschreven onder het kopje ‘betreft’ zal pas worden uitgerold wanneer
                                                 sqits dit document ondertekend in bezit heeft. Hierop zijn géén uitzonderingen mogelijk.
                                         </span>
-                                        </div>
+                                            </div>
 
                                         </div>
 
@@ -293,116 +293,241 @@ switch (getUserRole()) {
                     <?php
                 } else {
                     ?>
-                    <div class="card-header">Opdrachtgever en leverancier</div>
-                    <div class="card-body">
-                        <div class="form-group row">
-                            <label for="example-text-input" class="col-2 col-form-label">bedrijfsnaam</label>
-                            <div class="col-5">
-                                <input class="form-control" type="text" value="<?= $company_name ?>" readonly
-                                       id="example-text-input">
-                            </div>
-                            <div class="col-5">
-                                <input class="form-control" type="text" value="Sqits B.V." readonly
-                                       id="example-text-input">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="example-text-input" class="col-2 col-form-label">address</label>
-                            <div class="col-5">
-                                <input class="form-control" type="text" value="<?= $address ?>" readonly
-                                       id="example-text-input">
-                            </div>
-                            <div class="col-5">
-                                <input class="form-control" type="text" value="Bleiswijkseweg 55I" readonly
-                                       id="example-text-input">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="example-text-input" class="col-2 col-form-label">Postcode en plaats</label>
-                            <div class="col-5">
-                                <input class="form-control" type="text" value="<?= $zip_code ?>, <?= $location ?>"
-                                       readonly
-                                       id="example-text-input">
-                            </div>
-                            <div class="col-5">
-                                <input class="form-control" type="text" value="2712 PB, Zoetermeer" readonly
-                                       id="example-text-input">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="example-text-input" class="col-2 col-form-label">Kvk nummer</label>
-                            <div class="col-5">
-                                <input class="form-control" type="text" value="<?= $kvk ?>" readonly
-                                       id="example-text-input">
-                            </div>
-                            <div class="col-5">
-                                <input class="form-control" type="text" value="71075828" readonly
-                                       id="example-text-input">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-header">Betreft</div>
-                    <div class="card-body">
-                        <div class="form-group row">
-                            <label for="example-text-input" class="col-2 col-form-label">Opdracht(nummer)</label>
-                            <div class="col-2">
-                                <input class="form-control" type="text" value="<?= $task_nr ?>" readonly
-                                       id="example-text-input">
-                            </div>
 
-                            <label for="example-text-input" class="col-2 col-form-label">Type</label>
-                            <div class="col-3">
-                                <input class="form-control" type="text" value="<?= $type ?>" readonly
-                                       id="example-text-input">
-                            </div>
+                    <div class="container visible-print-block">
+                        <div class="card-header"><h2>Acceptatie en Oplevering
+                            </h2></div>
 
-                            <label for="example-text-input" class="col-1 col-form-label">versie</label>
-                            <div class="col-2">
-                                <input class="form-control" type="text" value="<?= $version ?>" readonly
-                                       id="example-text-input">
+                        <div class="card-header"><h4>Opdrachtgever</h4></div>
+                        <div class="card-body">
+                            <div class="form-group row">
+                                <label for="example-text-input" class="col-md-2 col-form-label">bedrijfsnaam</label>
+                                <div class="col-md-5">
+                                    <input class="form-control" type="text" value="<?= $company_name ?>" readonly
+                                           id="example-text-input">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="example-text-input" class="col-md-2 col-form-label">address</label>
+                                <div class="col-md-5">
+                                    <input class="form-control" type="text" value="<?= $address ?>" readonly
+                                           id="example-text-input">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="example-text-input" class="col-md-2 col-form-label">Postcode en
+                                    plaats</label>
+                                <div class="col-md-5">
+                                    <input class="form-control" type="text" value="<?= $zip_code ?>, <?= $location ?>"
+                                           readonly
+                                           id="example-text-input">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="example-text-input" class="col-md-2 col-form-label">Kvk nummer</label>
+                                <div class="col-md-5">
+                                    <input class="form-control" type="text" value="<?= $kvk ?>" readonly
+                                           id="example-text-input">
+                                </div>
+
                             </div>
                         </div>
-                        <div class="form-group row">
-                            <label for="example-text-input" class="col-2 col-form-label">Omschreven</label>
-                            <div class="col-10">
-                            <textarea class="form-control" type="text" rows="9" readonly
+                        <div class="card-header"><h4>Leverancier</h4></div>
+                        <div class="card-body">
+                            <div class="form-group row">
+                                <label for="example-text-input" class="col-md-2 col-form-label">bedrijfsnaam</label>
+                                <div class="col-md-5">
+                                    <input class="form-control" type="text" value="Sqits B.V." readonly
+                                           id="example-text-input">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="example-text-input" class="col-md-2 col-form-label">address</label>
+                                <div class="col-md-5">
+                                    <input class="form-control" type="text" value="Bleiswijkseweg 55I" readonly
+                                           id="example-text-input">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="example-text-input" class="col-md-2 col-form-label">Postcode en
+                                    plaats</label>
+                                <div class="col-md-5">
+                                    <input class="form-control" type="text" value="2712 PB, Zoetermeer" readonly
+                                           id="example-text-input">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="example-text-input" class="col-md-2 col-form-label">Kvk nummer</label>
+                                <div class="col-md-5">
+                                    <input class="form-control" type="text" value="71075828" readonly
+                                           id="example-text-input">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-header"><h4>Betreft</h4></div>
+                        <div class="card-body">
+                            <div class="form-group row">
+                                <label for="example-text-input" class="col-md-2 col-form-label">Opdracht(nummer)</label>
+                                <div class="col-md-2">
+                                    <input class="form-control" type="text" value="<?= $task_nr ?>" readonly
+                                           id="example-text-input">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="example-text-input" class="col-md-2 col-form-label">Type</label>
+                                <div class="col-md-3">
+                                    <input class="form-control" type="text" value="<?= $type ?>" readonly
+                                           id="example-text-input">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="example-text-input" class="col-2 col-form-label">versie</label>
+                                <div class="col-md-2">
+                                    <input class="form-control" type="text" value="<?= $version ?>" readonly
+                                           id="example-text-input">
+                                </div>
+
+                            </div>
+                            <div class="form-group row">
+                                <label for="example-text-input" class="col-md-2 col-form-label">Omschreven</label>
+                                <div class="col-md-10">
+                            <textarea class="form-control" type="text" rows="14" readonly
                                       id="example-text-input"><?= $description ?></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group row PDF-SIGNATURE">
+                                Acceptatie opdracht <?= $task_nr ?> &nbsp;&nbsp;&nbsp;&nbsp; versie <?= $version ?>
+                                &nbsp;&nbsp;&nbsp;&nbsp; Paraaf opdrachtgever: ………………………………..
+                            </div>
+                            <div class="form-group row PDF-PAGE-BREAK">
                             </div>
                         </div>
-                    </div>
 
-                    <div class="card-header">Acceptatie</div>
-                    <div class="card-body">
-                        <div class="form-group row">
-                            <label for="example-text-input" class="col-2 col-form-label">acceptatie</label>
-                            <div class="col-10">
-                            <textarea class="form-control" type="text" rows="10" readonly
+                        <div class="card-header PDF-DISTANCE"><h3>Acceptatie</h3></div>
+                        <div class="card-body">
+                            <div class="form-group row PDF-DISTANCE">
+                                <label for="example-text-input"
+                                       class="col-md-2 col-form-label accept-pdf">acceptatie</label>
+                                <div class="col-md-10">
+                            <textarea class="form-control" type="text" rows="23" readonly
                                       id="example-text-input"><?= $acceptance ?></textarea>
+                                    <br/>
+                                </div>
+                            </div>
+                            <div class="form-group row PDF-DISTANCE">
+                                <label for="example-text-input"
+                                       class="col-md-2 col-form-label"></label>
+                                <textarea class="form-control" type="text" rows="4" readonly>Meer informatie over het accepteren van een oplevering is te vinden in onze Algemene Voorwaarden artikel 3 met de titel “Contractsduur; uitvoeringstermijnen, uitvoering en wijziging overeenkomst”.</textarea>
+                            </div>
+                            <div class="form-group row PDF-SIGNATURE PDF-DISTANCE-2">
+                                Acceptatie opdracht <?= $task_nr ?> &nbsp;&nbsp;&nbsp;&nbsp;
+                                versie <?= $version ?>&nbsp;&nbsp;&nbsp;&nbsp; Paraaf opdrachtgever:
+                                ………………………………..
+                            </div>
+                            <div class="form-group row PDF-PAGE-BREAK">
                             </div>
                         </div>
-                        <div class="form-group row">
-                            <label for="example-text-input" class="col-2 col-form-label">service level agreement</label>
-                            <div class="col-10">
+
+
+                        <div class="card-body">
+                            <div class="form-group row"></div>
+
+                            <div class="card-header PDF-DISTANCE PDF-SIGNATURE"><h3>Service level
+                                    agreement</h3></div>
+                            <div class="form-group row">
+                                <label for="example-text-input" class="col-md-3 col-form-label accept-pdf">service level
+                                    agreement</label>
+                                <div class="col-md-9">
                             <textarea class="form-control" type="text" rows="2" readonly
                                       id="example-text-input"><?= $SLA ?></textarea>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="example-text-input" class="col-2 col-form-label">Contract</label>
-                            <div class="col-10">
+                            <div class="card-header PDF-SIGNATURE"><h3>Contract</h3></div>
+                            <div class="form-group row">
+
+                                <label for="example-text-input"
+                                       class="col-md-3 col-form-label accept-pdf">Contract</label>
+                                <div class="col-md-9">
                             <textarea class="form-control" type="text" rows="4" readonly
                                       id="example-text-input"><?= $contact ?></textarea>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="example-text-input" class="col-2 col-form-label">ondertekening</label>
-                            <div class="col-10">
-                            <textarea class="form-control" type="text" rows=3" readonly
+                            <div class="card-header PDF-SIGNATURE"><h3>Ondertekening</h3></div>
+                            <div class="form-group row">
+                                <label for="example-text-input"
+                                       class="col-md-3 col-form-label accept-pdf">ondertekening</label>
+                                <div class="col-md-9">
+                            <textarea class="form-control" type="text" rows=4" readonly
                                       id="example-text-input"><?= $signature ?></textarea>
+                                </div>
+                            </div>
+
+                            <div class="PDF-SIGNATURE ">
+
+
+                            <div class="form-group row PDF-DISTANCE">
+                                <div class="col-md-6">
+                                    Handtekening akkoord Sqits B.V.:
+                                </div>
+                                <div class="col-md-6">
+                                    Handtekening akkoord opdrachtgever:
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-6 PDF-DISTANCE">
+                                    <img src="<?= getAssetsDirectory() . "/image/david.jpg" ?>">
+                                </div>
+                                <div class="col-md-6 PDF-DISTANCE-MAX">
+                                    ....................................................................................
+                                </div>
+                            </div>
+                            <div class="form-group row PDF-DISTANCE-MAX">
+                                <label for="example-text-input" class="col-md-2 col-form-label">Naam</label>
+                                <div class="col-md-4">
+                                    <input class="form-control" type="text" value="Ruud Schaaphuizen" readonly
+                                           id="example-text-input">
+                                </div>
+
+                                <label for="example-text-input" class="col-md-2 col-form-label">Naam</label>
+                                <div class="col-md-4">
+                                    <input class="form-control" type="text" value="......................" readonly
+                                           id="example-text-input">
+                                </div>
+
+                                <label for="example-text-input" class="col-md-2 col-form-label">Datum</label>
+                                <div class="col-md-4">
+                                    <input class="form-control" type="text" value="<?= $created_date ?>" readonly
+                                           id="example-text-input">
+                                </div>
+
+                                <label for="example-text-input" class="col-md-2 col-form-label">Datum</label>
+                                <div class="col-md-4">
+                                    <input class="form-control" type="text" value="......................" readonly
+                                           id="example-text-input">
+                                </div>
+
+
+                                <label for="example-text-input" class="col-md-2 col-form-label">Locatie</label>
+                                <div class="col-md-4">
+                                    <input class="form-control" type="text" value="Zoetermeer" readonly
+                                           id="example-text-input">
+                                </div>
+
+                                <label for="example-text-input" class="col-md-2 col-form-label">Locatie</label>
+                                <div class="col-md-4">
+                                    <input class="form-control" type="text" value="......................" readonly
+                                           id="example-text-input">
+                                </div>
+                            </div>
+
+                            <div class="form-group row PDF-SIGNATURE PDF-DISTANCE-MAX">
+                                Acceptatie opdracht <?= $task_nr ?> &nbsp;&nbsp;&nbsp;&nbsp;
+                                versie <?= $version ?>&nbsp;&nbsp;&nbsp;&nbsp; Paraaf opdrachtgever:
+                                ………………………………..
+                            </div>
                             </div>
                         </div>
                     </div>
-
 
                     <script>
                         function forprint() {
@@ -412,9 +537,16 @@ switch (getUserRole()) {
                             window.print()
                         }
                     </script>
-                    <div class="card card-register mx-auto mt-1">
-                        <button class="btn btn-default btn-block" onclick="forprint()">print pdf</button>
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div class="col-md-2 mx-auto mt-1">
+                                <button class="btn btn-default btn-block" onclick="forprint()">print pdf</button>
+                            </div>
+                        </div>
                     </div>
+
+                    </div>
+
 
                     <?php
                     //closes else

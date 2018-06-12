@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="65296dc2-51e0-4307-a418-c28c8ac91bbb" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/assets/image/david.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/css/customize.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/customize.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/update.php" beforeDir="false" afterPath="$PROJECT_DIR$/user/update.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/image/img" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/content.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/content.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/update/update.php" beforeDir="false" afterPath="$PROJECT_DIR$/update/update.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -14,70 +18,75 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="add.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/update/add.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="695">
-              <caret line="159" column="41" lean-forward="true" selection-start-line="134" selection-start-column="32" selection-end-line="159" selection-end-column="41" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="update.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/terms/update.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2465">
-              <caret line="145" column="10" selection-start-line="145" selection-start-column="10" selection-end-line="145" selection-end-column="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="update.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/update/update.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2303">
-              <caret line="412" column="25" lean-forward="true" selection-start-line="412" selection-start-column="25" selection-end-line="412" selection-end-column="25" />
-              <folding>
-                <element signature="e#10765#10785#0#HTML" expanded="true" />
-                <element signature="e#11485#11505#0#HTML" expanded="true" />
-              </folding>
+            <state relative-caret-position="553">
+              <caret line="127" lean-forward="true" selection-start-line="127" selection-end-line="127" />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="update.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/user/update.php">
+        <entry file="file://$PROJECT_DIR$/update/update.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="298">
-              <caret line="70" column="52" selection-start-line="70" selection-start-column="52" selection-end-line="70" selection-end-column="52" />
+            <state relative-caret-position="486">
+              <caret line="465" column="70" selection-start-line="465" selection-start-column="70" selection-end-line="465" selection-end-column="70" />
+              <folding>
+                <element signature="e#10765#10785#0#HTML" expanded="true" />
+                <element signature="e#11485#11505#0#HTML" expanded="true" />
+                <element signature="e#21896#21902#0#HTML" expanded="true" />
+                <element signature="e#21902#21908#0#HTML" expanded="true" />
+                <element signature="e#21908#21914#0#HTML" expanded="true" />
+                <element signature="e#21914#21920#0#HTML" expanded="true" />
+                <element signature="e#21943#21949#0#HTML" expanded="true" />
+                <element signature="e#21949#21955#0#HTML" expanded="true" />
+                <element signature="e#21955#21961#0#HTML" expanded="true" />
+                <element signature="e#21961#21967#0#HTML" expanded="true" />
+                <element signature="e#23253#23259#0#HTML" expanded="true" />
+                <element signature="e#23259#23265#0#HTML" expanded="true" />
+                <element signature="e#23265#23271#0#HTML" expanded="true" />
+                <element signature="e#23271#23277#0#HTML" expanded="true" />
+                <element signature="e#23300#23306#0#HTML" expanded="true" />
+                <element signature="e#23306#23312#0#HTML" expanded="true" />
+                <element signature="e#23312#23318#0#HTML" expanded="true" />
+                <element signature="e#23318#23324#0#HTML" expanded="true" />
+                <element signature="e#29624#29630#0#HTML" expanded="true" />
+                <element signature="e#29630#29636#0#HTML" expanded="true" />
+                <element signature="e#29636#29642#0#HTML" expanded="true" />
+                <element signature="e#29642#29648#0#HTML" expanded="true" />
+                <element signature="e#29703#29709#0#HTML" expanded="true" />
+                <element signature="e#29709#29715#0#HTML" expanded="true" />
+                <element signature="e#29715#29721#0#HTML" expanded="true" />
+                <element signature="e#29721#29727#0#HTML" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="signature.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/image/signature.png">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file leaf-file-name="loading.gif" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/image/loading.gif">
-          <provider selected="true" editor-type-id="images" />
+      <file leaf-file-name="update.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/user/update.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="706">
+              <caret line="319" column="79" selection-start-line="319" selection-start-column="79" selection-end-line="319" selection-end-column="79" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file leaf-file-name="update.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/form/update.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-187">
+            <state relative-caret-position="-1513">
               <caret line="40" column="44" selection-start-line="40" selection-start-column="44" selection-end-line="40" selection-end-column="44" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dashboard.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/css/dashboard.css">
+      <file leaf-file-name="content.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/content.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="595">
-              <caret line="35" column="1" selection-start-line="35" selection-start-column="1" selection-end-line="35" selection-end-column="1" />
+            <state relative-caret-position="288">
+              <caret line="62" column="97" lean-forward="true" selection-start-line="62" selection-start-column="11" selection-end-line="62" selection-end-column="97" />
             </state>
           </provider>
         </entry>
@@ -94,8 +103,8 @@
       <file leaf-file-name="customize.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/css/customize.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="842">
-              <caret line="69" column="1" lean-forward="true" selection-start-line="69" selection-start-column="1" selection-end-line="69" selection-end-column="1" />
+            <state relative-caret-position="468">
+              <caret line="117" column="21" lean-forward="true" selection-start-line="117" selection-start-column="21" selection-end-line="117" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -131,6 +140,11 @@
       <find>h4</find>
       <find>$first_name ?&gt;</find>
       <find>wijzig</find>
+      <find>footer</find>
+      <find>col-2</find>
+      <find>col-10</find>
+      <find>serv</find>
+      <find>sqits-logo</find>
     </findStrings>
     <replaceStrings>
       <replace>p</replace>
@@ -139,6 +153,8 @@
       <replace>;</replace>
       <replace>h6</replace>
       <replace>$first_name ?&gt;&quot;</replace>
+      <replace>col-md-10</replace>
+      <replace>col-md-2</replace>
     </replaceStrings>
     <dirStrings>
       <dir>C:\xampp\htdocs\Sqits-framework</dir>
@@ -186,12 +202,12 @@
         <option value="$PROJECT_DIR$/dashboard/index.php" />
         <option value="$PROJECT_DIR$/user/index.php" />
         <option value="$PROJECT_DIR$/login.php" />
-        <option value="$PROJECT_DIR$/templates/content.php" />
-        <option value="$PROJECT_DIR$/update/update.php" />
         <option value="$PROJECT_DIR$/terms/update.php" />
         <option value="$PROJECT_DIR$/form/update.php" />
-        <option value="$PROJECT_DIR$/assets/css/customize.css" />
         <option value="$PROJECT_DIR$/user/update.php" />
+        <option value="$PROJECT_DIR$/templates/content.php" />
+        <option value="$PROJECT_DIR$/assets/css/customize.css" />
+        <option value="$PROJECT_DIR$/update/update.php" />
       </list>
     </option>
   </component>
@@ -238,25 +254,6 @@
               <item name="Sqits-framework" type="462c0819:PsiDirectoryNode" />
               <item name="assets" type="462c0819:PsiDirectoryNode" />
               <item name="image" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Sqits-framework" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Sqits-framework" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Sqits-framework" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Sqits-framework" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="vendor" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Sqits-framework" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Sqits-framework" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="vendor" type="462c0819:PsiDirectoryNode" />
-              <item name="bootstrap" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Sqits-framework" type="b2602c69:ProjectViewProjectNode" />
@@ -348,7 +345,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="111682000" />
+    <option name="totallyTimeSpent" value="119682000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -440,9 +437,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sql/software_update.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/sql/software_update.sql" />
     <entry file="file://$PROJECT_DIR$/system/config.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
@@ -527,26 +522,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/jspdf.debug.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="31" column="19" lean-forward="true" selection-start-line="31" selection-start-column="19" selection-end-line="31" selection-end-column="19" />
-          <folding>
-            <element signature="n#style#0;n#iframe#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/pdf.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/jspdf.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="19" column="4711" lean-forward="true" selection-start-line="19" selection-start-column="4711" selection-end-line="19" selection-end-column="4711" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/jspdf.debug.js" />
+    <entry file="file://$PROJECT_DIR$/assets/js/pdf.js" />
+    <entry file="file://$PROJECT_DIR$/assets/js/jspdf.min.js" />
     <entry file="file://$PROJECT_DIR$/terms/add.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="468">
@@ -589,13 +567,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/content.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="560">
-          <caret line="136" column="31" selection-start-line="136" selection-start-column="31" selection-end-line="136" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/user/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="995">
@@ -613,9 +584,7 @@
     <entry file="file://$PROJECT_DIR$/assets/image/signature.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/image/insert.gif">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/image/insert.gif" />
     <entry file="file://$PROJECT_DIR$/assets/image/loading.gif">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -626,24 +595,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/update/update.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2303">
-          <caret line="412" column="25" lean-forward="true" selection-start-line="412" selection-start-column="25" selection-end-line="412" selection-end-column="25" />
-          <folding>
-            <element signature="e#10765#10785#0#HTML" expanded="true" />
-            <element signature="e#11485#11505#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/terms/update.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2465">
-          <caret line="145" column="10" selection-start-line="145" selection-start-column="10" selection-end-line="145" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/login.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="484">
@@ -651,31 +602,80 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/form/update.php">
+    <entry file="file://$PROJECT_DIR$/user/update.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-187">
-          <caret line="40" column="44" selection-start-line="40" selection-start-column="44" selection-end-line="40" selection-end-column="44" />
+        <state relative-caret-position="706">
+          <caret line="319" column="79" selection-start-line="319" selection-start-column="79" selection-end-line="319" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/terms/update.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="553">
+          <caret line="127" lean-forward="true" selection-start-line="127" selection-end-line="127" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/css/dashboard.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
+        <state relative-caret-position="-25">
           <caret line="35" column="1" selection-start-line="35" selection-start-column="1" selection-end-line="35" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/form/update.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1513">
+          <caret line="40" column="44" selection-start-line="40" selection-start-column="44" selection-end-line="40" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/content.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="62" column="97" lean-forward="true" selection-start-line="62" selection-start-column="11" selection-end-line="62" selection-end-column="97" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/css/customize.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="842">
-          <caret line="69" column="1" lean-forward="true" selection-start-line="69" selection-start-column="1" selection-end-line="69" selection-end-column="1" />
+        <state relative-caret-position="468">
+          <caret line="117" column="21" lean-forward="true" selection-start-line="117" selection-start-column="21" selection-end-line="117" selection-end-column="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/user/update.php">
+    <entry file="file://$PROJECT_DIR$/update/update.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="70" column="52" selection-start-line="70" selection-start-column="52" selection-end-line="70" selection-end-column="52" />
+        <state relative-caret-position="486">
+          <caret line="465" column="70" selection-start-line="465" selection-start-column="70" selection-end-line="465" selection-end-column="70" />
+          <folding>
+            <element signature="e#10765#10785#0#HTML" expanded="true" />
+            <element signature="e#11485#11505#0#HTML" expanded="true" />
+            <element signature="e#21896#21902#0#HTML" expanded="true" />
+            <element signature="e#21902#21908#0#HTML" expanded="true" />
+            <element signature="e#21908#21914#0#HTML" expanded="true" />
+            <element signature="e#21914#21920#0#HTML" expanded="true" />
+            <element signature="e#21943#21949#0#HTML" expanded="true" />
+            <element signature="e#21949#21955#0#HTML" expanded="true" />
+            <element signature="e#21955#21961#0#HTML" expanded="true" />
+            <element signature="e#21961#21967#0#HTML" expanded="true" />
+            <element signature="e#23253#23259#0#HTML" expanded="true" />
+            <element signature="e#23259#23265#0#HTML" expanded="true" />
+            <element signature="e#23265#23271#0#HTML" expanded="true" />
+            <element signature="e#23271#23277#0#HTML" expanded="true" />
+            <element signature="e#23300#23306#0#HTML" expanded="true" />
+            <element signature="e#23306#23312#0#HTML" expanded="true" />
+            <element signature="e#23312#23318#0#HTML" expanded="true" />
+            <element signature="e#23318#23324#0#HTML" expanded="true" />
+            <element signature="e#29624#29630#0#HTML" expanded="true" />
+            <element signature="e#29630#29636#0#HTML" expanded="true" />
+            <element signature="e#29636#29642#0#HTML" expanded="true" />
+            <element signature="e#29642#29648#0#HTML" expanded="true" />
+            <element signature="e#29703#29709#0#HTML" expanded="true" />
+            <element signature="e#29709#29715#0#HTML" expanded="true" />
+            <element signature="e#29715#29721#0#HTML" expanded="true" />
+            <element signature="e#29721#29727#0#HTML" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
