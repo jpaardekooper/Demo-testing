@@ -113,7 +113,7 @@ if ($_SESSION["id"]) {
               
              
              
-                    <td><a href=\"delete.php?action=delete&id=$user_id\">X</a>
+                    <td><a onclick=\"return confirm('Weet u zeker dat u het wilt verwijderen?')\" href=\"delete.php?action=delete&id=$user_id\">X</a>
                         <a href=\"update.php?action=update&id=$user_id\">edit</a></td>
                             </tr>";
             }

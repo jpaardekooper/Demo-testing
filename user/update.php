@@ -37,10 +37,6 @@ if ($_SESSION["id"]) {
                     break;
             }
 
-
-
-
-
         } catch (PDOException $e) {
             $sMsg = '<p>
                     Line Number: ' . $e->getLine() . '<br />
