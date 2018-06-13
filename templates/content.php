@@ -55,7 +55,7 @@ function getLoginHeader($description, $title = "Sqits login page")
 
 }
 
-function getSidebar($page = "Sqits")
+function getSidebar()
 {
 
     ?>
