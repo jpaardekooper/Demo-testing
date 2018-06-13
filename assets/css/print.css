@@ -1,0 +1,59 @@
+.PDF-ONLY{
+    display: none;
+}
+@media print {
+    #page-view {
+        background-color: #FFF;
+    }
+
+    .btn {
+        display: none;
+    }
+
+    .form-control {
+        border: none !important;
+        resize: none;
+    }
+
+    .text-center small {
+        display: none;
+    }
+
+    .PDF-ONLY{
+        display: block;
+    }
+    .PDF-DISTANCE {
+        margin-top: 75px;
+    }
+    .PDF-DISTANCE-MAX {
+        margin-top: 150px;
+    }
+    .PDF-DISTANCE-MAX-2 {
+        margin-top: 230px;
+    }
+    .PDF-DISTANCE-2 {
+        margin-top: 400px;
+    }
+
+    .PDF-PAGE-BREAK {
+        page-break-after: always;
+    }
+
+    .breadcrumb {
+        display: none;
+    }
+
+    .breadcrumb-item a {
+        display: none;
+    }
+    h2{
+        color: #000000;
+    }
+    .card-header{
+        border-bottom: none;
+    }
+    .HIDE-PC-SHOW-PDF{
+        display: none;
+    }
+
+}

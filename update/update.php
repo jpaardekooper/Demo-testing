@@ -301,21 +301,21 @@ switch (getUserRole()) {
                         <div class="card-header"><h4>Opdrachtgever</h4></div>
                         <div class="card-body">
                             <div class="form-group row">
-                                <label for="example-text-input" class="col-md-2 col-form-label">bedrijfsnaam</label>
+                                <label for="example-text-input" class="col-md-3 col-form-label">bedrijfsnaam</label>
                                 <div class="col-md-5">
                                     <input class="form-control" type="text" value="<?= $company_name ?>" readonly
                                            id="example-text-input">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="example-text-input" class="col-md-2 col-form-label">address</label>
+                                <label for="example-text-input" class="col-md-3 col-form-label">adres</label>
                                 <div class="col-md-5">
                                     <input class="form-control" type="text" value="<?= $address ?>" readonly
                                            id="example-text-input">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="example-text-input" class="col-md-2 col-form-label">Postcode en
+                                <label for="example-text-input" class="col-md-3 col-form-label">Postcode en
                                     plaats</label>
                                 <div class="col-md-5">
                                     <input class="form-control" type="text" value="<?= $zip_code ?>, <?= $location ?>"
@@ -324,7 +324,7 @@ switch (getUserRole()) {
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="example-text-input" class="col-md-2 col-form-label">Kvk nummer</label>
+                                <label for="example-text-input" class="col-md-3 col-form-label">Kvk nummer</label>
                                 <div class="col-md-5">
                                     <input class="form-control" type="text" value="<?= $kvk ?>" readonly
                                            id="example-text-input">
@@ -335,21 +335,21 @@ switch (getUserRole()) {
                         <div class="card-header"><h4>Leverancier</h4></div>
                         <div class="card-body">
                             <div class="form-group row">
-                                <label for="example-text-input" class="col-md-2 col-form-label">bedrijfsnaam</label>
+                                <label for="example-text-input" class="col-md-3 col-form-label">bedrijfsnaam</label>
                                 <div class="col-md-5">
                                     <input class="form-control" type="text" value="Sqits B.V." readonly
                                            id="example-text-input">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="example-text-input" class="col-md-2 col-form-label">address</label>
+                                <label for="example-text-input" class="col-md-3 col-form-label">adres</label>
                                 <div class="col-md-5">
                                     <input class="form-control" type="text" value="Bleiswijkseweg 55I" readonly
                                            id="example-text-input">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="example-text-input" class="col-md-2 col-form-label">Postcode en
+                                <label for="example-text-input" class="col-md-3 col-form-label">Postcode en
                                     plaats</label>
                                 <div class="col-md-5">
                                     <input class="form-control" type="text" value="2712 PB, Zoetermeer" readonly
@@ -357,7 +357,7 @@ switch (getUserRole()) {
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="example-text-input" class="col-md-2 col-form-label">Kvk nummer</label>
+                                <label for="example-text-input" class="col-md-3 col-form-label">Kvk nummer</label>
                                 <div class="col-md-5">
                                     <input class="form-control" type="text" value="71075828" readonly
                                            id="example-text-input">
@@ -367,35 +367,35 @@ switch (getUserRole()) {
                         <div class="card-header"><h4>Betreft</h4></div>
                         <div class="card-body">
                             <div class="form-group row">
-                                <label for="example-text-input" class="col-md-2 col-form-label">Opdracht(nummer)</label>
-                                <div class="col-md-2">
+                                <label for="example-text-input" class="col-md-3 col-form-label">Opdracht(nummer)</label>
+                                <div class="col-md-3">
                                     <input class="form-control" type="text" value="<?= $task_nr ?>" readonly
                                            id="example-text-input">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="example-text-input" class="col-md-2 col-form-label">Type</label>
+                                <label for="example-text-input" class="col-md-3 col-form-label">Type</label>
                                 <div class="col-md-3">
                                     <input class="form-control" type="text" value="<?= $type ?>" readonly
                                            id="example-text-input">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="example-text-input" class="col-2 col-form-label">versie</label>
-                                <div class="col-md-2">
+                                <label for="example-text-input" class="col-md-3 col-form-label">Versie</label>
+                                <div class="col-md-3">
                                     <input class="form-control" type="text" value="<?= $version ?>" readonly
                                            id="example-text-input">
                                 </div>
 
                             </div>
                             <div class="form-group row">
-                                <label for="example-text-input" class="col-md-2 col-form-label">Omschreven</label>
-                                <div class="col-md-10">
+                                <label for="example-text-input" class="col-md-3 col-form-label">Omschreven</label>
+                                <div class="col-md-9">
                             <textarea class="form-control" type="text" rows="14" readonly
                                       id="example-text-input"><?= $description ?></textarea>
                                 </div>
                             </div>
-                            <div class="form-group row PDF-SIGNATURE">
+                            <div class="form-group row PDF-ONLY">
                                 Acceptatie opdracht <?= $task_nr ?> &nbsp;&nbsp;&nbsp;&nbsp; versie <?= $version ?>
                                 &nbsp;&nbsp;&nbsp;&nbsp; Paraaf opdrachtgever: ………………………………..
                             </div>
@@ -407,8 +407,13 @@ switch (getUserRole()) {
                         <div class="card-body">
                             <div class="form-group row PDF-DISTANCE">
                                 <label for="example-text-input"
-                                       class="col-md-2 col-form-label accept-pdf">acceptatie</label>
-                                <div class="col-md-10">
+                                       class="col-md-3 col-form-label HIDE-PC-SHOW-PDF">acceptatie</label>
+                                <div class="col-md-9 HIDE-PC-SHOW-PDF">
+                            <textarea class="form-control" type="text" rows="23" readonly
+                                      id="example-text-input"><?= $acceptance ?></textarea>
+                                    <br/>
+                                </div>
+                                <div class="col-md-12 PDF-ONLY">
                             <textarea class="form-control" type="text" rows="23" readonly
                                       id="example-text-input"><?= $acceptance ?></textarea>
                                     <br/>
@@ -416,10 +421,10 @@ switch (getUserRole()) {
                             </div>
                             <div class="form-group row PDF-DISTANCE">
                                 <label for="example-text-input"
-                                       class="col-md-2 col-form-label"></label>
+                                       class="col-md-3 col-form-label"></label>
                                 <textarea class="form-control" type="text" rows="4" readonly>Meer informatie over het accepteren van een oplevering is te vinden in onze Algemene Voorwaarden artikel 3 met de titel “Contractsduur; uitvoeringstermijnen, uitvoering en wijziging overeenkomst”.</textarea>
                             </div>
-                            <div class="form-group row PDF-SIGNATURE PDF-DISTANCE-2">
+                            <div class="form-group row PDF-ONLY PDF-DISTANCE-2">
                                 Acceptatie opdracht <?= $task_nr ?> &nbsp;&nbsp;&nbsp;&nbsp;
                                 versie <?= $version ?>&nbsp;&nbsp;&nbsp;&nbsp; Paraaf opdrachtgever:
                                 ………………………………..
@@ -432,39 +437,48 @@ switch (getUserRole()) {
                         <div class="card-body">
                             <div class="form-group row"></div>
 
-                            <div class="card-header PDF-DISTANCE PDF-SIGNATURE"><h3>Service level
+                            <div class="card-header PDF-DISTANCE PDF-ONLY"><h3>Service level
                                     agreement</h3></div>
                             <div class="form-group row">
-                                <label for="example-text-input" class="col-md-3 col-form-label accept-pdf">service level
+                                <label for="example-text-input" class="col-md-3 col-form-label HIDE-PC-SHOW-PDF">service level
                                     agreement</label>
-                                <div class="col-md-9">
-                            <textarea class="form-control" type="text" rows="2" readonly
+                                <div class="col-md-9 HIDE-PC-SHOW-PDF">
+                            <textarea class="form-control" type="text" rows=4" readonly
+                                      id="example-text-input"><?= $SLA ?></textarea>
+                                </div>
+                                <div class="col-md-12 PDF-ONLY">
+                            <textarea class="form-control" type="text" rows=4" readonly
                                       id="example-text-input"><?= $SLA ?></textarea>
                                 </div>
                             </div>
-                            <div class="card-header PDF-SIGNATURE"><h3>Contract</h3></div>
+                            <div class="card-header PDF-ONLY"><h3>Contract</h3></div>
                             <div class="form-group row">
-
                                 <label for="example-text-input"
-                                       class="col-md-3 col-form-label accept-pdf">Contract</label>
-                                <div class="col-md-9">
-                            <textarea class="form-control" type="text" rows="4" readonly
+                                       class="col-md-3 col-form-label HIDE-PC-SHOW-PDF">Contract</label>
+                                <div class="col-md-9 HIDE-PC-SHOW-PDF">
+                            <textarea class="form-control" type="text" rows=4" readonly
+                                      id="example-text-input"><?= $contact ?></textarea>
+                                </div>
+                                <div class="col-md-12 PDF-ONLY">
+                            <textarea class="form-control" type="text" rows=4" readonly
                                       id="example-text-input"><?= $contact ?></textarea>
                                 </div>
                             </div>
-                            <div class="card-header PDF-SIGNATURE"><h3>Ondertekening</h3></div>
+                            <div class="card-header PDF-ONLY"><h3>Ondertekening</h3></div>
                             <div class="form-group row">
                                 <label for="example-text-input"
-                                       class="col-md-3 col-form-label accept-pdf">ondertekening</label>
-                                <div class="col-md-9">
+                                       class="col-md-3 col-form-label HIDE-PC-SHOW-PDF">ondertekening</label>
+                                <div class="col-md-9 HIDE-PC-SHOW-PDF">
+                            <textarea class="form-control" type="text" rows=4" readonly
+                                      id="example-text-input"><?= $signature ?></textarea>
+                                </div>
+                                <div class="col-md-12 PDF-ONLY">
                             <textarea class="form-control" type="text" rows=4" readonly
                                       id="example-text-input"><?= $signature ?></textarea>
                                 </div>
                             </div>
 
-                            <div class="PDF-SIGNATURE ">
-
-
+                            <div class="PDF-ONLY">
                             <div class="form-group row PDF-DISTANCE">
                                 <div class="col-md-6">
                                     Handtekening akkoord Sqits B.V.:
@@ -520,7 +534,7 @@ switch (getUserRole()) {
                                 </div>
                             </div>
 
-                            <div class="form-group row PDF-SIGNATURE PDF-DISTANCE-MAX">
+                            <div class="form-group row PDF-ONLY PDF-DISTANCE-MAX">
                                 Acceptatie opdracht <?= $task_nr ?> &nbsp;&nbsp;&nbsp;&nbsp;
                                 versie <?= $version ?>&nbsp;&nbsp;&nbsp;&nbsp; Paraaf opdrachtgever:
                                 ………………………………..
