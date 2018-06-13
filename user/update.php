@@ -228,14 +228,14 @@ if ($_SESSION["id"]) {
 
 
             <ul class="nav nav-tabs">
-                <li class="li-panel-tab active"><a data-toggle="tab" href="#home">Bedrijfsgegevens</a></li>
-                <li class="li-panel-tab"><a data-toggle="tab" href="#menu1">Persoonsgegevens</a></li>
-                <li class="li-panel-tab"><a data-toggle="tab" href="#menu2">wijzig wachtwoord</a></li>
+                <li class="li-panel-tab"><a class="nav-link user-toggle"data-toggle="tab" href="#company">Bedrijfsgegevens</a></li>
+                <li class="li-panel-tab"><a class="nav-link user-toggle"data-toggle="tab" href="#information">Persoonsgegevens</a></li>
+                <li class="li-panel-tab"><a class="nav-link user-toggle"data-toggle="tab" href="#password">wijzig wachtwoord</a></li>
 
             </ul>
 
             <div class="tab-content">
-                <div id="home" class="tab-pane fade in active">
+                <div id="company" class="tab-pane fade in">
                     <form name="add" action="?action=save&id=<?= $user_id ?>" method="post">
                         <div class="card-header">bedrijf gegevens</div>
                         <div class="card-body">
@@ -290,7 +290,7 @@ if ($_SESSION["id"]) {
                         </div>
                         <input class="btn btn-primary btn-block" type="submit" name="submit" value="Opslaan">
                 </div>
-                <div id="menu1" class="tab-pane fade">
+                <div id="information" class="tab-pane fade">
 
                         <div class="card-header">Gebruiker gegevens</div>
                         <div class="card-body">
@@ -373,7 +373,7 @@ if ($_SESSION["id"]) {
                 </div>
                 </form>
 
-                <div id="menu2" class="tab-pane fade">
+                <div id="password" class="tab-pane fade">
                     <form name="add2" action="?action=save2&id=<?= $user_id ?>" method="post">
                         <div class="card-header">Wachtwoord instellen</div>
                         <div class="card-body">
