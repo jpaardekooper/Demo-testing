@@ -108,12 +108,12 @@ if (@$_GET['action'] == "save") {
                 <div class="form-group">
                     <div class="form-row">
                         <div class="col-md-6">
-                            <label for="exampleInputName">first name</label>
+                            <label for="exampleInputName">Voornaam</label>
                             <input class="form-control" id="exampleInputName" name="first_name" type="text"
                                    aria-describedby="nameHelp" placeholder="Enter first name">
                         </div>
                         <div class="col-md-6">
-                            <label for="exampleInputLastName">Last name</label>
+                            <label for="exampleInputLastName">Achternaam</label>
                             <input class="form-control" id="exampleInputLastName" name="last_name" type="text"
                                    aria-describedby="nameHelp" placeholder="Enter last name">
                         </div>
@@ -122,25 +122,25 @@ if (@$_GET['action'] == "save") {
                 <div class="form-group">
                     <div class="form-row">
                         <div class="col-md-6">
-                            <label for="exampleInputEmail1">username</label>
+                            <label for="exampleInputEmail1">Email (inloggegevens)</label>
                             <input class="form-control" id="exampleInputEmail1" name="username" type="text"
-                                   aria-describedby="emailHelp" placeholder="Enter username">
+                                   aria-describedby="emailHelp" placeholder="iemand@example.com">
                         </div>
                         <div class="col-md-6">
-                            <label for="exampleConfirmPassword">Confirm password</label>
+                            <label for="exampleConfirmPassword">Wachtwoord</label>
                             <input class="form-control" id="exampleConfirmPassword" name="password" type="text"
-                                   placeholder="Confirm password">
+                                   placeholder="*******">
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="form-row">
                         <div class="col-md-4">
-                            <label class="radio-inline"><input type="radio" name="role" value="user">user</label>
+                            <label class="radio-inline"><input type="radio" name="role" value="user" checked="checked">user</label><br/>
                             <label class="radio-inline"><input type="radio" name="role" value="admin">admin</label>
                         </div>
                         <div class="col-md-4">
-                            <label class="radio-inline"><input type="radio" name="status" value="active">active</label
+                            <label class="radio-inline"><input type="radio" name="status" value="active" checked="checked">active</label><br/>
                             <label class="radio-inline"><input type="radio" name="status"
                                                                value="inactive">inactive</label>
                         </div>
@@ -158,26 +158,26 @@ if (@$_GET['action'] == "save") {
                 <div class="form-group">
                     <div class="form-row">
                         <div class="col-md-6">
-                            <label for="exampleCompanyName">bedrijfsnaam</label>
+                            <label for="exampleCompanyName">Bedrijfsnaam</label>
                             <input class="form-control" id="exampleCompanyName" name="company_name" type="text"
                                    aria-describedby="company_name" placeholder="Enter bedrijfsnaam">
                         </div>
                         <div class="col-md-6">
-                            <label for="exampleKvk">exampleKvk</label>
+                            <label for="exampleKvk">Kvk(nummer)</label>
                             <input class="form-control" id="exampleKvk" name="kvk" type="text"
-                                   aria-describedby="nameHelp" placeholder="Enter kvk">
+                                   aria-describedby="nameHelp" placeholder="Kvk...">
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="form-row">
                         <div class="col-md-6">
-                            <label for="exampleCInputEmail1">email</label>
+                            <label for="exampleCInputEmail1">Bedrijfs email</label>
                             <input class="form-control" id="exampleCInputEmail1" name="email" type="email"
                                    aria-describedby="emailHelp" placeholder="Enter bedrijfsmail">
                         </div>
                         <div class="col-md-6">
-                            <label for="exampleCompanyNumber">Telefoon</label>
+                            <label for="exampleCompanyNumber">Telefoonnummer</label>
                             <input class="form-control" id="exampleCompanyNumber" name="c_phone" type="text"
                                    placeholder="bedrijfsnummer">
                         </div>

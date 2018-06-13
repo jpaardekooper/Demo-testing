@@ -196,11 +196,7 @@ function getSidebar()
                         break;
                 }
                 ?>
-
-
             </ul>
-
-
             <ul class="navbar-nav sidenav-toggler">
                 <li class="nav-item">
                     <a class="nav-link text-center" id="sidenavToggler">
@@ -208,7 +204,6 @@ function getSidebar()
                     </a>
                 </li>
             </ul>
-
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
                     <a class="nav-link" data-toggle="modal" data-target="#logoutModal">
@@ -238,7 +233,6 @@ function getTopPanel($panelDescription = "dashboard")
                     </div>
                 </header>
 ";
-
     echo $topPanel;
 }
 
