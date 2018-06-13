@@ -1,7 +1,6 @@
 <?php
 if (!defined("NO_SESSION"))
 	define("NO_SESSION", 1);
-require_once __DIR__ . '/bootstrap.php';
 
 if (isset($GLOBAL["PAGE"])) {
 	ob_end_clean();

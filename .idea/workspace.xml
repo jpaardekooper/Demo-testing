@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="65296dc2-51e0-4307-a418-c28c8ac91bbb" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/assets/css/customize.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/customize.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/update.php" beforeDir="false" afterPath="$PROJECT_DIR$/user/update.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/system/error.php" beforeDir="false" afterPath="$PROJECT_DIR$/system/error.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -14,15 +13,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="update.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/terms/update.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2159">
-              <caret line="127" selection-start-line="127" selection-end-line="127" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="update.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/update/update.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -115,11 +105,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="function.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="function.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/system/function.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="706">
               <caret line="80" column="16" selection-start-line="80" selection-start-column="16" selection-end-line="80" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="error.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/system/error.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
             </state>
           </provider>
         </entry>
@@ -232,6 +231,7 @@
         <option value="$PROJECT_DIR$/assets/css/print.css" />
         <option value="$PROJECT_DIR$/user/update.php" />
         <option value="$PROJECT_DIR$/assets/css/customize.css" />
+        <option value="$PROJECT_DIR$/system/error.php" />
       </list>
     </option>
   </component>
@@ -333,11 +333,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\Sqits-framework\system" />
       <recent name="C:\xampp\htdocs\Sqits-framework\assets\image" />
       <recent name="C:\xampp\htdocs\Sqits-framework\assets\js" />
       <recent name="C:\xampp\htdocs\Sqits-framework\sql" />
       <recent name="C:\xampp\htdocs\Sqits-framework\terms" />
-      <recent name="C:\xampp\htdocs\Sqits-framework\assets\css" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -365,12 +365,12 @@
       <workItem from="1528024993137" duration="23506000" />
       <workItem from="1528118600640" duration="15186000" />
       <workItem from="1528199759201" duration="13036000" />
-      <workItem from="1528887469297" duration="3724000" />
+      <workItem from="1528887469297" duration="3782000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="123406000" />
+    <option name="totallyTimeSpent" value="123464000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -405,7 +405,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/assets/js/sb-admin-datatables.min.js" />
     <entry file="file://$PROJECT_DIR$/assets/js/sb-admin-charts.js" />
     <entry file="file://$PROJECT_DIR$/assets/vendor/datatables/dataTables.bootstrap4.css" />
     <entry file="file://$PROJECT_DIR$/assets/vendor/datatables/dataTables.bootstrap4.js" />
@@ -699,6 +698,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="706">
           <caret line="80" column="16" selection-start-line="80" selection-start-column="16" selection-end-line="80" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/system/error.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>
