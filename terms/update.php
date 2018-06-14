@@ -59,7 +59,7 @@ if ($_GET['action'] == "save") {
     echo '<div class="content-wrapper">';
     echo '<div class="container-fluid">';
 
-    getTopPanel("formulier wijzigen");
+    getTopPanel("Voorwaarde"," wijzigen");
     try {
         $query = $conn->prepare("
                         SELECT * FROM terms WHERE terms_id = :id");

@@ -13,8 +13,6 @@ if (isset($_SESSION['id'])) {
 
     echo "<div class='content-wrapper'>";
     echo "<div class='container-fluid'>";
-
-    getBreadCrumbs();
     getTopPanel();
 
     try {
@@ -69,15 +67,15 @@ if (isset($_SESSION['id'])) {
           <div class="card text-white bg-warning o-hidden h-100">
             <div class="card-body">
               <div class="card-body-icon">
-                <i class="fa fa-fw fa-support"></i>
+                <i class="fa fa-fw fa-spinner"></i>
               </div>
                 <?php
                 if ($pending == 0 || $pending == NULL){
-                    echo "   <div class=\"mr-5\">er zijn geen updates gevonden</div>";
+                    echo "   <div class=\"mr-5\">Er zijn geen updates gevonden</div>";
                 }elseif($pending == 1){
-                    echo "   <div class=\"mr-5\">er is nog $pending update in de wachtrij</div>";
+                    echo "   <div class=\"mr-5\">Er is nog <span class=\"font-weight-bold\">$pending</span> update in de wachtrij</div>";
                 }else{
-                    echo "   <div class=\"mr-5\">$pending updates staan in de wachtrij</div>";
+                    echo "   <div class=\"mr-5\"><span class=\"font-weight-bold\">$pending</span> updates staan in de wachtrij</div>";
                 }
                 ?>
             </div>
@@ -93,15 +91,15 @@ if (isset($_SESSION['id'])) {
           <div class="card text-white bg-success o-hidden h-100">
             <div class="card-body">
               <div class="card-body-icon">
-                <i class="fa fa-long-arrow-up fa-fw"></i>
+                <i class="fa fa-check-circle fa-fw"></i>
               </div>
                 <?php
                 if ($accepted == 0 || $accepted == NULL){
-                    echo "   <div class=\"mr-5\">er zijn geen updates goedgekeurd</div>";
+                    echo "   <div class=\"mr-5\">Er zijn geen updates goedgekeurd</div>";
                 }elseif($accepted == 1){
-                    echo "   <div class=\"mr-5\">er is $accepted geaccepteerde update gevonden</div>";
+                    echo "   <div class=\"mr-5\">Er is <span class=\"font-weight-bold\">$accepted</span> geaccepteerde update gevonden</div>";
                 }else{
-                    echo "   <div class=\"mr-5\">$accepted updates zijn geaccepteerd</div>";
+                    echo "   <div class=\"mr-5\">Er <span class=\"font-weight-bold\">$accepted</span> updates zijn geaccepteerd</div>";
                 }
                 ?>
             </div>
@@ -117,15 +115,15 @@ if (isset($_SESSION['id'])) {
           <div class="card text-white bg-danger o-hidden h-100">
             <div class="card-body">
               <div class="card-body-icon">
-                <i class="fa fa-long-arrow-down fa-fw"></i>
+                <i class="fa fa-close fa-fw"></i>
               </div>
                 <?php
                 if ($declined == 0 || $declined == NULL){
-                    echo "   <div class=\"mr-5\">er zijn geen afgewezen updates gevonden</div>";
+                    echo "   <div class=\"mr-5\">Er zijn geen afgewezen updates gevonden</div>";
                 }elseif($declined == 1){
-                    echo "   <div class=\"mr-5\">er is $declined afgewezen update gevonden</div>";
+                    echo "   <div class=\"mr-5\">Er is <span class=\"font-weight-bold\">$declined</span> afgewezen update gevonden</div>";
                 }else{
-                    echo "   <div class=\"mr-5\">$declined updates zijn afgewezen</div>";
+                    echo "   <div class=\"mr-5\"><span class=\"font-weight-bold\">$declined</span> updates zijn afgewezen</div>";
                 }
                 ?>
 

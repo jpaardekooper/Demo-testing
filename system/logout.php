@@ -1,7 +1,5 @@
 <?php
-require_once ('function.php');
-
-
+echo "u bent uitgelogd";
 session_destroy();
 
-header("Location: " . explode("logout.php", $_SERVER["REQUEST_URI"])[0] . getPathToRoot() . "login.php?");
+header("Refresh: 1; URL=\"../login.php\"");

@@ -1,6 +1,6 @@
 <?php
 
-function getHeader($description, $title = "Sqits")
+function getHeader($description = "We denken graag met je mee naar een creatieve oplossing voor jouw vraagstuk. Een 'out of the box' oplossing door creatieve webontwikkelaars met een passie.", $title = "sqits :: creatief en technisch partner voor creatieve mensen en bureaus")
 {
     $header = "<!DOCTYPE html>
     <html lang=\"nl\">
@@ -21,6 +21,7 @@ function getHeader($description, $title = "Sqits")
                     
             <link rel=\"stylesheet\" href=" . getAssetsDirectory() . "css/customize.css>   
             <link rel=\"stylesheet\" href=" . getAssetsDirectory() . "css/print.css>   
+            <link rel=\"icon\" type=\"image/x-icon\" href=\"" . getAssetsDirectory() . "/icons/favicon.ico\">
   
 
         </head>
@@ -30,7 +31,7 @@ function getHeader($description, $title = "Sqits")
     getSideBar();
 }
 
-function getLoginHeader($description, $title = "Sqits login page")
+function getLoginHeader($description = "We denken graag met je mee naar een creatieve oplossing voor jouw vraagstuk. Een 'out of the box' oplossing door creatieve webontwikkelaars met een passie.", $title = "sqits :: creatief en technisch partner voor creatieve mensen en bureaus")
 {
     $header = "<!DOCTYPE html>
     <html lang=\"nl\">
@@ -49,8 +50,9 @@ function getLoginHeader($description, $title = "Sqits login page")
             <link rel=\"stylesheet\" href=" . getAssetsDirectory() . "css/sb-admin.css.css>         
                
             <link rel=\"stylesheet\" href=" . getAssetsDirectory() . "css/custom.css>        
+            <link rel=\"icon\" type=\"image/x-icon\" href=\"" . getAssetsDirectory() . "/icons/favicon.ico\">
         </head>
-        <body class=\"fixed-nav sticky-footer bg-light\" id=\"page-top\"> ";
+        <body class=\"fixed-nav bg-light\" id=\"page-top\"> ";
     echo $header;
 
 }
@@ -70,6 +72,12 @@ function getSidebar()
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+                    <a class="nav-link" href="#">
+                        <i class="fa fa-drivers-license"></i>
+                        <span class="nav-link-text">Welkom: <?= $_SESSION['id']['first_name'] ?>  <?= $_SESSION['id']['last_name'] ?> </span>
+                    </a>
+                </li>
                 <?php
                 switch (getUserRole()) {
                     case "user":
@@ -93,8 +101,8 @@ function getSidebar()
                     case "user":
                         echo "<li class=\"nav-item  " . isActiveOnPage('/update/index.php') . " " . isActiveOnPage('/update/update.php') . "\" data-toggle=\"tooltip\" data-placement=\"right\" title=\"Charts\" " . isActiveOnPage('/update/index.php') . ">
                         <a  class=\"nav-link\" href='" . getPathToRoot() . "update/index.php'>                        
-                             <i class=\"fa fa-fw fa-area-chart\"></i>
-                             <span class=\"nav-link-text\">Update geschiedenis</span>
+                           <i class=\"fa fa-history\"></i>
+                             <span class=\"nav-link-text\"> Update geschiedenis</span>
                         </a>
                         
                         </li>";
@@ -104,15 +112,15 @@ function getSidebar()
                          <li class=\"nav-item  " . isActiveOnPage('/update/index.php') . " " . isActiveOnPage('/update/add.php') . " \" data-toggle=\"tooltip\" data-placement=\"right\" title=\"Components\">
                             <a class=\"nav-link nav-link-collapse collapsed\" data-toggle=\"collapse\" href=\"#collapseUpdate\"
                                data-parent=\"#exampleAccordion\">
-                                <i class=\"fa fa-fw fa-wrench\"></i>
+                                <i class=\"	fa fa-puzzle-piece\"></i>
                                 <span class=\"nav-link-text\">Updates</span>
                             </a>
                                 <ul class=\"sidenav-second-level collapse\" id=\"collapseUpdate\">
                                     <li>
-                                        <a href='" . getPathToRoot() . "update/index.php'>Update overzicht</a>
-                                    </li>
+                                        <a href='" . getPathToRoot() . "update/index.php'> <i class=\"fa fa-sort-amount-asc\"></i> Update overzicht</a>
+                                    </li>	
                                     <li>
-                                        <a href='" . getPathToRoot() . "update/add.php'>Update Toevoegen</a>
+                                        <a href='" . getPathToRoot() . "update/add.php'><i class=\"fa fa-plus\"></i> Update Toevoegen</a>
                                     </li>
                                 </ul>
                          </li>
@@ -124,7 +132,7 @@ function getSidebar()
                     case "user":
                         echo "<li  class=\"nav-item " . isActiveOnPage('/user/index.php') . " " . isActiveOnPage('/user/update.php') . "\" data-toggle=\"tooltip\" data-placement=\"right\" title=\"user\" " . isActiveOnPage('/user/index.php') . ">
                         <a  class=\"nav-link\" href='" . getPathToRoot() . "user/update.php?action=update&id=" . $_SESSION['id']['user_id'] . ".php'>                        
-                             <i class=\"fa fa-fw fa-area-chart\"></i>
+                             <i class=\"fa fa-user\"></i>
                              <span class=\"nav-link-text\">Wijzig gegevens</span>
                         </a>
                         
@@ -135,15 +143,18 @@ function getSidebar()
                          <li class=\"nav-item  " . isActiveOnPage('/user/index.php') . " " . isActiveOnPage('/user/add.php') . " \" data-toggle=\"tooltip\" data-placement=\"right\" title=\"Users\">
                             <a class=\"nav-link nav-link-collapse collapsed\" data-toggle=\"collapse\" href=\"#collapseUsers\"
                                data-parent=\"#exampleAccordion\">
-                                <i class=\"fa fa-fw fa-wrench\"></i>
+                                <i class=\"fa fa-user\"></i>
                                 <span class=\"nav-link-text\">Users</span>
                             </a>
                                 <ul class=\"sidenav-second-level collapse\" id=\"collapseUsers\">
                                     <li>
-                                        <a href='" . getPathToRoot() . "user/index.php'>Gebruikers overzicht</a>
+                                        <a href='" . getPathToRoot() . "user/update.php?action=update&id=" . $_SESSION['id']['user_id'] . ".php'><i class=\"fa fa-user-circle\"></i> Gegevens wijzigen</a>
                                     </li>
                                     <li>
-                                        <a href='" . getPathToRoot() . "user/add.php'>Gebruiker Toevoegen</a>
+                                        <a href='" . getPathToRoot() . "user/index.php'><i class=\"fa fa-sort-amount-asc\"></i> Gebruikers overzicht</a>
+                                    </li>
+                                    <li>
+                                        <a href='" . getPathToRoot() . "user/add.php'><i class=\"fa fa-plus\"></i> Gebruiker Toevoegen</a>
                                     </li>
                                 </ul>
                          </li>
@@ -159,15 +170,15 @@ function getSidebar()
                             <li class=\"nav-item " . isActiveOnPage('/form/index.php') . " " . isActiveOnPage('/form/add.php') . " \" data-toggle=\"tooltip\" data-placement=\"right\" title=\"Formulieren\">
                                 <a class=\"nav-link nav-link-collapse collapsed\" data-toggle=\"collapse\" href=\"#collapseForms\"
                                 data-parent=\"#exampleAccordion\">
-                                <i class=\"fa fa-fw fa-wrench\"></i>
+                                <i class=\"fa fa-clone\"></i>
                                 <span class=\"nav-link-text\">Formulier overzicht</span>
                                 </a>
                                 <ul class=\"sidenav-second-level collapse\" id=\"collapseForms\">
                             <li>
-                                <a href='" . getPathToRoot() . "form/index.php'>formulier overzicht</a>
+                                <a href='" . getPathToRoot() . "form/index.php'><i class=\"fa fa-sort-amount-asc\"></i> Formulier overzicht</a>
                             </li>
                             <li>
-                                <a href='" . getPathToRoot() . "form/add.php'>formulier Toevoegen</a>
+                                <a href='" . getPathToRoot() . "form/add.php'><i class=\"fa fa-plus\"></i> Formulier Toevoegen</a>
                             </li>
                         </ul>
                         </li>
@@ -180,15 +191,15 @@ function getSidebar()
                         echo "<li class=\"nav-item  " . isActiveOnPage('/terms/index.php') . " " . isActiveOnPage('/terms/add.php') . " \" data-toggle=\"tooltip\" data-placement=\"right\" title=\"Formulieren\">
                                 <a class=\"nav-link nav-link-collapse collapsed\" data-toggle=\"collapse\" href=\"#collapseTerms\"
                                 data-parent=\"#exampleAccordion\">
-                                <i class=\"fa fa-fw fa-wrench\"></i>
+                                <i class=\"	fa fa-info\"></i>
                                 <span class=\"nav-link-text\">Voorwaarden</span>
                                 </a>
                                 <ul class=\"sidenav-second-level collapse\" id=\"collapseTerms\">
                             <li>
-                                <a href='" . getPathToRoot() . "terms/index.php'>formulier overzicht</a>
+                                <a href='" . getPathToRoot() . "terms/index.php'><i class=\"fa fa-sort-amount-asc\"></i> Voorwaarde overzicht</a>
                             </li>
                             <li>
-                                <a href='" . getPathToRoot() . "terms/add.php'>formulier Toevoegen</a>
+                                <a href='" . getPathToRoot() . "terms/add.php'><i class=\"fa fa-plus\"></i> Voorwaarde Toevoegen</a>
                             </li>
                         </ul>
                         </li>
@@ -216,13 +227,13 @@ function getSidebar()
 }
 
 
-function getTopPanel($panelDescription = "Dashboard")
+function getTopPanel($panelDescription1 = "Dashboard", $panelDescription2 = " ")
 {
     $topPanel = "
                 <header>
                     <div class='top-panel'>                    
                                              
-                            <h1>" . $panelDescription . " </h1> 
+                            <h1>" . $panelDescription1 . " <span class='sq-bl'> " . $panelDescription2 . " </span> </h1> 
                             <hr/>  
                     </div>
                 </header>
@@ -280,11 +291,8 @@ function getLogoutModal()
       </div>
     </div>
     ";
-
     echo $logoutModal;
-
 }
-
 
 function getBreadCrumbs()
 {

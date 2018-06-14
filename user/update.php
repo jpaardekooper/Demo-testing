@@ -171,8 +171,8 @@ if ($_SESSION["id"]) {
 
         echo "<div class='content-wrapper'>";
         echo "<div class='container-fluid'>";
-        getBreadCrumbs();
-        getTopPanel("Gegevens wijzigen");
+
+        getTopPanel("Gegevens"," wijzigen");
 
         try {
             $query = $conn->prepare("

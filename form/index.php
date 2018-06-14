@@ -12,8 +12,7 @@ if (isset($_SESSION['id'])) {
 
     echo '<div class="content-wrapper">';
     echo '<div class="container-fluid">';
-    getBreadCrumbs();
-    getTopPanel("overzicht formulier");
+    getTopPanel("overzicht", " formulier");
 
     try {
         /*        $query = $conn->prepare("SELECT f.form_id =:form_id, com.company_id =:company_id, f.type =:type,
@@ -95,8 +94,8 @@ if (isset($_SESSION['id'])) {
                 <td>$created_date</td>
                 <td>$modified_date</td>
              
-                    <td><a href=\"delete.php?action=delete&id=$form_id\">X</a>
-                        <a href=\"update.php?action=delete&id=$form_id\">edit</a></td>
+                    <td>   <a href=\"update.php?action=update&id=$form_id\"><i class='fa fa-edit'></i> Wijzigen</a>
+                    <a onclick=\"return confirm('Weet u zeker dat u het wilt verwijderen?')\" href=\"delete.php?action=delete&id=$form_id\"><i class='fa fa-trash-o text-danger'></i></a>
                             </tr>";
     }
     echo "       </tbody>

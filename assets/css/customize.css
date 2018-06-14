@@ -83,3 +83,27 @@ thead {
 .user-toggle:hover{
     color: #868e96;
 }
+.table-bordered td, .table-bordered th {
+    border: none;
+}
+table.dataTable tfoot th, table.dataTable tfoot td {
+    background-color: #42c0b33d;
+    color: #343a40;
+}
+.card {
+    border: 1px solid #42c0b3  !important;
+}
+h1{
+    color: #565656 !important;
+    text-transform: uppercase;
+}
+h1 .sq-bl {
+    color: #42c0b3 !important;
+    text-transform: uppercase;
+}
+hr{
+    border-bottom: 1px solid #42c0b3 !important;
+}
+.mb-3, .my-3 {
+    margin-bottom: 6rem!important;
+}

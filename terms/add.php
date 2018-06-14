@@ -32,7 +32,7 @@ if (isset($_SESSION['id'])) {
             </div>";
 
 
-            echo "het formulier is opgeslagen.";
+            echo "Het is opgeslagen.";
 
             header("Refresh: 1; URL=index.php");
 
@@ -52,12 +52,12 @@ if (isset($_SESSION['id'])) {
 
         echo '<div class="content-wrapper">';
         echo '<div class="container-fluid">';
-        getBreadCrumbs();
-        getTopPanel("formulier toevoegen");
+
+        getTopPanel("Voorwaarde"," toevoegen");
 
         ?>
 
-
+<div class="container">
         <div class="card card-register mx-auto mt-1">
             <form name="add" action="?action=save" method="post">
                 <div class="card-header">Voorwaarden Forumulier</div>
@@ -110,7 +110,7 @@ if (isset($_SESSION['id'])) {
                 <input class="btn btn-primary btn-block" type="submit" name="submit" value="Opslaan">
             </form>
         </div>
-
+</div>
 
         <?php
 

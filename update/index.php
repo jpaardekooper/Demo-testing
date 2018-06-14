@@ -14,10 +14,8 @@ if ($_SESSION["id"]) {
             echo "<div class='content-wrapper'>";
             echo "<div class='container-fluid'>";
 
-            getBreadCrumbs();
 
-            getTopPanel("update overzicht");
-
+            getTopPanel("update", " overzicht");
 
             try {
                 $query = $conn->prepare("SELECT f.*, u.*, up.*, c.*
@@ -47,27 +45,25 @@ if ($_SESSION["id"]) {
                     <div class=\"table-responsive\">
                         <table class=\"table table-bordered\" id=\"table_id\" width=\"100%\" cellspacing=\"0\">                                                   
                         <thead>
-                            <tr>                                 
-                                  
-                              <th>bedrijfsnaam</th>      
-                              <th>type</th>
-                              <th>version</th>
-                              <th>description</th>
-                              <th>status</th>
-                              <th>created_date</th>
-                              <th>actie</th>
+                            <tr>  
+                              <th>Bedrijfsnaam</th>      
+                              <th>Type</th>
+                              <th>Versie</th>
+                              <th>beschrijving</th>
+                              <th>Status</th>
+                              <th>Gemaakt op</th>
+                              <th>Actie</th>
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>                                     
-                                 
-                                <th>bedrijfsnaam</th>      
-                                <th>type</th>
-                                <th>version</th>
-                                <th>description</th>
-                                <th>status</th>
-                                <th>created_date</th>
-                                <th>actie</th>
+                              <th>Bedrijfsnaam</th>      
+                              <th>Type</th>
+                              <th>Versie</th>
+                              <th>beschrijving</th>
+                              <th>Status</th>
+                              <th>Gemaakt op</th>
+                              <th>Actie</th>
                             </tr>
                         </tfoot>
                      <tbody>
@@ -85,14 +81,27 @@ if ($_SESSION["id"]) {
 
                 if (strlen($description) > 20) $description = substr($description, 0, 20) . '...';
 
+                //small sql error we had a type in the database
+                if ($type == 'mayor-update'){
+                    $type = 'major-update';
+                }
+
                 echo "<tr>             
                 <td><a href=\"update.php?action=delete&id=$update_id\">$company_name</a></td>
                 <td>$type</td>
                 <td>$version</td>             
-                <td>$description</td>              
-                <td>$status</td>
+                <td>$description</td>  ";
+                if ($status == 'accepted') {
+                    echo "<td>  <i class=\"fa fa-check-circle fa-fw text-success\"></i></td>";
+                } elseif ($status == 'declined') {
+                    echo "<td>  <i class=\"fa fa-close fa-fw text-danger\"></i></td>";
+
+                } else {
+                    echo "<td>  <i class=\"fa fa-spinner fa-fw text-warning\"></i></td>";
+                }
+                echo"
                 <td>$created_date</td>
-                <td><a href=\"update.php?action=delete&id=$update_id\">edit</a></td>
+                <td><a href=\"update.php?action=delete&id=$update_id\"><i class='fa fa-edit'></i> Wijzigen</a></td>
               </tr>";
             }
             echo "       </tbody>
@@ -111,9 +120,7 @@ if ($_SESSION["id"]) {
             echo "<div class='content-wrapper'>";
             echo "<div class='container-fluid'>";
 
-            getBreadCrumbs();
-
-            getTopPanel("update overzicht");
+            getTopPanel("Update", " overzicht");
 
 
             try {
@@ -142,26 +149,26 @@ if ($_SESSION["id"]) {
                         <table class=\"table table-bordered\" id=\"table_id\" width=\"100%\" cellspacing=\"0\">                                                   
                         <thead>
                             <tr>
-                              <th>form_id</th>         
-                              <th>company_id</th>      
-                              <th>type</th>
-                              <th>version</th>
-                              <th>description</th>
-                              <th>status</th>
-                              <th>created_date</th>
-                              <th>actie</th>
+                              <th>Form_id</th>         
+                              <th>Company_id</th>      
+                              <th>Type</th>
+                              <th>Versie</th>
+                              <th>Beschrijving</th>
+                              <th>Status</th>
+                              <th>Gemaakt op</th>
+                              <th>Actie</th>
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
-                                <th>form_id</th>         
-                                <th>company_id</th>      
-                                <th>type</th>
-                                <th>version</th>
-                                <th>description</th>
-                                <th>status</th>
-                                <th>created_date</th>
-                                <th>actie</th>
+                              <th>Form_id</th>         
+                              <th>Company_id</th>      
+                              <th>Type</th>
+                              <th>Versie</th>
+                              <th>Beschrijving</th>
+                              <th>Status</th>
+                              <th>Gemaakt op</th>
+                              <th>Actie</th>
                             </tr>
                         </tfoot>
                      <tbody>
@@ -177,18 +184,33 @@ if ($_SESSION["id"]) {
                 $created_date = $row['created_date'];
 
                 if (strlen($description) > 20) $description = substr($description, 0, 20) . '...';
+                //small sql error we had a type in the database
+                if ($type == 'mayor-update'){
+                    $type = 'major-update';
+                }
 
                 echo "<tr>
                 <td>$form_id</td>
                 <td>$company_id</td>
                 <td>$type</td>
                 <td>$version</td>             
-                <td>$description</td>              
-                <td>$status</td>
+                <td><a href='../form/update.php?action=delete&id=$form_id'>$description</a></td> 
+                ";
+                if ($status == 'accepted') {
+                    echo "<td>  <i class=\"fa fa-check-circle fa-fw text-success\"></i></td>";
+                } elseif ($status == 'declined') {
+                    echo "<td>  <i class=\"fa fa-close fa-fw text-danger\"></i></td>";
+
+                } else {
+                    echo "<td>  <i class=\"fa fa-spinner fa-fw text-warning\"></i></td>";
+                }
+
+
+                echo "
                 <td>$created_date</td>
              
-                    <td><a href=\"delete.php?action=delete&id=$form_id\">X</a>
-                        <a href=\"update.php?action=delete&id=$form_id\">edit</a></td>
+                    <td><a onclick=\"return confirm('Weet u zeker dat u het wilt verwijderen?')\" href=\"delete.php?action=update&id=$form_id\"><i class='fa fa-trash-o text-danger'></i></a>
+                       </td>
                 </tr>";
             }
             echo "       </tbody>

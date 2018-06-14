@@ -1,6 +1,6 @@
 <?php
 
-require_once 'system/session.php';
+
 
 include_once('system/config.php');
 
@@ -51,6 +51,7 @@ if (filter_has_var(INPUT_POST, 'submit')) {
                     ";
             header("Refresh: 2; URL=\"login.php\"");
         } else {
+           
             //email staat in database en password klopt, sessie starten!
             //sessie opstarten
             $database_contents['password'] = "";

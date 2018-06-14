@@ -113,9 +113,7 @@ if (isset($_SESSION['id'])) {
         echo '<div class="content-wrapper">';
         echo '<div class="container-fluid">';
 
-        getBreadCrumbs();
-
-        getTopPanel("Update toevoegen");
+        getTopPanel("Update"," toevoegen");
 
         ?>
 
@@ -163,7 +161,7 @@ if (isset($_SESSION['id'])) {
                                 unset($result);
 
                                 echo " <div class=\"col-md-4\">";
-                                echo "<label>user informatie</label>";
+                                echo "<label>Bedrijfsinformatie</label>";
                                 echo "<select class='form-control' name='company_id'  onchange='showUser(this.value)'>";
                                 echo "<option value=''></option>";
                                 foreach ($types as $type) {
@@ -178,7 +176,7 @@ if (isset($_SESSION['id'])) {
                                 //**** end
 
                                 echo " <div class=\"col-md-4\">";
-                                echo "<label>laatste datum</label>";
+                                echo "<label>Einddatum</label>";
                                 echo "<input  class='form-control' type='date' name='end_date'>";
                                 echo "</div>";
                                 ?>
@@ -187,11 +185,12 @@ if (isset($_SESSION['id'])) {
                         </div>
                         <div class="form-group">
                             <div class="form-row">
+                                <!-- output for the getForm.php -->
                                 <div class="col-md-6">
                                     <div id='showForm'></div>
                                 </div>
+                                <!-- output for the getuser.php -->
                                 <div class="col-md-6">
-
                                     <div id='showUser'></div>
                                 </div>
                             </div>
@@ -199,19 +198,18 @@ if (isset($_SESSION['id'])) {
                     </div>
 
                 </div>
-                <div class="card card-register mx-auto mt-1">
-                    <input class="btn btn-primary btn-block" type="submit" name="submit" value="Opslaan">
+                <div class="form-group row">
+                    <div class="card card-register mx-auto mt-1">
+                        <button class="btn btn-primary btn-block" type="submit" name="submit"><i class="fa fa-paper-plane"> Versturen</i></button>
+                    </div>
                 </div>
+
         </div>
 
         </form>
         </div>
 
         <?php
-        echo "<input type=\"reset\" name=\"reset\" value=\"Clear\">
-<input type=\"submit\" name=\"submit\" value=\"Opslaan\">
-";
-
 
 //closes right-panel
         echo "</div>";

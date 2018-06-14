@@ -41,7 +41,7 @@ if ($_SESSION["id"]) {
                     trigger_error($sMsg);
                 }
             } else {
-                getHeader("	&nbsp; ", "	&nbsp;");
+                getHeader();
                 echo "<div class='content-wrapper'>";
                 echo "<div class='container-fluid'>";
                 //getTopPanel("Update wijzigen");
@@ -442,12 +442,9 @@ if ($_SESSION["id"]) {
                             <div class="card-body">
                                 <div class="form-group row"></div>
 
-                                <div class="card-header PDF-DISTANCE PDF-ONLY"><h3>Service level
-                                        agreement</h3></div>
+                                <div class="card-header PDF-DISTANCE PDF-ONLY"><h3>SERVICE LEVEL AGREEMENT</h3></div>
                                 <div class="form-group row">
-                                    <label for="example-text-input" class="col-md-3 col-form-label HIDE-PC-SHOW-PDF">service
-                                        level
-                                        agreement</label>
+                                    <label for="example-text-input" class="col-md-3 col-form-label HIDE-PC-SHOW-PDF">SERVICE LEVEL AGREEMENT</label>
                                     <div class="col-md-9 HIDE-PC-SHOW-PDF">
                             <textarea class="form-control" type="text" rows=4" readonly
                                       id="example-text-input"><?= $SLA ?></textarea>
@@ -457,10 +454,10 @@ if ($_SESSION["id"]) {
                                       id="example-text-input"><?= $SLA ?></textarea>
                                     </div>
                                 </div>
-                                <div class="card-header PDF-ONLY"><h3>Contract</h3></div>
+                                <div class="card-header PDF-ONLY"><h3>CONTRACT</h3></div>
                                 <div class="form-group row">
                                     <label for="example-text-input"
-                                           class="col-md-3 col-form-label HIDE-PC-SHOW-PDF">Contract</label>
+                                           class="col-md-3 col-form-label HIDE-PC-SHOW-PDF">CONTRACT</label>
                                     <div class="col-md-9 HIDE-PC-SHOW-PDF">
                             <textarea class="form-control" type="text" rows=4" readonly
                                       id="example-text-input"><?= $contact ?></textarea>
@@ -470,10 +467,10 @@ if ($_SESSION["id"]) {
                                       id="example-text-input"><?= $contact ?></textarea>
                                     </div>
                                 </div>
-                                <div class="card-header PDF-ONLY"><h3>Ondertekening</h3></div>
+                                <div class="card-header PDF-ONLY"><h3>ONDERTEKENING</h3></div>
                                 <div class="form-group row">
                                     <label for="example-text-input"
-                                           class="col-md-3 col-form-label HIDE-PC-SHOW-PDF">ondertekening</label>
+                                           class="col-md-3 col-form-label HIDE-PC-SHOW-PDF">ONDERTEKENING</label>
                                     <div class="col-md-9 HIDE-PC-SHOW-PDF">
                             <textarea class="form-control" type="text" rows=4" readonly
                                       id="example-text-input"><?= $signature ?></textarea>
@@ -502,27 +499,27 @@ if ($_SESSION["id"]) {
                                         </div>
                                     </div>
                                     <div class="form-group row PDF-DISTANCE-MAX">
-                                        <label for="example-text-input" class="col-md-2 col-form-label">Naam</label>
+                                        <label for="example-text-input" class="col-md-2 col-form-label">Naam:</label>
                                         <div class="col-md-4">
                                             <input class="form-control" type="text" value="Ruud Schaaphuizen" readonly
                                                    id="example-text-input">
                                         </div>
 
-                                        <label for="example-text-input" class="col-md-2 col-form-label">Naam</label>
+                                        <label for="example-text-input" class="col-md-2 col-form-label">Naam:</label>
                                         <div class="col-md-4">
                                             <input class="form-control" type="text" value="......................"
                                                    readonly
                                                    id="example-text-input">
                                         </div>
 
-                                        <label for="example-text-input" class="col-md-2 col-form-label">Datum</label>
+                                        <label for="example-text-input" class="col-md-2 col-form-label">Datum:</label>
                                         <div class="col-md-4">
                                             <input class="form-control" type="text" value="<?= $created_date ?>"
                                                    readonly
                                                    id="example-text-input">
                                         </div>
 
-                                        <label for="example-text-input" class="col-md-2 col-form-label">Datum</label>
+                                        <label for="example-text-input" class="col-md-2 col-form-label">Datum:</label>
                                         <div class="col-md-4">
                                             <input class="form-control" type="text" value="......................"
                                                    readonly
@@ -530,13 +527,13 @@ if ($_SESSION["id"]) {
                                         </div>
 
 
-                                        <label for="example-text-input" class="col-md-2 col-form-label">Locatie</label>
+                                        <label for="example-text-input" class="col-md-2 col-form-label">Locatie:</label>
                                         <div class="col-md-4">
                                             <input class="form-control" type="text" value="Zoetermeer" readonly
                                                    id="example-text-input">
                                         </div>
 
-                                        <label for="example-text-input" class="col-md-2 col-form-label">Locatie</label>
+                                        <label for="example-text-input" class="col-md-2 col-form-label">Locatie:</label>
                                         <div class="col-md-4">
                                             <input class="form-control" type="text" value="......................"
                                                    readonly
@@ -564,7 +561,7 @@ if ($_SESSION["id"]) {
                         <div class="form-group">
                             <div class="form-row">
                                 <div class="col-md-2 mx-auto mt-1">
-                                    <button class="btn btn-default btn-block" onclick="forprint()">print pdf</button>
+                                    <button class="btn btn-default btn-block" onclick="forprint()"><i class="fa fa-file-pdf-o"></i> Print pdf</button>
                                 </div>
                             </div>
                         </div>

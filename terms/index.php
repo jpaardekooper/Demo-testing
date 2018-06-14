@@ -13,8 +13,7 @@ if (isset($_SESSION['id'])) {
     echo '<div class="content-wrapper">';
     echo '<div class="container-fluid">';
 
-    getBreadCrumbs();
-    getTopPanel("overzicht formulier") ;
+    getTopPanel("overzicht"," formulier") ;
 
     try {
 /*        $query = $conn->prepare("SELECT f.form_id =:form_id, com.company_id =:company_id, f.type =:type,
@@ -46,8 +45,8 @@ if (isset($_SESSION['id'])) {
                         <table class=\"table table-bordered\" id=\"table_id\" width=\"100%\" cellspacing=\"0\">                                                   
                         <thead>
                             <tr>
-                             <th>terms_id</th>         
-                             <th>acceptance</th> 
+                             <th>Terms_id</th>         
+                             <th>Acceptance</th> 
                              <th>service_level_agreement</th>
                              <th>signature</th>
                              <th>contact</th>
@@ -71,25 +70,31 @@ if (isset($_SESSION['id'])) {
 
 
     while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
-        $form_id = $row['terms_id'];
-        $version = $row['acceptance'];
+        $terms_id = $row['terms_id'];
+        $acceptance = $row['acceptance'];
         $description = $row['service_level_agreement'];
-        $status = $row['signature'];
+        $signature = $row['signature'];
         $contact = $row['contact'];
         $created_date = $row['created_date'];
 
-        if(strlen($version) > 20) $version = substr($version, 0, 20).'...';
+        if(strlen($acceptance) > 20) $acceptance = substr($acceptance, 0, 20).'...';
+        if(strlen($description) > 20) $description = substr($description, 0, 20).'...';
+        if(strlen($signature) > 20) $signature = substr($signature, 0, 20).'...';
+        if(strlen($contact) > 20) $contact = substr($contact, 0, 20).'...';
 
         echo "<tr>
-                <td>$form_id</td>   
-                 <td>$version</td>                           
+                <td>$terms_id</td>   
+                 <td>$acceptance</td>                           
                 <td>$description</td> 
-                <td>$status</td>
+                <td>$signature</td>
                 <td>$contact</td>
                 <td>$created_date</td>
              
-                    <td><a href=\"delete.php?action=delete&id=$form_id\">X</a>
-                        <a href=\"update.php?action=delete&id=$form_id\">edit</a></td>
+                    <td>
+                     <a href=\"update.php?action=update&id=$terms_id\"><i class='fa fa-edit'></i> Wijzigen</a>
+                    <a onclick=\"return confirm('Weet u zeker dat u het wilt verwijderen?')\" href=\"delete.php?action=delete&id=$terms_id\"><i class='fa fa-trash-o text-danger'></i></a>
+                       
+                       </td>
                             </tr>";
     }
     echo "       </tbody>
