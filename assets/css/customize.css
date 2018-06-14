@@ -11,10 +11,6 @@
 
 }
 
-.navbar-dark .navbar-nav .nav-link:focus, .navbar-dark .navbar-nav .nav-link:hover {
-    opacity: 0.7 !important;
-}
-
 .dropdown-menu2 {
     right: 0 !important;
 }
@@ -122,4 +118,8 @@ input[type=search]{
 
 .nothing-selected{
     display: none;
+}
+.nav-item .sessionOut:hover{
+    color: #565656  !important;
+    font-weight: bold;
 }
