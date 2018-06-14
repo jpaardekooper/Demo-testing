@@ -93,7 +93,6 @@ if (isset($_SESSION['id'])) {
                 echo "<div style='margin: 0 auto; width: 300px;'>
                     <img style='margin-top: 40vh;' src='" . getAssetsDirectory() . "image/loading.gif'/>
             </div>";
-                echo "Het formulier is opgeslagen en verzonden.";
                 header("Refresh: 1; URL=index.php");
             } else {
                 echo "Message could not be sent...";
