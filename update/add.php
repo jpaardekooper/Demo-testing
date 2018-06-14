@@ -125,7 +125,7 @@ if (isset($_SESSION['id'])) {
                 <div class="container">
                     <ul class="timeline">
                         <li>
-                            <div class="timeline-badge warning"><i class="glyphicon glyphicon-check"></i></div>
+                            <div id="warning" class="timeline-badge warning"><i class="fa fa-exclamation"></i></div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
                                     <h6 class="timeline-title">Formulier versie en opdrachtnummer</h6>
@@ -167,7 +167,7 @@ if (isset($_SESSION['id'])) {
                             </div>
                         </li>
                         <li>
-                            <div class="timeline-badge warning"><i class="glyphicon glyphicon-credit-card"></i></div>
+                            <div id="warning2" class="timeline-badge warning"><i class="fa fa-exclamation"></i></div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
                                     <h6 class="timeline-title">Bedrijfsinformatie</h6>
@@ -210,7 +210,7 @@ if (isset($_SESSION['id'])) {
                             </div>
                         </li>
                         <li>
-                            <div class="timeline-badge warning"><i class="glyphicon glyphicon-credit-card"></i></div>
+                            <div id="warning3" class="timeline-badge warning"><i class="fa fa-exclamation"></i></div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
                                     <h6 class="timeline-title">Einddatum</h6>
