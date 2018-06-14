@@ -216,20 +216,14 @@ function getSidebar()
 }
 
 
-function getTopPanel($panelDescription = "dashboard")
+function getTopPanel($panelDescription = "Dashboard")
 {
     $topPanel = "
                 <header>
                     <div class='top-panel'>                    
-                              <div class='top-panel-item'>                       
-                            <h2>" . $panelDescription . " </h2> 
-                               </div>
-                               
-                            <div class='top-panel-item'>
-                                Welkom: " . $_SESSION['id']['first_name'] . " 
-                                " . $_SESSION['id']['last_name'] . " 
-                                <br/>Role: " . $_SESSION['id']['role'] . " 
-                                </div>
+                                             
+                            <h1>" . $panelDescription . " </h1> 
+                            <hr/>  
                     </div>
                 </header>
 ";
@@ -294,14 +288,16 @@ function getLogoutModal()
 
 function getBreadCrumbs()
 {
-    $crumbs = explode("/", $_SERVER["REQUEST_URI"]);
-    echo "<ol class='breadcrumb'>";
-    foreach ($crumbs as $crumb) {
+    /*    $crumbs = explode("/", $_SERVER["REQUEST_URI"]);
+        echo "<ol class='breadcrumb'>";
+        foreach ($crumbs as $crumb) {
 
-        echo "<li class=\"breadcrumb-item\"><a href=" . ucfirst(str_replace(array(" ", "Sqits-framework", "dashboard", "user", "update"), array(" ", ""), $crumb) . ' ') . ">$crumb</a></li>";
-    }
-    echo "</ol>";
+            echo "<li class=\"breadcrumb-item\"><a href=" . ucfirst(str_replace(array(" ", "Sqits-framework", "dashboard", "user", "update"), array(" ", ""), $crumb) . ' ') . ">$crumb</a></li>";
+        }
+        echo "</ol>";*/
 
-
+     echo "<ol class='breadcrumb'>
+             <li class='breadcrumb-item'>Welkom: " . $_SESSION['id']['first_name'] . "  " . $_SESSION['id']['last_name'] . " </li>
+           </ol>";
 }
 
