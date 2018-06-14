@@ -159,7 +159,7 @@ if (isset($_SESSION['id'])) {
                             </div>
                         </li>
                         <li id="form-succes" class="timeline-inverted nothing-selected">
-                            <div class="timeline-badge success"><i class="glyphicon glyphicon-check"></i></div>
+                            <div class="timeline-badge success"><i class="fa fa-check"></i></div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
                                     <h6 class="timeline-title">Formulier is toegevoegd</h6>
@@ -202,7 +202,7 @@ if (isset($_SESSION['id'])) {
                             </div>
                         </li>
                         <li id="form-succes2" class="timeline-inverted nothing-selected">
-                            <div class="timeline-badge success"><i class="glyphicon glyphicon-check"></i></div>
+                            <div class="timeline-badge success"><i class="fa fa-check"></i></div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
                                     <h6 class="timeline-title">Bedrijf is toegevoegd</h6>
@@ -221,7 +221,7 @@ if (isset($_SESSION['id'])) {
                             </div>
                         </li>
                         <li id="form-succes3" class="timeline-inverted nothing-selected">
-                            <div class="timeline-badge success"><i class="glyphicon glyphicon-check"></i></div>
+                            <div class="timeline-badge success"><i class="fa fa-check"></i></div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
                                     <h6 class="timeline-title">Einddatum is toegevoegd</h6>

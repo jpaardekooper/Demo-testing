@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="65296dc2-51e0-4307-a418-c28c8ac91bbb" name="Default" comment="" />
+    <list default="true" id="65296dc2-51e0-4307-a418-c28c8ac91bbb" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/update/add.php" beforeDir="false" afterPath="$PROJECT_DIR$/update/add.php" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -51,10 +53,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="add.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="add.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/user/add.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="879">
+            <state relative-caret-position="1644">
               <caret line="226" column="109" selection-start-line="226" selection-start-column="109" selection-end-line="226" selection-end-column="109" />
             </state>
           </provider>
@@ -69,11 +71,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="add.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="add.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/update/add.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="475">
-              <caret line="252" column="22" lean-forward="true" selection-start-line="247" selection-start-column="14" selection-end-line="252" selection-end-column="22" />
+            <state relative-caret-position="506">
+              <caret line="161" column="85" selection-start-line="161" selection-start-column="85" selection-end-line="161" selection-end-column="85" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#img#0;n#div#0;n#!!top" expanded="true" />
@@ -103,8 +105,8 @@
       <file leaf-file-name="validate.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/js/validate.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="41" selection-start-line="20" selection-start-column="41" selection-end-line="20" selection-end-column="41" />
+            <state relative-caret-position="272">
+              <caret line="16" column="37" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -149,8 +151,8 @@
       <find>&quot; .</find>
       <find>getBrea</find>
       <find>passwor</find>
-      <find>test</find>
       <find>col-md-10</find>
+      <find>test</find>
     </findStrings>
     <replaceStrings>
       <replace>p</replace>
@@ -165,8 +167,8 @@
       <replace>col-md-3</replace>
       <replace>HIDE-PC-SHOW-PDF</replace>
       <replace>password</replace>
-      <replace>&lt;?=</replace>
       <replace>col-md-9</replace>
+      <replace>&lt;?=</replace>
     </replaceStrings>
     <dirStrings>
       <dir>C:\xampp\htdocs\Sqits-framework</dir>
@@ -216,8 +218,6 @@
         <option value="$PROJECT_DIR$/form/update.php" />
         <option value="$PROJECT_DIR$/assets/css/tablet.css" />
         <option value="$PROJECT_DIR$/templates/content.php" />
-        <option value="$PROJECT_DIR$/assets/js/validate.js" />
-        <option value="$PROJECT_DIR$/update/add.php" />
         <option value="$PROJECT_DIR$/update/getForm.php" />
         <option value="$PROJECT_DIR$/update/getUser.php" />
         <option value="$PROJECT_DIR$/assets/css/customize.css" />
@@ -225,6 +225,8 @@
         <option value="$PROJECT_DIR$/terms/add.php" />
         <option value="$PROJECT_DIR$/form/add.php" />
         <option value="$PROJECT_DIR$/user/add.php" />
+        <option value="$PROJECT_DIR$/assets/js/validate.js" />
+        <option value="$PROJECT_DIR$/update/add.php" />
       </list>
     </option>
   </component>
@@ -370,7 +372,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="160590000" />
+    <option name="totallyTimeSpent" value="160838000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -667,13 +669,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/validate.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="41" selection-start-line="20" selection-start-column="41" selection-end-line="20" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/update/getForm.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="601">
@@ -692,17 +687,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="713">
           <caret line="376" column="92" selection-start-line="376" selection-start-column="92" selection-end-line="376" selection-end-column="92" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/update/add.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="252" column="22" lean-forward="true" selection-start-line="247" selection-start-column="14" selection-end-line="252" selection-end-column="22" />
           <folding>
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#div#0;n#!!top" expanded="true" />
@@ -733,8 +717,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/user/add.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="879">
+        <state relative-caret-position="1644">
           <caret line="226" column="109" selection-start-line="226" selection-start-column="109" selection-end-line="226" selection-end-column="109" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/validate.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="37" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/update/add.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="161" column="85" selection-start-line="161" selection-start-column="85" selection-end-line="161" selection-end-column="85" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
