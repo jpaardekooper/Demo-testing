@@ -60,12 +60,12 @@ if (isset($_SESSION['id'])) {
             <body>
               <p>Beste ' . $company_name . ',</p>
               <p>Er is een nieuwe update voor u beschikbaar. <br/>
-              Ga naar de website <a href="#">www.Sqits-Updates.nl</a> om de voorwaarde te lezen en te accepteren.</p>
+              Ga naar de website <a href="https://www.sqits.nl/">www.Sqits-Updates.nl</a> om de voorwaarde te lezen en te accepteren.</p>
               
               <p>Update Info:</p>
               <p>' . $description . '</p>
               
-            <p>Heeft u nog vragen, neem dan gerust contact op <br/>
+            <p>Heeft u nog vragen, neem dan gerust contact op. <br/>
             Email: <a href="mailto:r.schaaphuizen@sqits.nl?Subject=Vraag%20over" target="_top">r.schaaphuizen@sqits.nl</a> <br/>
             Telefoon: 085 760 80 90
             </p> <br/>
