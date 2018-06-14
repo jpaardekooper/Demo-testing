@@ -123,3 +123,6 @@ input[type=search]{
     color: #565656  !important;
     font-weight: bold;
 }
+.no-nav:hover{
+    background-color: #565656 !important;
+}

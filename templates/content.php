@@ -73,7 +73,7 @@ function getSidebar()
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link no-nav" href="#">
                         <i class="fa fa-drivers-license"></i>
                         <span class="nav-link-text">Welkom: <?= $_SESSION['id']['first_name'] ?>  <?= $_SESSION['id']['last_name'] ?> </span>
                     </a>
