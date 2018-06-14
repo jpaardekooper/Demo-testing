@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="65296dc2-51e0-4307-a418-c28c8ac91bbb" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/form/update.php" beforeDir="false" afterPath="$PROJECT_DIR$/form/update.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/sb-admin.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/sb-admin.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -35,11 +35,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="update.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="update.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/form/update.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="493">
               <caret line="176" column="54" selection-start-line="176" selection-start-column="54" selection-end-line="176" selection-end-column="54" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sb-admin.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/assets/css/sb-admin.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="391">
+              <caret line="347" column="28" selection-start-line="347" selection-start-column="28" selection-end-line="347" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -80,15 +89,6 @@
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#img#0;n#div#0;n#!!top" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="getForm.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/update/getForm.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="601">
-              <caret line="108" column="33" selection-start-line="80" selection-start-column="11" selection-end-line="111" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -191,7 +191,6 @@
         <option value="$PROJECT_DIR$/assets/js/getUser.js" />
         <option value="C:/Program Files/DeezLoader/resources/app/app.js" />
         <option value="$PROJECT_DIR$/assets/js/sb-admin-datatables.js" />
-        <option value="$PROJECT_DIR$/assets/css/sb-admin.css" />
         <option value="$PROJECT_DIR$/system/function.php" />
         <option value="$PROJECT_DIR$/system/config.php" />
         <option value="$PROJECT_DIR$/assets/js/pdf.js" />
@@ -227,6 +226,7 @@
         <option value="$PROJECT_DIR$/assets/js/validate.js" />
         <option value="$PROJECT_DIR$/update/add.php" />
         <option value="$PROJECT_DIR$/form/update.php" />
+        <option value="$PROJECT_DIR$/assets/css/sb-admin.css" />
       </list>
     </option>
   </component>
@@ -372,7 +372,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="163024000" />
+    <option name="totallyTimeSpent" value="163325000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -411,13 +411,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
           <caret line="192" column="6" selection-start-line="192" selection-start-column="6" selection-end-line="192" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/sb-admin.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="223" column="16" selection-start-line="223" selection-start-column="16" selection-end-line="223" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -733,6 +726,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
           <caret line="176" column="54" selection-start-line="176" selection-start-column="54" selection-end-line="176" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/sb-admin.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="347" column="28" selection-start-line="347" selection-start-column="28" selection-end-line="347" selection-end-column="28" />
         </state>
       </provider>
     </entry>
