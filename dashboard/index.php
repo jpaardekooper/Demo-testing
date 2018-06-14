@@ -89,6 +89,7 @@ if (isset($_SESSION['id'])) {
     getFooter();
 } else {
     echo "please login first on login page";
-    header("Refresh: 1; URL=\"../login.php\"");
+    header("Location:../login.php");
     exit;
 }
+

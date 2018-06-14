@@ -1,23 +1,9 @@
 <?php
-
-
-
 include_once('system/config.php');
 
 include_once('templates/content.php');
 
-getLoginHeader("Login", "Sqits Login panel");
-
-
-/*require_once('sql/user.php');
-$object = new User("jaseper", 16);
-$object->DoSomething();*/
-
-/*$result = $query->fetch(PDO::FETCH_CLASS, get_class($object));
-var_dump_str($result);*/
-
-//$id = $_GET['id'];
-
+getLoginHeader();
 
 if (filter_has_var(INPUT_POST, 'submit')) {
 
@@ -51,7 +37,9 @@ if (filter_has_var(INPUT_POST, 'submit')) {
                     ";
             header("Refresh: 2; URL=\"login.php\"");
         } else {
-           
+
+            session_start();
+
             //email staat in database en password klopt, sessie starten!
             //sessie opstarten
             $database_contents['password'] = "";
@@ -73,6 +61,8 @@ if (filter_has_var(INPUT_POST, 'submit')) {
             echo "<div class='loading-screen'>
                     <img class='loading' src='" . getAssetsDirectory() . "image/loading.gif'/>
             </div>";
+
+
 
             if ($_SESSION["id"]) {
 

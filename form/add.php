@@ -146,7 +146,7 @@ if (isset($_SESSION['id'])) {
     }
 } else {
     echo "please login first on login page";
-    header("Refresh: 1; URL=\"../login.php\"");
+    header("Location:../login.php");
     exit;
 }
 

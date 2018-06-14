@@ -4,10 +4,9 @@ require_once('../system/config.php');
 
 require_once('../templates/content.php');
 
+
 if (isset($_SESSION['id'])) {
-
     checkRole('admin');
-
     getHeader("Sqits", "Admin Dashboard");
 
 
@@ -151,8 +150,9 @@ if (isset($_SESSION['id'])) {
 
     getFooter();
 
-} else {
+}
+else {
     echo "please login first on login page";
-    header("Refresh: 1; URL='../login.php'");
+    header("Location:../login.php");
     exit;
 }

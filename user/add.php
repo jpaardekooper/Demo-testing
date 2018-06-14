@@ -230,11 +230,12 @@ if ($_SESSION["id"]) {
         <?php
     }
     getFooter();
-} else {
+}else {
     echo "please login first on login page";
-    header("Refresh: 1; URL=\"../login.php\"");
+    header("Location:../login.php");
     exit;
 }
+
 ?>
 
 

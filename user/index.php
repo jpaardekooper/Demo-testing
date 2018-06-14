@@ -118,6 +118,7 @@ if ($_SESSION["id"]) {
     }//stops the switch
 } else {
     echo "please login first on login page";
-    header("Refresh: 1; URL=\"../login.php\"");
+    header("Location:../login.php");
     exit;
 }
+

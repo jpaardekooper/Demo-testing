@@ -106,12 +106,9 @@ if (isset($_SESSION['id'])) {
 
     getFooter();
 
-} else {
-
-    echo "login eerst in op login.php";
-    echo " <p><a href='../login.php'>inloggen</a>";
-
-    header("Refresh: 1; URL=\"../login.php\"");
+}else {
+    echo "please login first on login page";
+    header("Location:../login.php");
     exit;
 }
 

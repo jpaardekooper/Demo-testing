@@ -84,6 +84,10 @@ if (isset($_SESSION['id'])) {
 
         if (strlen($description) > 20) $description = substr($description, 0, 20) . '...';
 
+        if ($type == 'mayor-update'){
+            $type = 'major-update';
+        }
+
         echo "<tr>
                 <td>$form_id</td>
                 <td>$terms_id</td>
@@ -103,22 +107,16 @@ if (isset($_SESSION['id'])) {
           </div>
         </div>        
       </div>
+      </div>
     </div>";
 
     getFooter();
 
 } else {
-
-    echo "login eerst in op login.php";
-    echo " <p><a href='../login.php'>inloggen</a>";
-
-    header("Refresh: 1; URL=\"../login.php\"");
+    echo "please login first on login page";
+    header("Location:../login.php");
     exit;
 }
-
-
-getFooter();
-echo "</div>";
 ?>
 
 

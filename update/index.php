@@ -4,7 +4,7 @@ require_once('../system/config.php');
 
 require_once('../templates/content.php');
 
-if ($_SESSION["id"]) {
+if (isset($_SESSION["id"])) {
 
     switch (getUserRole()) {
         case "user":
@@ -228,8 +228,9 @@ if ($_SESSION["id"]) {
 
 
     }
-} else {
+}else {
     echo "please login first on login page";
-    header("Refresh: 1; URL=\"../login.php\"");
+    header("Location:../login.php");
     exit;
 }
+

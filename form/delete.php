@@ -5,6 +5,9 @@ include_once('../system/config.php');
 
 include_once('../templates/content.php');
 
+if (isset($_SESSION['id'])) {
+
+
 checkRole("admin");
 getHeader("Sqits form-delete", "Form delete");
 
@@ -37,4 +40,11 @@ echo '<div class="container-fluid">';
     echo"</div>";
     echo"</div>";
 	getFooter();
+
+}else {
+    echo "please login first on login page";
+    header("Location:../login.php");
+    exit;
+}
+
 ?>

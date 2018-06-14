@@ -53,64 +53,65 @@ if (isset($_SESSION['id'])) {
         echo '<div class="content-wrapper">';
         echo '<div class="container-fluid">';
 
-        getTopPanel("Voorwaarde"," toevoegen");
+        getTopPanel("Voorwaarde", " toevoegen");
 
         ?>
 
-<div class="container">
-        <div class="card card-register mx-auto mt-1">
-            <form name="add" action="?action=save" method="post">
-                <div class="card-header">Voorwaarden Forumulier</div>
-                <div class="card-body">
-                    <div class="form-group">
-                        <div class="form-row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="exampleTextArea1">Acceptatie</label>
-                                    <textarea class="form-control" rows="5" id="exampleTextArea1" name="acceptance"
-                                              placeholder="de update bevat de volgende onderdelen..."></textarea>
+        <div class="container">
+            <div class="card card-register mx-auto mt-1">
+                <form name="add" action="?action=save" method="post">
+                    <div class="card-header">Voorwaarden Forumulier</div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <div class="form-row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="exampleTextArea1">Acceptatie</label>
+                                        <textarea class="form-control" rows="5" id="exampleTextArea1" name="acceptance"
+                                                  placeholder="de update bevat de volgende onderdelen..."></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="exampleTextArea2">Voorwaarden</label>
+                                        <textarea class="form-control" rows="5" id="exampleTextArea2"
+                                                  name="service_level_agreement"
+                                                  placeholder="de update bevat de volgende onderdelen..."></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="exampleTextArea3">contact</label>
+                                        <textarea class="form-control" rows="5" id="exampleTextArea3" name="contact"
+                                                  placeholder="de update bevat de volgende onderdelen..."></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="exampleTextArea4">ondertekening</label>
+                                        <textarea class="form-control" rows="5" id="exampleTextArea4" name="signature"
+                                                  placeholder="de update bevat de volgende onderdelen..."></textarea>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <div class="form-row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="exampleTextArea2">Voorwaarden</label>
-                                    <textarea class="form-control" rows="5" id="exampleTextArea2" name="service_level_agreement"
-                                              placeholder="de update bevat de volgende onderdelen..."></textarea>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="form-row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="exampleTextArea3">contact</label>
-                                    <textarea class="form-control" rows="5" id="exampleTextArea3" name="contact"
-                                              placeholder="de update bevat de volgende onderdelen..."></textarea>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="form-row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="exampleTextArea4">ondertekening</label>
-                                    <textarea class="form-control" rows="5" id="exampleTextArea4" name="signature"
-                                              placeholder="de update bevat de volgende onderdelen..."></textarea>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <input class="btn btn-primary btn-block" type="submit" name="submit" value="Opslaan">
-            </form>
+                    <input class="btn btn-primary btn-block" type="submit" name="submit" value="Opslaan">
+                </form>
+            </div>
         </div>
-</div>
 
         <?php
 
@@ -123,7 +124,7 @@ if (isset($_SESSION['id'])) {
     }
 } else {
     echo "please login first on login page";
-    header("Refresh: 1; URL=\"../login.php\"");
+    header("Location:../login.php");
     exit;
 }
 

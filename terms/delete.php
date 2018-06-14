@@ -5,8 +5,9 @@ include_once('../system/config.php');
 
 include_once('../templates/content.php');
 
-getHeader("Sqits form-delete", "Form delete");
+if(isset($_SESSION['id'])){
 
+getHeader("Sqits form-delete", "Form delete");
     
 	if(@$_GET['action'] == "delete")
 	{	
@@ -33,5 +34,11 @@ getHeader("Sqits form-delete", "Form delete");
         }           
     }
     
-	getFooter();	
+	getFooter();
+}else {
+    echo "please login first on login page";
+    header("Location:../login.php");
+    exit;
+}
+
 ?>
