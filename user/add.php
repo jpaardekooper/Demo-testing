@@ -91,7 +91,9 @@ if ($_SESSION["id"]) {
             ));
 
 
-            echo "De user is opgeslagen.";
+            echo "<div style='margin: 0 auto; width: 300px;'>
+                    <img style='margin-top: 40vh;' src='" . getAssetsDirectory() . "image/loading.gif'/>
+            </div>";
 
             header("Refresh: 1; URL=index.php");
 

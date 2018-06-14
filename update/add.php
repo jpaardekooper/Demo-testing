@@ -90,7 +90,9 @@ if (isset($_SESSION['id'])) {
 
             $retval = mail($to, $subject, $message, implode("\r\n", $headers));
             if ($retval == true) {
-                echo "Message sent successfully...";
+                echo "<div style='margin: 0 auto; width: 300px;'>
+                    <img style='margin-top: 40vh;' src='" . getAssetsDirectory() . "image/loading.gif'/>
+            </div>";
                 echo "Het formulier is opgeslagen en verzonden.";
                 header("Refresh: 1; URL=index.php");
             } else {
