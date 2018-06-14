@@ -23,3 +23,43 @@ function succes3() {
     document.getElementById("form-succes3").style.display = "block";
     document.getElementById("warning3").style.display = "none";
 }
+
+$(document).ready(function() {
+
+    $("#send").prop('disabled',true);
+
+    $('#select-form').change(function() {
+        if ($('#select-form').val() == "") {
+            $("#send").prop('disabled',true);
+        }
+        if ($('#select-form').val() != "" && $('#select-company').val() != "" && $('#select-date').val() != "") {
+            $("#send").prop('disabled',false);
+        }
+        else {
+            $("#send").prop('disabled',true);
+        }
+    });
+    $('#select-company').change(function() {
+        if ($('#select-company').val() == "") {
+            $("#send").prop('disabled',true);
+        }
+        if ($('#select-form').val() != "" && $('#select-company').val() != "" && $('#select-date').val() != "") {
+            $("#send").prop('disabled',false);
+        }
+        else {
+            $("#send").prop('disabled',true);
+        }
+    });
+    $('#select-date').change(function() {
+        if ($('#select-date').val() == "") {
+            $("#send").prop('disabled',true);
+        }
+        if ($('#select-form').val() != "" && $('#select-company').val() != "" && $('#select-date').val() != "") {
+            $("#send").prop('disabled',false);
+        }
+        else {
+            $("#send").prop('disabled',true);
+        }
+    });
+
+});

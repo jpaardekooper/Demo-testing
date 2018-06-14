@@ -247,7 +247,7 @@ if (isset($_SESSION['id'])) {
 
                 <div class="form-group row">
                     <div class="card card-register mx-auto mt-1">
-                        <button class="btn btn-primary btn-block" type="submit" name="submit"><i
+                        <button class="btn btn-primary btn-block" id="send" type="submit" name="submit"><i
                                     class="fa fa-paper-plane"> Versturen</i></button>
                     </div>
                 </div>
