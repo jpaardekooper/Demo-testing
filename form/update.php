@@ -54,8 +54,8 @@ if (isset($_SESSION['id'])) {
         getHeader("Sqits form-update", "Form update");
         echo '<div class="content-wrapper">';
         echo '<div class="container-fluid">';
-        getBreadCrumbs();
-        getTopPanel("formulier wijzigen");
+
+        getTopPanel("formulier"," wijzigen");
 
         try {
             $query = $conn->prepare("
@@ -90,25 +90,18 @@ if (isset($_SESSION['id'])) {
 
         <div class="container">
             <form name="add" action="?action=save&id=<?= $form_id ?>" method="post">
-                <div class="card-header col-md-10">bedrijf gegevens</div>
+                <div class="card-header col-md-12">Formulier</div>
                 <div class="card-body">
                     <div class="form-group">
                         <div class="form-row">
-                            <div class="col-md-2">
-                                <label for="exampleAccept">Form id</label>
+                            <label for="example-text-input" class="col-2 col-form-label">Form id</label>
+                            <div class="col-md-4">
                                 <input class="form-control" id="exampleAccept" name="form_id"
                                        aria-describedby="form_id" readonly value="<?= $form_id ?>">
                             </div>
 
-                            <div class="col-md-6">
-                                <label for="exampleAccept">Opdracht(nummer)</label>
-                                <input class="form-control" id="exampleAccept" name="task_nr"
-                                       aria-describedby="opdracht nummer" value="<?= $task_nr ?>">
-                            </div>
-
-
-                            <div class="col-md-2">
-                                <label for="exampleAccept">Gemaakt op</label>
+                            <label for="example-text-input" class="col-2 col-form-label">Gemaakt op</label>
+                            <div class="col-md-4">
                                 <input class="form-control" id="exampleAccept" name="created_date"
                                        aria-describedby="gemaakt op" readonly value="<?= $created_date ?>">
                             </div>
@@ -118,8 +111,17 @@ if (isset($_SESSION['id'])) {
                     </div>
                     <div class="form-group">
                         <div class="form-row">
-                            <div class="col-md-3">
-                                <label for="exampleV">Versie</label>
+                            <label for="exampleAccept" class="col-2 col-form-label">Opdracht(nummer)</label>
+                            <div class="col-md-4">
+                                <input class="form-control" id="exampleAccept" name="task_nr"
+                                       aria-describedby="opdracht nummer" value="<?= $task_nr ?>">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-row">
+                            <label for="exampleV" class="col-2 col-form-label">Versie</label>
+                            <div class="col-md-4">
                                 <input class="form-control" id="exampleV" name="version"
                                        aria-describedby="versie" value="<?= $version ?>">
                             </div>
@@ -127,9 +129,9 @@ if (isset($_SESSION['id'])) {
                     </div>
                     <div class="form-group">
                         <div class="form-row">
-                            <div class="col-md-5">
+                            <label class="col-3 col-form-label">Voorwaarden formulier</label>
+                            <div class="col-md-3">
                                 <?php
-
 
                                 //SQL FOR FORM_ID SELECTION
                                 $results = $conn->prepare("
@@ -139,15 +141,14 @@ if (isset($_SESSION['id'])) {
                                 $types = $results->fetchAll();
                                 unset($result);
 
-                                echo "<label>Voorwaarden formulier</label>";
                                 echo "<select class='form-control' name='terms_id'>";
                                 echo "<option value=''></option>";
                                 foreach ($types as $type) {
                                     if ($type['form_id'] == $form_id) {
-                                        echo "<option value='" . htmlentities($type['terms_id']) . "'>" . htmlentities($type['terms_id']) . " " . htmlentities($type['created_date']) . " </option>";
+                                        echo "<option value='" . htmlentities($type['terms_id']) . "'> " . htmlentities($type['terms_id']) . " : " . htmlentities($type['created_date']) . " </option>";
 
                                     } else {
-                                        echo "<option value='" . htmlentities($type['terms_id']) . "' selected>" . htmlentities($type['terms_id']) . " " . htmlentities($type['created_date']) . "</option>";
+                                        echo "<option value='" . htmlentities($type['terms_id']) . "' selected>" . htmlentities($type['terms_id']) . " : " . htmlentities($type['created_date']) . "</option>";
                                     }
                                 }
                                 echo "</select>";
@@ -155,32 +156,35 @@ if (isset($_SESSION['id'])) {
 
                                 //****end
                                 ?>
+                            </div>
 
-                                <div class="col-md-5">
-                                    <label>Type</label>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-row">
+                                <label class="col-3 col-form-label">Type</label>
+                                <div class="col-md-3">
+
                                     <select class="form-control" name='type' value='<?= $type ?>'>
                                         <option value="mayor-update">mayor-update</option>
                                         <option value="bug-fix">bug-fix</option>
                                     </select>
                                 </div>
                             </div>
-
                         </div>
                         <div class="form-group">
                             <div class="form-row">
-                                <div class="col-md-10">
-                                    <label for="exampleContract">Beschrijving</label>
-                                    <textarea class="form-control" id="exampleContract" rows="6" name="description"
+                                <label for="exampleContract" class="col-3 col-form-label">Beschrijving</label>
+                                <div class="col-md-9">
+                                    <textarea class="form-control" id="exampleContract" rows="12" name="description"
                                               aria-describedby="contract"><?= $description ?></textarea>
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <div class="form-row">
-                                <div class="col-md-10">
-                                    <input class="btn btn-primary btn-block" type="submit" name="submit"
-                                           value="Opslaan">
-                                </div>
+
+                        <div class="form-group row">
+                            <div class="card card-register mx-auto mt-1">
+                                <input class="btn btn-primary btn-block" type="submit" name="submit"
+                                       value="Opslaan">
                             </div>
                         </div>
 
@@ -188,11 +192,11 @@ if (isset($_SESSION['id'])) {
             </form>
         </div>
 
-        </div>
-        </div>
+
 
         <?php
-
+echo "   </div>
+        </div>";
     }
     getFooter();
 
