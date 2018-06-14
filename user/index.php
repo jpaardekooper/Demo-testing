@@ -8,21 +8,8 @@ if ($_SESSION["id"]) {
 
     switch (getUserRole()) {
         case "user":
-
-            getHeader("Sqits", "uw gegevens");
-
-
-            echo '<div class="content-wrapper">';
-            echo '<div class="container-fluid">';
-            getBreadCrumbs();
-            getTopPanel("uw gegevens");
-            echo "</div>";
-            echo "</div>";
-
-
-            getFooter();
+            header("Refresh: 0; URL=\"../dashboard/index.php\"");
             break;
-
         case "admin":
 
             try {
@@ -123,7 +110,6 @@ if ($_SESSION["id"]) {
         </div>       
       </div>
     </div>";
-
 
             getFooter();
             break;

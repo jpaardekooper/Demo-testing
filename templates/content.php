@@ -298,9 +298,10 @@ function getBreadCrumbs()
     echo "<ol class='breadcrumb'>";
     foreach ($crumbs as $crumb) {
 
-        echo "<li class=\"breadcrumb-item\"><a href=" . ucfirst(str_replace(array("", "Sqits-framework"), array("User", ""), $crumb) . ' ') . ">$crumb</a></li>";
+        echo "<li class=\"breadcrumb-item\"><a href=" . ucfirst(str_replace(array(" ", "Sqits-framework", "dashboard", "user", "update"), array(" ", ""), $crumb) . ' ') . ">$crumb</a></li>";
     }
     echo "</ol>";
+
 
 }
 

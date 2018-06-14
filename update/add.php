@@ -23,10 +23,12 @@ if (isset($_SESSION['id'])) {
                 'end_date' => $_POST['end_date']
             ));
 
-            $query = $conn->prepare("SELECT u.first_name, u.last_name, c.company_name, c.email, c.address, c.location, c.zip_code, c.kvk
+            $query = $conn->prepare("SELECT u.first_name, u.last_name, c.company_name, c.email, c.address, c.location, c.zip_code, c.kvk, f.description
                                                 FROM `user` as u
                                                 INNER JOIN company as c ON u.company_id = c.company_id
-                                                WHERE u.company_id = :id");
+                                                INNER JOIN `update` as up ON up.company_id = c.company_id
+                                                INNER JOIN form as f ON f.form_id = up.form_id                               
+                                                WHERE u.company_id = :id AND up.company_id = :id");
             $query->execute(array(
                 'id' => $_POST['company_id'],
             ));
@@ -41,47 +43,39 @@ if (isset($_SESSION['id'])) {
                 $zip_code = $row['zip_code'];
                 $kvk = $row['kvk'];
 
+                $description = $row['description'];
+
             }
 
-
+            //mail function
             $to = $email;
-            //$first_name = trim($_POST["firstname"]);
-            /* $subject = "Aanvraag afspraak door " . $first_name;
-
-             $message = "Beste " . $first_name . ",\r\n
-                         Er is een nieuwe update voor u beschikbaar. Login op sqitsframework.nl\r\n
-                         Met vriendelijke groet,\r
-                         SqitsTeammzz";
-
-             $headers = 'From: info@Sqitszir.com' . "\r\n" .
-                 'Reply-To: info@Sqitszir.com' . "\r\n" .
-                 'X-Mailer: PHP/' . phpversion();
-             $headers .= 'Bcc: info@Sqitszir.com' . "\r\n";*/
             $subject = 'Sqits heeft een update voor u beschikbaar';
 
 // Message
             $message = '
-<html>
-<head>
-  <title>Sqits heeft een update voor u beschikbaar</title>
-</head>
-<body>
-  <p>Here are the  upcoming changes in August! for ' . $company_name . '</p>
-  <table>
-    <tr>
-      <th>' . $kvk . '</th><th>' . $location . '</th><th>' . $address . '</th><th>' . $zip_code . '</th>
-    </tr>
-    <tr>
-      <td>' . $first_name . '</td><td>' . $last_name . '</td><td></td><td></td>
-    </tr>   
-    <tr>
-    <td><img style="width:100px; height:100px;" src="https://pbs.twimg.com/profile_images/568078699996520448/XThN4wCd_400x400.png"/>
-    </td>
-</tr>
-  </table>
-</body>
-</html>
-';
+            <html>
+            <head>
+              <title>Sqits heeft een update voor u beschikbaar</title>
+            </head>
+            <body>
+              <p>Beste ' . $company_name . ',</p>
+              <p>Er is een nieuwe update voor u beschikbaar. <br/>
+              Ga naar de website <a href="#">www.Sqits-Updates.nl</a> om de voorwaarde te lezen en te accepteren.</p>
+              
+              <p>Update Info:</p>
+              <p>' . $description . '</p>
+              
+            <p>Heeft u nog vragen, neem dan gerust contact op <br/>
+            Email: <a href="mailto:r.schaaphuizen@sqits.nl?Subject=Vraag%20over" target="_top">r.schaaphuizen@sqits.nl</a> <br/>
+            Telefoon: 085 760 80 90
+            </p> <br/>
+            <p>Met vriendelijke groet, <br/>
+            Ruud Schaaphuizen <br/>
+            SQITS founder</p>
+            <img style="width:100px; height:100px;" src="https://pbs.twimg.com/profile_images/568078699996520448/XThN4wCd_400x400.png"/>
+            </body>
+            </html>
+            ';
 
 // To send HTML mail, the Content-type header must be set
             $headers[] = 'MIME-Version: 1.0';
@@ -183,7 +177,7 @@ if (isset($_SESSION['id'])) {
                                 echo "</div>";
                                 //**** end
 
-                                echo" <div class=\"col-md-4\">";
+                                echo " <div class=\"col-md-4\">";
                                 echo "<label>laatste datum</label>";
                                 echo "<input  class='form-control' type='date' name='end_date'>";
                                 echo "</div>";

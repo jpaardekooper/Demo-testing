@@ -20,7 +20,7 @@ if ($_SESSION["id"]) {
                                 
                         ");
             $query->execute(array(
-                    'user_id' => $_GET['id'],
+                'user_id' => $_GET['id'],
                 'password' => password_hash($_POST['password'], PASSWORD_DEFAULT),
             ));
 
@@ -28,10 +28,10 @@ if ($_SESSION["id"]) {
                     <img class='loading' src='" . getAssetsDirectory() . "image/loading.gif'/>
             </div>";
 
-            switch (getUserRole()){
+            switch (getUserRole()) {
                 case "user":
                     header("Refresh: 1; URL=../dashboard.index.php");
-                break;
+                    break;
                 case "admin":
                     header("Refresh: 1; URL=index.php");
                     break;
@@ -196,7 +196,6 @@ if ($_SESSION["id"]) {
         }
 
         while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
-
             $company_id = $row['company_id'];
             $company_name = $row['company_name'];
             $email = $row['email'];
@@ -220,14 +219,13 @@ if ($_SESSION["id"]) {
 
         ?>
         <div class="container">
-
-
-
             <ul class="nav nav-tabs">
-                <li class="li-panel-tab"><a class="nav-link user-toggle"data-toggle="tab" href="#company">Bedrijfsgegevens</a></li>
-                <li class="li-panel-tab"><a class="nav-link user-toggle"data-toggle="tab" href="#information">Persoonsgegevens</a></li>
-                <li class="li-panel-tab"><a class="nav-link user-toggle"data-toggle="tab" href="#password">wijzig wachtwoord</a></li>
-
+                <li class="li-panel-tab"><a class="nav-link user-toggle" data-toggle="tab" href="#company">Bedrijfsgegevens</a>
+                </li>
+                <li class="li-panel-tab"><a class="nav-link user-toggle" data-toggle="tab" href="#information">Persoonsgegevens</a>
+                </li>
+                <li class="li-panel-tab"><a class="nav-link user-toggle" data-toggle="tab" href="#password">wijzig
+                        wachtwoord</a></li>
             </ul>
 
             <div class="tab-content">
@@ -288,84 +286,84 @@ if ($_SESSION["id"]) {
                 </div>
                 <div id="information" class="tab-pane fade">
 
-                        <div class="card-header">Gebruiker gegevens</div>
-                        <div class="card-body">
-                            <div class="form-group">
-                                <div class="form-row">
-                                    <div class="col-md-6">
-                                        <label for="exampleInputName">first name</label>
-                                        <input class="form-control" id="exampleInputName" name="first_name" type="text"
-                                               aria-describedby="nameHelp" value="<?= $first_name ?>">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="exampleInputLastName">Last name</label>
-                                        <input class="form-control" id="exampleInputLastName" name="last_name"
-                                               type="text"
-                                               aria-describedby="nameHelp" value="<?= $last_name ?>">
-                                    </div>
+                    <div class="card-header">Gebruiker gegevens</div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <div class="form-row">
+                                <div class="col-md-6">
+                                    <label for="exampleInputName">first name</label>
+                                    <input class="form-control" id="exampleInputName" name="first_name" type="text"
+                                           aria-describedby="nameHelp" value="<?= $first_name ?>">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="exampleInputLastName">Last name</label>
+                                    <input class="form-control" id="exampleInputLastName" name="last_name"
+                                           type="text"
+                                           aria-describedby="nameHelp" value="<?= $last_name ?>">
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <div class="form-row">
-                                    <div class="col-md-6">
-                                        <label for="exampleInputEmail1">username</label>
-                                        <input class="form-control" id="exampleInputEmail1" name="username" type="text"
-                                               aria-describedby="emailHelp" value="<?= $username ?>">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="examplePhone">Bereikbaar op</label>
-                                        <input class="form-control" id="examplePhone" name="phone_number" type="text"
-                                               aria-describedby="Bereikbaar op" value="<?= $p_phone ?>">
-                                    </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-row">
+                                <div class="col-md-6">
+                                    <label for="exampleInputEmail1">username</label>
+                                    <input class="form-control" id="exampleInputEmail1" name="username" type="text"
+                                           aria-describedby="emailHelp" value="<?= $username ?>">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="examplePhone">Bereikbaar op</label>
+                                    <input class="form-control" id="examplePhone" name="phone_number" type="text"
+                                           aria-describedby="Bereikbaar op" value="<?= $p_phone ?>">
                                 </div>
                             </div>
-                            <?php
+                        </div>
+                        <?php
 
-                            switch (getUserRole()) {
-                                case "admin":
-                                    ?>
-                                    <div class="form-group">
-                                        <div class="form-row">
-                                            <div class="col-md-4">
-                                                <?php
-                                                if ($role == 'user') {
-                                                    echo "  <label class=\"radio-inline\"><input type=\"radio\" name=\"role\" value=\"user\" checked=\"checked\">user</label>";
-                                                    echo " <label class=\"radio-inline\"><input type=\"radio\" name=\"role\" value=\"admin\">admin</label>";
-                                                } else {
-                                                    echo "  <label class=\"radio-inline\"><input type=\"radio\" name=\"role\" value=\"user\">user</label>";
-                                                    echo " <label class=\"radio-inline\"><input type=\"radio\" name=\"role\" value=\"admin\" checked=\"checked\">admin</label>";
-                                                }
-                                                ?>
-                                            </div>
-                                            <div class="col-md-4">
+                        switch (getUserRole()) {
+                            case "admin":
+                                ?>
+                                <div class="form-group">
+                                    <div class="form-row">
+                                        <div class="col-md-4">
+                                            <?php
+                                            if ($role == 'user') {
+                                                echo "  <label class=\"radio-inline\"><input type=\"radio\" name=\"role\" value=\"user\" checked=\"checked\">user</label>";
+                                                echo " <label class=\"radio-inline\"><input type=\"radio\" name=\"role\" value=\"admin\">admin</label>";
+                                            } else {
+                                                echo "  <label class=\"radio-inline\"><input type=\"radio\" name=\"role\" value=\"user\">user</label>";
+                                                echo " <label class=\"radio-inline\"><input type=\"radio\" name=\"role\" value=\"admin\" checked=\"checked\">admin</label>";
+                                            }
+                                            ?>
+                                        </div>
+                                        <div class="col-md-4">
 
 
-                                                <?php
-                                                if ($status == 'active') {
-                                                    echo "  <label class=\"radio-inline\"><input type=\"radio\" name=\"status\" value=\"active\" checked='checked'>active</label>";
-                                                    echo "   <label class=\"radio-inline\"><input type=\"radio\" name=\"status\"
+                                            <?php
+                                            if ($status == 'active') {
+                                                echo "  <label class=\"radio-inline\"><input type=\"radio\" name=\"status\" value=\"active\" checked='checked'>active</label>";
+                                                echo "   <label class=\"radio-inline\"><input type=\"radio\" name=\"status\"
                                                            value=\"inactive\">inactive</label>";
-                                                } else {
-                                                    echo "  <label class=\"radio-inline\"><input type=\"radio\" name=\"status\" value=\"active\">active</label>";
-                                                    echo "   <label class=\"radio-inline\"><input type=\"radio\" name=\"status\"
+                                            } else {
+                                                echo "  <label class=\"radio-inline\"><input type=\"radio\" name=\"status\" value=\"active\">active</label>";
+                                                echo "   <label class=\"radio-inline\"><input type=\"radio\" name=\"status\"
                                                            value=\"inactive\"  checked='checked'>inactive</label>";
-                                                }
-                                                ?>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <label for="examplePhone">phone</label>
-                                                <input class="form-control" id="examplePhone" name="phone_number"
-                                                       type="text"
-                                                       value="<?= $p_phone ?>">
-                                            </div>
+                                            }
+                                            ?>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="examplePhone">phone</label>
+                                            <input class="form-control" id="examplePhone" name="phone_number"
+                                                   type="text"
+                                                   value="<?= $p_phone ?>">
                                         </div>
                                     </div>
-                                    <?php
-                                    break;
-                            }
-                            ?>
-                        </div>
-                        <input class="btn btn-primary btn-block" type="submit" name="submit" value="Opslaan">
+                                </div>
+                                <?php
+                                break;
+                        }
+                        ?>
+                    </div>
+                    <input class="btn btn-primary btn-block" type="submit" name="submit" value="Opslaan">
                 </div>
                 </form>
 
