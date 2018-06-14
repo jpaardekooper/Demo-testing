@@ -132,7 +132,12 @@ if (isset($_SESSION['id'])) {
                         </div>
                     </div>
                 </div>
-                <input class="btn btn-primary btn-block" type="submit" name="submit" value="Opslaan">
+                <div class="form-group row">
+                    <div class="card card-register mx-auto mt-1">
+                        <input class="btn btn-primary btn-block" type="submit" name="submit" value="Opslaan">
+                    </div>
+                </div>
+
             </form>
         </div>
 

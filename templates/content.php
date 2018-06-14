@@ -20,6 +20,7 @@ function getHeader($description = "We denken graag met je mee naar een creatieve
              <link rel=\"stylesheet\" type=\"text/css\" href=\"https://cdn.datatables.net/1.10.16/css/jquery.dataTables.css\">                    
             <link rel=\"stylesheet\" href=" . getAssetsDirectory() . "css/customize.css>   
             <link rel=\"stylesheet\" href=" . getAssetsDirectory() . "css/print.css>   
+            <link rel=\"stylesheet\" href=" . getAssetsDirectory() . "css/timeline.css>   
             <link rel=\"icon\" type=\"image/x-icon\" href=\"" . getAssetsDirectory() . "/icons/favicon.ico\">
   
 

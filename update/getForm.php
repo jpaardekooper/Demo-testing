@@ -44,13 +44,13 @@ while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
     <div class="card-header">Formulier</div>
     <div class="card-body">
         <div class="form-group row">
-            <label for="example-text-input" class="col-2 col-form-label">form id</label>
-            <div class="col-4">
+            <label for="example-text-input" class="col-md-3 col-form-label">Form id</label>
+            <div class="col-md-3">
                 <input class="form-control" type="text" value="<?= $form_id ?>" readonly id="example-text-input">
             </div>
 
-            <label for="example-text-input" class="col-2 col-form-label">form id</label>
-            <div class="col-4">
+            <label for="example-text-input" class="col-md-3 col-form-label">Gemaakt op</label>
+            <div class="col-md-3">
                 <input class="form-control" type="text" value="<?= $created_date ?>" readonly id="example-text-input">
             </div>
 
@@ -58,27 +58,27 @@ while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
 
         <div class="form-group row">
 
-            <label for="example-text-input" class="col-2 col-form-label">opdrachtnummer</label>
-            <div class="col-4">
+            <label for="example-text-input" class="col-md-3 col-form-label">Opdracht(nummer)</label>
+            <div class="col-md-3">
                 <input class="form-control" type="text" value="<?= $task_nr ?>" readonly id="example-text-input">
             </div>
 
-            <label for="example-text-input" class="col-2 col-form-label">versie</label>
-            <div class="col-4">
+            <label for="example-text-input" class="col-md-3 col-form-label">Versie</label>
+            <div class="col-md-3">
                 <input class="form-control" type="text" value="<?= $version ?>" readonly id="example-text-input">
             </div>
         </div>
 
         <div class="form-group row">
-            <label for="example-text-input" class="col-2 col-form-label">locatie</label>
-            <div class="col-4">
+            <label for="example-text-input" class="col-md-3 col-form-label">Soort update</label>
+            <div class="col-md-3">
                 <input class="form-control" type="text" value="<?= $type ?>" readonly id="example-text-input">
             </div>
         </div>
 
         <div class="form-group row">
-            <label for="example-text-input" class="col-2 col-form-label">addres</label>
-            <div class="col-10">
+            <label for="example-text-input" class="col-md-3 col-form-label">Beschrijving</label>
+            <div class="col-md-9">
                 <textarea class="form-control" type="text"  rows="7" readonly id="example-text-input"><?= $description ?></textarea>
             </div>
         </div>
@@ -87,26 +87,26 @@ while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
     <div class="card-body">
 
         <div class="form-group row">
-            <label for="example-text-input" class="col-2 col-form-label">acceptatie</label>
-            <div class="col-10">
+            <label for="example-text-input" class="col-md-3 col-form-label">acceptatie</label>
+            <div class="col-md-9">
                 <textarea class="form-control" type="text" rows="5" readonly id="example-text-input"><?= $acceptance ?></textarea>
             </div>
         </div>
         <div class="form-group row">
-            <label for="example-text-input" class="col-2 col-form-label">service level agreement</label>
-            <div class="col-10">
+            <label for="example-text-input" class="col-md-3 col-form-label">service level agreement</label>
+            <div class="col-md-9">
                 <textarea class="form-control" type="text" rows="5" readonly id="example-text-input"><?= $SLA ?></textarea>
             </div>
         </div>
         <div class="form-group row">
-            <label for="example-text-input" class="col-2 col-form-label">contact</label>
-            <div class="col-10">
+            <label for="example-text-input" class="col-md-3 col-form-label">contact</label>
+            <div class="col-md-9">
                 <textarea class="form-control" type="text"  rows="5" readonly id="example-text-input"><?= $contact ?></textarea>
             </div>
         </div>
         <div class="form-group row">
-            <label for="example-text-input" class="col-2 col-form-label">ondertekening</label>
-            <div class="col-10">
+            <label for="example-text-input" class="col-md-3 col-form-label">ondertekening</label>
+            <div class="col-md-9">
                 <textarea class="form-control" type="text" rows="5" readonly id="example-text-input"><?= $signature ?></textarea>
             </div>
         </div>

@@ -224,25 +224,25 @@ if ($_SESSION["id"]) {
                 </li>
                 <li class="li-panel-tab"><a class="nav-link user-toggle" data-toggle="tab" href="#information">Persoonsgegevens</a>
                 </li>
-                <li class="li-panel-tab"><a class="nav-link user-toggle" data-toggle="tab" href="#password">wijzig
+                <li class="li-panel-tab"><a class="nav-link user-toggle" data-toggle="tab" href="#password">Wijzig
                         wachtwoord</a></li>
             </ul>
 
             <div class="tab-content">
                 <div id="company" class="tab-pane fade in">
                     <form name="add" action="?action=save&id=<?= $user_id ?>" method="post">
-                        <div class="card-header">bedrijf gegevens</div>
+                        <div class="card-header">Bedrijfsgegevens</div>
                         <div class="card-body">
                             <div class="form-group">
                                 <div class="form-row">
                                     <div class="col-md-6">
-                                        <label for="exampleCompanyName">bedrijfsnaam</label>
+                                        <label for="exampleCompanyName">Bedrijfsnaam</label>
                                         <input class="form-control" id="exampleCompanyName" name="company_name"
                                                type="text"
                                                aria-describedby="company_name" value="<?= $company_name ?>">
                                     </div>
                                     <div class="col-md-6">
-                                        <label for="exampleKvk">exampleKvk</label>
+                                        <label for="exampleKvk">Kvk</label>
                                         <input class="form-control" id="exampleKvk" name="kvk" type="text"
                                                aria-describedby="nameHelp" value="<?= $kvk ?>">
                                     </div>
@@ -251,7 +251,7 @@ if ($_SESSION["id"]) {
                             <div class="form-group">
                                 <div class="form-row">
                                     <div class="col-md-6">
-                                        <label for="exampleCInputEmail1">email</label>
+                                        <label for="exampleCInputEmail1">Email</label>
                                         <input class="form-control" id="exampleCInputEmail1" name="email" type="email"
                                                aria-describedby="emailHelp" value="<?= $email ?>">
                                     </div>
@@ -265,17 +265,17 @@ if ($_SESSION["id"]) {
                             <div class="form-group">
                                 <div class="form-row">
                                     <div class="col-md-4">
-                                        <label for="exampleAddress">address</label>
+                                        <label for="exampleAddress">Adres</label>
                                         <input class="form-control" id="exampleAddress" name="address" type="text"
                                                value="<?= $address ?>">
                                     </div>
                                     <div class="col-md-4">
-                                        <label for="examplePost">postcode</label>
+                                        <label for="examplePost">Postcode</label>
                                         <input class="form-control" id="examplePost" name="zip_code" type="text"
                                                value="<?= $zip_code ?>">
                                     </div>
                                     <div class="col-md-4">
-                                        <label for="exampleLoc">loc</label>
+                                        <label for="exampleLoc">Locatie</label>
                                         <input class="form-control" id="exampleLoc" name="location" type="text"
                                                value="<?= $location ?>">
                                     </div>
@@ -291,12 +291,12 @@ if ($_SESSION["id"]) {
                         <div class="form-group">
                             <div class="form-row">
                                 <div class="col-md-6">
-                                    <label for="exampleInputName">first name</label>
+                                    <label for="exampleInputName">Voornaam</label>
                                     <input class="form-control" id="exampleInputName" name="first_name" type="text"
                                            aria-describedby="nameHelp" value="<?= $first_name ?>">
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="exampleInputLastName">Last name</label>
+                                    <label for="exampleInputLastName">Achternaam</label>
                                     <input class="form-control" id="exampleInputLastName" name="last_name"
                                            type="text"
                                            aria-describedby="nameHelp" value="<?= $last_name ?>">
@@ -351,7 +351,7 @@ if ($_SESSION["id"]) {
                                             ?>
                                         </div>
                                         <div class="col-md-4">
-                                            <label for="examplePhone">phone</label>
+                                            <label for="examplePhone">Telefoon</label>
                                             <input class="form-control" id="examplePhone" name="phone_number"
                                                    type="text"
                                                    value="<?= $p_phone ?>">
@@ -374,7 +374,7 @@ if ($_SESSION["id"]) {
                             <div class="form-group">
                                 <div class="form-row">
                                     <div class="col-md-6">
-                                        <label for="exampleConfirmPassword">Confirm password</label>
+                                        <label for="exampleConfirmPassword">Nieuw wachtwoord</label>
                                         <input class="form-control" id="exampleConfirmPassword" name="password"
                                                type="text">
                                     </div>

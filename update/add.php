@@ -115,108 +115,151 @@ if (isset($_SESSION['id'])) {
         echo '<div class="content-wrapper">';
         echo '<div class="container-fluid">';
 
-        getTopPanel("Update"," toevoegen");
+        getTopPanel("Update", " toevoegen");
 
         ?>
 
         <div class="card mx-auto mt-1">
             <form name="add" action="?action=save" method="POST">
-                <div class="card-header">Voorwaarden Forumulier</div>
-                <div class="card-body">
-                    <div class="form-group">
-                        <div class="form-row">
-                            <div class="col-md-4">
-                                <?php
+
+                <div class="container">
+                    <ul class="timeline">
+                        <li>
+                            <div class="timeline-badge warning"><i class="glyphicon glyphicon-check"></i></div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h6 class="timeline-title">Formulier versie en opdrachtnummer</h6>
+                                </div>
+                                <div class="timeline-body">
+                                    <?php
 
 
-                                //SQL FOR FORM_ID SELECTION
-                                $results = $conn->prepare("
-						SELECT `form_id`, version, `task_nr`, type, `created_date` FROM `form` 
-						");
-                                $results->execute();
-                                $types = $results->fetchAll();
-                                unset($result);
+                                    //SQL FOR FORM_ID SELECTION
+                                    $results = $conn->prepare("
+						                                            SELECT `form_id`, version, `task_nr`, type, `created_date` FROM `form` 
+						                                            ");
+                                    $results->execute();
+                                    $types = $results->fetchAll();
+                                    unset($result);
 
-                                echo "<label>Formulier versie en opdrachtnummer</label>";
-                                echo "<select class='form-control' name='form_id' id='selectid' onchange='showForm(this.value)'>";
-                                echo "<option value=''></option>";
-                                foreach ($types as $type) {
-                                    if ($type['form_id'] == $form_id) {
-                                        echo "<option selected value='" . htmlentities($type['form_id']) . "'>" . htmlentities($type['type']) . " " . htmlentities($type['version']) . "   " . htmlentities($type['task_nr']) . "</option>";
-
-                                    } else {
-                                        echo "<option value='" . htmlentities($type['form_id']) . "'>" . htmlentities($type['type']) . " " . htmlentities($type['version']) . "   " . htmlentities($type['task_nr']) . "</option>";
+                                    echo "<select class='form-control' name='form_id' id='select-form' onchange='showForm(this.value); succes()'>";
+                                    echo "<option value=''></option>";
+                                    foreach ($types as $type) {
+                                        if ($type['form_id'] == $form_id) {
+                                            echo "<option selected value='" . htmlentities($type['form_id']) . "'>" . htmlentities($type['type']) . " " . htmlentities($type['version']) . "   " . htmlentities($type['task_nr']) . "</option>";
+                                        } else {
+                                            echo "<option value='" . htmlentities($type['form_id']) . "'>" . htmlentities($type['type']) . " " . htmlentities($type['version']) . "   " . htmlentities($type['task_nr']) . "</option>";
+                                        }
                                     }
-                                }
-                                echo "</select>";
-                                echo "</div>";
+                                    echo "</select>";
 
-                                //****end
+                                    //****end
+                                    ?>
+                                </div>
+                            </div>
+                        </li>
+                        <li id="form-succes" class="timeline-inverted nothing-selected">
+                            <div class="timeline-badge success"><i class="glyphicon glyphicon-check"></i></div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h6 class="timeline-title">Formulier is toegevoegd</h6>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="timeline-badge warning"><i class="glyphicon glyphicon-credit-card"></i></div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h6 class="timeline-title">Bedrijfsinformatie</h6>
+                                </div>
+                                <div class="timeline-body">
 
-                                //SQL FOR USER SELECTION
-                                $results = $conn->prepare("
+                                    <?php
+                                    //SQL FOR USER SELECTION
+                                    $results = $conn->prepare("
 						SELECT com.* 
 						FROM `company` as com 													
 						");
-                                $results->execute();
-                                $types = $results->fetchAll();
-                                unset($result);
+                                    $results->execute();
+                                    $types = $results->fetchAll();
+                                    unset($result);
 
-                                echo " <div class=\"col-md-4\">";
-                                echo "<label>Bedrijfsinformatie</label>";
-                                echo "<select class='form-control' name='company_id'  onchange='showUser(this.value)'>";
-                                echo "<option value=''></option>";
-                                foreach ($types as $type) {
-                                    if ($type['company_id'] == $company_id) {
-                                        echo "<option selected value='" . htmlentities($type['company_id']) . "'>" . htmlentities($type['company_name']) . " ..  " . htmlentities($type['kvk']) . "</option>";
-                                    } else {
-                                        echo "<option value='" . htmlentities($type['company_id']) . "'>" . htmlentities($type['company_name']) . " .. " . htmlentities($type['kvk']) . "</option>";
+                                    echo "<select class='form-control' name='company_id' id='select-company' onchange='showUser(this.value); succes2()'>";
+                                    echo "<option value=''></option>";
+                                    foreach ($types as $type) {
+                                        if ($type['company_id'] == $company_id) {
+                                            echo "<option selected value='" . htmlentities($type['company_id']) . "'>" . htmlentities($type['company_name']) . " ..  " . htmlentities($type['kvk']) . "</option>";
+                                        } else {
+                                            echo "<option value='" . htmlentities($type['company_id']) . "'>" . htmlentities($type['company_name']) . " .. " . htmlentities($type['kvk']) . "</option>";
+                                        }
                                     }
-                                }
-                                echo "</select>";
-                                echo "</div>";
-                                //**** end
+                                    echo "</select>";
 
-                                echo " <div class=\"col-md-4\">";
-                                echo "<label>Einddatum</label>";
-                                echo "<input  class='form-control' type='date' name='end_date'>";
-                                echo "</div>";
-                                ?>
+                                    //**** end
+                                    ?>
 
+                                </div>
                             </div>
+                        </li>
+                        <li id="form-succes2" class="timeline-inverted nothing-selected">
+                            <div class="timeline-badge success"><i class="glyphicon glyphicon-check"></i></div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h6 class="timeline-title">Bedrijf is toegevoegd</h6>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="timeline-badge warning"><i class="glyphicon glyphicon-credit-card"></i></div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h6 class="timeline-title">Einddatum</h6>
+                                </div>
+                                <div class="timeline-body">
+                                    <input class='form-control' type='date'  id='select-date' onchange='succes3()' name='end_date'>
+                                </div>
+                            </div>
+                        </li>
+                        <li id="form-succes3" class="timeline-inverted nothing-selected">
+                            <div class="timeline-badge success"><i class="glyphicon glyphicon-check"></i></div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h6 class="timeline-title">Einddatum is toegevoegd</h6>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="form-group">
+                    <div class="form-row">
+                        <!-- output for the getForm.php -->
+                        <div class="col-md-6">
+                            <div id='showForm'></div>
                         </div>
-                        <div class="form-group">
-                            <div class="form-row">
-                                <!-- output for the getForm.php -->
-                                <div class="col-md-6">
-                                    <div id='showForm'></div>
-                                </div>
-                                <!-- output for the getuser.php -->
-                                <div class="col-md-6">
-                                    <div id='showUser'></div>
-                                </div>
-                            </div>
+                        <!-- output for the getuser.php -->
+                        <div class="col-md-6">
+                            <div id='showUser'></div>
                         </div>
                     </div>
-
                 </div>
+
+
                 <div class="form-group row">
                     <div class="card card-register mx-auto mt-1">
-                        <button class="btn btn-primary btn-block" type="submit" name="submit"><i class="fa fa-paper-plane"> Versturen</i></button>
+                        <button class="btn btn-primary btn-block" type="submit" name="submit"><i
+                                    class="fa fa-paper-plane"> Versturen</i></button>
                     </div>
                 </div>
 
+
+            </form>
         </div>
 
-        </form>
-        </div>
 
         <?php
-
-//closes right-panel
         echo "</div>";
         echo "</div>";
-
         getFooter();
     }
 } else {
