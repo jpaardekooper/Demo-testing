@@ -44,28 +44,28 @@ if (isset($_SESSION['id'])) {
                         <table class=\"table table-bordered\" id=\"table_id\" width=\"100%\" cellspacing=\"0\">                                                   
                         <thead>
                             <tr>
-                              <th>form_id</th>         
-                                <th>terms_id</th>      
-                                <th>type</th>
-                                <th>opdrachtnummer</th>
-                                <th>version</th>
-                                <th>description</th>                               
-                                <th>created_date</th>
-                                 <th>modified_date</th>
-                                <th>acties</th>
+                              <th>Form_id</th>         
+                                <th>Terms_id</th>      
+                                <th>Type</th>
+                                <th>Opdracht(nummer)</th>
+                                <th>Versie</th>
+                                <th>Beschrijving</th>                               
+                                <th>Gemaakt op</th>
+                                 <th>Gewijzigd op</th>
+                                <th>Acties</th>
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
-                               <th>form_id</th>         
-                                <th>terms_id</th>      
-                                <th>type</th>
-                                <th>opdrachtnummer</th>
-                                <th>version</th>
-                                <th>description</th>                               
-                                <th>created_date</th>
-                                 <th>modified_date</th>
-                                <th>acties</th>
+                                <th>Form_id</th>         
+                                <th>Terms_id</th>      
+                                <th>Type</th>
+                                <th>Opdracht(nummer)</th>
+                                <th>Versie</th>
+                                <th>Beschrijving</th>                               
+                                <th>Gemaakt op</th>
+                                 <th>Gewijzigd op</th>
+                                <th>Acties</th>
                             </tr>
                         </tfoot>
                      <tbody>

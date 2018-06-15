@@ -46,23 +46,23 @@ if (isset($_SESSION['id'])) {
                         <thead>
                             <tr>
                              <th>Terms_id</th>         
-                             <th>Acceptance</th> 
-                             <th>service_level_agreement</th>
-                             <th>signature</th>
-                             <th>contact</th>
-                             <th>created_date</th>
-                             <th>acties</th>
+                             <th>Acceptatie</th> 
+                             <th>Service level agreement</th>
+                             <th>Ondertekening</th>
+                             <th>Contract</th>
+                             <th>Gemaakt op</th>
+                             <th>Acties</th>
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
-                             <th>terms_id</th>         
-                             <th>acceptance</th> 
-                             <th>service_level_agreement</th>
-                             <th>signature</th>
-                             <th>contact</th>
-                             <th>created_date</th>
-                             <th>acties</th>
+                              <th>Terms_id</th>         
+                             <th>Acceptatie</th> 
+                             <th>Service level agreement</th>
+                             <th>Ondertekening</th>
+                             <th>Contract</th>
+                             <th>Gemaakt op</th>
+                             <th>Acties</th>
                             </tr>
                         </tfoot>
                      <tbody>
@@ -92,7 +92,7 @@ if (isset($_SESSION['id'])) {
              
                     <td>
                      <a href=\"update.php?action=update&id=$terms_id\"><i class='fa fa-edit'></i> Wijzigen</a>
-                    <a onclick=\"return confirm('Weet u zeker dat u het wilt verwijderen?')\" href=\"delete.php?action=delete&id=$terms_id\"><i class='fa fa-trash-o text-danger'></i></a>
+                    <a onclick=\"return confirm('Weet u zeker dat u terms id: $terms_id het wilt verwijderen?')\" href=\"delete.php?action=delete&id=$terms_id\"><i class='fa fa-trash-o text-danger'></i></a>
                        
                        </td>
                             </tr>";

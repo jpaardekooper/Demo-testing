@@ -5,23 +5,7 @@ require_once('../system/config.php');
 
 require_once('../templates/content.php');
 
-//http://php.net/manual/en/function.filter-input.php
-$c_phone = filter_input(INPUT_POST, "c_phone", FILTER_UNSAFE_RAW);
-$company_name = filter_input(INPUT_POST, "company_name", FILTER_UNSAFE_RAW);
-$email = filter_input(INPUT_POST, "email", FILTER_UNSAFE_RAW);
-$kvk = filter_input(INPUT_POST, "kvk", FILTER_UNSAFE_RAW);
-$zip_code = filter_input(INPUT_POST, "zip_code", FILTER_UNSAFE_RAW);
-$address = filter_input(INPUT_POST, "address", FILTER_UNSAFE_RAW);
-$location = filter_input(INPUT_POST, "location", FILTER_UNSAFE_RAW);
 
-$username = filter_input(INPUT_POST, "username", FILTER_UNSAFE_RAW);
-$password = filter_input(INPUT_POST, "password", FILTER_UNSAFE_RAW);
-$first_name = filter_input(INPUT_POST, "first_name", FILTER_UNSAFE_RAW);
-$last_name = filter_input(INPUT_POST, "last_name", FILTER_UNSAFE_RAW);
-$role = filter_input(INPUT_POST, "role", FILTER_UNSAFE_RAW);
-$status = filter_input(INPUT_POST, "status", FILTER_UNSAFE_RAW);
-
-$p_phone = filter_input(INPUT_POST, "p_phone", FILTER_UNSAFE_RAW);
 
 if ($_SESSION["id"]) {
 
@@ -118,7 +102,7 @@ if ($_SESSION["id"]) {
 
         <div class="card card-register mx-auto mt-1">
             <form name="add" action="?action=save" method="post">
-                <div class="card-header">Inlog gegevens</div>
+                <div class="card-header">Inloggegevens</div>
                 <div class="card-body">
                     <div class="form-group">
                         <div class="form-row">
@@ -154,8 +138,8 @@ if ($_SESSION["id"]) {
                         <div class="form-row">
                             <div class="col-md-4">
                                 <label class="radio-inline"><input type="radio" name="role" value="user"
-                                                                   checked="checked">user</label><br/>
-                                <label class="radio-inline"><input type="radio" name="role" value="admin">admin</label>
+                                                                   checked="checked">User</label><br/>
+                                <label class="radio-inline"><input type="radio" name="role" value="admin">Admin</label>
                             </div>
                             <div class="col-md-4">
                                 <label class="radio-inline"><input type="radio" name="status" value="active"
@@ -205,17 +189,17 @@ if ($_SESSION["id"]) {
                     <div class="form-group">
                         <div class="form-row">
                             <div class="col-md-4">
-                                <label for="exampleAddress">address</label>
+                                <label for="exampleAddress">Address</label>
                                 <input class="form-control" id="exampleAddress" name="address" type="text"
                                        placeholder="address">
                             </div>
                             <div class="col-md-4">
-                                <label for="examplePost">post</label>
+                                <label for="examplePost">Postcode</label>
                                 <input class="form-control" id="examplePost" name="zip_code" type="text"
                                        placeholder="zip">
                             </div>
                             <div class="col-md-4">
-                                <label for="exampleLoc">loc</label>
+                                <label for="exampleLoc">Locatie</label>
                                 <input class="form-control" id="exampleLoc" name="location" type="text"
                                        placeholder="location">
                             </div>

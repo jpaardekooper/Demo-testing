@@ -6,6 +6,12 @@ include_once('../system/config.php');
 
 include_once('../templates/content.php');
 
+$type = filter_input(INPUT_POST, "type", FILTER_UNSAFE_RAW);
+$task_nr = filter_input(INPUT_POST, "task_nr", FILTER_UNSAFE_RAW);
+$version = filter_input(INPUT_POST, "version", FILTER_UNSAFE_RAW);
+$description = filter_input(INPUT_POST, "description", FILTER_UNSAFE_RAW);
+
+
 if (isset($_SESSION['id'])) {
 
     checkRole("admin");
@@ -89,7 +95,7 @@ if (isset($_SESSION['id'])) {
         ?>
 
         <div class="container">
-            <form name="add" action="?action=save&id=<?= $form_id ?>" method="post">
+            <form name="add" action="?action=save&id=<?= htmlentities($form_id) ?>" method="post">
                 <div class="card-header col-md-12">Formulier</div>
                 <div class="card-body">
                     <div class="form-group">
@@ -97,13 +103,13 @@ if (isset($_SESSION['id'])) {
                             <label for="example-text-input" class="col-2 col-form-label">Form id</label>
                             <div class="col-md-4">
                                 <input class="form-control" id="exampleAccept" name="form_id"
-                                       aria-describedby="form_id" readonly value="<?= $form_id ?>">
+                                       aria-describedby="form_id" readonly value="<?= htmlentities($form_id) ?>">
                             </div>
 
                             <label for="example-text-input" class="col-2 col-form-label">Gemaakt op</label>
                             <div class="col-md-4">
                                 <input class="form-control" id="exampleAccept" name="created_date"
-                                       aria-describedby="gemaakt op" readonly value="<?= $created_date ?>">
+                                       aria-describedby="gemaakt op" readonly value="<?= htmlentities($created_date) ?>">
                             </div>
 
 
@@ -114,7 +120,7 @@ if (isset($_SESSION['id'])) {
                             <label for="exampleAccept" class="col-2 col-form-label">Opdracht(nummer)</label>
                             <div class="col-md-4">
                                 <input class="form-control" id="exampleAccept" name="task_nr"
-                                       aria-describedby="opdracht nummer" value="<?= $task_nr ?>">
+                                       aria-describedby="opdracht nummer" value="<?= htmlentities($task_nr) ?>">
                             </div>
                         </div>
                     </div>
@@ -123,7 +129,7 @@ if (isset($_SESSION['id'])) {
                             <label for="exampleV" class="col-2 col-form-label">Versie</label>
                             <div class="col-md-4">
                                 <input class="form-control" id="exampleV" name="version"
-                                       aria-describedby="versie" value="<?= $version ?>">
+                                       aria-describedby="versie" value="<?= htmlentities($version) ?>">
                             </div>
                         </div>
                     </div>
@@ -164,7 +170,7 @@ if (isset($_SESSION['id'])) {
                                 <label class="col-3 col-form-label">Type</label>
                                 <div class="col-md-3">
 
-                                    <select class="form-control" name='type' value='<?= $type ?>'>
+                                    <select class="form-control" name='type' value='<?= htmlentities($type) ?>'>
                                         <option value="major-update">major-update</option>
                                         <option value="bug-fix">bug-fix</option>
                                     </select>
@@ -176,7 +182,7 @@ if (isset($_SESSION['id'])) {
                                 <label for="exampleContract" class="col-3 col-form-label">Beschrijving</label>
                                 <div class="col-md-9">
                                     <textarea class="form-control" id="exampleContract" rows="12" name="description"
-                                              aria-describedby="contract"><?= $description ?></textarea>
+                                              aria-describedby="contract"><?= htmlentities($description)  ?></textarea>
                                 </div>
                             </div>
                         </div>

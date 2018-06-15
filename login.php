@@ -105,12 +105,7 @@ if (filter_has_var(INPUT_POST, 'submit')) {
                 <input class="form-control" id="exampleInputPassword1" name="password" type="password"
                        placeholder="Password">
             </div>
-            <div class="form-group">
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox"> Remember Password</label>
-                </div>
-            </div>
+
             <input class="btn btn-secondary btn-block" type="submit" name="submit" value="Inloggen">
         </form>
     </div>
