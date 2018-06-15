@@ -36,7 +36,7 @@ while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
 
     $acceptance = $row['acceptance'];
     $SLA = $row['service_level_agreement'];
-    $contact = $row['contact'];
+    $contract = $row['contract'];
     $signature = $row['signature'];
 
     ?>
@@ -101,7 +101,7 @@ while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
         <div class="form-group row">
             <label for="example-text-input" class="col-md-3 col-form-label">contact</label>
             <div class="col-md-9">
-                <textarea class="form-control" type="text"  rows="5" readonly id="example-text-input"><?= $contact ?></textarea>
+                <textarea class="form-control" type="text"  rows="5" readonly id="example-text-input"><?= $contract ?></textarea>
             </div>
         </div>
         <div class="form-group row">

@@ -92,7 +92,7 @@ if (isset($_SESSION["id"])) {
 
                     $acceptance = $row['acceptance'];
                     $SLA = $row['service_level_agreement'];
-                    $contact = $row['contact'];
+                    $contract = $row['contract'];
                     $signature = $row['signature'];
 
 
@@ -245,7 +245,7 @@ if (isset($_SESSION["id"])) {
                                             <div class="form-group row">
                                                 <div class="col-12">
                                                 <textarea class="form-control col-form-label" rows="6"
-                                                          style="resize:none;" readonly><?= $contact ?></textarea>
+                                                          style="resize:none;" readonly><?= $contract ?></textarea>
                                                 </div>
                                             </div>
                                             <h6>ONDERTEKENING</h6>

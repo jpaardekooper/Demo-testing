@@ -84,9 +84,6 @@ if (isset($_SESSION['id'])) {
 
         if (strlen($description) > 20) $description = substr($description, 0, 20) . '...';
 
-        if ($type == 'mayor-update'){
-            $type = 'major-update';
-        }
 
         echo "<tr>
                 <td>$form_id</td>

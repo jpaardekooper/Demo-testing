@@ -82,9 +82,6 @@ if (isset($_SESSION["id"])) {
                 if (strlen($description) > 20) $description = substr($description, 0, 20) . '...';
 
                 //small sql error we had a type in the database
-                if ($type == 'mayor-update'){
-                    $type = 'major-update';
-                }
 
                 echo "<tr>             
                 <td><a href=\"update.php?action=delete&id=$update_id\">$company_name</a></td>

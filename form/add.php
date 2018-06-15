@@ -95,7 +95,7 @@ if (isset($_SESSION['id'])) {
                                <label>Type update</label>
                                 <select class="form-control" name="type">
                                     <option value="bug-fix">bug-fix</option>
-                                    <option value="mayor-update">mayor-update</option>
+                                    <option value="major-update">major-update</option>
                                 </select>
                             </div>
 
