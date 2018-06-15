@@ -215,12 +215,13 @@ if ($_SESSION["id"]) {
             </form>
         </div>
 
-        </div>
-        </div>
+
 
         <?php
     }
     getFooter();
+    echo " </div>
+        </div>";
 }else {
     echo "please login first on login page";
     header("Location:../login.php");

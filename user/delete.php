@@ -19,6 +19,16 @@ if (isset($_SESSION['id'])) {
             $query->execute(array(
                 'id' => $_GET['id']
             ));
+            $query = $conn->prepare("
+                        DELETE FROM `company` WHERE `company_id` = :id");
+            $query->execute(array(
+                'id' => $_GET['id']
+            ));
+            $query = $conn->prepare("
+                        DELETE FROM `phone` WHERE `user_id` = :id");
+            $query->execute(array(
+                'id' => $_GET['id']
+            ));
             header('Location: index.php');
         } catch (PDOException $e) {
             $sMsg = '<p>
