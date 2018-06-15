@@ -4,6 +4,8 @@ require_once('../system/config.php');
 
 require_once('../templates/content.php');
 
+http://php.net/manual/en/function.htmlentities.php
+
 if (isset($_SESSION["id"])) {
 
     switch (getUserRole()) {
