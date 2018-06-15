@@ -65,7 +65,7 @@ if (isset($_SESSION['id'])) {
                         <?php
 
                         if ($update_id <= 0) {
-                            echo " <span class='patch-version'>U bent up to date</span>";
+                            echo " <span class='patch-version'>U bent up-to-date</span>";
                         } elseif($update_id > 0){
                             echo " <a href='" . getPathToRoot() . "update/index.php'/><span class='patch-version text-warning'>Er staan nog " . $update_id . " updates open</span></a>";
                         }
