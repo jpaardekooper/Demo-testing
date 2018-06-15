@@ -7,7 +7,7 @@ include_once('../templates/content.php');
 
 if (isset($_SESSION['id'])) {
 
-    getHeader("Sqits form-delete", "Update verwijderen");
+
 
     checkRole("admin");
 
@@ -30,7 +30,7 @@ if (isset($_SESSION['id'])) {
             trigger_error($sMsg);
         }
     }
-
+    getHeader("Sqits form-delete", "Update verwijderen");
     getFooter();
 
 }else {

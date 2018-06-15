@@ -8,7 +8,7 @@ include_once('../templates/content.php');
 if (isset($_SESSION['id'])) {
     checkRole("admin");
 
-    getHeader("Sqits form-delete", "Form delete");
+
 
 
     if (@$_GET['action'] == "delete") {
@@ -30,7 +30,7 @@ if (isset($_SESSION['id'])) {
             trigger_error($sMsg);
         }
     }
-
+    getHeader("Sqits form-delete", "Form delete");
     getFooter();
 } else {
     echo "please login first on login page";
