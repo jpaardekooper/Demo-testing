@@ -15,9 +15,9 @@ if (isset($_SESSION['id'])) {
 
         try {
             $query = $conn->prepare("
-                        DELETE FROM `user` WHERE `user_id` = 'id';");
+                        DELETE FROM `user` WHERE `user_id` = :id");
             $query->execute(array(
-                'id' => $user_id
+                'id' => $_GET['id']
             ));
             header('Location: index.php');
         } catch (PDOException $e) {
@@ -31,7 +31,7 @@ if (isset($_SESSION['id'])) {
         }
     }
     getHeader("Sqits form-delete", "Form delete");
-    getFooter();
+
 } else {
     echo "please login first on login page";
     header("Location:../login.php");

@@ -31,7 +31,7 @@ if (isset($_SESSION['id'])) {
         }
     }
     getHeader("Sqits form-delete", "Update verwijderen");
-    getFooter();
+
 
 }else {
     echo "please login first on login page";
