@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="65296dc2-51e0-4307-a418-c28c8ac91bbb" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/assets/css/print.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/print.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/form/update.php" beforeDir="false" afterPath="$PROJECT_DIR$/form/update.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/update/update.php" beforeDir="false" afterPath="$PROJECT_DIR$/update/update.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/update.php" beforeDir="false" afterPath="$PROJECT_DIR$/user/update.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -15,7 +13,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="update.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="update.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/update/update.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="560">
@@ -29,6 +27,24 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="576">
               <caret line="183" column="98" lean-forward="true" selection-start-line="183" selection-start-column="15" selection-end-line="183" selection-end-column="98" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="update.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/user/update.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="468">
+              <caret line="286" column="117" selection-start-line="286" selection-start-column="117" selection-end-line="286" selection-end-column="117" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="add.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/user/add.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="571">
+              <caret line="228" column="22" lean-forward="true" selection-start-line="224" selection-start-column="15" selection-end-line="228" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -51,15 +67,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/login.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="91" column="41" selection-start-line="91" selection-start-column="26" selection-end-line="91" selection-end-column="41" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="content.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/content.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -74,15 +81,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="646">
               <caret line="38" column="30" selection-start-line="38" selection-start-column="30" selection-end-line="38" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="config.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/system/config.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="32" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -199,7 +197,6 @@
         <option value="$PROJECT_DIR$/update/add.php" />
         <option value="$PROJECT_DIR$/assets/css/sb-admin.css" />
         <option value="$PROJECT_DIR$/templates/content.php" />
-        <option value="$PROJECT_DIR$/user/update.php" />
         <option value="$PROJECT_DIR$/dashboard/admin.php" />
         <option value="$PROJECT_DIR$/user/index.php" />
         <option value="$PROJECT_DIR$/assets/js/validate.js" />
@@ -221,6 +218,7 @@
         <option value="$PROJECT_DIR$/form/update.php" />
         <option value="$PROJECT_DIR$/assets/css/print.css" />
         <option value="$PROJECT_DIR$/update/update.php" />
+        <option value="$PROJECT_DIR$/user/update.php" />
       </list>
     </option>
   </component>
@@ -372,7 +370,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="175146000" />
+    <option name="totallyTimeSpent" value="175413000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -512,13 +510,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/user/update.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3128">
-          <caret line="184" column="34" lean-forward="true" selection-start-line="184" selection-start-column="34" selection-end-line="184" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -640,13 +631,6 @@
         <state relative-caret-position="-2773" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/user/add.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="537">
-          <caret line="226" column="64" selection-start-line="226" selection-start-column="31" selection-end-line="226" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -721,6 +705,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="560">
           <caret line="401" column="79" selection-start-line="401" selection-start-column="79" selection-end-line="401" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user/add.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="571">
+          <caret line="228" column="22" lean-forward="true" selection-start-line="224" selection-start-column="15" selection-end-line="228" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user/update.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="286" column="117" selection-start-line="286" selection-start-column="117" selection-end-line="286" selection-end-column="117" />
         </state>
       </provider>
     </entry>
