@@ -27,9 +27,6 @@ if (isset($_SESSION['id'])) {
                 'description' => $_POST['description']
             ));
 
-            echo "<div class='loading-screen'>
-                    <img class='loading' src='" . getAssetsDirectory() . "image/loading.gif'/>
-            </div>";
 
 
             echo "<div style='margin: 0 auto; width: 300px;'>
