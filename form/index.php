@@ -96,7 +96,7 @@ if (isset($_SESSION['id'])) {
                 <td>$modified_date</td>
              
                     <td>   <a href=\"update.php?action=update&id=$form_id\"><i class='fa fa-edit'></i> Wijzigen</a>
-                    <a onclick=\"return confirm('Weet u zeker dat u het wilt verwijderen?')\" href=\"delete.php?action=delete&id=$form_id\"><i class='fa fa-trash-o text-danger'></i></a>
+                    <a onclick=\"return confirm('Weet u zeker dat u form id $form_id wilt verwijderen?')\" href=\"delete.php?action=delete&id=$form_id\"><i class='fa fa-trash-o text-danger'></i></a>
                             </tr>";
     }
     echo "       </tbody>

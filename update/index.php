@@ -89,12 +89,12 @@ if (isset($_SESSION["id"])) {
                 <td>$version</td>             
                 <td>$description</td>  ";
                 if ($status == 'accepted') {
-                    echo "<td> $status <i class=\"fa fa-check-circle fa-fw text-success\"></i></td>";
+                    echo "<td><i class=\"fa fa-check-circle fa-fw text-success\"></i> $status</td>";
                 } elseif ($status == 'declined') {
-                    echo "<td>$status  <i class=\"fa fa-close fa-fw text-danger\"></i></td>";
+                    echo "<td><i class=\"fa fa-close fa-fw text-danger\"></i> $status</td>";
 
                 } else {
-                    echo "<td> $status <i class=\"fa fa-spinner fa-fw text-warning\"></i></td>";
+                    echo "<td><i class=\"fa fa-spinner fa-fw text-warning\"></i> $status</td>";
                 }
                 echo"
                 <td>$created_date</td>
@@ -195,19 +195,19 @@ if (isset($_SESSION["id"])) {
                 <td><a href='../form/update.php?action=delete&id=$form_id'>$description</a></td> 
                 ";
                 if ($status == 'accepted') {
-                    echo "<td>$status  <i class=\"fa fa-check-circle fa-fw text-success\"></i></td>";
+                    echo "<td><i class=\"fa fa-check-circle fa-fw text-success\"></i> $status</td>";
                 } elseif ($status == 'declined') {
-                    echo "<td>$status  <i class=\"fa fa-close fa-fw text-danger\"></i></td>";
+                    echo "<td><i class=\"fa fa-close fa-fw text-danger\"></i> $status</td>";
 
                 } else {
-                    echo "<td> $status <i class=\"fa fa-spinner fa-fw text-warning\"></i></td>";
+                    echo "<td><i class=\"fa fa-spinner fa-fw text-warning\"></i> $status</td>";
                 }
 
 
                 echo "
                 <td>$created_date</td>
              
-                    <td><a onclick=\"return confirm('Weet u zeker dat u het wilt verwijderen?')\" href=\"delete.php?action=update&id=$update_id\"><i class='fa fa-trash-o text-danger'></i></a>
+                    <td><a onclick=\"return confirm('Weet u zeker dat u update id $update_id wilt verwijderen?')\" href=\"delete.php?action=update&id=$update_id\"><i class='fa fa-trash-o text-danger'></i></a>
                        </td>
                 </tr>";
             }
