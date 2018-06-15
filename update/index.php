@@ -142,12 +142,13 @@ if (isset($_SESSION["id"])) {
 
             echo " <div class=\"card mb-3\">
                 <div class=\"card-header\">
-                    <i class=\"fa fa-table\"></i> Data Table Example</div>
+                    <i class=\"fa fa-table\"></i></div>
                 <div class=\"card-body\">
                     <div class=\"table-responsive\">
                         <table class=\"table table-bordered\" id=\"table_id\" width=\"100%\" cellspacing=\"0\">                                                   
                         <thead>
                             <tr>
+                              <th>Update_id</th>         
                               <th>Form_id</th>         
                               <th>Company_id</th>      
                               <th>Type</th>
@@ -160,6 +161,7 @@ if (isset($_SESSION["id"])) {
                         </thead>
                         <tfoot>
                             <tr>
+                              <th>Update_id</th>         
                               <th>Form_id</th>         
                               <th>Company_id</th>      
                               <th>Type</th>
@@ -190,6 +192,7 @@ if (isset($_SESSION["id"])) {
                 }
 
                 echo "<tr>
+                <td>$update_id</td>
                 <td>$form_id</td>
                 <td>$company_id</td>
                 <td>$type</td>
@@ -209,7 +212,7 @@ if (isset($_SESSION["id"])) {
                 echo "
                 <td>$created_date</td>
              
-                    <td><a onclick=\"return confirm('Weet u zeker dat u update id $update_id wilt verwijderen?')\" href=\"delete.php?action=update&id=$update_id\"><i class='fa fa-trash-o text-danger'></i></a>
+                    <td><a onclick=\"return confirm('Weet u zeker dat u update id $update_id wilt verwijderen?')\" href=\"delete.php?action=delete&id=$update_id\"><i class='fa fa-trash-o text-danger'></i></a>
                        </td>
                 </tr>";
             }
