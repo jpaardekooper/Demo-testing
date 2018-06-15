@@ -1,14 +1,11 @@
 <?php
 require_once ('session.php');
 
-
-
-
 unset($_SESSION['id']);
 
 session_destroy();
 
-//this is for matthijs only
+//this is for mathijs only
 echo "<div style='height: 98vh; '>
                     <img style='height: 100%; width: 100%; margin: 0; padding: 0;' src='../assets/image/for-mathijs.gif'/>
             </div>";
