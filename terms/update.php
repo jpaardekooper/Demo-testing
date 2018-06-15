@@ -6,6 +6,12 @@ include_once('../system/config.php');
 
 include_once('../templates/content.php');
 
+
+$acceptance = filter_input(INPUT_POST, "acceptance", FILTER_UNSAFE_RAW);
+$sla = filter_input(INPUT_POST, "service_level_agreement", FILTER_UNSAFE_RAW);
+$contract = filter_input(INPUT_POST, "contract", FILTER_UNSAFE_RAW);
+$signature = filter_input(INPUT_POST, "signature", FILTER_UNSAFE_RAW);
+
 if (isset($_SESSION['id'])) {
 
 
@@ -100,7 +106,7 @@ if (isset($_SESSION['id'])) {
                                 <label for="exampleAccept">Acceptatie</label>
                                 <textarea class="form-control" id="exampleAccept" rows="21" name="acceptance"
 
-                                          aria-describedby="acceptance"><?= $acceptance ?></textarea>
+                                          aria-describedby="acceptance"><?= htmlentities($acceptance) ?></textarea>
                             </div>
                         </div>
                     </div>
@@ -111,7 +117,7 @@ if (isset($_SESSION['id'])) {
                                 <textarea class="form-control" id="exampleAccept" rows="6"
                                           name="service_level_agreement"
 
-                                          aria-describedby="service level agreement"><?= $sla ?></textarea>
+                                          aria-describedby="service level agreement"><?= htmlentities($sla) ?></textarea>
                             </div>
                         </div>
                     </div>
@@ -121,7 +127,7 @@ if (isset($_SESSION['id'])) {
                                 <label for="exampleContract">Contract</label>
                                 <textarea class="form-control" id="exampleContract" rows="6" name="contact"
 
-                                          aria-describedby="contract"><?= $contract ?></textarea>
+                                          aria-describedby="contract"><?= htmlentities($contract) ?></textarea>
                             </div>
                         </div>
                     </div>
@@ -131,7 +137,7 @@ if (isset($_SESSION['id'])) {
                                 <label for="exampleSign">Ondertekening</label>
                                 <textarea class="form-control" id="exampleSign" rows="6" name="signature"
 
-                                          aria-describedby="signature"><?= $signature ?></textarea>
+                                          aria-describedby="signature"><?= htmlentities($signature) ?></textarea>
                             </div>
                         </div>
                     </div>

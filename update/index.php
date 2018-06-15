@@ -4,6 +4,8 @@ require_once('../system/config.php');
 
 require_once('../templates/content.php');
 
+http://php.net/manual/en/function.htmlentities.php
+
 if (isset($_SESSION["id"])) {
 
     switch (getUserRole()) {
@@ -40,7 +42,7 @@ if (isset($_SESSION["id"])) {
 
             echo " <div class=\"card mb-3\">
                 <div class=\"card-header\">
-                    <i class=\"fa fa-table\"></i> Data Table Example</div>
+                    <i class=\"fa fa-table\"></i></div>
                 <div class=\"card-body\">
                     <div class=\"table-responsive\">
                         <table class=\"table table-bordered\" id=\"table_id\" width=\"100%\" cellspacing=\"0\">                                                   
@@ -49,7 +51,7 @@ if (isset($_SESSION["id"])) {
                               <th>Bedrijfsnaam</th>      
                               <th>Type</th>
                               <th>Versie</th>
-                              <th>beschrijving</th>
+                              <th>Beschrijving</th>
                               <th>Status</th>
                               <th>Gemaakt op</th>
                               <th>Actie</th>
@@ -60,7 +62,7 @@ if (isset($_SESSION["id"])) {
                               <th>Bedrijfsnaam</th>      
                               <th>Type</th>
                               <th>Versie</th>
-                              <th>beschrijving</th>
+                              <th>Beschrijving</th>
                               <th>Status</th>
                               <th>Gemaakt op</th>
                               <th>Actie</th>
@@ -89,12 +91,12 @@ if (isset($_SESSION["id"])) {
                 <td>$version</td>             
                 <td>$description</td>  ";
                 if ($status == 'accepted') {
-                    echo "<td> $status <i class=\"fa fa-check-circle fa-fw text-success\"></i></td>";
+                    echo "<td><i class=\"fa fa-check-circle fa-fw text-success\"></i> $status</td>";
                 } elseif ($status == 'declined') {
-                    echo "<td>$status  <i class=\"fa fa-close fa-fw text-danger\"></i></td>";
+                    echo "<td><i class=\"fa fa-close fa-fw text-danger\"></i> $status</td>";
 
                 } else {
-                    echo "<td> $status <i class=\"fa fa-spinner fa-fw text-warning\"></i></td>";
+                    echo "<td><i class=\"fa fa-spinner fa-fw text-warning\"></i> $status</td>";
                 }
                 echo"
                 <td>$created_date</td>
@@ -140,12 +142,13 @@ if (isset($_SESSION["id"])) {
 
             echo " <div class=\"card mb-3\">
                 <div class=\"card-header\">
-                    <i class=\"fa fa-table\"></i> Data Table Example</div>
+                    <i class=\"fa fa-table\"></i></div>
                 <div class=\"card-body\">
                     <div class=\"table-responsive\">
                         <table class=\"table table-bordered\" id=\"table_id\" width=\"100%\" cellspacing=\"0\">                                                   
                         <thead>
                             <tr>
+                              <th>Update_id</th>         
                               <th>Form_id</th>         
                               <th>Company_id</th>      
                               <th>Type</th>
@@ -158,6 +161,7 @@ if (isset($_SESSION["id"])) {
                         </thead>
                         <tfoot>
                             <tr>
+                              <th>Update_id</th>         
                               <th>Form_id</th>         
                               <th>Company_id</th>      
                               <th>Type</th>
@@ -188,6 +192,7 @@ if (isset($_SESSION["id"])) {
                 }
 
                 echo "<tr>
+                <td>$update_id</td>
                 <td>$form_id</td>
                 <td>$company_id</td>
                 <td>$type</td>
@@ -195,19 +200,19 @@ if (isset($_SESSION["id"])) {
                 <td><a href='../form/update.php?action=delete&id=$form_id'>$description</a></td> 
                 ";
                 if ($status == 'accepted') {
-                    echo "<td>$status  <i class=\"fa fa-check-circle fa-fw text-success\"></i></td>";
+                    echo "<td><i class=\"fa fa-check-circle fa-fw text-success\"></i> $status</td>";
                 } elseif ($status == 'declined') {
-                    echo "<td>$status  <i class=\"fa fa-close fa-fw text-danger\"></i></td>";
+                    echo "<td><i class=\"fa fa-close fa-fw text-danger\"></i> $status</td>";
 
                 } else {
-                    echo "<td> $status <i class=\"fa fa-spinner fa-fw text-warning\"></i></td>";
+                    echo "<td><i class=\"fa fa-spinner fa-fw text-warning\"></i> $status</td>";
                 }
 
 
                 echo "
                 <td>$created_date</td>
              
-                    <td><a onclick=\"return confirm('Weet u zeker dat u het wilt verwijderen?')\" href=\"delete.php?action=update&id=$update_id\"><i class='fa fa-trash-o text-danger'></i></a>
+                    <td><a onclick=\"return confirm('Weet u zeker dat u update id $update_id wilt verwijderen?')\" href=\"delete.php?action=delete&id=$update_id\"><i class='fa fa-trash-o text-danger'></i></a>
                        </td>
                 </tr>";
             }

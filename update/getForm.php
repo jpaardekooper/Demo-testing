@@ -87,25 +87,25 @@ while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
     <div class="card-body">
 
         <div class="form-group row">
-            <label for="example-text-input" class="col-md-3 col-form-label">acceptatie</label>
+            <label for="example-text-input" class="col-md-3 col-form-label">Acceptatie</label>
             <div class="col-md-9">
                 <textarea class="form-control" type="text" rows="5" readonly id="example-text-input"><?= $acceptance ?></textarea>
             </div>
         </div>
         <div class="form-group row">
-            <label for="example-text-input" class="col-md-3 col-form-label">service level agreement</label>
+            <label for="example-text-input" class="col-md-3 col-form-label">Service level agreement</label>
             <div class="col-md-9">
                 <textarea class="form-control" type="text" rows="5" readonly id="example-text-input"><?= $SLA ?></textarea>
             </div>
         </div>
         <div class="form-group row">
-            <label for="example-text-input" class="col-md-3 col-form-label">contact</label>
+            <label for="example-text-input" class="col-md-3 col-form-label">Contract</label>
             <div class="col-md-9">
                 <textarea class="form-control" type="text"  rows="5" readonly id="example-text-input"><?= $contract ?></textarea>
             </div>
         </div>
         <div class="form-group row">
-            <label for="example-text-input" class="col-md-3 col-form-label">ondertekening</label>
+            <label for="example-text-input" class="col-md-3 col-form-label">Ondertekening</label>
             <div class="col-md-9">
                 <textarea class="form-control" type="text" rows="5" readonly id="example-text-input"><?= $signature ?></textarea>
             </div>

@@ -39,36 +39,36 @@ if ($_SESSION["id"]) {
 
             echo " <div class=\"card mb-3\">
                 <div class=\"card-header\">
-                    <i class=\"fa fa-table\"></i> Data Table Example</div>
+                    <i class=\"fa fa-table\"></i></div>
                 <div class=\"card-body\">
                     <div class=\"table-responsive\">
                         <table class=\"table table-bordered\" id=\"table_id\" width=\"100%\" cellspacing=\"0\">                                                   
                         <thead>
                             <tr>
-                             <th>bedrijfsnaam</th>
-                             <th>Email: </th>
-                             <th>voornaam</th>
-                             <th>achternaam</th>           
+                             <th>Bedrijfsnaam</th>
+                             <th>Email </th>
+                             <th>Voornaam</th>
+                             <th>Achternaam</th>           
                              <th>Contact persoon Tel</th>
                              <th>Bedrijfs Tel</th>
-                             <th>account status</th>
+                             <th>Account status</th>
                              <th>laatse bezoek</th>
                              <th>Gemaakt op</th>
-                             <th>acties</th>
+                             <th>Acties</th>
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
-                                <th>bedrijfsnaam</th>
-                             <th>Email: </th>
-                             <th>voornaam</th>
-                             <th>achternaam</th>           
+                             <th>Bedrijfsnaam</th>
+                             <th>Email </th>
+                             <th>Voornaam</th>
+                             <th>Achternaam</th>           
                              <th>Contact persoon Tel</th>
                              <th>Bedrijfs Tel</th>
-                             <th>account status</th>
+                             <th>Account status</th>
                              <th>laatse bezoek</th>
                              <th>Gemaakt op</th>
-                             <th>acties</th>
+                             <th>Acties</th>
                             </tr>
                         </tfoot>
                      <tbody>";

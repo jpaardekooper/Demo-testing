@@ -22,7 +22,7 @@ if (isset($_SESSION['id'])) {
             $results->execute(array(
                 'acceptance' => $_POST['acceptance'],
                 'service_level_agreement' => $_POST['service_level_agreement'],
-                'contact' => $_POST['contact'],
+                'contract' => $_POST['contact'],
                 'signature' => $_POST['signature'],
 
             ));

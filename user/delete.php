@@ -8,16 +8,26 @@ include_once('../templates/content.php');
 if (isset($_SESSION['id'])) {
     checkRole("admin");
 
-    getHeader("Sqits form-delete", "Form delete");
+
 
 
     if (@$_GET['action'] == "delete") {
 
         try {
             $query = $conn->prepare("
-                        DELETE FROM `user` WHERE `user_id` = 'id';");
+                        DELETE FROM `user` WHERE `user_id` = :id");
             $query->execute(array(
-                'id' => $user_id
+                'id' => $_GET['id']
+            ));
+            $query = $conn->prepare("
+                        DELETE FROM `company` WHERE `company_id` = :id");
+            $query->execute(array(
+                'id' => $_GET['id']
+            ));
+            $query = $conn->prepare("
+                        DELETE FROM `phone` WHERE `user_id` = :id");
+            $query->execute(array(
+                'id' => $_GET['id']
             ));
             header('Location: index.php');
         } catch (PDOException $e) {
@@ -30,8 +40,8 @@ if (isset($_SESSION['id'])) {
             trigger_error($sMsg);
         }
     }
+    getHeader("Sqits form-delete", "Form delete");
 
-    getFooter();
 } else {
     echo "please login first on login page";
     header("Location:../login.php");

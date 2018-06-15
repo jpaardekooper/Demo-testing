@@ -167,7 +167,7 @@ if (isset($_SESSION["id"])) {
                                             </div>
 
                                             <div class="form-group row">
-                                                <label class="col-4 col-form-label">Kvk-nummer</label>
+                                                <label class="col-4 col-form-label">KvK-nummer</label>
                                                 <div class="col-8">
                                                     <label class="col-form-label"><?= $kvk ?></label>
                                                 </div>
@@ -176,14 +176,14 @@ if (isset($_SESSION["id"])) {
                                             <hr>
                                             <h6>LEVERANCIER</h6>
                                             <div class="form-group row">
-                                                <label class="col-4 col-form-label">bedrijfsnaam</label>
+                                                <label class="col-4 col-form-label">Bedrijfsnaam</label>
                                                 <div class="col-8">
                                                     <label class="col-form-label">Sqits B.V.</label>
                                                 </div>
                                             </div>
 
                                             <div class="form-group row">
-                                                <label class="col-4 col-form-label">adres</label>
+                                                <label class="col-4 col-form-label">Adres</label>
                                                 <div class="col-8">
                                                     <label class="col-form-label">Bleiswijkseweg 55I</label>
                                                 </div>
@@ -197,7 +197,7 @@ if (isset($_SESSION["id"])) {
                                             </div>
 
                                             <div class="form-group row">
-                                                <label class="col-4 col-form-label">Kvk-nummer</label>
+                                                <label class="col-4 col-form-label">KvK-nummer</label>
                                                 <div class="col-8">
                                                     <label class="col-form-label">71075828</label>
                                                 </div>
@@ -345,7 +345,7 @@ if (isset($_SESSION["id"])) {
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="example-text-input" class="col-md-3 col-form-label">adres</label>
+                                    <label for="example-text-input" class="col-md-3 col-form-label">Adres</label>
                                     <div class="col-md-5">
                                         <input class="form-control" type="text" value="Bleiswijkseweg 55I" readonly
                                                id="example-text-input">
@@ -360,7 +360,7 @@ if (isset($_SESSION["id"])) {
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="example-text-input" class="col-md-3 col-form-label">Kvk nummer</label>
+                                    <label for="example-text-input" class="col-md-3 col-form-label">KvK-nummer</label>
                                     <div class="col-md-5">
                                         <input class="form-control" type="text" value="71075828" readonly
                                                id="example-text-input">
@@ -467,7 +467,7 @@ if (isset($_SESSION["id"])) {
                             <div class="card-body">
                                 <div class="form-group row PDF-DISTANCE">
                                     <label for="example-text-input"
-                                           class="col-md-3 col-form-label HIDE-PC-SHOW-PDF">acceptatie</label>
+                                           class="col-md-3 col-form-label HIDE-PC-SHOW-PDF">Acceptatie</label>
                                     <div class="col-md-9 HIDE-PC-SHOW-PDF">
                             <textarea class="form-control" type="text" rows="23" readonly
                                       id="example-text-input"><?= $acceptance ?></textarea>

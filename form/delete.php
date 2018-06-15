@@ -9,11 +9,7 @@ if (isset($_SESSION['id'])) {
 
 
 checkRole("admin");
-getHeader("Sqits form-delete", "Form delete");
 
-echo '<div class="content-wrapper">';
-echo '<div class="container-fluid">';
-    
 	if(@$_GET['action'] == "delete")
 	{	
         
@@ -37,9 +33,14 @@ echo '<div class="container-fluid">';
             trigger_error($sMsg);
         }           
     }
+    getHeader("Sqits form-delete", "Form delete");
+
+    echo '<div class="content-wrapper">';
+    echo '<div class="container-fluid">';
+
     echo"</div>";
     echo"</div>";
-	getFooter();
+
 
 }else {
     echo "please login first on login page";

@@ -38,34 +38,34 @@ if (isset($_SESSION['id'])) {
 
     echo " <div class=\"card mb-3\">
                 <div class=\"card-header\">
-                    <i class=\"fa fa-table\"></i> Data Table Example</div>
+                    <i class=\"fa fa-table\"></i></div>
                 <div class=\"card-body\">
                     <div class=\"table-responsive\">
                         <table class=\"table table-bordered\" id=\"table_id\" width=\"100%\" cellspacing=\"0\">                                                   
                         <thead>
                             <tr>
-                              <th>form_id</th>         
-                                <th>terms_id</th>      
-                                <th>type</th>
-                                <th>opdrachtnummer</th>
-                                <th>version</th>
-                                <th>description</th>                               
-                                <th>created_date</th>
-                                 <th>modified_date</th>
-                                <th>acties</th>
+                              <th>Form_id</th>         
+                                <th>Terms_id</th>      
+                                <th>Type</th>
+                                <th>Opdracht(nummer)</th>
+                                <th>Versie</th>
+                                <th>Beschrijving</th>                               
+                                <th>Gemaakt op</th>
+                                 <th>Gewijzigd op</th>
+                                <th>Acties</th>
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
-                               <th>form_id</th>         
-                                <th>terms_id</th>      
-                                <th>type</th>
-                                <th>opdrachtnummer</th>
-                                <th>version</th>
-                                <th>description</th>                               
-                                <th>created_date</th>
-                                 <th>modified_date</th>
-                                <th>acties</th>
+                                <th>Form_id</th>         
+                                <th>Terms_id</th>      
+                                <th>Type</th>
+                                <th>Opdracht(nummer)</th>
+                                <th>Versie</th>
+                                <th>Beschrijving</th>                               
+                                <th>Gemaakt op</th>
+                                 <th>Gewijzigd op</th>
+                                <th>Acties</th>
                             </tr>
                         </tfoot>
                      <tbody>
@@ -96,7 +96,7 @@ if (isset($_SESSION['id'])) {
                 <td>$modified_date</td>
              
                     <td>   <a href=\"update.php?action=update&id=$form_id\"><i class='fa fa-edit'></i> Wijzigen</a>
-                    <a onclick=\"return confirm('Weet u zeker dat u het wilt verwijderen?')\" href=\"delete.php?action=delete&id=$form_id\"><i class='fa fa-trash-o text-danger'></i></a>
+                    <a onclick=\"return confirm('Weet u zeker dat u form id $form_id wilt verwijderen?')\" href=\"delete.php?action=delete&id=$form_id\"><i class='fa fa-trash-o text-danger'></i></a>
                             </tr>";
     }
     echo "       </tbody>

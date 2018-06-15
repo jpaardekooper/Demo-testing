@@ -7,7 +7,7 @@ include_once('../templates/content.php');
 
 if(isset($_SESSION['id'])){
 
-getHeader("Sqits form-delete", "Form delete");
+
     
 	if(@$_GET['action'] == "delete")
 	{	
@@ -33,8 +33,8 @@ getHeader("Sqits form-delete", "Form delete");
             trigger_error($sMsg);
         }           
     }
-    
-	getFooter();
+    getHeader("Sqits form-delete", "Form delete");
+
 }else {
     echo "please login first on login page";
     header("Location:../login.php");
