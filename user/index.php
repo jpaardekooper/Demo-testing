@@ -16,7 +16,7 @@ if ($_SESSION["id"]) {
                 $query = $conn->prepare("SELECT u.*, p.*, c.*
                                           FROM `user` as u
                                           INNER JOIN company as c  ON u.company_id = c.company_id  
-                                          INNER JOIN phone as p ON u.user_id = p.user_id                                                                                                                            
+                                          LEFT JOIN phone as p ON u.user_id = p.user_id                                                                                                                            
                                           ");
                 $query->execute();
 
