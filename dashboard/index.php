@@ -20,13 +20,13 @@ if (isset($_SESSION['id'])) {
         <?php
         //random query in order to get current patch
         try {
-            $query = $conn->prepare("SELECT COUNT(up.company_id) as total_update, f.version
+            $query = $conn->prepare("SELECT COUNT(up.company_id) as total_update
                                                         FROM `update` as up
                                                         INNER JOIN company as c ON c.company_id = up.company_id
                                                         INNER JOIN user as u ON u.company_id = c.company_id                                                        
                                                         INNER JOIN form as f ON up.form_id = f.form_id                                                        
                                                         WHERE u.user_id = :id AND up.status = 'pending' 
-                                                        GROUP BY  f.version");
+                                                        GROUP BY  up.status");
             $query->execute(array(
                 'id' => $_SESSION['id']['user_id']
             ));
@@ -40,12 +40,26 @@ if (isset($_SESSION['id'])) {
         }
 
 
-
         while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
             $update_id = $row['total_update'];
-            $version = $row['version'];
-
         }
+
+
+        $query = $conn->prepare("SELECT f.version
+                                                        FROM `update` as up
+                                                        INNER JOIN company as c ON c.company_id = up.company_id
+                                                        INNER JOIN user as u ON u.company_id = c.company_id                                                        
+                                                        INNER JOIN form as f ON up.form_id = f.form_id                                                        
+                                                        WHERE u.user_id = :id AND up.status = 'accepted' 
+                                                        GROUP BY  f.version");
+        $query->execute(array(
+            'id' => $_SESSION['id']['user_id']
+        ));
+
+        while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+            $version = $row['version'];
+        }
+
         //to hide the error of no update_id if the user is new
            ini_set('error_reporting', E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED);
         if ($update_id <= 0){
