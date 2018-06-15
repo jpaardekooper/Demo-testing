@@ -172,6 +172,7 @@ if (isset($_SESSION["id"])) {
                         ";
 
             while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+                $update_id = $row['update_id'];
                 $form_id = $row['form_id'];
                 $company_id = $row['company_id'];
                 $type = $row['type'];
