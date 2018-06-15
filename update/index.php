@@ -209,7 +209,7 @@ if (isset($_SESSION["id"])) {
                 echo "
                 <td>$created_date</td>
              
-                    <td><a onclick=\"return confirm('Weet u zeker dat u het wilt verwijderen?')\" href=\"delete.php?action=update&id=$form_id\"><i class='fa fa-trash-o text-danger'></i></a>
+                    <td><a onclick=\"return confirm('Weet u zeker dat u het wilt verwijderen?')\" href=\"delete.php?action=update&id=$update_id\"><i class='fa fa-trash-o text-danger'></i></a>
                        </td>
                 </tr>";
             }
