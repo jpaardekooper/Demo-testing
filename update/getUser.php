@@ -93,19 +93,19 @@ while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
     <div class="card-body">
 
         <div class="form-group row">
-            <label for="example-text-input" class="col-md-2 col-form-label">Voornaam</label>
-            <div class="col-md-4">
+            <label for="example-text-input" class="col-md-3 col-form-label">Voornaam</label>
+            <div class="col-md-3">
                 <input class="form-control" type="text" value="<?= $first_name ?>" readonly id="example-text-input">
             </div>
 
-            <label for="example-text-input" class="col-md-2 col-form-label">Achternaam</label>
-            <div class="col-md-4">
+            <label for="example-text-input" class="col-md-3 col-form-label">Achternaam</label>
+            <div class="col-md-3">
                 <input class="form-control" type="text" value="<?= $last_name ?>" readonly id="example-text-input">
             </div>
         </div>
         <div class="form-group row">
-            <label for="example-text-input" class="col-md-2 col-form-label">Telefoonnummer</label>
-            <div class="col-md-6">
+            <label for="example-text-input" class="col-md-3 col-form-label">Telefoonnummer</label>
+            <div class="col-md-4">
                 <input class="form-control" type="text" value="<?= $phone_number ?>" readonly id="example-text-input">
             </div>
         </div>
