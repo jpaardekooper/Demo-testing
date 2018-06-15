@@ -45,8 +45,8 @@ while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
     <div class="card-header">Bedrijfsgegevens</div>
 <div class="card-body">
     <div class="form-group row">
-        <label for="example-text-input" class="col-2 col-form-label">Kvk</label>
-        <div class="col-4">
+        <label for="example-text-input" class="col-md-2 col-form-label">Kvk</label>
+        <div class="col-md-4">
             <input class="form-control" type="text" value="<?= $kvk ?>" readonly id="example-text-input">
         </div>
 
@@ -54,37 +54,37 @@ while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
 
     <div class="form-group row">
 
-        <label for="example-text-input" class="col-2 col-form-label">Bedrijfsnaam</label>
-        <div class="col-4">
+        <label for="example-text-input" class="col-md-2 col-form-label">Bedrijfsnaam</label>
+        <div class="col-md-4">
             <input class="form-control" type="text" value="<?= $company_name ?>" readonly id="example-text-input">
         </div>
 
-        <label for="example-text-input" class="col-2 col-form-label">Mail</label>
-        <div class="col-4">
+        <label for="example-text-input" class="col-md-2 col-form-label">Mail</label>
+        <div class="col-md-4">
             <input class="form-control" type="text" value="<?= $email ?>" readonly id="example-text-input">
         </div>
     </div>
 
     <div class="form-group row">
-        <label for="example-text-input" class="col-2 col-form-label">Locatie</label>
-        <div class="col-4">
+        <label for="example-text-input" class="col-md-2 col-form-label">Locatie</label>
+        <div class="col-md-4">
             <input class="form-control" type="text" value="<?= $location ?>" readonly id="example-text-input">
         </div>
 
-        <label for="example-text-input" class="col-2 col-form-label">Postcode</label>
-        <div class="col-4">
+        <label for="example-text-input" class="col-md-2 col-form-label">Postcode</label>
+        <div class="col-md-4">
             <input class="form-control" type="text" value="<?= $zip_code ?>" readonly id="example-text-input">
         </div>
     </div>
 
     <div class="form-group row">
-        <label for="example-text-input" class="col-2 col-form-label">Adres</label>
-        <div class="col-4">
+        <label for="example-text-input" class="col-md-2 col-form-label">Adres</label>
+        <div class="col-md-4">
             <input class="form-control" type="text" value="<?= $address ?>" readonly id="example-text-input">
         </div>
 
-        <label for="example-text-input" class="col-2 col-form-label">Telefoon</label>
-        <div class="col-4">
+        <label for="example-text-input" class="col-md-2 col-form-label">Telefoon</label>
+        <div class="col-md-4">
             <input class="form-control" type="text" value="<?= $phone ?>" readonly id="example-text-input">
         </div>
     </div>
@@ -93,19 +93,19 @@ while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
     <div class="card-body">
 
         <div class="form-group row">
-            <label for="example-text-input" class="col-2 col-form-label">Voornaam</label>
-            <div class="col-4">
+            <label for="example-text-input" class="col-md-2 col-form-label">Voornaam</label>
+            <div class="col-md-4">
                 <input class="form-control" type="text" value="<?= $first_name ?>" readonly id="example-text-input">
             </div>
 
-            <label for="example-text-input" class="col-2 col-form-label">Achternaam</label>
-            <div class="col-4">
+            <label for="example-text-input" class="col-md-2 col-form-label">Achternaam</label>
+            <div class="col-md-4">
                 <input class="form-control" type="text" value="<?= $last_name ?>" readonly id="example-text-input">
             </div>
         </div>
         <div class="form-group row">
-            <label for="example-text-input" class="col-2 col-form-label">Telefoonnummer</label>
-            <div class="col-6">
+            <label for="example-text-input" class="col-md-2 col-form-label">Telefoonnummer</label>
+            <div class="col-md-6">
                 <input class="form-control" type="text" value="<?= $phone_number ?>" readonly id="example-text-input">
             </div>
         </div>

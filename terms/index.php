@@ -74,20 +74,20 @@ if (isset($_SESSION['id'])) {
         $acceptance = $row['acceptance'];
         $description = $row['service_level_agreement'];
         $signature = $row['signature'];
-        $contact = $row['contact'];
+        $contract = $row['contract'];
         $created_date = $row['created_date'];
 
         if(strlen($acceptance) > 20) $acceptance = substr($acceptance, 0, 20).'...';
         if(strlen($description) > 20) $description = substr($description, 0, 20).'...';
         if(strlen($signature) > 20) $signature = substr($signature, 0, 20).'...';
-        if(strlen($contact) > 20) $contact = substr($contact, 0, 20).'...';
+        if(strlen($contract) > 20) $contract = substr($contract, 0, 20).'...';
 
         echo "<tr>
                 <td>$terms_id</td>   
                  <td>$acceptance</td>                           
                 <td>$description</td> 
                 <td>$signature</td>
-                <td>$contact</td>
+                <td>$contract</td>
                 <td>$created_date</td>
              
                     <td>

@@ -300,17 +300,17 @@ if (isset($_SESSION["id"])) {
                             <div class="card-header"><h2>Acceptatie en Oplevering
                                 </h2></div>
 
-                            <div class="card-header"><h4>Opdrachtgever</h4></div>
+                            <div class="card-header PDF-DISTANCE"><h3>Opdrachtgever</h3></div>
                             <div class="card-body">
                                 <div class="form-group row">
-                                    <label for="example-text-input" class="col-md-3 col-form-label">bedrijfsnaam</label>
+                                    <label for="example-text-input" class="col-md-3 col-form-label">Bedrijfsnaam</label>
                                     <div class="col-md-5">
                                         <input class="form-control" type="text" value="<?= $company_name ?>" readonly
                                                id="example-text-input">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="example-text-input" class="col-md-3 col-form-label">adres</label>
+                                    <label for="example-text-input" class="col-md-3 col-form-label">Adres</label>
                                     <div class="col-md-5">
                                         <input class="form-control" type="text" value="<?= $address ?>" readonly
                                                id="example-text-input">
@@ -327,7 +327,7 @@ if (isset($_SESSION["id"])) {
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="example-text-input" class="col-md-3 col-form-label">Kvk nummer</label>
+                                    <label for="example-text-input" class="col-md-3 col-form-label">Kvk</label>
                                     <div class="col-md-5">
                                         <input class="form-control" type="text" value="<?= $kvk ?>" readonly
                                                id="example-text-input">
@@ -335,10 +335,10 @@ if (isset($_SESSION["id"])) {
 
                                 </div>
                             </div>
-                            <div class="card-header"><h4>Leverancier</h4></div>
+                            <div class="card-header"><h3>Leverancier</h3></div>
                             <div class="card-body">
                                 <div class="form-group row">
-                                    <label for="example-text-input" class="col-md-3 col-form-label">bedrijfsnaam</label>
+                                    <label for="example-text-input" class="col-md-3 col-form-label">Bedrijfsnaam</label>
                                     <div class="col-md-5">
                                         <input class="form-control" type="text" value="Sqits B.V." readonly
                                                id="example-text-input">
@@ -367,45 +367,101 @@ if (isset($_SESSION["id"])) {
                                     </div>
                                 </div>
                             </div>
-                            <div class="card-header"><h4>Betreft</h4></div>
-                            <div class="card-body">
-                                <div class="form-group row">
-                                    <label for="example-text-input"
-                                           class="col-md-3 col-form-label">Opdracht(nummer)</label>
-                                    <div class="col-md-3">
-                                        <input class="form-control" type="text" value="<?= $task_nr ?>" readonly
-                                               id="example-text-input">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="example-text-input" class="col-md-3 col-form-label">Type</label>
-                                    <div class="col-md-3">
-                                        <input class="form-control" type="text" value="<?= $type ?>" readonly
-                                               id="example-text-input">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="example-text-input" class="col-md-3 col-form-label">Versie</label>
-                                    <div class="col-md-3">
-                                        <input class="form-control" type="text" value="<?= $version ?>" readonly
-                                               id="example-text-input">
-                                    </div>
+                            <?php if (strlen($description) < 548) {
 
-                                </div>
-                                <div class="form-group row">
-                                    <label for="example-text-input" class="col-md-3 col-form-label">Omschreven</label>
-                                    <div class="col-md-9">
-                            <textarea class="form-control" type="text" rows="14" readonly
+                                ?>
+                                <div class="card-header"><h3>Betreft</h3></div>
+                                <div class="card-body">
+                                    <div class="form-group row">
+                                        <label for="example-text-input"
+                                               class="col-md-3 col-form-label">Opdracht(nummer)</label>
+                                        <div class="col-md-3">
+                                            <input class="form-control" type="text" value="<?= $task_nr ?>" readonly
+                                                   id="example-text-input">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="example-text-input" class="col-md-3 col-form-label">Type</label>
+                                        <div class="col-md-3">
+                                            <input class="form-control" type="text" value="<?= $type ?>" readonly
+                                                   id="example-text-input">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="example-text-input" class="col-md-3 col-form-label">Versie</label>
+                                        <div class="col-md-3">
+                                            <input class="form-control" type="text" value="<?= $version ?>" readonly
+                                                   id="example-text-input">
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="example-text-input"
+                                               class="col-md-3 col-form-label">Omschreven</label>
+                                        <div class="col-md-9">
+                            <textarea class="form-control" type="text" rows="13" readonly
                                       id="example-text-input"><?= $description ?></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row PDF-ONLY">
+                                        Acceptatie opdracht <?= $task_nr ?> &nbsp;&nbsp;&nbsp;&nbsp;
+                                        versie <?= $version ?>
+                                        &nbsp;&nbsp;&nbsp;&nbsp; Paraaf opdrachtgever: ………………………………..
+                                    </div>
+                                    <div class="form-group row PDF-PAGE-BREAK">
                                     </div>
                                 </div>
-                                <div class="form-group row PDF-ONLY">
+                            <?php } else { ?>
+                                <!--- if the description is bigger than intended ---->
+                                <div class="form-group row PDF-ONLY PDF-DISTANCE-3">
                                     Acceptatie opdracht <?= $task_nr ?> &nbsp;&nbsp;&nbsp;&nbsp; versie <?= $version ?>
                                     &nbsp;&nbsp;&nbsp;&nbsp; Paraaf opdrachtgever: ………………………………..
                                 </div>
                                 <div class="form-group row PDF-PAGE-BREAK">
                                 </div>
-                            </div>
+                                <div class="card-header PDF-DISTANCE-MAX"><h3>Betreft</h3></div>
+                                <div class="card-body">
+                                    <div class="form-group row">
+                                        <label for="example-text-input"
+                                               class="col-md-3 col-form-label">Opdracht(nummer)</label>
+                                        <div class="col-md-3">
+                                            <input class="form-control" type="text" value="<?= $task_nr ?>" readonly
+                                                   id="example-text-input">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="example-text-input" class="col-md-3 col-form-label">Type</label>
+                                        <div class="col-md-3">
+                                            <input class="form-control" type="text" value="<?= $type ?>" readonly
+                                                   id="example-text-input">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="example-text-input" class="col-md-3 col-form-label">Versie</label>
+                                        <div class="col-md-3">
+                                            <input class="form-control" type="text" value="<?= $version ?>" readonly
+                                                   id="example-text-input">
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="example-text-input"
+                                               class="col-md-3 col-form-label">Omschreven</label>
+                                        <div class="col-md-9">
+                            <textarea class="form-control" type="text" rows="25" readonly
+                                      id="example-text-input"><?= $description ?></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row PDF-ONLY PDF-DISTANCE-3">
+                                        Acceptatie opdracht <?= $task_nr ?> &nbsp;&nbsp;&nbsp;&nbsp;
+                                        versie <?= $version ?>
+                                        &nbsp;&nbsp;&nbsp;&nbsp; Paraaf opdrachtgever: ………………………………..
+                                    </div>
+                                    <div class="form-group row PDF-PAGE-BREAK">
+                                    </div>
+                                </div>
+                            <?php } ?>
+
 
                             <div class="card-header PDF-DISTANCE"><h3>Acceptatie</h3></div>
                             <div class="card-body">
@@ -443,7 +499,8 @@ if (isset($_SESSION["id"])) {
 
                                 <div class="card-header PDF-DISTANCE PDF-ONLY"><h3>SERVICE LEVEL AGREEMENT</h3></div>
                                 <div class="form-group row">
-                                    <label for="example-text-input" class="col-md-3 col-form-label HIDE-PC-SHOW-PDF">SERVICE LEVEL AGREEMENT</label>
+                                    <label for="example-text-input" class="col-md-3 col-form-label HIDE-PC-SHOW-PDF">SERVICE
+                                        LEVEL AGREEMENT</label>
                                     <div class="col-md-9 HIDE-PC-SHOW-PDF">
                             <textarea class="form-control" type="text" rows=4" readonly
                                       id="example-text-input"><?= $SLA ?></textarea>
@@ -459,11 +516,11 @@ if (isset($_SESSION["id"])) {
                                            class="col-md-3 col-form-label HIDE-PC-SHOW-PDF">CONTRACT</label>
                                     <div class="col-md-9 HIDE-PC-SHOW-PDF">
                             <textarea class="form-control" type="text" rows=4" readonly
-                                      id="example-text-input"><?= $contact ?></textarea>
+                                      id="example-text-input"><?= $contract ?></textarea>
                                     </div>
                                     <div class="col-md-12 PDF-ONLY">
                             <textarea class="form-control" type="text" rows=4" readonly
-                                      id="example-text-input"><?= $contact ?></textarea>
+                                      id="example-text-input"><?= $contract ?></textarea>
                                     </div>
                                 </div>
                                 <div class="card-header PDF-ONLY"><h3>ONDERTEKENING</h3></div>
@@ -560,7 +617,9 @@ if (isset($_SESSION["id"])) {
                         <div class="form-group">
                             <div class="form-row">
                                 <div class="col-md-2 mx-auto mt-1">
-                                    <button class="btn btn-default btn-block" onclick="forprint()"><i class="fa fa-file-pdf-o"></i> Print pdf</button>
+                                    <button class="btn btn-default btn-block" onclick="forprint()"><i
+                                                class="fa fa-file-pdf-o"></i> Print pdf
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -569,6 +628,7 @@ if (isset($_SESSION["id"])) {
 
 
                         <?php
+
                         //closes else
                     }
                     //closes while loop

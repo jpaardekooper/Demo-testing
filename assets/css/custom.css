@@ -75,105 +75,23 @@
     width: auto;
     margin-top: 40vh;
 }
-/*///////////////////////////////////// hover effect navigation */
-li{
-    list-style-type: none;
-    padding: 15px;
-}
-a{
-    color: #96a1b5;
-    text-decoration: none;
-}
-a:hover, a:focus {
-    color: #fff;
-    text-decoration: underline;
-}
-a:active, a:hover {
-    outline: 0;
-}
-.active{
-    background-color:  #42c0b3;
-}
-.active a{
-    color: white;
-}
-
-.update{
-    background-color: red;
-    color: #fff;
-    border-radius: 35%;
-    height: 20px;
-    font-size: 13px;
-    padding: 0px 8px 0px 8px;
-}
 
 /*//////////////////////////////////// input effects */
-input[type=text], [type=password], [type=email], [type=date] {
-    width: 100%;
-    padding: 10px 15px;
-    margin: 15px 0;
-    box-sizing: border-box;
-    color: #fff;
-    outline: none;
+.container-small {
+    max-width: 400px;
     background-color: #42c0b3;
-    border: none;
-    border-bottom: 1px solid #fff;;
-
+    padding-bottom: 80px;
+    border-radius: 2%;
 }
 
-input[type=submit] {
-    background-color: rgba(255, 255, 255, 0.90);
-    color: #42c0b3;
-    padding: 10px 15px;
-    margin: 15px 0;
-    border-radius: 5px;
-    cursor: pointer;
-    border: none;
+@media only screen and (max-width: 980px) {
+    .login-logo{
+        width: 100px;
+    }
 
-    width: 100%;
-}
+    .container-small {
+        background-color: #42c0b3ad;
+        max-width: 320px;
+    }
 
-/*//////////////////////////////////// input focus / hover */
-input[type=text]:focus,[type=email]:focus,[type=password]:focus {
-    border: 1px solid #fff;
-}
-
-input[type=submit]:hover{
-    background-color: #f7f7f7;
-    color: #000;
-    border: none;
-}
-select{
-    background-color: #42c0b3;
-    padding: 10px 15px;
-    margin: 15px 0;
-    min-width: 200px;
-    color: #fff;
-    font-size: 16px;
-}
-label{
-    display: block;
-}
-
-
-table {
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-}
-
-table td, table th {
-    border: 1px solid #ddd;
-    padding: 8px;
-}
-
-table tr:nth-child(even){background-color: #f2f2f2;}
-
-table tr:hover {background-color: #ddd;}
-
-table th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    background-color: #42c0b3;
-    color: #fff;
 }

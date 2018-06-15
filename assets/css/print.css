@@ -23,7 +23,7 @@
         display: block;
     }
     .PDF-DISTANCE {
-        margin-top: 75px;
+        margin-top: 50px;
     }
     .PDF-DISTANCE-MAX {
         margin-top: 150px;
@@ -33,6 +33,9 @@
     }
     .PDF-DISTANCE-2 {
         margin-top: 400px;
+    }
+    .PDF-DISTANCE-3 {
+        margin-top: 425px;
     }
 
     .PDF-PAGE-BREAK {
@@ -54,6 +57,9 @@
     }
     .HIDE-PC-SHOW-PDF{
         display: none;
+    }
+    h3{
+        color: #000000;
     }
 
 }

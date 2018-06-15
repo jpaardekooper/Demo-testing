@@ -165,7 +165,7 @@ if (isset($_SESSION['id'])) {
                                 <div class="col-md-3">
 
                                     <select class="form-control" name='type' value='<?= $type ?>'>
-                                        <option value="mayor-update">mayor-update</option>
+                                        <option value="major-update">major-update</option>
                                         <option value="bug-fix">bug-fix</option>
                                     </select>
                                 </div>
@@ -195,10 +195,12 @@ if (isset($_SESSION['id'])) {
 
 
         <?php
+        getFooter();
+
 echo "   </div>
         </div>";
     }
-    getFooter();
+
 
 } else {
     echo "please login first on login page";

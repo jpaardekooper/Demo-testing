@@ -85,7 +85,7 @@ if (isset($_SESSION['id'])) {
             $terms_id = $row['terms_id'];
             $acceptance = $row['acceptance'];
             $sla = $row['service_level_agreement'];
-            $contact = $row['contact'];
+            $contract = $row['contract'];
             $signature = $row['signature'];
 
         }
@@ -121,7 +121,7 @@ if (isset($_SESSION['id'])) {
                                 <label for="exampleContract">Contract</label>
                                 <textarea class="form-control" id="exampleContract" rows="6" name="contact"
 
-                                          aria-describedby="contract"><?= $contact ?></textarea>
+                                          aria-describedby="contract"><?= $contract ?></textarea>
                             </div>
                         </div>
                     </div>

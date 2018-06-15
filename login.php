@@ -64,7 +64,6 @@ if (filter_has_var(INPUT_POST, 'submit')) {
             </div>";
 
 
-
             if ($_SESSION["id"]) {
 
                 switch (getUserRole()) {
@@ -86,31 +85,38 @@ if (filter_has_var(INPUT_POST, 'submit')) {
 } else {
 //formulier is nog niet verzonden, laat het zien in de html-modus
     ?>
-    <div class="login-container">
-        <img class="login-image" src="assets/image/header.jpg"/>
-        <div class="login-background">
-            <div class="login-logo-position">
-                <img class="login-logo" src="assets/image/sqits-logo.png"/>
-            </div>
+    <!--    <div class="login-container">
 
-            <form class="login-form" action="login.php" method="post">
-                <fieldset>
-                    <label for="username">Gebruikersnaam</label>
-                    <input id="username" name="username" type="email" required/>
-                </fieldset>
-                <fieldset>
-                    <label for="wachtwoord">Wachtwoord</label>
-                    <input id="wachtwoord" name="password" type="password" required/>
-                </fieldset>
+            <div class="login-background">
+                -->  <img class="login-image" src="assets/image/header.jpg"/>
+    <div class="container container-small">
 
-                <fieldset>
-                    <input type="submit" name="submit" value="Inloggen">
-                </fieldset>
-            </form>
-
+        <div class="login-logo-position">
+            <img class="login-logo" src="assets/image/sqits-logo.png"/>
         </div>
+        <form class="login-form" action="login.php" method="post">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input class="form-control" id="exampleInputEmail1" name="username" type="email"
+                       aria-describedby="emailHelp" placeholder="iemand@example.com">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Wachtwoord</label>
+                <input class="form-control" id="exampleInputPassword1" name="password" type="password"
+                       placeholder="Password">
+            </div>
+            <div class="form-group">
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox"> Remember Password</label>
+                </div>
+            </div>
+            <input class="btn btn-secondary btn-block" type="submit" name="submit" value="Inloggen">
+        </form>
     </div>
-
+    <!--        </div>
+        </div>
+    -->
 
     <?php
 }
