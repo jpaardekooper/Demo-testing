@@ -24,8 +24,7 @@ if (isset($_SESSION['id'])) {
                 'type' => $_POST['type'],
                 'task_nr' => $_POST['task_nr'],
                 'version' => $_POST['version'],
-                'description' => $_POST['description'],
-
+                'description' => $_POST['description']
             ));
 
             echo "<div class='loading-screen'>

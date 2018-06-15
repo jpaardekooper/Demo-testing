@@ -27,10 +27,6 @@ if (isset($_SESSION['id'])) {
 
             ));
 
-            echo "<div class='loading-screen'>
-                    <img class='loading' src='" . getAssetsDirectory() . "image/loading.gif'/>
-            </div>";
-
 
             echo "<div style='margin: 0 auto; width: 300px;'>
                     <img style='margin-top: 40vh;' src='" . getAssetsDirectory() . "image/loading.gif'/>
