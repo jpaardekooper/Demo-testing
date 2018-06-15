@@ -49,7 +49,7 @@ if (isset($_SESSION["id"])) {
                               <th>Bedrijfsnaam</th>      
                               <th>Type</th>
                               <th>Versie</th>
-                              <th>beschrijving</th>
+                              <th>Beschrijving</th>
                               <th>Status</th>
                               <th>Gemaakt op</th>
                               <th>Actie</th>
@@ -60,7 +60,7 @@ if (isset($_SESSION["id"])) {
                               <th>Bedrijfsnaam</th>      
                               <th>Type</th>
                               <th>Versie</th>
-                              <th>beschrijving</th>
+                              <th>Beschrijving</th>
                               <th>Status</th>
                               <th>Gemaakt op</th>
                               <th>Actie</th>

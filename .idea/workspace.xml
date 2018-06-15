@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="65296dc2-51e0-4307-a418-c28c8ac91bbb" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/customize.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/customize.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/update/getUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/update/getUser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/update/update.php" beforeDir="false" afterPath="$PROJECT_DIR$/update/update.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/update/getForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/update/getForm.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -32,11 +29,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="update.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="update.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/update/update.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2993">
-              <caret line="376" column="88" lean-forward="true" selection-start-line="376" selection-start-column="88" selection-end-line="376" selection-end-column="88" />
+            <state relative-caret-position="8179">
+              <caret line="579" column="114" lean-forward="true" selection-start-line="579" selection-start-column="114" selection-end-line="579" selection-end-column="114" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="getForm.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/update/getForm.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="638">
+              <caret line="107" column="77" selection-start-line="107" selection-start-column="77" selection-end-line="107" selection-end-column="77" />
             </state>
           </provider>
         </entry>
@@ -64,15 +70,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="559">
               <caret line="33" column="20" lean-forward="true" selection-start-line="31" selection-start-column="10" selection-end-line="33" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="add.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/user/add.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="95" column="20" lean-forward="true" selection-start-line="93" selection-start-column="9" selection-end-line="95" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -125,7 +122,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>selectpick</find>
       <find>selectpi</find>
       <find>content-top</find>
       <find>dropdown</find>
@@ -155,6 +151,7 @@
       <find>card-header</find>
       <find>col-4</find>
       <find>hover</find>
+      <find>adres</find>
     </findStrings>
     <replaceStrings>
       <replace>p</replace>
@@ -211,7 +208,6 @@
         <option value="$PROJECT_DIR$/terms/add.php" />
         <option value="$PROJECT_DIR$/user/delete.php" />
         <option value="$PROJECT_DIR$/user/add.php" />
-        <option value="$PROJECT_DIR$/update/getForm.php" />
         <option value="$PROJECT_DIR$/form/add.php" />
         <option value="$PROJECT_DIR$/form/index.php" />
         <option value="$PROJECT_DIR$/system/config.php" />
@@ -231,6 +227,7 @@
         <option value="$PROJECT_DIR$/assets/css/customize.css" />
         <option value="$PROJECT_DIR$/update/getUser.php" />
         <option value="$PROJECT_DIR$/update/update.php" />
+        <option value="$PROJECT_DIR$/update/getForm.php" />
       </list>
     </option>
   </component>
@@ -382,7 +379,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="178614000" />
+    <option name="totallyTimeSpent" value="178737000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -633,13 +630,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/update/getForm.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="38" column="30" selection-start-line="38" selection-start-column="30" selection-end-line="38" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/terms/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="508">
@@ -733,8 +723,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/update/update.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2993">
-          <caret line="376" column="88" lean-forward="true" selection-start-line="376" selection-start-column="88" selection-end-line="376" selection-end-column="88" />
+        <state relative-caret-position="8179">
+          <caret line="579" column="114" lean-forward="true" selection-start-line="579" selection-start-column="114" selection-end-line="579" selection-end-column="114" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/update/getForm.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="638">
+          <caret line="107" column="77" selection-start-line="107" selection-start-column="77" selection-end-line="107" selection-end-column="77" />
         </state>
       </provider>
     </entry>
