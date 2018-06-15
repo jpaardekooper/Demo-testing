@@ -87,7 +87,7 @@ if (isset($_SESSION['id'])) {
                             <div class="form-row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="exampleTextArea3">contact</label>
+                                        <label for="exampleTextArea3">Contract</label>
                                         <textarea class="form-control" rows="5" id="exampleTextArea3" name="contact"
                                                   placeholder="de update bevat de volgende onderdelen..."></textarea>
                                     </div>
@@ -98,7 +98,7 @@ if (isset($_SESSION['id'])) {
                             <div class="form-row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="exampleTextArea4">ondertekening</label>
+                                        <label for="exampleTextArea4">Ondertekening</label>
                                         <textarea class="form-control" rows="5" id="exampleTextArea4" name="signature"
                                                   placeholder="de update bevat de volgende onderdelen..."></textarea>
                                     </div>
