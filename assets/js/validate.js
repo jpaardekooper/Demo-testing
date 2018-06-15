@@ -31,17 +31,20 @@ $(document).ready(function() {
     $('#select-form').change(function() {
         if ($('#select-form').val() == "") {
             $("#send").prop('disabled',true);
+            document.getElementById("form-succes").style.display = "none";
         }
         if ($('#select-form').val() != "" && $('#select-company').val() != "" && $('#select-date').val() != "") {
             $("#send").prop('disabled',false);
         }
         else {
             $("#send").prop('disabled',true);
+
         }
     });
     $('#select-company').change(function() {
         if ($('#select-company').val() == "") {
             $("#send").prop('disabled',true);
+            document.getElementById("form-succes2").style.display = "none";
         }
         if ($('#select-form').val() != "" && $('#select-company').val() != "" && $('#select-date').val() != "") {
             $("#send").prop('disabled',false);
@@ -53,6 +56,7 @@ $(document).ready(function() {
     $('#select-date').change(function() {
         if ($('#select-date').val() == "") {
             $("#send").prop('disabled',true);
+            document.getElementById("form-succes3").style.display = "none";
         }
         if ($('#select-form').val() != "" && $('#select-company').val() != "" && $('#select-date').val() != "") {
             $("#send").prop('disabled',false);
