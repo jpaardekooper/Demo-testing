@@ -86,13 +86,14 @@ if (filter_has_var(INPUT_POST, 'submit')) {
 } else {
 //formulier is nog niet verzonden, laat het zien in de html-modus
     ?>
-    <div class="login-container">
+<!--    <div class="login-container">
         <img class="login-image" src="assets/image/header.jpg"/>
         <div class="login-background">
-            <div class="login-logo-position">
-                <img class="login-logo" src="assets/image/sqits-logo.png"/>
-            </div>
-
+            -->
+<div class="container">
+    <div class="login-logo-position">
+        <img class="login-logo" src="assets/image/sqits-logo.png"/>
+    </div>
             <form class="login-form" action="login.php" method="post">
                 <div class="form-group">
                     <label for="exampleInputEmail1">Email address</label>
@@ -110,9 +111,10 @@ if (filter_has_var(INPUT_POST, 'submit')) {
                 </div>
                 <input class="btn btn-secondary btn-block" type="submit" name="submit" value="Inloggen">
             </form>
-        </div>
+</div>
+<!--        </div>
     </div>
-
+-->
 
     <?php
 }
