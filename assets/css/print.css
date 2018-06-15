@@ -55,5 +55,8 @@
     .HIDE-PC-SHOW-PDF{
         display: none;
     }
+    h3{
+        color: #000000;
+    }
 
 }

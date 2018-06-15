@@ -300,7 +300,7 @@ if (isset($_SESSION["id"])) {
                             <div class="card-header"><h2>Acceptatie en Oplevering
                                 </h2></div>
 
-                            <div class="card-header"><h4>Opdrachtgever</h4></div>
+                            <div class="card-header"><h3>Opdrachtgever</h3></div>
                             <div class="card-body">
                                 <div class="form-group row">
                                     <label for="example-text-input" class="col-md-3 col-form-label">bedrijfsnaam</label>
@@ -335,7 +335,7 @@ if (isset($_SESSION["id"])) {
 
                                 </div>
                             </div>
-                            <div class="card-header"><h4>Leverancier</h4></div>
+                            <div class="card-header"><h3>Leverancier</h3></div>
                             <div class="card-body">
                                 <div class="form-group row">
                                     <label for="example-text-input" class="col-md-3 col-form-label">bedrijfsnaam</label>
@@ -367,7 +367,7 @@ if (isset($_SESSION["id"])) {
                                     </div>
                                 </div>
                             </div>
-                            <div class="card-header"><h4>Betreft</h4></div>
+                            <div class="card-header"><h3>Betreft</h3></div>
                             <div class="card-body">
                                 <div class="form-group row">
                                     <label for="example-text-input"
@@ -459,11 +459,11 @@ if (isset($_SESSION["id"])) {
                                            class="col-md-3 col-form-label HIDE-PC-SHOW-PDF">CONTRACT</label>
                                     <div class="col-md-9 HIDE-PC-SHOW-PDF">
                             <textarea class="form-control" type="text" rows=4" readonly
-                                      id="example-text-input"><?= $contact ?></textarea>
+                                      id="example-text-input"><?= $contract ?></textarea>
                                     </div>
                                     <div class="col-md-12 PDF-ONLY">
                             <textarea class="form-control" type="text" rows=4" readonly
-                                      id="example-text-input"><?= $contact ?></textarea>
+                                      id="example-text-input"><?= $contract ?></textarea>
                                     </div>
                                 </div>
                                 <div class="card-header PDF-ONLY"><h3>ONDERTEKENING</h3></div>

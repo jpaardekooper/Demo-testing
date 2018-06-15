@@ -77,9 +77,21 @@
 }
 
 /*//////////////////////////////////// input effects */
+.container-small {
+    max-width: 400px;
+    background-color: #42c0b3;
+    padding-bottom: 80px;
+    border-radius: 2%;
+}
 
 @media only screen and (max-width: 980px) {
     .login-logo{
         width: 100px;
     }
+
+    .container-small {
+        background-color: #42c0b3ad;
+        max-width: 320px;
+    }
+
 }
