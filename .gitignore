@@ -1,0 +1,11 @@
+.idea/
+**.idea/*
+.idea/*
+
+.idea/Sqits-framework.iml
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
+.idea/workspace.xml
+
+system/config.php

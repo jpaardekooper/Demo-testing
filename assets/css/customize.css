@@ -1,0 +1,128 @@
+.bg-sqits {
+    background-color: #42c0b3;
+}
+
+.brand-image {
+    width: 42px;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: #fff !important;
+
+}
+
+.dropdown-menu2 {
+    right: 0 !important;
+}
+
+thead {
+    background-color: #42c0b3 !important;
+    color: #fff !important;
+}
+
+.odd:hover {
+    background-color: #42c0b347;
+}
+
+.even:hover {
+    background-color: #42c0b347;
+}
+
+.odd a, .even a {
+    color: #42c0b3 !important;
+}
+
+.btn-primary, .btn-default {
+    background-color: #42c0b3 !important;
+    border-color: #55c6bb;
+}
+
+.btn-primary:hover, .btn-default:hover {
+    background-color: #36a398 !important;
+    border-color: #38a79b !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+    color: #fff !important;
+    border: 1px solid #55c6bb;
+    background-color: #42c0b3 !important;
+    background: none;
+}
+
+.breadcrumb {
+    background-color: #343a40 !important;
+}
+
+.breadcrumb-item {
+    color: #fff !important;
+}
+
+.li-panel-tab {
+    margin: 0 auto;
+}
+
+.btn-secondary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show > .btn-primary.dropdown-toggle {
+    background-color: #42c0b3 !important;
+}
+
+.modal-dialog {
+    max-width: 750px !important;
+}
+
+.card-header {
+    background-color: #343a40 !important;
+    color: #fff;
+}
+.user-toggle{
+    color: #42c0b3;
+}
+.user-toggle:hover{
+    color: #868e96;
+}
+.table-bordered td, .table-bordered th {
+    border: none;
+    border-bottom: 1px solid #42c0b3;
+}
+table.dataTable tfoot th, table.dataTable tfoot td {
+    background-color: #42c0b33d;
+    color: #343a40;
+}
+.card {
+    border: 1px solid #42c0b3  !important;
+}
+h1{
+    color: #565656 !important;
+    text-transform: uppercase;
+}
+h1 .sq-bl {
+    color: #42c0b3 !important;
+    text-transform: uppercase;
+}
+hr{
+    border-bottom: 1px solid #42c0b3 !important;
+}
+.mb-3, .my-3 {
+    margin-bottom: 6rem!important;
+}
+input[type=search]{
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.nothing-selected{
+    display: none;
+}
+.nav-item .sessionOut:hover{
+    color: #565656  !important;
+    font-weight: bold;
+}
+.no-nav:hover{
+    background-color: #565656 !important;
+}

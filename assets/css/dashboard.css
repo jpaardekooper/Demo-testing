@@ -1,0 +1,84 @@
+.dashboard{
+    margin: 0;
+    padding: 0;
+    display:flex;
+
+}
+
+header{
+    border-bottom: 1px solid #42c0b3;
+    max-width: 100%;
+    padding: 20px;
+    background-color: #fff;
+}
+.top-panel{
+   display:flex;
+}
+.top-panel-item{
+    justify-content: flex-end;
+}
+.left-panel{
+    overflow-x: hidden;
+    width: 12vw;
+    background-color: #2b364a;
+    color: #fff;
+    min-height: 100vh;
+    -moz-box-shadow: 2px 0 10px -1px #888;
+    -webkit-box-shadow: 2px 0 10px -1px #888;
+    box-shadow: 2px 0 10px -1px #888;
+}
+
+.panel-name{
+    width: 100%;
+}
+.panel-image {
+    max-width: 12vw;
+}
+
+.right-panel{
+    width: 88vw;
+    min-height: 100vh;
+    background-color: #ebf0f4;
+}
+.content{
+    background-color: #fff;
+    margin: 20px;
+    display: flex;
+    -moz-box-shadow: 0px 0px 2px 2px #15000014;
+    -webkit-box-shadow: 0px 0px 2px 2px #15000014;
+    box-shadow: 0px 0px 2px 2px #15000014;
+    border-radius: 10px;
+}
+.content-top{
+    padding: 20px;
+    margin: 20px;
+    background-color: #fff;
+    justify-content: space-evenly;
+    display: flex;
+    -moz-box-shadow: 0px 0px 2px 2px #15000014;
+    -webkit-box-shadow: 0px 0px 2px 2px #15000014;
+    box-shadow: 0px 0px 2px 2px #15000014;
+    border-radius: 10px;
+}
+.content-left{
+    padding:20px;
+    width:50%;
+    border-right: 1px solid #42c0b3;
+}
+.content-right{
+    padding:20px;
+    width: 50%;
+}
+
+.content-panel{
+    flex-direction: row;
+}
+
+.patch-version{
+    font-size: 2em;
+    text-align: center;
+    width: auto;
+    font-family: "Courier New", Georgia;
+
+    margin-top: 35vh;
+}
