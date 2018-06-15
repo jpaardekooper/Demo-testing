@@ -30,6 +30,27 @@ if (isset($_SESSION['id'])) {
             $query->execute(array(
                 'id' => $_SESSION['id']['user_id']
             ));
+
+
+            while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+                $update_id = $row['total_update'];
+            }
+
+
+            $query = $conn->prepare("SELECT f.version
+                                                        FROM `update` as up
+                                                        INNER JOIN company as c ON c.company_id = up.company_id
+                                                        INNER JOIN user as u ON u.company_id = c.company_id                                                        
+                                                        INNER JOIN form as f ON up.form_id = f.form_id                                                        
+                                                        WHERE u.user_id = :id AND up.status = 'accepted' 
+                                                        GROUP BY  f.version");
+            $query->execute(array(
+                'id' => $_SESSION['id']['user_id']
+            ));
+
+            while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+                $version = $row['version'];
+            }
         } catch (PDOException $e) {
             $sMsg = '<p> 
                     Line number: ' . $e->getLine() . '<br /> 
@@ -39,30 +60,9 @@ if (isset($_SESSION['id'])) {
             trigger_error($sMsg);
         }
 
-
-        while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
-            $update_id = $row['total_update'];
-        }
-
-
-        $query = $conn->prepare("SELECT f.version
-                                                        FROM `update` as up
-                                                        INNER JOIN company as c ON c.company_id = up.company_id
-                                                        INNER JOIN user as u ON u.company_id = c.company_id                                                        
-                                                        INNER JOIN form as f ON up.form_id = f.form_id                                                        
-                                                        WHERE u.user_id = :id AND up.status = 'accepted' 
-                                                        GROUP BY  f.version");
-        $query->execute(array(
-            'id' => $_SESSION['id']['user_id']
-        ));
-
-        while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
-            $version = $row['version'];
-        }
-
         //to hide the error of no update_id if the user is new
-           ini_set('error_reporting', E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED);
-        if ($update_id <= 0){
+        ini_set('error_reporting', E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED);
+        if ($update_id <= 0) {
             echo $update_id;
         }
 
@@ -80,10 +80,9 @@ if (isset($_SESSION['id'])) {
 
                         if ($update_id <= 0) {
                             echo " <span class='patch-version'>U bent up-to-date</span>";
-                        } elseif($update_id > 0){
+                        } elseif ($update_id > 0) {
                             echo " <a href='" . getPathToRoot() . "update/index.php'/><span class='patch-version text-warning'>Er staan nog " . $update_id . " updates open</span></a>";
-                        }
-                        else {
+                        } else {
                             echo " <a href='" . getPathToRoot() . "update/index.php'/><span class='patch-version text-warning'>Er zijn geen updates gevonden</span></a>";
                         }
 

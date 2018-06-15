@@ -94,20 +94,22 @@ if (filter_has_var(INPUT_POST, 'submit')) {
             </div>
 
             <form class="login-form" action="login.php" method="post">
-                <fieldset>
-                    <label for="username">Gebruikersnaam</label>
-                    <input id="username" name="username" type="email" required/>
-                </fieldset>
-                <fieldset>
-                    <label for="wachtwoord">Wachtwoord</label>
-                    <input id="wachtwoord" name="password" type="password" required/>
-                </fieldset>
-
-                <fieldset>
-                    <input type="submit" name="submit" value="Inloggen">
-                </fieldset>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input class="form-control" id="exampleInputEmail1" name="username" type="email" aria-describedby="emailHelp" placeholder="iemand@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Wachtwoord</label>
+                    <input class="form-control" id="exampleInputPassword1" name="password" type="password" placeholder="Password">
+                </div>
+                <div class="form-group">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox"> Remember Password</label>
+                    </div>
+                </div>
+                <input class="btn btn-secondary btn-block" type="submit" name="submit" value="Inloggen">
             </form>
-
         </div>
     </div>
 
