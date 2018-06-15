@@ -11,9 +11,6 @@ if (isset($_SESSION['id'])) {
     getHeader("Sqits form-delete", "Form delete");
 
 
-//	$id = $_GET['id'];
-//	$_SESSION['id']['user_id'];
-
     if (@$_GET['action'] == "delete") {
 
         try {

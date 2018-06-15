@@ -166,7 +166,7 @@ if ($_SESSION["id"]) {
                             <div class="col-md-4">
                                 <label for="examplePhone">phone</label>
                                 <input class="form-control" id="examplePhone" name="p_phone" type="text"
-                                       placeholder="06..">
+                                       value="06">
                             </div>
                         </div>
                     </div>
@@ -198,7 +198,7 @@ if ($_SESSION["id"]) {
                             <div class="col-md-6">
                                 <label for="exampleCompanyNumber">Telefoonnummer</label>
                                 <input class="form-control" id="exampleCompanyNumber" name="c_phone" type="text"
-                                       placeholder="bedrijfsnummer">
+                                       value="0">
                             </div>
                         </div>
                     </div>

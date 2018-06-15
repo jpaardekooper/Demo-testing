@@ -11,7 +11,7 @@ try {
     $query = $conn->prepare("SELECT u.*, com.*, p.* 
                                         FROM user as u  
                                         INNER JOIN company as com ON com.company_id = u.company_id
-                                        INNER JOIN phone as p ON p.user_id = u.user_id
+                                        LEFT JOIN phone as p ON p.user_id = u.user_id
                                         WHERE u.company_id = :company_id
                                          ");
     $query->execute(array(
