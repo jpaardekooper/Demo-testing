@@ -47,7 +47,7 @@ if (isset($_SESSION['id'])) {
 
         }
         //to hide the error of no update_id if the user is new
-        //   ini_set('error_reporting', E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED);
+           ini_set('error_reporting', E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED);
         if ($update_id <= 0){
             echo $update_id;
         }

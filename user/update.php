@@ -350,12 +350,6 @@ if ($_SESSION["id"]) {
                                             }
                                             ?>
                                         </div>
-                                        <div class="col-md-4">
-                                            <label for="examplePhone">Telefoon</label>
-                                            <input class="form-control" id="examplePhone" name="phone_number"
-                                                   type="text"
-                                                   value="<?= $p_phone ?>">
-                                        </div>
                                     </div>
                                 </div>
                                 <?php
