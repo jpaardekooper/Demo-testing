@@ -57,6 +57,7 @@ if (isset($_SESSION['id'])) {
         trigger_error($sMsg);
     }
 
+    ini_set('error_reporting', E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED);
 
 ?>
     <div class="container">

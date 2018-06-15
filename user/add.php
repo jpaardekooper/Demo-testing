@@ -112,7 +112,7 @@ if ($_SESSION["id"]) {
         echo '  <div class="content-wrapper">';
         echo '  <div class="container-fluid">';
 
-        getTopPanel("gebruiker toevoegen");
+        getTopPanel("gebruiker", " toevoegen");
 
         ?>
 

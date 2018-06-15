@@ -197,12 +197,12 @@ if (isset($_SESSION["id"])) {
                 <td><a href='../form/update.php?action=delete&id=$form_id'>$description</a></td> 
                 ";
                 if ($status == 'accepted') {
-                    echo "<td>  <i class=\"fa fa-check-circle fa-fw text-success\"></i></td>";
+                    echo "<td>$status  <i class=\"fa fa-check-circle fa-fw text-success\"></i></td>";
                 } elseif ($status == 'declined') {
-                    echo "<td>  <i class=\"fa fa-close fa-fw text-danger\"></i></td>";
+                    echo "<td>$status  <i class=\"fa fa-close fa-fw text-danger\"></i></td>";
 
                 } else {
-                    echo "<td>  <i class=\"fa fa-spinner fa-fw text-warning\"></i></td>";
+                    echo "<td> $status <i class=\"fa fa-spinner fa-fw text-warning\"></i></td>";
                 }
 
 
