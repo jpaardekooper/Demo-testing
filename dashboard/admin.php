@@ -141,6 +141,7 @@ if (isset($_SESSION['id'])) {
       
 <?php
 
+    getFooter();
 
     //closes container-fluid
     echo "</div>";
@@ -149,7 +150,7 @@ if (isset($_SESSION['id'])) {
     echo "</div>";
 
 
-    getFooter();
+
 
 }
 else {

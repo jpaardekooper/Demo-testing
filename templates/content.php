@@ -238,6 +238,7 @@ function getTopPanel($panelDescription1 = "Dashboard", $panelDescription2 = " ")
 
 function getFooter()
 {
+    getLogoutModal();
     $footer = "              
                   <footer class=\"sticky-footer\">
       <div class=\"container\">
@@ -260,7 +261,7 @@ function getFooter()
       <script src=" . getAssetsDirectory() . "js/getUser.js></script>
         </body>         
     </html>";
-    getLogoutModal();
+
     echo $footer;
 }
 
