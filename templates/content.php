@@ -43,12 +43,7 @@ function getLoginHeader($description = "We denken graag met je mee naar een crea
             <title> $title </title>          
      
              <!-- Bootstrap core CSS-->
-            <link rel=\"stylesheet\" href=" . getAssetsDirectory() . "vendor/bootstrap/css/bootstrap.min.css>      
-               <!-- Custom fonts for this template-->   
-            <link rel=\"stylesheet\" href=" . getAssetsDirectory() . "vendor/font-awesome/css/font-awesome.min.csss>    
-              <!-- Custom styles for this template-->     
-            <link rel=\"stylesheet\" href=" . getAssetsDirectory() . "css/sb-admin.css.css>         
-               
+            <link rel=\"stylesheet\" href=" . getAssetsDirectory() . "vendor/bootstrap/css/bootstrap.min.css>               
             <link rel=\"stylesheet\" href=" . getAssetsDirectory() . "css/custom.css>        
             <link rel=\"icon\" type=\"image/x-icon\" href=\"" . getAssetsDirectory() . "/icons/favicon.ico\">
         </head>

@@ -16,6 +16,7 @@ if (filter_has_var(INPUT_POST, 'submit')) {
     $results->execute(array(
         'username' => $_POST['username']
     ));
+    //Remove password hash
     $database_contents = FALSE;
     while ($record = $results->fetch(PDO::FETCH_ASSOC)) {
         $database_contents = $record;
