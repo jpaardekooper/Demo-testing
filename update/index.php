@@ -100,7 +100,7 @@ if (isset($_SESSION["id"])) {
                 }
                 echo"
                 <td>$created_date</td>
-                <td><a href=\"update.php?action=delete&id=$update_id\"><i class='fa fa-edit'></i> Wijzigen</a></td>
+                <td><a href=\"update.php?action=delete&id=$update_id\"><i class='fa fa-eye'></i> Inkijken</a></td>
               </tr>";
             }
             echo "       </tbody>

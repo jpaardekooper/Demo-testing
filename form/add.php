@@ -52,7 +52,7 @@ if (isset($_SESSION['id'])) {
         echo '<div class="content-wrapper">';
         echo '<div class="container-fluid">';
 
-        getTopPanel("formulier toevoegen");
+        getTopPanel("formulier", " toevoegen");
 
         ?>
 
